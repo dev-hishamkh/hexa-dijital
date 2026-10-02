@@ -42,14 +42,14 @@ const getAnchorAndDir = (origin, w, h) => {
 export default function LightRays({
   raysOrigin = "top-right",
   raysColor = DEFAULT_COLOR,
-  raysSpeed = 0.9,
-  lightSpread = 1.6 /* Işıklar daha geniş yayılsın */,
-  rayLength = 2.4 /* Işıklar ekranın dibine kadar uzansın */,
+  raysSpeed = 0.8,
+  lightSpread = 1.4 /* Aşırı patlamayan dengeli yayılma */,
+  rayLength = 2.1,
   pulsating = false,
-  fadeDistance = 1.2,
+  fadeDistance = 1.1,
   saturation = 1.0,
   followMouse = true,
-  mouseInfluence = 0.06,
+  mouseInfluence = 0.05,
   noiseAmount = 0.02,
   distortion = 0.01,
   lightMode = false,
@@ -99,7 +99,7 @@ export default function LightRays({
     `;
 
     /* 
-      PARLAKLIĞI VE DOYGUNLUĞU ARTIRILMIŞ SHADER KODU
+      ABARTISIZ, GÖZ YORMAYAN İPEKSİ SHADER
     */
     const frag = `
       precision mediump float;
@@ -142,8 +142,8 @@ export default function LightRays({
         float pulse = pulsating > 0.5 ? (0.8 + 0.2 * sin(iTime * speed * 3.0)) : 1.0;
 
         float baseStrength = clamp(
-          (0.55 + 0.20 * sin(distortedAngle * seedA + iTime * speed)) +
-          (0.40 + 0.25 * cos(-distortedAngle * seedB + iTime * speed)),
+          (0.48 + 0.16 * sin(distortedAngle * seedA + iTime * speed)) +
+          (0.32 + 0.20 * cos(-distortedAngle * seedB + iTime * speed)),
           0.0, 1.0
         );
 
@@ -160,11 +160,11 @@ export default function LightRays({
           finalRayDir = normalize(mix(rayDir, mouseDirection, mouseInfluence));
         }
 
-        /* Işık yoğunlukları 1.5 katına çıkarıldı (Parlak neon hissi) */
+        /* Doğal ve göz alıcı dengeli ışık katmanları */
         vec4 rays1 = vec4(1.0) * rayStrength(rayPos, finalRayDir, coord, 36.22, 21.11, 1.5 * raysSpeed);
         vec4 rays2 = vec4(1.0) * rayStrength(rayPos, finalRayDir, coord, 22.39, 18.02, 1.1 * raysSpeed);
 
-        vec4 fragColor = rays1 * 0.75 + rays2 * 0.65;
+        vec4 fragColor = rays1 * 0.55 + rays2 * 0.45;
 
         if (noiseAmount > 0.0) {
           float n = noise(coord * 0.01 + iTime * 0.1);
@@ -172,17 +172,17 @@ export default function LightRays({
         }
 
         float brightness = 1.0 - (coord.y / iResolution.y);
-        fragColor.x *= 0.2 + brightness * 0.9;
-        fragColor.y *= 0.4 + brightness * 0.8;
-        fragColor.z *= 0.6 + brightness * 0.7;
+        fragColor.x *= 0.15 + brightness * 0.85;
+        fragColor.y *= 0.35 + brightness * 0.70;
+        fragColor.z *= 0.55 + brightness * 0.60;
 
         if (saturation != 1.0) {
           float gray = dot(fragColor.rgb, vec3(0.299, 0.587, 0.114));
           fragColor.rgb = mix(vec3(gray), fragColor.rgb, saturation);
         }
 
-        /* Renk parlaklığı 1.4 ile çarpılarak sahnede patlatıldı */
-        fragColor.rgb *= (raysColor * 1.45);
+        /* Orijinal rafine renk skalası (Abartılı 1.45 çarpımı silindi) */
+        fragColor.rgb *= (raysColor * 1.08);
 
         if (lightMode > 0.5) {
           vec3 mapped = vec3(1.0) - exp(-max(fragColor.rgb, vec3(0.0)) * 1.35);
