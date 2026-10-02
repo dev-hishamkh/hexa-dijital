@@ -1,32 +1,17 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import dynamic from "next/dynamic";
 import Link from "next/link";
 import LightRays from "@/components/ui/LightRays/LightRays";
 import styles from "./Hero.module.css";
 
-// 3D Logo sadece masaüstünde devreye girer
-const Logo3D = dynamic(() => import("@/components/ui/Logo3D/Logo3D"), {
-  ssr: false,
-});
-
 export default function Hero({ lang = "tr" }) {
   const [isLightMode, setIsLightMode] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
   const isTr = lang === "tr";
 
   useEffect(() => {
     setIsMounted(true);
-    // Masaüstü kontrolü: 1180px ve üzeri
-    setIsDesktop(window.innerWidth >= 1180);
-
-    const handleResize = () => {
-      setIsDesktop(window.innerWidth >= 1180);
-    };
-
-    window.addEventListener("resize", handleResize);
 
     const updateTheme = () => {
       const theme = document.documentElement.getAttribute("data-theme");
@@ -41,29 +26,23 @@ export default function Hero({ lang = "tr" }) {
       attributeFilter: ["data-theme"],
     });
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      observer.disconnect();
-    };
+    return () => observer.disconnect();
   }, []);
 
   return (
     <section
       className={`${styles.heroSection} ${isMounted ? styles.heroMounted : ""}`}
     >
-      {/* 
-        PARIL PARIL PARLAYAN SİBER LIGHTRAYS IŞIKLARI
-        Hem masaüstünde hem telefonda tam ekran süzülür!
-      */}
+      {/* LightRays Arka Plan Işığı */}
       <div className={styles.lightContainer}>
         <LightRays
           raysOrigin="top-right"
           raysColor={isLightMode ? "#0071E3" : "#00FFD1"}
-          raysSpeed={0.9}
-          lightSpread={1.6}
-          rayLength={2.4}
+          raysSpeed={0.8}
+          lightSpread={1.4}
+          rayLength={2.1}
           followMouse={true}
-          mouseInfluence={0.06}
+          mouseInfluence={0.05}
           noiseAmount={0.02}
           distortion={0.01}
           lightMode={isLightMode}
@@ -71,15 +50,17 @@ export default function Hero({ lang = "tr" }) {
       </div>
 
       <div className={`container ${styles.heroContainer}`}>
-        {/* SOL SÜTUN: TİPOGRAFİ */}
+        {/* MERKEZİ EDİTORYAL TİPOGRAFİ ALANI */}
         <div className={styles.contentColumn}>
           <h1 className={styles.heroTitle}>
+            {/* 1. Satır */}
             <span className={`${styles.titleLineWrapper} ${styles.delay1}`}>
               <span className={styles.titleLine}>
                 {isTr ? "Bursa Web Tasarım," : "Bespoke Web Design,"}
               </span>
             </span>
 
+            {/* 2. Satır */}
             <span className={`${styles.titleLineWrapper} ${styles.delay2}`}>
               <span className={styles.titleLine}>
                 <span className={styles.serifItalic}>
@@ -88,6 +69,7 @@ export default function Hero({ lang = "tr" }) {
               </span>
             </span>
 
+            {/* 3. Satır */}
             <span className={`${styles.titleLineWrapper} ${styles.delay3}`}>
               <span className={styles.titleLine}>
                 <span>{isTr ? "ciro odaklı" : "high-impact"}</span>{" "}
@@ -98,6 +80,7 @@ export default function Hero({ lang = "tr" }) {
             </span>
           </h1>
 
+          {/* Alt Manifesto & Manyetik Buton */}
           <div className={`${styles.bottomArea} ${styles.delay4}`}>
             <p className={styles.manifesto}>
               {isTr ? (
@@ -151,18 +134,6 @@ export default function Hero({ lang = "tr" }) {
             </div>
           </div>
         </div>
-
-        {/* 
-          SAĞ SÜTUN: MASAÜSTÜNDE 3D LOGO 
-          Telefonda hiç render edilmez (0ms gecikme!)
-        */}
-        {isDesktop && (
-          <div className={`${styles.visualColumn} ${styles.delayLogo}`}>
-            <div className={styles.webglCanvasWrapper}>
-              <Logo3D />
-            </div>
-          </div>
-        )}
       </div>
     </section>
   );

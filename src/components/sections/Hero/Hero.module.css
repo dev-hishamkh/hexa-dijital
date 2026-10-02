@@ -6,13 +6,13 @@
     background-color: var(--hexa-bg);
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding-top: calc(var(--header-height) + 1.5rem);
-    padding-bottom: 3.5rem;
+    justify-content: flex-start;
+    padding-top: calc(var(--header-height) + 2rem);
+    padding-bottom: 4rem;
     transition: background-color 0.4s var(--ease-out);
 }
 
-/* LightRays Katmanı — Parlak ve Net */
+/* LightRays Katmanı */
 .lightContainer {
     position: absolute;
     top: 0;
@@ -30,10 +30,10 @@
 }
 
 [data-theme="light"] .heroMounted .lightContainer {
-    opacity: 0.55;
+    opacity: 0.45;
 }
 
-/* Container & Grid (Masaüstü Sola Yaklaştırılmış Oran) */
+/* Container */
 .heroContainer {
     position: relative;
     z-index: 2;
@@ -41,30 +41,31 @@
     max-width: var(--max-width);
     margin-left: auto;
     margin-right: auto;
-    padding-left: clamp(2rem, 5vw, 5.5rem);
-    padding-right: clamp(2.5rem, 6vw, 6.5rem);
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-/* Sol Sütun */
-.contentColumn {
+    padding-left: clamp(2rem, 6vw, 6.5rem);
+    padding-right: clamp(2rem, 6vw, 6.5rem);
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
+/* Tipografi Alanı */
+.contentColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1100px;
+}
+
 .heroTitle {
     display: flex;
     flex-direction: column;
-    font-size: clamp(3.4rem, 5.6vw, 6.2rem);
+    font-size: clamp(3.6rem, 6.8vw, 7.2rem);
+    /* Ekranı dolduran heybetli Awwwards boyutu */
     font-weight: 500;
     line-height: 0.98;
     letter-spacing: -0.045em;
     color: var(--hexa-font-main);
-    margin-bottom: 2.25rem;
+    margin-bottom: 2.5rem;
 }
 
 .titleLineWrapper {
@@ -97,20 +98,20 @@
     display: inline-block;
 }
 
-/* Alt Manifesto */
+/* Alt Manifesto & Manyetik Buton */
 .bottomArea {
     display: flex;
     flex-direction: column;
-    gap: 2.25rem;
+    gap: 2.5rem;
     opacity: 0;
     transform: translateY(40px);
     animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .manifesto {
-    max-width: 510px;
+    max-width: 540px;
     font-size: clamp(1.2rem, 1.45vw, 1.36rem);
-    line-height: 1.48;
+    line-height: 1.52;
     color: var(--hexa-font-manifesto);
     letter-spacing: -0.02em;
     font-weight: 400;
@@ -133,8 +134,8 @@
 }
 
 .actionCircle {
-    width: 58px;
-    height: 58px;
+    width: 60px;
+    height: 60px;
     border-radius: var(--radius-full);
     background: var(--hexa-surface);
     border: 1px solid var(--hexa-border);
@@ -191,35 +192,7 @@
     font-weight: 400;
 }
 
-/* ==========================================================================
-   SAĞ SÜTUN: MASAÜSTÜ LOGO (O ÇOK SEVDİĞİN GÖRKEMLİ ANİMASYON AYNEN KORUNDU)
-   ========================================================================== */
-.visualColumn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 100%;
-    transform: translateY(-1.5rem);
-    opacity: 0;
-    animation: revealMonolith 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.webglCanvasWrapper {
-    width: clamp(340px, 36vw, 540px);
-    height: clamp(340px, 36vw, 540px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    cursor: grab;
-}
-
-.webglCanvasWrapper:active {
-    cursor: grabbing;
-}
-
-/* Masaüstü Sıralaması */
+/* Kademeli Geçişler */
 .delay1 {
     animation-delay: 0.15s;
 }
@@ -236,12 +209,6 @@
     animation-delay: 0.60s;
 }
 
-.delayLogo {
-    animation-delay: 0.70s;
-}
-
-/* En son logo oturur */
-
 @keyframes revealUp {
     0% {
         opacity: 0;
@@ -254,39 +221,10 @@
     }
 }
 
-@keyframes revealMonolith {
-    0% {
-        opacity: 0;
-        transform: translateY(-1.5rem) scale(0.82);
-        filter: blur(15px);
-    }
-
-    60% {
-        opacity: 0.85;
-        filter: blur(0px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(-1.5rem) scale(1);
-        filter: blur(0px);
-    }
-}
-
-/* ==========================================================================
-   MOBİL VE TABLET: LOGO TAMAMEN YOK — SIFIR BEKLEME, IŞIKLAR PARIL PARIL
-   ========================================================================== */
-@media (max-width: 1180px) {
+/* Responsive */
+@media (max-width: 1024px) {
     .heroSection {
-        padding-top: calc(var(--header-height) + 1.5rem);
-        height: auto;
-        min-height: 100vh;
-    }
-
-    .heroContainer {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        padding-top: 1rem;
+        padding-top: calc(var(--header-height) + 2rem);
         padding-bottom: 3.5rem;
     }
 
@@ -295,27 +233,11 @@
     }
 
     .heroTitle {
-        font-size: clamp(2.8rem, 8.5vw, 4.4rem);
+        font-size: clamp(2.8rem, 8.5vw, 4.6rem);
     }
 
     .manifesto {
         font-size: 1.1rem;
         max-width: 100%;
-    }
-
-    .delay1 {
-        animation-delay: 0.1s !important;
-    }
-
-    .delay2 {
-        animation-delay: 0.22s !important;
-    }
-
-    .delay3 {
-        animation-delay: 0.34s !important;
-    }
-
-    .delay4 {
-        animation-delay: 0.46s !important;
     }
 }
