@@ -6,6 +6,7 @@ import Link from "next/link";
 import LightRays from "@/components/ui/LightRays/LightRays";
 import styles from "./Hero.module.css";
 
+// 3D Logo sadece masaüstünde devreye girer
 const Logo3D = dynamic(() => import("@/components/ui/Logo3D/Logo3D"), {
   ssr: false,
 });
@@ -13,10 +14,19 @@ const Logo3D = dynamic(() => import("@/components/ui/Logo3D/Logo3D"), {
 export default function Hero({ lang = "tr" }) {
   const [isLightMode, setIsLightMode] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
   const isTr = lang === "tr";
 
   useEffect(() => {
     setIsMounted(true);
+    // Masaüstü kontrolü: 1180px ve üzeri
+    setIsDesktop(window.innerWidth >= 1180);
+
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 1180);
+    };
+
+    window.addEventListener("resize", handleResize);
 
     const updateTheme = () => {
       const theme = document.documentElement.getAttribute("data-theme");
@@ -31,21 +41,27 @@ export default function Hero({ lang = "tr" }) {
       attributeFilter: ["data-theme"],
     });
 
-    return () => observer.disconnect();
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      observer.disconnect();
+    };
   }, []);
 
   return (
     <section
       className={`${styles.heroSection} ${isMounted ? styles.heroMounted : ""}`}
     >
-      {/* LightRays Arka Plan Işığı */}
+      {/* 
+        PARIL PARIL PARLAYAN SİBER LIGHTRAYS IŞIKLARI
+        Hem masaüstünde hem telefonda tam ekran süzülür!
+      */}
       <div className={styles.lightContainer}>
         <LightRays
           raysOrigin="top-right"
           raysColor={isLightMode ? "#0071E3" : "#00FFD1"}
-          raysSpeed={0.8}
-          lightSpread={1.4}
-          rayLength={2.0}
+          raysSpeed={0.9}
+          lightSpread={1.6}
+          rayLength={2.4}
           followMouse={true}
           mouseInfluence={0.06}
           noiseAmount={0.02}
@@ -55,7 +71,7 @@ export default function Hero({ lang = "tr" }) {
       </div>
 
       <div className={`container ${styles.heroContainer}`}>
-        {/* SOL SÜTUN */}
+        {/* SOL SÜTUN: TİPOGRAFİ */}
         <div className={styles.contentColumn}>
           <h1 className={styles.heroTitle}>
             <span className={`${styles.titleLineWrapper} ${styles.delay1}`}>
@@ -136,12 +152,17 @@ export default function Hero({ lang = "tr" }) {
           </div>
         </div>
 
-        {/* SAĞ SÜTUN: 3D LOGO (delayLogo sınıfı aynen geri konuldu) */}
-        <div className={`${styles.visualColumn} ${styles.delayLogo}`}>
-          <div className={styles.webglCanvasWrapper}>
-            <Logo3D />
+        {/* 
+          SAĞ SÜTUN: MASAÜSTÜNDE 3D LOGO 
+          Telefonda hiç render edilmez (0ms gecikme!)
+        */}
+        {isDesktop && (
+          <div className={`${styles.visualColumn} ${styles.delayLogo}`}>
+            <div className={styles.webglCanvasWrapper}>
+              <Logo3D />
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );
