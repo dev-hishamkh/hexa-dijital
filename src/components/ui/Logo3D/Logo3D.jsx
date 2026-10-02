@@ -1,13 +1,18 @@
 "use client";
 
-import React, { useMemo, useRef, Suspense } from "react";
+import React, { useMemo, useRef } from "react";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { Center, Environment, Float } from "@react-three/drei";
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader.js";
 import * as THREE from "three";
 
-const SvgModel = ({ url = "/logo.svg" }) => {
-  const svg = useLoader(SVGLoader, url);
+// GitHub Pages alt klasör yolunu dinamik olarak yakalar (404'ü yok eden satır)
+const basePath =
+  process.env.NODE_ENV === "production" ? "/hexa-dijital-final" : "";
+const LOGO_PATH = `${basePath}/logo.svg`;
+
+const SvgModel = () => {
+  const svg = useLoader(SVGLoader, LOGO_PATH);
   const groupRef = useRef();
 
   const pathData = useMemo(() => {
@@ -73,7 +78,7 @@ const SvgModel = ({ url = "/logo.svg" }) => {
   );
 };
 
-export default function Logo3D({ logoUrl = "/logo.svg" }) {
+export default function Logo3D() {
   return (
     <div
       style={{
@@ -97,10 +102,7 @@ export default function Logo3D({ logoUrl = "/logo.svg" }) {
         <Environment preset="studio" />
 
         <Float speed={2} rotationIntensity={0.1} floatIntensity={1.2}>
-          {/* Hata fırlatmasını engelleyen ve asenkron yüklemeyi sağlayan kalkan */}
-          <Suspense fallback={null}>
-            <SvgModel url={logoUrl} />
-          </Suspense>
+          <SvgModel />
         </Float>
       </Canvas>
     </div>
