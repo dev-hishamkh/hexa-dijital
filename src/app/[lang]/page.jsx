@@ -1,6 +1,10 @@
-// src/app/[lang]/page.jsx
 import Header from "@/components/layout/Header/Header";
 import Hero from "@/components/sections/Hero/Hero";
+
+// Statik Export için zorunlu olan dil parametreleri (Hatanın çözümü)
+export async function generateStaticParams() {
+  return [{ lang: "tr" }, { lang: "en" }];
+}
 
 export async function generateMetadata({ params }) {
   const resolvedParams = await params;
