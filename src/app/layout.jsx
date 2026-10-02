@@ -1,4 +1,4 @@
-// src/app/layout.jsx
+// src/app/layout.jsxs
 export default function RootLayout({ children }) {
   return children;
 }
