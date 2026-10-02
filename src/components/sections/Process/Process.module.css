@@ -1,0 +1,241 @@
+.section {
+    position: relative;
+    width: 100vw;
+    background-color: var(--hexa-bg);
+    padding: 8rem 0 10rem 0;
+    transition: background-color 0.4s var(--ease-out);
+}
+
+.container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding-left: clamp(2rem, 5vw, 5.5rem);
+    padding-right: clamp(2.5rem, 6vw, 6.5rem);
+    display: grid;
+    grid-template-columns: 0.9fr 1.3fr;
+    align-items: flex-start;
+    gap: clamp(3rem, 6vw, 6.5rem);
+}
+
+/* ==========================================================================
+   SOL SÜTUN: STICKY EDITORIAL BAŞLIK (MASAÜSTÜNDE ASILI KALIR)
+   ========================================================================== */
+.stickyColumn {
+    position: relative;
+    height: 100%;
+}
+
+.stickyContent {
+    position: sticky;
+    top: 120px;
+    display: flex;
+    flex-direction: column;
+}
+
+.eyebrowWrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.eyebrowDot {
+    width: 6px;
+    height: 6px;
+    border-radius: var(--radius-full);
+    background-color: var(--hexa-accent);
+    box-shadow: 0 0 10px var(--hexa-accent);
+}
+
+.eyebrowText {
+    font-family: var(--font-main);
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--hexa-font-muted);
+    text-transform: uppercase;
+}
+
+.stickyTitle {
+    font-family: var(--font-main);
+    font-size: clamp(2.8rem, 4.5vw, 4.4rem);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    color: var(--hexa-font-main);
+    margin-bottom: 1.5rem;
+}
+
+.stickyDesc {
+    font-family: var(--font-main);
+    font-size: clamp(1.05rem, 1.25vw, 1.2rem);
+    line-height: 1.6;
+    color: var(--hexa-font-dim);
+    letter-spacing: -0.015em;
+    max-width: 480px;
+}
+
+/* ==========================================================================
+   SAĞ SÜTUN: 3 ADET PROTOKOL KARTI (DİKEY AKIŞ)
+   ========================================================================== */
+.cardsColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.protocolCard {
+    position: relative;
+    background-color: var(--hexa-surface);
+    border: 1px solid var(--hexa-border);
+    border-radius: var(--radius-md);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    transition:
+        border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+        background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.35s var(--ease-out);
+}
+
+.protocolCard:hover {
+    border-color: var(--hexa-border-focus);
+    background-color: var(--hexa-surface-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="light"] .protocolCard:hover {
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
+}
+
+/* Kart Üst Başlık Satırı */
+.cardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.phaseTag {
+    font-family: monospace;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--hexa-accent);
+}
+
+.categoryTag {
+    font-family: var(--font-main);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--hexa-font-muted);
+    text-transform: uppercase;
+}
+
+/* Kart Başlığı */
+.cardTitle {
+    font-family: var(--font-main);
+    font-size: 1.45rem;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.03em;
+    color: var(--hexa-font-main);
+    margin-bottom: 1rem;
+    transition: color 0.3s var(--ease-out);
+}
+
+.protocolCard:hover .cardTitle {
+    color: var(--hexa-font-main);
+}
+
+.cardDesc {
+    font-family: var(--font-main);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--hexa-font-dim);
+    letter-spacing: -0.015em;
+    margin-bottom: 2rem;
+}
+
+/* Alt Çıktı Rozeti */
+.cardFooter {
+    display: flex;
+    align-items: center;
+}
+
+.badgePill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+    background: rgba(0, 255, 209, 0.05);
+    border: 1px solid rgba(0, 255, 209, 0.2);
+}
+
+[data-theme="light"] .badgePill {
+    background: rgba(0, 168, 135, 0.06);
+    border-color: rgba(0, 168, 135, 0.25);
+}
+
+.badgeDot {
+    width: 5px;
+    height: 5px;
+    border-radius: var(--radius-full);
+    background-color: var(--hexa-accent);
+    box-shadow: 0 0 6px var(--hexa-accent);
+}
+
+.badgeText {
+    font-family: var(--font-main);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--hexa-accent);
+}
+
+/* ==========================================================================
+   MOBİL VE TABLET UYARLAMASI (STICKY KALKAR, DOĞAL AKIŞ BAŞLAR)
+   ========================================================================== */
+@media (max-width: 900px) {
+    .section {
+        padding: 5rem 0 6rem 0;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+    }
+
+    .stickyContent {
+        position: static;
+        top: auto;
+    }
+
+    .stickyTitle {
+        font-size: clamp(2.4rem, 8vw, 3.4rem);
+        margin-bottom: 1rem;
+    }
+
+    .stickyDesc {
+        max-width: 100%;
+        font-size: 1.05rem;
+    }
+
+    .protocolCard {
+        padding: 1.85rem 1.5rem;
+    }
+
+    .cardTitle {
+        font-size: 1.25rem;
+    }
+
+    .cardDesc {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+}

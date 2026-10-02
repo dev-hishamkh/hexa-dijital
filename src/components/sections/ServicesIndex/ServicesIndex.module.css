@@ -1,0 +1,232 @@
+.servicesSection {
+    position: relative;
+    width: 100vw;
+    min-height: 90vh;
+    background-color: var(--hexa-bg);
+    padding: 8rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    user-select: none;
+    transition: background-color 0.4s var(--ease-out);
+}
+
+@media (min-width: 768px) {
+    .servicesSection {
+        padding: 10rem 0;
+    }
+}
+
+.topFadeGradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to bottom, var(--hexa-bg) 0%, rgba(10, 14, 23, 0.75) 45%, transparent 100%);
+    pointer-events: none;
+    z-index: 5;
+    transition: background 0.4s var(--ease-out);
+}
+
+.bottomFadeGradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to top, var(--hexa-bg) 0%, rgba(10, 14, 23, 0.75) 45%, transparent 100%);
+    pointer-events: none;
+    z-index: 5;
+    transition: background 0.4s var(--ease-out);
+}
+
+[data-theme="light"] .topFadeGradient {
+    background: linear-gradient(to bottom, var(--hexa-bg) 0%, rgba(245, 245, 247, 0.8) 45%, transparent 100%);
+}
+
+[data-theme="light"] .bottomFadeGradient {
+    background: linear-gradient(to top, var(--hexa-bg) 0%, rgba(245, 245, 247, 0.8) 45%, transparent 100%);
+}
+
+.hoverImagesContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.containerActive {
+    opacity: 1;
+}
+
+.hoverImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    filter: contrast(1.15) brightness(0.8);
+}
+
+.hoverImage.active {
+    opacity: 1;
+}
+
+.scrimBackdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 15, 25, 0.78);
+    backdrop-filter: blur(2px);
+    z-index: 2;
+}
+
+[data-theme="light"] .scrimBackdrop {
+    background: rgba(245, 245, 247, 0.85);
+}
+
+.container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding-left: clamp(2rem, 5vw, 5.5rem);
+    padding-right: clamp(2.5rem, 6vw, 6.5rem);
+}
+
+.sectionTitle {
+    font-family: var(--font-main);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--hexa-accent);
+    margin-bottom: 3.5rem;
+    font-weight: 700;
+    display: block;
+}
+
+.servicesList {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 10;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="light"] .servicesList {
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.serviceItem {
+    position: relative;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    cursor: pointer;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s var(--ease-out);
+}
+
+[data-theme="light"] .serviceItem {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+@media (min-width: 768px) {
+    .serviceItem {
+        padding: 2.2rem 0;
+    }
+}
+
+.serviceItem:hover {
+    transform: translateX(1.5rem);
+}
+
+.serviceLink {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    text-decoration: none;
+}
+
+.serviceName {
+    font-family: var(--font-main);
+    font-size: clamp(2rem, 5vw, 4.5rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.5);
+    transition: color 0.4s ease, opacity 0.4s ease;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+}
+
+[data-theme="light"] .serviceName {
+    color: rgba(0, 0, 0, 0.45);
+}
+
+.hasActiveItem .serviceItem:not(.itemHovered) .serviceName {
+    color: rgba(255, 255, 255, 0.25);
+    opacity: 0.4;
+}
+
+[data-theme="light"] .hasActiveItem .serviceItem:not(.itemHovered) .serviceName {
+    color: rgba(0, 0, 0, 0.2);
+    opacity: 0.4;
+}
+
+.itemHovered .serviceName {
+    color: #FFFFFF !important;
+    opacity: 1 !important;
+}
+
+[data-theme="light"] .itemHovered .serviceName {
+    color: #111827 !important;
+    opacity: 1 !important;
+}
+
+.serviceNumber {
+    font-family: monospace;
+    font-size: 0.875rem;
+    color: var(--hexa-accent);
+    font-weight: 700;
+    opacity: 1;
+    transition: opacity 0.4s ease, transform 0.4s ease, text-shadow 0.4s ease;
+}
+
+@media (min-width: 768px) {
+    .serviceNumber {
+        font-size: 1.25rem;
+        opacity: 0;
+    }
+
+    .serviceItem:hover .serviceNumber {
+        opacity: 1;
+        transform: translateX(-0.5rem);
+        text-shadow: 0 0 16px var(--hexa-accent-glow);
+    }
+}
+
+@media (max-width: 768px) {
+    .serviceName {
+        font-size: clamp(1.6rem, 6.5vw, 2.4rem);
+    }
+
+    .topFadeGradient,
+    .bottomFadeGradient {
+        height: 120px;
+    }
+}

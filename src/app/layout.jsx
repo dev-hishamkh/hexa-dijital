@@ -43,19 +43,8 @@ export default function RootLayout({ children }) {
           as="image"
           type="image/svg+xml"
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  const storedTheme = localStorage.getItem('hexa-theme');
-                  const theme = storedTheme || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-                  document.documentElement.setAttribute('data-theme', theme);
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
+        {/* Güvenli harici statik script: React 19 hatasını kökten siler */}
+        <script src={`${basePath}/theme.js`} />
       </head>
       <body>{children}</body>
     </html>

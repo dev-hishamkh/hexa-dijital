@@ -1,7 +1,12 @@
 import Header from "@/components/layout/Header/Header";
 import Hero from "@/components/sections/Hero/Hero";
+import SelectedWorks from "@/components/sections/SelectedWorks/SelectedWorks";
+import Manifesto from "@/components/sections/Manifesto/Manifesto";
 
-// Statik Export için zorunlu olan dil parametreleri (Hatanın çözümü)
+import ServicesIndex from "@/components/sections/ServicesIndex/ServicesIndex";
+
+import Process from "@/components/sections/Process/Process";
+
 export async function generateStaticParams() {
   return [{ lang: "tr" }, { lang: "en" }];
 }
@@ -73,6 +78,10 @@ export default async function HomePage({ params }) {
       <Header lang={lang} />
       <main>
         <Hero lang={lang} />
+        <SelectedWorks lang={lang} />
+        <Manifesto lang={lang} />
+        <ServicesIndex lang={lang} />
+        <Process lang={lang} />
       </main>
     </>
   );

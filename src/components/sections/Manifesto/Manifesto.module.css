@@ -1,0 +1,66 @@
+.manifestoSection {
+    position: relative;
+    width: 100vw;
+    background-color: var(--hexa-bg);
+    padding: clamp(6rem, 10vw, 10rem) 0;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    transition: background-color 0.4s var(--ease-out);
+}
+
+.container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding-left: clamp(2rem, 5vw, 5.5rem);
+    padding-right: clamp(2.5rem, 6vw, 6.5rem);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Devasa, Tok ve Kararlı Başlık */
+.heading {
+    font-family: var(--font-main);
+    font-size: clamp(2.6rem, 5.2vw, 5.2rem);
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+    color: var(--hexa-font-main);
+    max-width: 1150px;
+    margin-bottom: 2.5rem;
+}
+
+/* Hero İle Birebir Uyumlu İtalik Serif İmzası */
+.serifHighlight {
+    font-family: var(--font-italic-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--hexa-font-serif);
+    letter-spacing: -0.02em;
+}
+
+.leadText {
+    font-family: var(--font-main);
+    font-size: clamp(1.15rem, 1.4vw, 1.35rem);
+    line-height: 1.65;
+    color: var(--hexa-font-dim);
+    letter-spacing: -0.015em;
+    max-width: 860px;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .manifestoSection {
+        padding: 5rem 0;
+    }
+
+    .heading {
+        font-size: clamp(2.1rem, 7.5vw, 3.2rem);
+        margin-bottom: 1.75rem;
+    }
+
+    .leadText {
+        font-size: 1.05rem;
+    }
+}

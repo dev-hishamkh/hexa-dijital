@@ -1,56 +1,87 @@
 export const dictionary = {
   tr: {
-    hero: {
-      badge: "Bursa Sanayi & Ticaretinde Dönüşüm",
-      h1_pre: "Bursa Web Tasarım &",
-      h1_strong: "Müşteri Kazandıran",
-      h1_post: "Özel Web Yazılımları",
-      subtitle:
-        "Yavaş ve sıradan bir web sitesi Bursa pazarındaki müşterilerinizi rakiplerinize hediye eder. Google yerel aramalarda ilk 3 sıraya tırmanan, 0.8 saniyede açılan ve doğrudan ciro üreten siber altyapılar inşa ediyoruz.",
-      ctaQuote: "Ücretsiz SEO & Hız Analizi İsteyin",
-      ctaShowcase: "Mühendislik Projelerimiz",
-      metrics: [
-        {
-          value: "< 0.8s",
-          title: "Yükleme Hızı",
-          note: "Müşteri kaybettirmeyen mimari",
-        },
-        {
-          value: "İlk 3",
-          title: "Google Haritalar",
-          note: "Bursa bölgesel dominasyon",
-        },
-        {
-          value: "%100",
-          title: "Tescilli Kod",
-          note: "WordPress/hazır tema yok",
-        },
+    socialProof: {
+      eyebrow:
+        "// DEĞER ÜRETTİĞİMİZ VE DİJİTAL ALTYAPISINI KURDUĞUMUZ MARKALAR",
+      brands: [
+        "MUNCHICO FRIED CHICKEN",
+        "DAMISCO",
+        "TATAROĞLU İNŞAAT",
+        "HİRA HALI YIKAMA",
+        "OTOMOTİV A.Ş.",
+        "KLİNİK NİLÜFER",
       ],
+    },
+    services: {
+      eyebrow: "// HİZMET MİMARİSİ",
+      titleMain: "Tasarım, Mühendislik ve",
+      titleSerif: "Büyümenin Kusursuz",
+      titleHighlight: "Entegrasyonu.",
+      subtitle:
+        "İşletmenizi sıradan şablon sitelerin yavaşlığından kurtarıyor; estetik, hız ve performansı tek bir dijital çarkta birleştiriyoruz.",
+      card1: {
+        tag: "CORE INFRASTRUCTURE",
+        title: "Özel Web Mimarisi & Next.js",
+        desc: "Şablon veya WordPress çöplüğü değil; 0.8 saniyede açılan, Core Web Vitals tam puanlı, tamamen işletmenize özel kodlanmış kurumsal platformlar.",
+        metricValue: "0.4s",
+        metricLabel: "Ortalama Yanıt Süresi",
+        statusText: "ALL SYSTEMS OPERATIONAL",
+        techList: ["Next.js 15", "Edge Caching", "Semantic SEO"],
+      },
+      card2: {
+        tag: "AUTOMATION & SAAS",
+        title: "Sektörel Yazılımlar & Süreç Otomasyonu",
+        desc: "Restoran sipariş/adisyon sistemleri, akıllı QR menüler ve işletmenizin operasyonel yükünü sıfırlayan özel yönetim panelleri.",
+        pill: "Gerçek Zamanlı Senkronizasyon",
+      },
+      card3: {
+        tag: "GROWTH ENGINE",
+        title: "Performans Pazarlama & Yerel SEO Dominasyonu",
+        desc: "Bursa yerel aramalarında ve Google Haritalar'da ilk 3 sırayı garantileyen, Meta ve Ads bütçelerini doğrudan ciroya çeviren büyüme motoru.",
+        pill: "Harita İlk 3 & ROI Odaklı",
+      },
     },
   },
   en: {
-    hero: {
-      badge: "Bursa Industrial & Commercial Transformation",
-      h1_pre: "Bursa Web Design &",
-      h1_strong: "High-Converting",
-      h1_post: "Custom Software Architecture",
-      subtitle:
-        "A sluggish website concedes your market share to competitors daily. We engineer sub-second web architectures designed to dominate search engines and systematically convert traffic into revenue.",
-      ctaQuote: "Request Speed & SEO Audit",
-      ctaShowcase: "Explore Architecture",
-      metrics: [
-        {
-          value: "< 0.8s",
-          title: "Load Time",
-          note: "Zero customer churn threshold",
-        },
-        { value: "Top 3", title: "Regional Search", note: "Search dominance" },
-        {
-          value: "100%",
-          title: "Handcrafted",
-          note: "Zero template bloatware",
-        },
+    socialProof: {
+      eyebrow: "// SELECTED PARTNERS & ARCHITECTURES ENGINEERED",
+      brands: [
+        "MUNCHICO FRIED CHICKEN",
+        "DAMISCO",
+        "TATAROGLU CONSTRUCTION",
+        "HIRA CLEANING TECH",
+        "AUTOMOTIVE CORP",
+        "CLINIC NILUFER",
       ],
+    },
+    services: {
+      eyebrow: "// SERVICE ARCHITECTURE",
+      titleMain: "Design, Engineering and",
+      titleSerif: "High-Impact Growth",
+      titleHighlight: "Integration.",
+      subtitle:
+        "We decouple brands from legacy bloatware, unifying aesthetics, raw computing speed, and revenue acceleration into a single engine.",
+      card1: {
+        tag: "CORE INFRASTRUCTURE",
+        title: "Custom Web Architecture & Next.js",
+        desc: "Zero templates. Engineered sub-second web platforms with perfect Core Web Vitals scores, tailored precisely to your operational scale.",
+        metricValue: "0.4s",
+        metricLabel: "Average Response Time",
+        statusText: "ALL SYSTEMS OPERATIONAL",
+        techList: ["Next.js 15", "Edge Caching", "Semantic SEO"],
+      },
+      card2: {
+        tag: "AUTOMATION & SAAS",
+        title: "Industry Systems & Workflow Automation",
+        desc: "Point-of-sale platforms, custom QR menu suites, and dedicated SaaS interfaces eliminating manual operational friction.",
+        pill: "Real-Time Sync Engine",
+      },
+      card3: {
+        tag: "GROWTH ENGINE",
+        title: "Performance Media & Regional Search Dominance",
+        desc: "Systematic ranking strategies capturing regional search volume and converting paid media spend into tangible company revenue.",
+        pill: "Top 3 Maps & High ROI",
+      },
     },
   },
 };

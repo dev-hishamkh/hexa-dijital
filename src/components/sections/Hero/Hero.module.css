@@ -8,7 +8,8 @@
     align-items: center;
     justify-content: flex-start;
     padding-top: calc(var(--header-height) + 2rem);
-    padding-bottom: 4rem;
+    padding-bottom: 7rem;
+    /* Geçiş için alt boşluk rahatlatıldı */
     transition: background-color 0.4s var(--ease-out);
 }
 
@@ -33,10 +34,40 @@
     opacity: 0.45;
 }
 
+/* ==========================================================================
+   KESKİN ÇİZGİYİ YOK EDEN SİNEMATİK ERİME KATMANI (FADE GRADIENT)
+   ========================================================================== */
+.bottomFadeGradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 220px;
+    /* 220px boyunca pürüzsüz erime */
+    background: linear-gradient(to bottom,
+            transparent 0%,
+            rgba(10, 14, 23, 0.4) 40%,
+            rgba(10, 14, 23, 0.85) 75%,
+            var(--hexa-bg) 100%);
+    pointer-events: none;
+    z-index: 2;
+    /* Işıkların üstüne basarak kesilmeyi yok eder */
+    transition: background 0.4s var(--ease-out);
+}
+
+[data-theme="light"] .bottomFadeGradient {
+    background: linear-gradient(to bottom,
+            transparent 0%,
+            rgba(245, 245, 247, 0.4) 40%,
+            rgba(245, 245, 247, 0.85) 75%,
+            var(--hexa-bg) 100%);
+}
+
 /* Container */
 .heroContainer {
     position: relative;
-    z-index: 2;
+    z-index: 3;
+    /* Yazıların ve butonun her zaman degrade'in üstünde kalması için */
     width: 100%;
     max-width: var(--max-width);
     margin-left: auto;
@@ -48,7 +79,6 @@
     justify-content: center;
 }
 
-/* Tipografi Alanı */
 .contentColumn {
     display: flex;
     flex-direction: column;
@@ -60,7 +90,6 @@
     display: flex;
     flex-direction: column;
     font-size: clamp(3.6rem, 6.8vw, 7.2rem);
-    /* Ekranı dolduran heybetli Awwwards boyutu */
     font-weight: 500;
     line-height: 0.98;
     letter-spacing: -0.045em;
@@ -98,7 +127,6 @@
     display: inline-block;
 }
 
-/* Alt Manifesto & Manyetik Buton */
 .bottomArea {
     display: flex;
     flex-direction: column;
@@ -192,7 +220,7 @@
     font-weight: 400;
 }
 
-/* Kademeli Geçişler */
+/* Kademeler */
 .delay1 {
     animation-delay: 0.15s;
 }
@@ -225,7 +253,7 @@
 @media (max-width: 1024px) {
     .heroSection {
         padding-top: calc(var(--header-height) + 2rem);
-        padding-bottom: 3.5rem;
+        padding-bottom: 5rem;
     }
 
     .titleLine {
@@ -239,5 +267,9 @@
     .manifesto {
         font-size: 1.1rem;
         max-width: 100%;
+    }
+
+    .bottomFadeGradient {
+        height: 160px;
     }
 }
