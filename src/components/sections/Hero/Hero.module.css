@@ -1,0 +1,319 @@
+.heroSection {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: var(--hexa-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: calc(var(--header-height) + 1.5rem);
+    padding-bottom: 3.5rem;
+    transition: background-color 0.4s var(--ease-out);
+}
+
+/* LightRays Katmanı */
+.lightContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.heroMounted .lightContainer {
+    opacity: 1;
+}
+
+[data-theme="light"] .heroMounted .lightContainer {
+    opacity: 0.45;
+}
+
+/* Container & Grid */
+.heroContainer {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(2rem, 5vw, 5.5rem);
+    padding-right: clamp(2.5rem, 6vw, 6.5rem);
+    display: grid;
+    grid-template-columns: 1.2fr 0.9fr;
+    align-items: center;
+    gap: clamp(2rem, 4vw, 2.5rem);
+}
+
+/* Sol Sütun */
+.contentColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.heroTitle {
+    display: flex;
+    flex-direction: column;
+    font-size: clamp(3.4rem, 5.6vw, 6.2rem);
+    font-weight: 500;
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+    color: var(--hexa-font-main);
+    margin-bottom: 2.25rem;
+}
+
+.titleLineWrapper {
+    display: block;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.titleLine {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.serifItalic {
+    font-family: var(--font-italic-serif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: var(--hexa-font-serif);
+}
+
+.accentSerif {
+    font-family: var(--font-italic-serif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: var(--hexa-accent);
+    text-shadow: 0 0 18px var(--hexa-accent-glow);
+    display: inline-block;
+}
+
+/* Alt Manifesto */
+.bottomArea {
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.manifesto {
+    max-width: 510px;
+    font-size: clamp(1.2rem, 1.45vw, 1.36rem);
+    line-height: 1.48;
+    color: var(--hexa-font-manifesto);
+    letter-spacing: -0.02em;
+    font-weight: 400;
+}
+
+/* ==========================================================================
+   EN SON EKLEDİĞİMİZ MANYETİK AKSİYON DİSKİ
+   ========================================================================== */
+.actionGroup {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.magneticAction {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.25rem;
+    text-decoration: none;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.actionCircle {
+    width: 58px;
+    height: 58px;
+    border-radius: var(--radius-full);
+    background: var(--hexa-surface);
+    border: 1px solid var(--hexa-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--hexa-font-main);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+
+.magneticAction:hover .actionCircle {
+    background-color: var(--hexa-accent);
+    border-color: var(--hexa-accent);
+    color: #0A0E17;
+    transform: scale(1.08) rotate(45deg);
+    box-shadow: 0 0 35px var(--hexa-accent-glow-strong);
+}
+
+.magneticAction:active .actionCircle {
+    transform: scale(0.94) rotate(45deg);
+}
+
+.arrowDiagonal {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.actionLabels {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.actionPrimaryText {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--hexa-font-main);
+    letter-spacing: -0.02em;
+    transition: color 0.3s var(--ease-out);
+}
+
+.magneticAction:hover .actionPrimaryText {
+    color: var(--hexa-accent);
+}
+
+.actionSubText {
+    font-size: 0.84rem;
+    color: var(--hexa-font-dim);
+    letter-spacing: -0.01em;
+    font-weight: 400;
+}
+
+/* ==========================================================================
+   SAĞ SÜTUN: 3D LOGO (ZIPLAMA YAPMAYAN ORİJİNAL KOD)
+   ========================================================================== */
+.visualColumn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    transform: translateY(-1.5rem);
+    opacity: 0;
+    animation: revealMonolith 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.webglCanvasWrapper {
+    width: clamp(340px, 36vw, 540px);
+    height: clamp(340px, 36vw, 540px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: grab;
+}
+
+.webglCanvasWrapper:active {
+    cursor: grabbing;
+}
+
+/* Kademeler */
+.delay1 {
+    animation-delay: 0.15s;
+}
+
+.delay2 {
+    animation-delay: 0.30s;
+}
+
+.delay3 {
+    animation-delay: 0.45s;
+}
+
+.delay4 {
+    animation-delay: 0.60s;
+}
+
+.delayLogo {
+    animation-delay: 0.70s;
+}
+
+/* Animasyonlar */
+@keyframes revealUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes revealMonolith {
+    0% {
+        opacity: 0;
+        transform: translateY(-1.5rem) scale(0.82);
+        filter: blur(15px);
+    }
+
+    60% {
+        opacity: 0.85;
+        filter: blur(0px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(-1.5rem) scale(1);
+        filter: blur(0px);
+    }
+}
+
+/* Responsive */
+@media (max-width: 1180px) {
+    .heroContainer {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding-top: 1rem;
+    }
+
+    .titleLine {
+        white-space: normal;
+    }
+
+    .visualColumn {
+        order: -1;
+        transform: translateY(0);
+    }
+
+    @keyframes revealMonolith {
+        0% {
+            opacity: 0;
+            transform: translateY(0) scale(0.82);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    .webglCanvasWrapper {
+        width: 300px;
+        height: 300px;
+    }
+
+    .heroTitle {
+        font-size: clamp(2.8rem, 8vw, 4.4rem);
+    }
+
+    .manifesto {
+        font-size: 1.1rem;
+        max-width: 100%;
+    }
+}

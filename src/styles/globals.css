@@ -1,0 +1,138 @@
+@import "./variables.css";
+
+/* CSS Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+}
+
+/* ==========================================================================
+   SİNEMATİK TEMA GEÇİŞ MOTORU (FİRE & FORGET SMOOTHNESS)
+   ========================================================================== */
+body {
+    min-height: 100vh;
+    background-color: var(--hexa-bg);
+    color: var(--hexa-font-main);
+    font-family: var(--font-main);
+    line-height: 1.5;
+    letter-spacing: -0.025em;
+    overflow-x: hidden;
+    /* Tüm arayüz elemanlarının renkleri 0.4s pürüzsüz yaylanmayla akar */
+    transition:
+        background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* View Transition API Destekleyen Tarayıcılar İçin Sinematik Fade */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 0.45s;
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-main);
+    color: var(--hexa-font-main);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 1.15;
+    transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+p {
+    color: var(--hexa-font-dim);
+    letter-spacing: -0.015em;
+    line-height: 1.6;
+    transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+    background: none;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    /* Dokunsal buton yaylanması */
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+}
+
+/* Dokunulduğunda hafifçe içeri çöken Linear/Apple hissiyatı */
+button:active {
+    transform: scale(0.96) !important;
+}
+
+.serif-italic {
+    font-family: var(--font-italic-serif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+}
+
+.accent-glow {
+    color: var(--hexa-accent);
+    text-shadow: 0 0 20px var(--hexa-accent-glow);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--hexa-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--hexa-border);
+    border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--hexa-accent);
+}
+
+::selection {
+    background-color: var(--hexa-accent);
+    color: #0A0E17;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}

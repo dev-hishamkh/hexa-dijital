@@ -1,0 +1,54 @@
+:root {
+    /* ==========================================================================
+     DEVTOOLS İNCELEMESİNDEKİ ORİJİNAL FONT AİLELERİ (SIFIR DIŞ İSTEK, ULTRA HIZLI)
+     ========================================================================== */
+    --font-main: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-italic-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+    /* Sabit Vurgu */
+    --hexa-accent: #00FFD1;
+    --hexa-accent-glow: rgba(0, 255, 209, 0.22);
+    --hexa-accent-glow-strong: rgba(0, 255, 209, 0.45);
+
+    /* Koyu Mod Tabanı */
+    --hexa-bg: #0A0E17;
+    --hexa-surface: rgba(255, 255, 255, 0.02);
+    --hexa-surface-hover: rgba(255, 255, 255, 0.05);
+    --hexa-border: rgba(255, 255, 255, 0.08);
+    --hexa-border-focus: rgba(0, 255, 209, 0.4);
+
+    /* Referans görseldeki #fafafa renk kodu */
+    --hexa-font-main: #fafafa;
+    --hexa-font-serif: #fafafa;
+    --hexa-font-manifesto: #a1a1aa;
+    --hexa-font-dim: #71717a;
+
+    --cta-primary-bg: #00FFD1;
+    --cta-primary-text: #0A0E17;
+
+    --header-height: 80px;
+    --max-width: 1600px;
+    --radius-full: 9999px;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Açık Mod */
+[data-theme="light"] {
+    --hexa-bg: #F5F5F7;
+    --hexa-surface: rgba(0, 0, 0, 0.03);
+    --hexa-surface-hover: rgba(0, 0, 0, 0.06);
+    --hexa-border: rgba(0, 0, 0, 0.09);
+    --hexa-border-focus: rgba(0, 168, 135, 0.4);
+
+    --hexa-font-main: #18181b;
+    --hexa-font-serif: #27272a;
+    --hexa-font-manifesto: #52525b;
+    --hexa-font-dim: #71717a;
+
+    --hexa-accent: #00A887;
+    --hexa-accent-glow: rgba(0, 168, 135, 0.15);
+    --hexa-accent-glow-strong: rgba(0, 168, 135, 0.25);
+
+    --cta-primary-bg: #18181b;
+    --cta-primary-text: #fafafa;
+}
