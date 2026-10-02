@@ -1,15 +1,19 @@
 "use client";
 
-import React, { useMemo, useRef } from "react";
+import React, { useMemo, useRef, useEffect } from "react";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
-import { Center, Environment, Float } from "@react-three/drei";
+import { Center, Float } from "@react-three/drei";
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader.js";
 import * as THREE from "three";
 
-// GitHub Pages alt klasör yolunu dinamik olarak yakalar (404'ü yok eden satır)
 const basePath =
   process.env.NODE_ENV === "production" ? "/hexa-dijital-final" : "";
 const LOGO_PATH = `${basePath}/logo.svg`;
+
+// Tarayıcı hafızasına erkenden al
+if (typeof window !== "undefined") {
+  useLoader.preload(SVGLoader, LOGO_PATH);
+}
 
 const SvgModel = () => {
   const svg = useLoader(SVGLoader, LOGO_PATH);
@@ -29,8 +33,8 @@ const SvgModel = () => {
       bevelEnabled: true,
       bevelThickness: 1.5,
       bevelSize: 1,
-      bevelSegments: 4,
-      curveSegments: 12,
+      bevelSegments: 3,
+      curveSegments: 8,
     }),
     [],
   );
@@ -65,8 +69,7 @@ const SvgModel = () => {
                 <meshStandardMaterial
                   color={data.color || "#00FFD1"}
                   metalness={0.8}
-                  roughness={0.3}
-                  envMapIntensity={0.8}
+                  roughness={0.25}
                   toneMapped={false}
                 />
               </mesh>
@@ -90,16 +93,24 @@ export default function Logo3D() {
         justifyContent: "center",
       }}
     >
-      <Canvas camera={{ position: [0, 0, 120], fov: 45 }} dpr={[1, 2]}>
-        <ambientLight intensity={0.6} />
-        <directionalLight position={[10, 10, 10]} intensity={2.5} />
+      <Canvas
+        camera={{ position: [0, 0, 120], fov: 45 }}
+        dpr={[1, 1.5]}
+        gl={{ powerPreference: "high-performance", antialias: true }}
+      >
+        {/* İnternetten dosya indirmeyen, 0ms gecikmeli stüdyo ışıkları */}
+        <ambientLight intensity={0.7} />
+        <directionalLight position={[10, 15, 10]} intensity={2.8} />
         <directionalLight
           position={[-10, -10, -10]}
-          intensity={1}
+          intensity={1.5}
           color="#00FFD1"
         />
-
-        <Environment preset="studio" />
+        <directionalLight
+          position={[0, -10, 10]}
+          intensity={0.8}
+          color="#ffffff"
+        />
 
         <Float speed={2} rotationIntensity={0.1} floatIntensity={1.2}>
           <SvgModel />

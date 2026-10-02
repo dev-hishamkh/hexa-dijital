@@ -1,7 +1,6 @@
 import { Plus_Jakarta_Sans, Newsreader } from "next/font/google";
 import "@/styles/globals.css";
 
-// Modern Keskin Sans-Serif Fontu
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -9,7 +8,6 @@ const jakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-// İkonik Editoryal İtalik Serif Fontu (inspire & convert / Vision)
 const newsreader = Newsreader({
   subsets: ["latin"],
   style: ["normal", "italic"],
@@ -17,6 +15,9 @@ const newsreader = Newsreader({
   variable: "--font-serif",
   display: "swap",
 });
+
+const basePath =
+  process.env.NODE_ENV === "production" ? "/hexa-dijital-final" : "";
 
 export const metadata = {
   metadataBase: new URL("https://hexadijital.com"),
@@ -26,16 +27,6 @@ export const metadata = {
   },
   description:
     "Hexa Dijital; Bursa merkezli, yüksek dönüşüm odaklı web tasarım, özel web yazılım ve SEO stratejileri üreten yeni nesil dijital ajanstır.",
-  alternates: {
-    languages: {
-      tr: "/tr",
-      en: "/en",
-    },
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
 };
 
 export async function generateStaticParams() {
@@ -53,6 +44,13 @@ export default async function LangLayout({ children, params }) {
       className={`${jakarta.variable} ${newsreader.variable}`}
     >
       <head>
+        {/* LOGO.SVG'Yİ TELEFONDA İLK MİLİSANİYEDE ÖNBELLEĞE ALAN SİHİRLİ SATIR */}
+        <link
+          rel="preload"
+          href={`${basePath}/logo.svg`}
+          as="image"
+          type="image/svg+xml"
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `
