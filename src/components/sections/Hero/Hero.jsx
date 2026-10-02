@@ -58,14 +58,12 @@ export default function Hero({ lang = "tr" }) {
         {/* SOL SÜTUN */}
         <div className={styles.contentColumn}>
           <h1 className={styles.heroTitle}>
-            {/* 1. Satır */}
             <span className={`${styles.titleLineWrapper} ${styles.delay1}`}>
               <span className={styles.titleLine}>
                 {isTr ? "Bursa Web Tasarım," : "Bespoke Web Design,"}
               </span>
             </span>
 
-            {/* 2. Satır */}
             <span className={`${styles.titleLineWrapper} ${styles.delay2}`}>
               <span className={styles.titleLine}>
                 <span className={styles.serifItalic}>
@@ -74,7 +72,6 @@ export default function Hero({ lang = "tr" }) {
               </span>
             </span>
 
-            {/* 3. Satır */}
             <span className={`${styles.titleLineWrapper} ${styles.delay3}`}>
               <span className={styles.titleLine}>
                 <span>{isTr ? "ciro odaklı" : "high-impact"}</span>{" "}
@@ -85,7 +82,6 @@ export default function Hero({ lang = "tr" }) {
             </span>
           </h1>
 
-          {/* Alt Manifesto & En Son Eklediğimiz Manyetik Buton */}
           <div className={`${styles.bottomArea} ${styles.delay4}`}>
             <p className={styles.manifesto}>
               {isTr ? (
@@ -140,7 +136,7 @@ export default function Hero({ lang = "tr" }) {
           </div>
         </div>
 
-        {/* SAĞ SÜTUN: 3D LOGO */}
+        {/* SAĞ SÜTUN: 3D LOGO (delayLogo sınıfı aynen geri konuldu) */}
         <div className={`${styles.visualColumn} ${styles.delayLogo}`}>
           <div className={styles.webglCanvasWrapper}>
             <Logo3D />
