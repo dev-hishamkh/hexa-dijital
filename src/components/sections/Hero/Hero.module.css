@@ -44,9 +44,9 @@
     padding-left: clamp(2rem, 5vw, 5.5rem);
     padding-right: clamp(2.5rem, 6vw, 6.5rem);
     display: grid;
-    grid-template-columns: 1.2fr 0.9fr;
+    grid-template-columns: 1.25fr 0.85fr;
     align-items: center;
-    gap: clamp(2rem, 4vw, 2.5rem);
+    gap: clamp(2rem, 4vw, 4.5rem);
 }
 
 /* Sol Sütun */
@@ -116,9 +116,7 @@
     font-weight: 400;
 }
 
-/* ==========================================================================
-   EN SON EKLEDİĞİMİZ MANYETİK AKSİYON DİSKİ
-   ========================================================================== */
+/* Manyetik Buton */
 .actionGroup {
     display: flex;
     align-items: center;
@@ -194,7 +192,7 @@
 }
 
 /* ==========================================================================
-   SAĞ SÜTUN: 3D LOGO (ZIPLAMA YAPMAYAN ORİJİNAL KOD)
+   SAĞ SÜTUN: 3D LOGO ALANI
    ========================================================================== */
 .visualColumn {
     display: flex;
@@ -221,7 +219,7 @@
     cursor: grabbing;
 }
 
-/* Kademeler */
+/* MASAÜSTÜ SIRALAMASI: En son (0.70s) logo oturur */
 .delay1 {
     animation-delay: 0.15s;
 }
@@ -242,7 +240,6 @@
     animation-delay: 0.70s;
 }
 
-/* Animasyonlar */
 @keyframes revealUp {
     0% {
         opacity: 0;
@@ -274,42 +271,70 @@
     }
 }
 
-/* Responsive */
+/* ==========================================================================
+   MOBİL: LOGO YAZILARI BEKLEMEDEN İLK KAREDE AÇILIR (0.02s)!
+   ========================================================================== */
 @media (max-width: 1180px) {
     .heroContainer {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 2rem;
         padding-top: 1rem;
+        padding-bottom: 3rem;
     }
 
     .titleLine {
         white-space: normal;
     }
 
+    /* 
+    İŞTE O BEKLEMEYİ YOK EDEN SİHİRLİ KURAL:
+    Mobilde 3D logo yazıları beklemez, 0.02s'de anında açılır!
+  */
     .visualColumn {
         order: -1;
         transform: translateY(0);
+        animation-delay: 0.02s !important;
+        animation-duration: 0.8s !important;
     }
 
     @keyframes revealMonolith {
         0% {
             opacity: 0;
-            transform: translateY(0) scale(0.82);
+            transform: translateY(0) scale(0.85);
+            filter: blur(8px);
         }
 
         100% {
             opacity: 1;
             transform: translateY(0) scale(1);
+            filter: blur(0px);
         }
     }
 
+    /* Mobilde tipografi logodan hemen sonra akar */
+    .delay1 {
+        animation-delay: 0.20s !important;
+    }
+
+    .delay2 {
+        animation-delay: 0.32s !important;
+    }
+
+    .delay3 {
+        animation-delay: 0.44s !important;
+    }
+
+    .delay4 {
+        animation-delay: 0.56s !important;
+    }
+
     .webglCanvasWrapper {
-        width: 300px;
-        height: 300px;
+        width: 280px;
+        height: 280px;
     }
 
     .heroTitle {
-        font-size: clamp(2.8rem, 8vw, 4.4rem);
+        font-size: clamp(2.8rem, 8.5vw, 4.4rem);
     }
 
     .manifesto {

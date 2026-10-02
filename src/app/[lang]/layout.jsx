@@ -1,71 +1,112 @@
-import { Plus_Jakarta_Sans, Newsreader } from "next/font/google";
-import "@/styles/globals.css";
+"use client";
 
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-sans",
-  display: "swap",
-});
-
-const newsreader = Newsreader({
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  weight: ["400", "500"],
-  variable: "--font-serif",
-  display: "swap",
-});
+import React, { useMemo, useRef } from "react";
+import { Canvas, useFrame, useLoader } from "@react-three/fiber";
+import { Center, Environment, Float } from "@react-three/drei";
+import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader.js";
+import * as THREE from "three";
 
 const basePath =
   process.env.NODE_ENV === "production" ? "/hexa-dijital-final" : "";
+const LOGO_PATH = `${basePath}/logo.svg`;
 
-export const metadata = {
-  metadataBase: new URL("https://hexadijital.com"),
-  title: {
-    template: "%s | Hexa Dijital - Bursa Web Tasarım & Yazılım Ajansı",
-    default: "Bursa Web Tasarım & Yazılım Ajansı | Hexa Dijital",
-  },
-  description:
-    "Hexa Dijital; Bursa merkezli, yüksek dönüşüm odaklı web tasarım, özel web yazılım ve SEO stratejileri üreten yeni nesil dijital ajanstır.",
-};
+const SvgModel = () => {
+  const svg = useLoader(SVGLoader, LOGO_PATH);
+  const groupRef = useRef();
 
-export async function generateStaticParams() {
-  return [{ lang: "tr" }, { lang: "en" }];
-}
+  const pathData = useMemo(() => {
+    if (!svg || !svg.paths) return [];
+    return svg.paths.map((path) => ({
+      shapes: path.toShapes(true),
+      color: path.color,
+    }));
+  }, [svg]);
 
-export default async function LangLayout({ children, params }) {
-  const resolvedParams = await params;
-  const lang = resolvedParams?.lang || "tr";
+  // O ilk fotoğraftaki mükemmel pah ve derinlik ayarları
+  const extrudeSettings = useMemo(
+    () => ({
+      depth: 10,
+      bevelEnabled: true,
+      bevelThickness: 1.5,
+      bevelSize: 1,
+      bevelSegments: 4,
+      curveSegments: 12,
+    }),
+    [],
+  );
+
+  useFrame((state) => {
+    if (groupRef.current) {
+      const targetX = -(state.mouse.y * 12 * Math.PI) / 90;
+      const targetY = (state.mouse.x * 12 * Math.PI) / 90;
+      groupRef.current.rotation.x = THREE.MathUtils.lerp(
+        groupRef.current.rotation.x,
+        targetX,
+        0.05,
+      );
+      groupRef.current.rotation.y = THREE.MathUtils.lerp(
+        groupRef.current.rotation.y,
+        targetY,
+        0.05,
+      );
+    }
+  });
+
+  if (!pathData.length) return null;
 
   return (
-    <html
-      lang={lang}
-      suppressHydrationWarning
-      className={`${jakarta.variable} ${newsreader.variable}`}
+    <group ref={groupRef}>
+      <Center>
+        <group scale={[0.42, -0.42, 0.42]}>
+          {pathData.map((data, index) =>
+            data.shapes.map((shape, i) => (
+              <mesh key={`${index}-${i}`}>
+                <extrudeGeometry args={[shape, extrudeSettings]} />
+                {/* O İLK GÖRSELDEKİ MUHTEŞEM MALZEME */}
+                <meshStandardMaterial
+                  color={data.color || "#00FFD1"}
+                  metalness={0.8}
+                  roughness={0.3}
+                  envMapIntensity={0.8}
+                  toneMapped={false}
+                />
+              </mesh>
+            )),
+          )}
+        </group>
+      </Center>
+    </group>
+  );
+};
+
+export default function Logo3D() {
+  return (
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        position: "relative",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
     >
-      <head>
-        {/* LOGO.SVG'Yİ TELEFONDA İLK MİLİSANİYEDE ÖNBELLEĞE ALAN SİHİRLİ SATIR */}
-        <link
-          rel="preload"
-          href={`${basePath}/logo.svg`}
-          as="image"
-          type="image/svg+xml"
+      <Canvas camera={{ position: [0, 0, 120], fov: 45 }} dpr={[1, 1.5]}>
+        <ambientLight intensity={0.6} />
+        <directionalLight position={[10, 10, 10]} intensity={2.5} />
+        <directionalLight
+          position={[-10, -10, -10]}
+          intensity={1}
+          color="#00FFD1"
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  const storedTheme = localStorage.getItem('hexa-theme');
-                  const theme = storedTheme || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-                  document.documentElement.setAttribute('data-theme', theme);
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
-      </head>
-      <body>{children}</body>
-    </html>
+
+        {/* O İLK FOTOĞRAFTAKİ KUSURSUZ YANSIYI VEREN STÜDYO ORTAMI */}
+        <Environment preset="studio" />
+
+        <Float speed={2} rotationIntensity={0.1} floatIntensity={1.2}>
+          <SvgModel />
+        </Float>
+      </Canvas>
+    </div>
   );
 }
