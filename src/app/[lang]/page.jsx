@@ -5,6 +5,7 @@ import Manifesto from "@/components/sections/Manifesto/Manifesto";
 import ServicesIndex from "@/components/sections/ServicesIndex/ServicesIndex";
 import Process from "@/components/sections/Process/Process";
 import FAQ from "@/components/sections/FAQ/FAQ";
+import Footer from "@/components/layout/Footer/Footer";
 
 export async function generateStaticParams() {
   return [{ lang: "tr" }, { lang: "en" }];
@@ -83,6 +84,7 @@ export default async function HomePage({ params }) {
         <Process lang={lang} />
         <FAQ lang={lang} />
       </main>
+      <Footer lang={lang} />
     </>
   );
 }
