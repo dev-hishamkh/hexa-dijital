@@ -2,10 +2,9 @@ import Header from "@/components/layout/Header/Header";
 import Hero from "@/components/sections/Hero/Hero";
 import SelectedWorks from "@/components/sections/SelectedWorks/SelectedWorks";
 import Manifesto from "@/components/sections/Manifesto/Manifesto";
-
 import ServicesIndex from "@/components/sections/ServicesIndex/ServicesIndex";
-
 import Process from "@/components/sections/Process/Process";
+import FAQ from "@/components/sections/FAQ/FAQ";
 
 export async function generateStaticParams() {
   return [{ lang: "tr" }, { lang: "en" }];
@@ -82,6 +81,7 @@ export default async function HomePage({ params }) {
         <Manifesto lang={lang} />
         <ServicesIndex lang={lang} />
         <Process lang={lang} />
+        <FAQ lang={lang} />
       </main>
     </>
   );

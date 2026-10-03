@@ -1,0 +1,445 @@
+.section {
+    position: relative;
+    width: 100vw;
+    background-color: var(--hexa-bg);
+    padding: 8rem 0 11rem 0;
+    border-top: 1px solid var(--hexa-border);
+    overflow: hidden;
+    transition: background-color 0.4s var(--ease-out);
+}
+
+.container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding-left: clamp(2rem, 5vw, 5.5rem);
+    padding-right: clamp(2.5rem, 6vw, 6.5rem);
+    display: grid;
+    grid-template-columns: 0.95fr 1.65fr;
+    align-items: flex-start;
+    gap: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+/* ==========================================================================
+   SOL SÜTUN: STICKY PANEL
+   ========================================================================== */
+.stickyColumn {
+    position: relative;
+    height: 100%;
+}
+
+.contactCard {
+    position: sticky;
+    top: 120px;
+    background: #0D111A;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="light"] .contactCard {
+    background: #FFFFFF;
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.08);
+}
+
+.cardHeading {
+    font-family: var(--font-main);
+    font-size: clamp(2rem, 3.2vw, 2.8rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.04em;
+    color: var(--hexa-font-main);
+    margin: 0;
+}
+
+.cardText {
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--hexa-font-dim);
+    letter-spacing: -0.015em;
+    margin: 0;
+}
+
+/* Metrik Kutusu */
+.metricGrid {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    align-items: center;
+    gap: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 2rem;
+}
+
+[data-theme="light"] .metricGrid {
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+.metricItem {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.metricVal {
+    font-family: var(--font-main);
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: var(--hexa-font-main);
+    line-height: 1;
+}
+
+.metricSub {
+    font-family: var(--font-main);
+    font-size: 0.78rem;
+    color: var(--hexa-font-muted);
+    line-height: 1.3;
+}
+
+.metricDivider {
+    width: 1px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="light"] .metricDivider {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================================================
+   BUTON HİYERARŞİSİ & CANLI TELEMETRİ ALANI
+   ========================================================================== */
+.cardFooter {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+}
+
+/* 1. Birincil Buton: WhatsApp */
+.primaryWhatsappBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 0.85rem 0.75rem 1.65rem;
+    border-radius: var(--radius-full);
+    background-color: #FFFFFF;
+    color: #0A0E17;
+    text-decoration: none;
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .primaryWhatsappBtn {
+    background-color: #111827;
+    color: #FFFFFF;
+}
+
+.btnText {
+    letter-spacing: -0.01em;
+}
+
+.btnCircle {
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-full);
+    background-color: #0A0E17;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="light"] .btnCircle {
+    background-color: #FFFFFF;
+}
+
+.ctaArrowSvg {
+    width: 16px;
+    height: 16px;
+    color: #FFFFFF;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s var(--ease-out);
+}
+
+[data-theme="light"] .ctaArrowSvg {
+    color: #111827;
+}
+
+.primaryWhatsappBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px var(--hexa-accent-glow);
+    background-color: #FFFFFF;
+}
+
+.primaryWhatsappBtn:hover .btnCircle {
+    background-color: var(--hexa-accent);
+    transform: translate(2px, -2px);
+}
+
+.primaryWhatsappBtn:hover .ctaArrowSvg {
+    color: #0A0E17;
+}
+
+/* 2. İkincil Hafif Link */
+.secondaryFormLink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    font-family: var(--font-main);
+    font-size: 0.84rem;
+    font-weight: 500;
+    color: var(--hexa-font-muted);
+    text-decoration: none;
+    transition: color 0.25s var(--ease-out);
+    padding: 0.25rem 0;
+}
+
+.arrowSmall {
+    transition: transform 0.25s var(--ease-out);
+}
+
+.secondaryFormLink:hover {
+    color: var(--hexa-font-main);
+}
+
+.secondaryFormLink:hover .arrowSmall {
+    transform: translateX(4px);
+}
+
+/* ==========================================================================
+   CANLI DURUM SİNYALİ (GERÇEK ZAMANLI TELEMETRİ)
+   ========================================================================== */
+.liveStatusRow {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-top: 0.25rem;
+}
+
+.statusPulseDot {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-full);
+    flex-shrink: 0;
+}
+
+/* Çevrimiçi: Yeşil Nabız */
+.dotOnline {
+    background-color: #10b981;
+    box-shadow: 0 0 10px #10b981;
+    animation: pulseGreen 2s infinite ease-in-out;
+}
+
+@keyframes pulseGreen {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+        box-shadow: 0 0 10px #10b981;
+    }
+
+    50% {
+        transform: scale(0.85);
+        opacity: 0.4;
+        box-shadow: 0 0 4px #10b981;
+    }
+}
+
+/* Çevrimdışı: Kırmızı / Kehribar Sakin Durum */
+.dotOffline {
+    background-color: #ef4444;
+    box-shadow: 0 0 8px #ef4444;
+}
+
+.statusText {
+    font-family: var(--font-main);
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--hexa-font-muted);
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+}
+
+/* ==========================================================================
+   SAĞ TARAF: BOŞLUKSUZ 2 BAĞIMSIZ SÜTUN
+   ========================================================================== */
+.rightColumnsWrap {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.15rem;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.faqSubColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+    width: 100%;
+}
+
+.capsuleCard {
+    position: relative;
+    background: #0D111A;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 1.45rem 1.5rem;
+    cursor: pointer;
+    user-select: none;
+    transition:
+        border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+        background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.25s var(--ease-out);
+}
+
+[data-theme="light"] .capsuleCard {
+    background: #FFFFFF;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+.capsuleCard:hover {
+    border-color: rgba(255, 255, 255, 0.18);
+    background-color: rgba(255, 255, 255, 0.02);
+    transform: translateY(-1px);
+}
+
+.cardExpanded {
+    border-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.035);
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="light"] .cardExpanded {
+    border-color: rgba(0, 0, 0, 0.2);
+    background-color: #FAFAFA;
+}
+
+.capsuleTop {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.questionText {
+    font-family: var(--font-main);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.02em;
+    color: var(--hexa-font-main);
+    margin: 0;
+    transition: color 0.25s var(--ease-out);
+}
+
+.capsuleCard:hover .questionText,
+.cardExpanded .questionText {
+    color: #FFFFFF;
+}
+
+.iconBox {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.iconH,
+.iconV {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.45);
+    border-radius: var(--radius-full);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s var(--ease-out);
+}
+
+[data-theme="light"] .iconH,
+[data-theme="light"] .iconV {
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.iconH {
+    width: 13px;
+    height: 1.5px;
+}
+
+.iconV {
+    width: 1.5px;
+    height: 13px;
+}
+
+.capsuleCard:hover .iconH,
+.capsuleCard:hover .iconV,
+.cardExpanded .iconH {
+    background-color: #FFFFFF;
+}
+
+.vRotated {
+    transform: rotate(90deg);
+    opacity: 0;
+}
+
+.drawer {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s var(--ease-out), padding 0.35s ease;
+}
+
+.drawerOpen {
+    max-height: 250px;
+    opacity: 1;
+    padding-top: 1.25rem;
+}
+
+.answerText {
+    font-family: var(--font-main);
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: var(--hexa-font-dim);
+    letter-spacing: -0.015em;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1080px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+    }
+
+    .contactCard {
+        position: static;
+    }
+}
+
+@media (max-width: 680px) {
+    .section {
+        padding: 5rem 0 7rem 0;
+    }
+
+    .rightColumnsWrap {
+        grid-template-columns: 1fr;
+    }
+
+    .contactCard {
+        padding: 2rem 1.5rem;
+    }
+
+    .cardHeading {
+        font-size: 2rem;
+    }
+}
