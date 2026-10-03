@@ -31,6 +31,7 @@
 .footerColumnItem {
     display: flex;
     flex-direction: column;
+    will-change: transform, opacity;
 }
 
 .footerColumnTitle {
@@ -65,7 +66,7 @@
 
 .footerColHeaderLink:hover .colArrow {
     color: var(--hexa-accent);
-    transform: translate(2px, -2px);
+    transform: translate(3px, -3px);
 }
 
 .footerLinksList {
@@ -88,12 +89,16 @@
 }
 
 .footerLinksList a:hover {
-    color: var(--hexa-font-main);
-    transform: translateX(3px);
+    color: #FFFFFF;
+    transform: translateX(4px);
+}
+
+[data-theme="light"] .footerLinksList a:hover {
+    color: #111827;
 }
 
 /* ==========================================================================
-   ORİJİNAL 35VW DEVASA HEXA FİLİGRANI
+   ORİJİNAL 35VW DEVASA HEXA FİLİGRANI (LÜKS SİBER KABARTMA TONU)
    ========================================================================== */
 .footerBottomContainer {
     position: relative;
@@ -116,12 +121,15 @@
     overflow: hidden;
     pointer-events: none;
     line-height: 0.75;
+    transform-origin: center bottom;
+    will-change: transform;
 }
 
 .footerMassiveText span {
     text-align: center;
     width: 100%;
-    color: rgba(255, 255, 255, 0.035);
+    /* Derin gece zemininde mermer rölyef gibi net görünen lüks ton */
+    color: rgba(255, 255, 255, 0.055);
     text-transform: uppercase;
     font-size: 35vw;
     font-weight: 700;
@@ -133,7 +141,7 @@
 }
 
 [data-theme="light"] .footerMassiveText span {
-    color: rgba(0, 0, 0, 0.035);
+    color: rgba(0, 0, 0, 0.045);
 }
 
 .footerSocialRow {
@@ -149,6 +157,7 @@
     z-index: 2;
     border-top: 1px solid var(--hexa-border);
     padding-top: 18px;
+    will-change: transform, opacity;
 }
 
 .copyrightText {

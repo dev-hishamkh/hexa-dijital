@@ -1,16 +1,95 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Link from "next/link";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { servicesData } from "@/data/servicesData";
 import styles from "./Footer.module.css";
 
 export default function Footer({ lang = "tr" }) {
+  const footerRef = useRef(null);
+  const columnsRef = useRef(null);
+  const massiveTextRef = useRef(null);
+  const socialRowRef = useRef(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const columns = columnsRef.current?.querySelectorAll(
+      `.${styles.footerColumnItem}`,
+    );
+    const massiveText = massiveTextRef.current;
+    const socialRow = socialRowRef.current;
+
+    const ctx = gsap.context(() => {
+      // 1. 5 Kolonlu Hizmet Ağının Kademeli Girişi
+      if (columns && columns.length > 0) {
+        gsap.fromTo(
+          columns,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            stagger: 0.08,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: columnsRef.current,
+              start: "top 85%",
+              once: true,
+            },
+          },
+        );
+      }
+
+      // 2. Devasa 35VW HEXA Filigranının Parallax Yükselişi (Opasite boğulması kaldırıldı!)
+      if (massiveText) {
+        gsap.fromTo(
+          massiveText,
+          { scale: 0.9, y: 40 },
+          {
+            scale: 1,
+            y: 0,
+            ease: "none",
+            scrollTrigger: {
+              trigger: footerRef.current,
+              start: "top bottom",
+              end: "bottom bottom",
+              scrub: 1, // Lenis ile senkronize akış
+            },
+          },
+        );
+      }
+
+      // 3. Telif & Sosyal Medya Satırı Girişi
+      if (socialRow) {
+        gsap.fromTo(
+          socialRow,
+          { opacity: 0, y: 15 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: socialRow,
+              start: "top 95%",
+              once: true,
+            },
+          },
+        );
+      }
+    }, footerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <footer className={styles.hexaPremiumFooter}>
+    <footer ref={footerRef} className={styles.hexaPremiumFooter}>
       <div className={`container ${styles.container}`}>
         {/* 5 HİZMET KATEGORİSİNİN YAN YANA EŞİT DİZİLİMİ */}
-        <div className={styles.footerColumns5grid}>
+        <div ref={columnsRef} className={styles.footerColumns5grid}>
           {servicesData.map((category) => {
             const sub = category.subCategories[0];
             if (!sub) return null;
@@ -53,13 +132,18 @@ export default function Footer({ lang = "tr" }) {
 
       {/* DEVASA ORİJİNAL 35VW HEXA FİLİGRANI */}
       <div className={styles.footerBottomContainer}>
-        <div className={styles.footerMassiveText} aria-hidden="true">
+        <div
+          ref={massiveTextRef}
+          className={styles.footerMassiveText}
+          aria-hidden="true"
+        >
           <span>HEXA</span>
         </div>
 
-        <div className={styles.footerSocialRow}>
+        <div ref={socialRowRef} className={styles.footerSocialRow}>
           <div className={styles.copyrightText}>
-            © {new Date().getFullYear()} Hexa Dijital Tüm hakları saklıdır.
+            © {new Date().getFullYear()} Hexa Dijital • Nilüfer, Bursa. Tüm
+            hakları saklıdır.
           </div>
 
           {/* Sosyal Medya İkonları */}

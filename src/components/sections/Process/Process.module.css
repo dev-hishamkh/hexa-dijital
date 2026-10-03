@@ -72,7 +72,7 @@
 }
 
 /* ==========================================================================
-   GÖRSELDEKİ TİMELİNE MEKANİZMASI (KESİKLİ HAT + AKAN DÜZ HAT)
+   TİMELİNE HATTI (KESİKLİ ARKAPLAN + GSAP SCRUB DÜZ HAT)
    ========================================================================== */
 .timelineStage {
     position: relative;
@@ -89,7 +89,6 @@
     z-index: 1;
 }
 
-/* 1. GÖRSELLERDEKİ ARKADAKİ KESİKLİ ÇİZGİ (DASHED) */
 .trackDashed {
     position: absolute;
     top: 0;
@@ -97,18 +96,17 @@
     width: 100%;
     height: 100%;
     background-image: linear-gradient(to bottom,
-            rgba(255, 255, 255, 0.25) 50%,
+            rgba(255, 255, 255, 0.22) 50%,
             transparent 50%);
     background-size: 2px 14px;
-    /* Kesikli çizgi aralığı */
 }
 
-/* 2. KAYDIRDIKÇA AKAN PARLAK DÜZ ÇİZGİ (SOLID) */
 .trackSolidFill {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
+    height: 0px;
     background: #FFFFFF;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px var(--hexa-accent);
     will-change: height;
@@ -136,6 +134,14 @@
     display: flex;
     flex-direction: column;
     padding-right: 1.5rem;
+    opacity: 0.35;
+    transform: translateY(8px);
+    transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+}
+
+.textActive {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .stepCode {
@@ -189,7 +195,7 @@
 }
 
 /* ==========================================================================
-   MERKEZ: ATTIĞIN GÖRSELLERDEKİ O İKONLU DÜĞÜM (CIRCULAR ICON NODE)
+   MERKEZ: KİNETİK DÜĞÜM (CIRCULAR ICON NODE)
    ========================================================================== */
 .nodeColumn {
     display: flex;
@@ -197,7 +203,6 @@
     justify-content: center;
 }
 
-/* Dış Halka */
 .iconNodeOuter {
     position: relative;
     width: 52px;
@@ -212,10 +217,6 @@
     will-change: transform, box-shadow;
 }
 
-/* 
-  GÖRSELDEKİ O PASİF DURUM (3. Fotoğraf): 
-  Gri, soluk, küçük
-*/
 .iconNodeInner {
     width: 36px;
     height: 36px;
@@ -234,21 +235,16 @@
     transition: transform 0.4s ease;
 }
 
-/* 
-  GÖRSELDEKİ O AKTİF DURUM (1. ve 2. Fotoğraf):
-  Çizgi buraya ulaştığı an düğüm büyür ve Hexa zümrütüne boyanır!
-*/
+/* Çizgi Düğüme Değdiğinde Aktifleşen Siber Halka */
 .nodeActive {
-    border-color: rgba(0, 255, 209, 0.35);
+    border-color: rgba(0, 255, 209, 0.45);
     box-shadow: 0 0 25px var(--hexa-accent-glow);
-    transform: scale(1.14);
+    transform: scale(1.15);
 }
 
 .nodeActive .iconNodeInner {
     background: var(--hexa-accent);
-    /* Hexa Siber Zümrüt (Referanstaki turuncu yerine!) */
     color: #0A0E17;
-    /* Siyah zıt ikon */
     box-shadow: 0 0 16px var(--hexa-accent);
 }
 
@@ -279,8 +275,8 @@
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    opacity: 0.4;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0.3;
 }
 
 .cardActive {
@@ -288,7 +284,7 @@
     border-color: var(--hexa-border-focus);
     background-color: var(--hexa-surface-hover);
     box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.7);
-    transform: translateY(-4px);
+    transform: translateY(-3px);
 }
 
 .cardTop {
@@ -334,12 +330,31 @@
 }
 
 .cardActive .giantNum {
-    color: rgba(0, 255, 209, 0.12);
+    color: rgba(0, 255, 209, 0.15);
 }
 
-/* ==========================================================================
-   MOBİL VE TABLET UYARLAMASI
-   ========================================================================== */
+.radarPulseRing {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(0, 255, 209, 0.3);
+    animation: radarExpand 2.2s infinite ease-out;
+    pointer-events: none;
+}
+
+@keyframes radarExpand {
+    0% {
+        transform: scale(0.6);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+}
+
 @media (max-width: 900px) {
     .section {
         padding: 5rem 0 7rem 0;

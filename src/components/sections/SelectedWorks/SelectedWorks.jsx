@@ -3,6 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./SelectedWorks.module.css";
 
 const basePath =
@@ -116,36 +118,143 @@ const projectsData = [
 
 export default function SelectedWorks({ lang = "tr" }) {
   const [activeFilter, setActiveFilter] = useState("all");
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const [failedImages, setFailedImages] = useState({});
-  const [isSectionVisible, setIsSectionVisible] = useState(false);
   const sectionRef = useRef(null);
+  const headerRef = useRef(null);
+  const filterRef = useRef(null);
+  const gridRef = useRef(null);
   const isTr = lang === "tr";
 
+  // LINEAR SPOTLIGHT: Farenin kartlar üzerindeki cerrahi piksel takibi
+  const handleMouseMove = (e) => {
+    if (!gridRef.current) return;
+    const cards = gridRef.current.querySelectorAll(`.${styles.projectCard}`);
+
+    cards.forEach((card) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      card.style.setProperty("--mouse-x", `${x}px`);
+      card.style.setProperty("--mouse-y", `${y}px`);
+    });
+  };
+
+  // GSAP SENKRONİZE SAHNE AÇILIŞI (BAŞLIK MASKESİ + FİLTRE + KARTLAR)
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsSectionVisible(true);
-        }
-      },
-      { threshold: 0.15 },
+    gsap.registerPlugin(ScrollTrigger);
+
+    const eyebrow = headerRef.current?.querySelector(
+      `.${styles.eyebrowWrapper}`,
     );
+    const line1 = headerRef.current?.querySelector(`.${styles.titleLine1}`);
+    const line2 = headerRef.current?.querySelector(`.${styles.titleLine2}`);
+    const filterBar = filterRef.current;
+    const cards = gridRef.current?.querySelectorAll(`.${styles.projectCard}`);
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 75%", // Bölüm ekranın %75'ine girdiği an başlar
+          once: true,
+        },
+      });
 
-    return () => observer.disconnect();
+      // 1. Rozet açılır
+      if (eyebrow) {
+        tl.fromTo(
+          eyebrow,
+          { opacity: 0, x: -20 },
+          { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" },
+        );
+      }
+
+      // 2. İki satırlı başlık gizli maskenin arkasından fırlar
+      if (line1 && line2) {
+        tl.fromTo(
+          [line1, line2],
+          { yPercent: 110, opacity: 0 },
+          {
+            yPercent: 0,
+            opacity: 1,
+            duration: 0.9,
+            stagger: 0.12,
+            ease: "power4.out",
+          },
+          "-=0.3",
+        );
+      }
+
+      // 3. Filtre çubuğu yumuşakça oturur
+      if (filterBar) {
+        tl.fromTo(
+          filterBar,
+          { opacity: 0, y: 15 },
+          { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
+          "-=0.4",
+        );
+      }
+
+      // 4. Kartlar ardı ardına 3D süzülüşle sahneye oturur
+      if (cards && cards.length > 0) {
+        tl.fromTo(
+          cards,
+          { opacity: 0, y: 40, scale: 0.96 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.8,
+            stagger: 0.09,
+            ease: "power3.out",
+          },
+          "-=0.3",
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
-  const handleFilterChange = (filterId) => {
-    if (filterId === activeFilter) return;
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setActiveFilter(filterId);
-      setIsTransitioning(false);
-    }, 220); // 220ms pürüzsüz geri çekilme süresi
+  // GSAP AKICI FİLTRE DEĞİŞİMİ
+  const handleFilterClick = (tabId) => {
+    if (tabId === activeFilter) return;
+
+    const cards = gridRef.current?.querySelectorAll(`.${styles.projectCard}`);
+    if (!cards) {
+      setActiveFilter(tabId);
+      return;
+    }
+
+    gsap.to(cards, {
+      opacity: 0,
+      scale: 0.96,
+      duration: 0.2,
+      ease: "power2.in",
+      onComplete: () => {
+        setActiveFilter(tabId);
+        setTimeout(() => {
+          const newCards = gridRef.current?.querySelectorAll(
+            `.${styles.projectCard}`,
+          );
+          if (newCards) {
+            gsap.fromTo(
+              newCards,
+              { opacity: 0, y: 25, scale: 0.96 },
+              {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 0.55,
+                stagger: 0.08,
+                ease: "power3.out",
+              },
+            );
+          }
+        }, 30);
+      },
+    });
   };
 
   const handleImageError = (id) => {
@@ -165,35 +274,36 @@ export default function SelectedWorks({ lang = "tr" }) {
       aria-label="Seçkin Projeler Vitrini"
     >
       <div className={`container ${styles.container}`}>
-        {/* 1. ÜST EDİTORYAL BAŞLIK */}
-        <header className={styles.header}>
+        {/* 1. APPLE TARZI MASKELİ EDİTORYAL BAŞLIK */}
+        <header ref={headerRef} className={styles.header}>
           <div className={styles.eyebrowWrapper}>
+            <span className={styles.eyebrowDot} />
             <span className={styles.eyebrowText}>
               {isTr ? "SEÇKİN ÇALIŞMALAR" : "SELECTED WORK"}
             </span>
           </div>
 
           <h2 className={styles.mainTitle}>
-            {isTr ? (
-              <>
-                Sözde değil sahada çalışan, <br className={styles.titleBr} />
-                <span className={styles.titleAccent}>
-                  müşterisiyle buluşmuş projeler.
-                </span>
-              </>
-            ) : (
-              <>
-                Quiet craft, engineered for <br className={styles.titleBr} />
-                <span className={styles.titleAccent}>
-                  brands you probably already use.
-                </span>
-              </>
-            )}
+            <span className={styles.maskContainer}>
+              <span className={styles.titleLine1}>
+                {isTr
+                  ? "Sözde değil sahada çalışan,"
+                  : "Quiet craft, engineered for"}
+              </span>
+            </span>
+
+            <span className={styles.maskContainer}>
+              <span className={`${styles.titleLine2} ${styles.titleAccent}`}>
+                {isTr
+                  ? "müşterisiyle buluşmuş projeler."
+                  : "brands you probably already use."}
+              </span>
+            </span>
           </h2>
         </header>
 
         {/* 2. RAFİNE FİLTRE ÇUBUĞU */}
-        <div className={styles.filterBar}>
+        <div ref={filterRef} className={styles.filterBar}>
           <div className={styles.filterPillsGroup}>
             <span className={styles.filterLabel}>
               {isTr ? "FİLTRE:" : "FILTER:"}
@@ -203,7 +313,7 @@ export default function SelectedWorks({ lang = "tr" }) {
               return (
                 <button
                   key={tab.id}
-                  onClick={() => handleFilterChange(tab.id)}
+                  onClick={() => handleFilterClick(tab.id)}
                   className={`${styles.filterPill} ${
                     isActive ? styles.pillActive : ""
                   }`}
@@ -219,32 +329,25 @@ export default function SelectedWorks({ lang = "tr" }) {
           </span>
         </div>
 
-        {/* 3. KADEMELİ SÜZÜLEN VE GEÇİŞLİ KART IZGARASI */}
+        {/* 3. LINEAR SPOTLIGHT KART IZGARASI */}
         <div
-          className={`${styles.showcaseGrid} ${
-            isTransitioning ? styles.gridFading : ""
-          }`}
+          ref={gridRef}
+          onMouseMove={handleMouseMove}
+          className={styles.showcaseGrid}
         >
-          {filtered.map((item, index) => {
+          {filtered.map((item) => {
             const hasError = failedImages[item.id];
             const currentAlt =
               item.imageAlt?.[lang] || item.imageAlt?.tr || item.title;
 
             return (
-              <article
-                key={item.id}
-                className={`${styles.projectCard} ${
-                  isSectionVisible ? styles.cardVisible : ""
-                }`}
-                style={{
-                  "--stagger-delay": `${index * 0.08}s`,
-                }}
-              >
+              <article key={item.id} className={styles.projectCard}>
+                <div className={styles.spotlightBorder} aria-hidden="true" />
+
                 <Link
                   href={`/${lang}/projeler/${item.slug}`}
                   className={styles.cardLink}
                 >
-                  {/* Görsel Çerçevesi */}
                   <div className={styles.viewportArea}>
                     {!hasError ? (
                       <Image
@@ -272,7 +375,6 @@ export default function SelectedWorks({ lang = "tr" }) {
 
                     <div className={styles.vignetteOverlay} />
 
-                    {/* Sol Üst Köşedeki Marka Monogramı */}
                     <div className={styles.brandLogoBadge}>
                       {item.logoSrc ? (
                         <Image
@@ -289,7 +391,6 @@ export default function SelectedWorks({ lang = "tr" }) {
                       )}
                     </div>
 
-                    {/* Sağ Üstteki Cerrahi SVG Dış Bağlantı Oku */}
                     <div className={styles.heroArrowBadge}>
                       <svg
                         className={styles.ctaArrowSvg}
@@ -309,7 +410,6 @@ export default function SelectedWorks({ lang = "tr" }) {
                     <span className={styles.innerBadge}>{item.badge}</span>
                   </div>
 
-                  {/* Kart Altı Editoryal Tipografi */}
                   <div className={styles.cardMeta}>
                     <div className={styles.titleRow}>
                       <h3 className={styles.cardTitle}>{item.title}</h3>

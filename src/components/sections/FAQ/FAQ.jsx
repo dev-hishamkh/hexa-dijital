@@ -1,7 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { dictionary } from "@/data/dictionary";
 import styles from "./FAQ.module.css";
 
@@ -135,9 +137,13 @@ const faqItems = {
 export default function FAQ({ lang = "tr" }) {
   const [openId, setOpenId] = useState(1);
   const [isOnline, setIsOnline] = useState(true);
+  const sectionRef = useRef(null);
+  const stickyRef = useRef(null);
+  const cardsWrapRef = useRef(null);
   const dict = dictionary[lang]?.faq || dictionary.tr.faq;
   const currentFaq = faqItems[lang] || faqItems.tr;
 
+  // GOOGLE PROFİLİ: 7 GÜN 09:00 - 17:00 CANLI MESAİ KONTROLÜ
   useEffect(() => {
     const checkOfficeHours = () => {
       const now = new Date();
@@ -152,6 +158,50 @@ export default function FAQ({ lang = "tr" }) {
     checkOfficeHours();
     const interval = setInterval(checkOfficeHours, 60000);
     return () => clearInterval(interval);
+  }, []);
+
+  // GSAP SCROLLTRIGGER İLE SENKRONİZE GİRİŞ
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const stickyCard = stickyRef.current;
+    const cards = cardsWrapRef.current?.querySelectorAll(
+      `.${styles.capsuleCard}`,
+    );
+    if (!stickyCard || !cards || cards.length === 0) return;
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 72%",
+          once: true,
+        },
+      });
+
+      // 1. Sol Sticky Panel Girişi
+      tl.fromTo(
+        stickyCard,
+        { opacity: 0, x: -30, scale: 0.98 },
+        { opacity: 1, x: 0, scale: 1, duration: 0.8, ease: "power3.out" },
+      );
+
+      // 2. Sağdaki 12 Kartın Şelale Süzülüşü
+      tl.fromTo(
+        cards,
+        { opacity: 0, y: 24 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.65,
+          stagger: 0.04,
+          ease: "power3.out",
+        },
+        "-=0.5",
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   const toggleItem = (id) => {
@@ -179,7 +229,7 @@ export default function FAQ({ lang = "tr" }) {
           </div>
         </div>
 
-        {/* 2026 CSS Grid Akordeon Wrapper */}
+        {/* 2026 CSS Grid Akordeon Mekanizması */}
         <div className={`${styles.drawer} ${isOpen ? styles.drawerOpen : ""}`}>
           <div className={styles.drawerInner}>
             <p className={styles.answerText}>{item.a}</p>
@@ -191,13 +241,15 @@ export default function FAQ({ lang = "tr" }) {
 
   return (
     <section
+      ref={sectionRef}
       className={styles.section}
       id="sss"
       aria-label="Sıkça Sorulan Sorular"
     >
       <div className={`container ${styles.container}`}>
+        {/* SOL STICKY BÖLÜM */}
         <div className={styles.stickyColumn}>
-          <div className={styles.contactCard}>
+          <div ref={stickyRef} className={styles.contactCard}>
             <h2 className={styles.cardHeading}>{dict.leftHeading}</h2>
             <p className={styles.cardText}>{dict.leftText}</p>
 
@@ -267,7 +319,8 @@ export default function FAQ({ lang = "tr" }) {
           </div>
         </div>
 
-        <div className={styles.rightColumnsWrap}>
+        {/* SAĞ TARAF: 2 SÜTUNLU 12 ADET KAPSÜL KART */}
+        <div ref={cardsWrapRef} className={styles.rightColumnsWrap}>
           <div className={styles.faqSubColumn}>
             {leftColumnItems.map(renderCard)}
           </div>

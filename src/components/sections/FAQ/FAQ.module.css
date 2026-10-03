@@ -19,6 +19,9 @@
     gap: clamp(2.5rem, 5vw, 4.5rem);
 }
 
+/* ==========================================================================
+   SOL SÜTUN: STICKY PANEL
+   ========================================================================== */
 .stickyColumn {
     position: relative;
     height: 100%;
@@ -35,6 +38,7 @@
     flex-direction: column;
     gap: 2rem;
     box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.7);
+    will-change: transform, opacity;
 }
 
 [data-theme="light"] .contactCard {
@@ -255,6 +259,9 @@
     line-height: 1.35;
 }
 
+/* ==========================================================================
+   SAĞ KAPSÜL KARTLAR & GSAP ŞELALE AKIŞI
+   ========================================================================== */
 .rightColumnsWrap {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -282,6 +289,7 @@
         border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
         background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
         transform 0.25s var(--ease-out);
+    will-change: transform, opacity;
 }
 
 [data-theme="light"] .capsuleCard {
@@ -296,13 +304,13 @@
 }
 
 .cardExpanded {
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(0, 255, 209, 0.3);
     background-color: rgba(255, 255, 255, 0.035);
-    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 255, 209, 0.06);
 }
 
 [data-theme="light"] .cardExpanded {
-    border-color: rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 168, 135, 0.35);
     background-color: #FAFAFA;
 }
 
@@ -366,7 +374,7 @@
 .capsuleCard:hover .iconH,
 .capsuleCard:hover .iconV,
 .cardExpanded .iconH {
-    background-color: #FFFFFF;
+    background-color: var(--hexa-accent);
 }
 
 .vRotated {
@@ -380,7 +388,7 @@
 .drawer {
     display: grid;
     grid-template-rows: 0fr;
-    transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: grid-template-rows 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .drawerOpen {

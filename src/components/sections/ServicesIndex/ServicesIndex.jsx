@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./ServicesIndex.module.css";
 
 const servicesList = [
@@ -59,10 +61,58 @@ const servicesList = [
 
 export default function ServicesIndex({ lang = "tr" }) {
   const [activeIdx, setActiveIdx] = useState(null);
+  const sectionRef = useRef(null);
+  const titleRef = useRef(null);
+  const listRef = useRef(null);
   const isTr = lang === "tr";
+
+  // GSAP SCROLLTRIGGER İLE KADEMELİ SAHNE GİRİŞİ
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const titleEl = titleRef.current;
+    const items = listRef.current?.querySelectorAll(`.${styles.serviceItem}`);
+    if (!items || items.length === 0) return;
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 72%", // Bölüm ekranın %72'sine girdiğinde başlar
+          once: true,
+        },
+      });
+
+      // 1. Üst Başlık soldan süzülerek açılır
+      if (titleEl) {
+        tl.fromTo(
+          titleEl,
+          { opacity: 0, x: -25 },
+          { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" },
+        );
+      }
+
+      // 2. 5 Hizmet satırı dipten yukarı sırayla yaylanır
+      tl.fromTo(
+        items,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: "power3.out",
+        },
+        "-=0.3",
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <section
+      ref={sectionRef}
       className={styles.servicesSection}
       id="hizmetler"
       aria-label="Hizmetlerimiz"
@@ -91,14 +141,16 @@ export default function ServicesIndex({ lang = "tr" }) {
       <div className={styles.bottomFadeGradient} aria-hidden="true" />
 
       <div className={`container ${styles.container}`}>
-        {/* SEMANTİK VE YEREL SEO KİLİDİ: DOĞRUDAN H2 BAŞLIĞI */}
-        <h2 className={styles.sectionTitle}>
+        {/* SEMANTİK H2 BAŞLIĞI */}
+        <h2 ref={titleRef} className={styles.sectionTitle}>
           {isTr
             ? "Bursa Web Tasarım & Yazılım Hizmetleri"
             : "Digital Engineering & Web Services"}
         </h2>
 
+        {/* GSAP KADEMELİ GİRİŞ LİSTESİ */}
         <div
+          ref={listRef}
           className={`${styles.servicesList} ${
             activeIdx !== null ? styles.hasActiveItem : ""
           }`}

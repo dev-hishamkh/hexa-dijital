@@ -15,6 +15,9 @@
     padding-right: clamp(2.5rem, 6vw, 6.5rem);
 }
 
+/* ==========================================================================
+   1. MASKELİ BAŞLIK VE ROZET
+   ========================================================================== */
 .header {
     display: flex;
     flex-direction: column;
@@ -27,6 +30,7 @@
     align-items: center;
     gap: 0.5rem;
     margin-bottom: 1.25rem;
+    will-change: transform, opacity;
 }
 
 .eyebrowDot {
@@ -54,10 +58,21 @@
     letter-spacing: -0.04em;
     color: var(--hexa-font-main);
     margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
-.titleBr {
+/* Görünmez Perde (Mask) Kapsayıcısı */
+.maskContainer {
     display: block;
+    overflow: hidden;
+    padding-bottom: 0.1em;
+}
+
+.titleLine1,
+.titleLine2 {
+    display: inline-block;
+    will-change: transform, opacity;
 }
 
 .titleAccent {
@@ -68,7 +83,9 @@
     letter-spacing: -0.02em;
 }
 
-/* 2. Filtre Çubuğu */
+/* ==========================================================================
+   2. FİLTRE ÇUBUĞU
+   ========================================================================== */
 .filterBar {
     display: flex;
     align-items: center;
@@ -78,6 +95,7 @@
     margin-bottom: 3.5rem;
     flex-wrap: wrap;
     gap: 1.25rem;
+    will-change: transform, opacity;
 }
 
 .filterPillsGroup {
@@ -133,37 +151,57 @@
 }
 
 /* ==========================================================================
-   3. KART IZGARASI & PÜRÜZSÜZ FİLTRE GEÇİŞİ
+   3. LINEAR SPOTLIGHT KARTLARI
    ========================================================================== */
 .showcaseGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: clamp(1.5rem, 2.5vw, 2.5rem);
     width: 100%;
-    transition: opacity 0.22s var(--ease-out), transform 0.22s var(--ease-out);
 }
 
-.gridFading {
-    opacity: 0.25;
-    transform: scale(0.985);
-}
-
-/* Kademeli (Staggered) Kart Girişi */
 .projectCard {
     position: relative;
     display: flex;
     flex-direction: column;
-    opacity: 0;
-    transform: translateY(32px);
-    transition:
-        opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--stagger-delay),
-        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--stagger-delay);
-    will-change: opacity, transform;
+    padding: 1.25rem;
+    border-radius: calc(var(--radius-md) + 6px);
+    background-color: rgba(255, 255, 255, 0.015);
+    border: 1px solid var(--hexa-border);
+    transition: background-color 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+    overflow: hidden;
+    will-change: transform, opacity;
 }
 
-.cardVisible {
+[data-theme="light"] .projectCard {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.projectCard:hover {
+    transform: translateY(-3px);
+    background-color: rgba(255, 255, 255, 0.025);
+}
+
+.spotlightBorder {
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: radial-gradient(350px circle at var(--mouse-x, -999px) var(--mouse-y, -999px),
+            rgba(0, 255, 209, 0.5),
+            rgba(0, 255, 209, 0.08) 50%,
+            transparent 80%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 10;
+}
+
+.projectCard:hover .spotlightBorder {
     opacity: 1;
-    transform: translateY(0);
 }
 
 .cardLink {
@@ -171,6 +209,8 @@
     flex-direction: column;
     text-decoration: none;
     width: 100%;
+    position: relative;
+    z-index: 2;
 }
 
 .viewportArea {
@@ -182,18 +222,7 @@
     border: 1px solid var(--hexa-border);
     background-color: var(--hexa-surface);
     margin-bottom: 1.25rem;
-    transition:
-        border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        box-shadow 0.4s var(--ease-out);
-}
-
-.projectCard:hover .viewportArea {
-    border-color: var(--hexa-border-focus);
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
-}
-
-[data-theme="light"] .projectCard:hover .viewportArea {
-    box-shadow: 0 20px 35px -15px rgba(0, 0, 0, 0.08);
+    transition: border-color 0.4s var(--ease-out);
 }
 
 .projectImg {
@@ -432,10 +461,6 @@
     .showcaseGrid {
         grid-template-columns: 1fr;
         gap: 2.25rem;
-    }
-
-    .titleBr {
-        display: inline;
     }
 
     .mainTitle {

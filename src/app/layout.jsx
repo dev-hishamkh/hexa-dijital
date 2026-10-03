@@ -46,7 +46,8 @@ export default function RootLayout({ children }) {
         />
         <script src={`${basePath}/theme.js`} />
       </head>
-      <body>
+      {/* suppressHydrationWarning: Tarayıcı eklentilerinin (ColorZilla vb.) body'ye attribute basıp hata üretmesini engeller */}
+      <body suppressHydrationWarning>
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>

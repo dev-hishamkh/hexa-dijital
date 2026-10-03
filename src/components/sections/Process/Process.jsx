@@ -1,17 +1,18 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { dictionary } from "@/data/dictionary";
 import styles from "./Process.module.css";
 
 export default function Process({ lang = "tr" }) {
   const dict = dictionary[lang]?.process || dictionary.tr.process;
+  const sectionRef = useRef(null);
+  const headerRef = useRef(null);
   const trackRef = useRef(null);
+  const fillLineRef = useRef(null);
   const nodeRefs = useRef([]);
-
-  const [currentFill, setCurrentFill] = useState(0);
-  const targetFillRef = useRef(0);
-  const currentFillRef = useRef(0);
   const [activeNodes, setActiveNodes] = useState([false, false, false, false]);
 
   const steps = [
@@ -105,50 +106,68 @@ export default function Process({ lang = "tr" }) {
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      const track = trackRef.current;
-      if (!track) return;
+    gsap.registerPlugin(ScrollTrigger);
 
-      const rect = track.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      const triggerY = windowHeight * 0.6;
-      const progressY = triggerY - rect.top;
+    const header = headerRef.current;
+    const track = trackRef.current;
+    const fillLine = fillLineRef.current;
+    if (!track || !fillLine) return;
 
-      targetFillRef.current = Math.min(Math.max(progressY, 0), rect.height);
-    };
+    const ctx = gsap.context(() => {
+      // 1. Başlık Alanı Giriş Animasyonu
+      if (header) {
+        gsap.fromTo(
+          header.children,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.12,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: header,
+              start: "top 80%",
+              once: true,
+            },
+          },
+        );
+      }
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+      // 2. Kinetik Çizginin GSAP ScrollTrigger ile Tereyağı Gibi Akışı
+      ScrollTrigger.create({
+        trigger: track,
+        start: "top 60%", // Çizgi ekranın %60'ına geldiğinde akmaya başlar
+        end: "bottom 60%", // Listenin sonuna ulaştığında tamamlanır
+        scrub: 0.5, // 0.5s ultra pürüzsüz takip
+        onUpdate: (self) => {
+          const progress = self.progress;
+          const trackHeight = track.offsetHeight;
+          const currentHeight = progress * trackHeight;
 
-    let animId;
-    const updatePhysics = () => {
-      currentFillRef.current +=
-        (targetFillRef.current - currentFillRef.current) * 0.08;
-      const smoothVal = currentFillRef.current;
-      setCurrentFill(smoothVal);
+          // Çizgi boyunu doğrudan donanım hızlandırmalı height ile güncelle
+          fillLine.style.height = `${currentHeight}px`;
 
-      const newActive = nodeRefs.current.map((nodeEl) => {
-        if (!nodeEl) return false;
-        const nodeCenter = nodeEl.offsetTop + nodeEl.offsetHeight / 2;
-        return smoothVal >= nodeCenter;
+          // Düğümlerin tam merkezine ulaşıldığında aktif et
+          const newActives = nodeRefs.current.map((nodeEl) => {
+            if (!nodeEl) return false;
+            const nodeCenter = nodeEl.offsetTop + nodeEl.offsetHeight / 2;
+            return currentHeight >= nodeCenter;
+          });
+
+          setActiveNodes(newActives);
+        },
       });
+    }, sectionRef);
 
-      setActiveNodes(newActive);
-      animId = requestAnimationFrame(updatePhysics);
-    };
-
-    animId = requestAnimationFrame(updatePhysics);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (animId) cancelAnimationFrame(animId);
-    };
+    return () => ctx.revert();
   }, []);
 
   return (
-    <section className={styles.section} id="nasil-calisiyoruz">
+    <section ref={sectionRef} className={styles.section} id="nasil-calisiyoruz">
       <div className={`container ${styles.container}`}>
-        <header className={styles.header}>
+        {/* BÖLÜM BAŞLIĞI */}
+        <header ref={headerRef} className={styles.header}>
           <div className={styles.eyebrowWrapper}>
             <span className={styles.eyebrowDot} />
             <span className={styles.eyebrowText}>{dict.eyebrow}</span>
@@ -162,22 +181,27 @@ export default function Process({ lang = "tr" }) {
           <p className={styles.subtitle}>{dict.subtitle}</p>
         </header>
 
+        {/* KİNETİK TİMELİNE SAHNESİ */}
         <div className={styles.timelineStage}>
+          {/* Ortadaki Dikey Hat */}
           <div ref={trackRef} className={styles.timelineTrack}>
             <div className={styles.trackDashed} />
-            <div
-              className={styles.trackSolidFill}
-              style={{ height: `${currentFill}px` }}
-            />
+            <div ref={fillLineRef} className={styles.trackSolidFill} />
           </div>
 
+          {/* Adımlar Listesi */}
           <div className={styles.stepsList}>
             {steps.map((item, idx) => {
               const isReached = activeNodes[idx];
 
               return (
                 <div key={item.step} className={styles.stepRow}>
-                  <div className={styles.textSide}>
+                  {/* SOL TARAF: TİPOGRAFİ */}
+                  <div
+                    className={`${styles.textSide} ${
+                      isReached ? styles.textActive : ""
+                    }`}
+                  >
                     <span className={styles.stepCode}>{item.code}</span>
                     <h3 className={styles.stepTitle}>{item.title}</h3>
                     <p className={styles.stepDesc}>{item.desc}</p>
@@ -187,6 +211,7 @@ export default function Process({ lang = "tr" }) {
                     </div>
                   </div>
 
+                  {/* MERKEZ: KİNETİK İKON DÜĞÜMÜ */}
                   <div className={styles.nodeColumn}>
                     <div
                       ref={(el) => (nodeRefs.current[idx] = el)}
@@ -198,6 +223,7 @@ export default function Process({ lang = "tr" }) {
                     </div>
                   </div>
 
+                  {/* SAĞ TARAF: TELEMETRİ KARTI */}
                   <div className={styles.cardSide}>
                     <div
                       className={`${styles.telemetryCard} ${
@@ -214,6 +240,9 @@ export default function Process({ lang = "tr" }) {
                       </div>
                       <div className={styles.cardCenter}>
                         <span className={styles.giantNum}>{item.step}</span>
+                        {isReached && (
+                          <span className={styles.radarPulseRing} />
+                        )}
                       </div>
                     </div>
                   </div>
