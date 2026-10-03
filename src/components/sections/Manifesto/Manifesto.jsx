@@ -11,27 +11,26 @@ export default function Manifesto({ lang = "tr" }) {
       aria-label="Stüdyo Manifestosu"
     >
       <div className={`container ${styles.container}`}>
-        {/* Üst Eyebrow */}
-        <div className={styles.eyebrowWrapper}></div>
-
-        {/* Hero İle Aynı Editoryal Font Zıtlığı (Sans + Lüks İtalik Serif) */}
-        <h2 className={styles.heading}>
-          <span>
-            {isTr
-              ? "Bir işletmeye sadece güzel görünen bir web sitesi teslim etmek"
-              : "Delivering merely an aesthetic website to an enterprise"}{" "}
-          </span>
-          <span className={styles.serifHighlight}>
-            {isTr ? "işi çözmüyor." : "never solves the puzzle."}
-          </span>
+        {/* TAM ORTALANMIŞ, ANITSAL VE NAKDEN FELSEFE CÜMLESİ */}
+        <h2 className={styles.centerStatement}>
+          {isTr ? (
+            <>
+              Bir işletmeye sadece güzel görünen bir web sitesi teslim etmek{" "}
+              <span className={styles.serifHighlight}>işi çözmüyor.</span>{" "}
+              <br className={styles.desktopBr} />
+              Biz her markayı; saniyeler içinde açılan özel yazılımlar ve kasaya
+              doğrudan ciro düşüren dijital mekanizmalarla{" "}
+              <span className={styles.serifHighlight}>büyütüyoruz.</span>
+            </>
+          ) : (
+            <>
+              We don’t just build websites. We engineer digital experiences and{" "}
+              <span className={styles.serifHighlight}>custom software</span>{" "}
+              that solve real commercial problems and scale with your{" "}
+              <span className={styles.serifHighlight}>business.</span>
+            </>
+          )}
         </h2>
-
-        {/* Vurucu Satış & Felsefe Açıklaması */}
-        <p className={styles.leadText}>
-          {isTr
-            ? "Hızlı açılmayan, kasaya sipariş düşürmeyen ve Google'da rakiplerin arkasında kalan hiçbir tasarımın ticari değeri yoktur. Biz her markayı; arayüzünden veritabanına, sipariş sisteminden reklam bütçesine kadar tek elden, çalışan bir mekanizma olarak kuruyoruz."
-            : "If a platform does not load in sub-seconds, drive sales, and dominate search rankings, it holds zero commercial value. We engineer every enterprise as a unified, revenue-generating mechanism."}
-        </p>
       </div>
     </section>
   );

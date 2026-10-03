@@ -1,66 +1,81 @@
 .manifestoSection {
     position: relative;
     width: 100vw;
+    min-height: 80vh;
     background-color: var(--hexa-bg);
-    padding: clamp(6rem, 10vw, 10rem) 0;
     display: flex;
     align-items: center;
+    justify-content: center;
+    padding: clamp(6rem, 12vw, 12rem) 0;
     overflow: hidden;
+    user-select: none;
     transition: background-color 0.4s var(--ease-out);
 }
 
 .container {
     width: 100%;
-    max-width: var(--max-width);
+    max-width: 1350px;
     margin: 0 auto;
     padding-left: clamp(2rem, 5vw, 5.5rem);
-    padding-right: clamp(2.5rem, 6vw, 6.5rem);
+    padding-right: clamp(2rem, 5vw, 5.5rem);
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Devasa, Tok ve Kararlı Başlık */
-.heading {
+/* ==========================================================================
+   MASAÜSTÜNDE ORTALANMIŞ ANITSAL FELSEFE METNİ
+   ========================================================================== */
+.centerStatement {
     font-family: var(--font-main);
-    font-size: clamp(2.6rem, 5.2vw, 5.2rem);
+    font-size: clamp(2.4rem, 4.4vw, 4.8rem);
     font-weight: 500;
-    line-height: 1.08;
-    letter-spacing: -0.04em;
+    line-height: 1.18;
+    letter-spacing: -0.035em;
     color: var(--hexa-font-main);
-    max-width: 1150px;
-    margin-bottom: 2.5rem;
+    text-align: center;
+    /* Masaüstünde ortalı */
+    margin: 0;
 }
 
-/* Hero İle Birebir Uyumlu İtalik Serif İmzası */
+/* Lüks İtalik Serif İmzası */
 .serifHighlight {
     font-family: var(--font-italic-serif);
     font-style: italic;
     font-weight: 400;
-    color: var(--hexa-font-serif);
-    letter-spacing: -0.02em;
-}
-
-.leadText {
-    font-family: var(--font-main);
-    font-size: clamp(1.15rem, 1.4vw, 1.35rem);
-    line-height: 1.65;
-    color: var(--hexa-font-dim);
     letter-spacing: -0.015em;
-    max-width: 860px;
-    margin: 0;
+    color: var(--hexa-font-serif);
 }
 
-@media (max-width: 768px) {
+.desktopBr {
+    display: block;
+}
+
+/* ==========================================================================
+   MOBİL VE TABLET UYARLAMASI (KULE GÖRÜNÜMÜ YOK EDİLDİ)
+   ========================================================================== */
+@media (max-width: 900px) {
     .manifestoSection {
+        min-height: auto;
         padding: 5rem 0;
+        /* Boşluk dengelendi */
     }
 
-    .heading {
-        font-size: clamp(2.1rem, 7.5vw, 3.2rem);
-        margin-bottom: 1.75rem;
+    .container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        justify-content: flex-start;
+        /* Mobilde sola yasla */
     }
 
-    .leadText {
-        font-size: 1.05rem;
+    .centerStatement {
+        text-align: center !important;
+        font-size: clamp(1.45rem, 5.2vw, 1.85rem) !important;
+        line-height: 1.42 !important;
+        letter-spacing: -0.025em !important;
+    }
+
+    .desktopBr {
+        display: none;
     }
 }
