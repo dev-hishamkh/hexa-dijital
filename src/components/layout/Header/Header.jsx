@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { dictionary } from "@/data/dictionary";
 import styles from "./Header.module.css";
 
 export default function Header({ lang = "tr" }) {
@@ -10,7 +11,7 @@ export default function Header({ lang = "tr" }) {
   const [theme, setTheme] = useState("dark");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const isTr = lang === "tr";
+  const dict = dictionary[lang]?.nav || dictionary.tr.nav;
 
   useEffect(() => {
     const currentTheme =
@@ -42,10 +43,10 @@ export default function Header({ lang = "tr" }) {
   };
 
   const navLinks = [
-    { href: `/${lang}/projeler`, label: isTr ? "Projeler" : "Works" },
-    { href: `/${lang}/hizmetler`, label: isTr ? "Hizmetler" : "Services" },
-    { href: `/${lang}/bursa-nilufer-web-tasarim`, label: "Bursa SEO" },
-    { href: `/${lang}/iletisim`, label: isTr ? "İletişim" : "Contact" },
+    { href: `/${lang}/projeler`, label: dict.works },
+    { href: `/${lang}/hizmetler`, label: dict.services },
+    { href: `/${lang}/bursa-web-tasarim`, label: dict.localSeo },
+    { href: `/${lang}/iletisim`, label: dict.contact },
   ];
 
   const targetLang = lang === "tr" ? "en" : "tr";
@@ -53,18 +54,17 @@ export default function Header({ lang = "tr" }) {
 
   return (
     <div className={styles.headerWrapper}>
-      {/* 2026 YÜZEN SİBER KAPSÜL ADA (FLOATING GLASS ISLAND) */}
       <header
-        className={`${styles.islandNav} ${isScrolled ? styles.islandScrolled : ""}`}
+        className={`${styles.islandNav} ${
+          isScrolled ? styles.islandScrolled : ""
+        }`}
       >
-        {/* Sol Logo & Canlı Nokta */}
         <Link href={`/${lang}`} className={styles.brandLink}>
           <span className={styles.logoName}>HEXA</span>
-          <span className={styles.logoTag}>DIJITAL</span>
+          <span className={styles.logoTag}>DİJİTAL</span>
           <span className={styles.telemetryPulse} />
         </Link>
 
-        {/* Masaüstü Menü Linkleri */}
         <nav className={styles.desktopNav}>
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
@@ -72,7 +72,9 @@ export default function Header({ lang = "tr" }) {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`${styles.navItem} ${isActive ? styles.navItemActive : ""}`}
+                className={`${styles.navItem} ${
+                  isActive ? styles.navItemActive : ""
+                }`}
               >
                 <span>{link.label}</span>
                 {isActive && <span className={styles.activeDot} />}
@@ -81,12 +83,11 @@ export default function Header({ lang = "tr" }) {
           })}
         </nav>
 
-        {/* Sağ Kontrol Paneli: Dil, Dönen Tema İkonu ve Proje Başlat Butonu */}
         <div className={styles.actionPanel}>
           <Link
             href={switchLangHref}
             className={styles.langPill}
-            aria-label="Dili Değiştir"
+            aria-label="Change Language"
           >
             {targetLang.toUpperCase()}
           </Link>
@@ -94,7 +95,7 @@ export default function Header({ lang = "tr" }) {
           <button
             onClick={toggleTheme}
             className={styles.themeBtn}
-            aria-label="Temayı Değiştir"
+            aria-label="Toggle Theme"
           >
             <div className={styles.themeIconWrapper}>
               {theme === "dark" ? (
@@ -130,29 +131,33 @@ export default function Header({ lang = "tr" }) {
           </button>
 
           <Link href={`/${lang}/iletisim`} className={styles.launchBtn}>
-            <span>{isTr ? "Proje Başlat" : "Initiate"}</span>
+            <span>{dict.initiate}</span>
             <span className={styles.launchArrow}>↗</span>
           </Link>
 
-          {/* Mobil Menü Butonu */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={styles.burgerBtn}
             aria-label="Menü"
           >
             <span
-              className={`${styles.burgerBar} ${isMobileMenuOpen ? styles.barTop : ""}`}
+              className={`${styles.burgerBar} ${
+                isMobileMenuOpen ? styles.barTop : ""
+              }`}
             />
             <span
-              className={`${styles.burgerBar} ${isMobileMenuOpen ? styles.barBottom : ""}`}
+              className={`${styles.burgerBar} ${
+                isMobileMenuOpen ? styles.barBottom : ""
+              }`}
             />
           </button>
         </div>
       </header>
 
-      {/* Mobil Açılır Menü Çekmecesi */}
       <div
-        className={`${styles.mobileDrawer} ${isMobileMenuOpen ? styles.drawerVisible : ""}`}
+        className={`${styles.mobileDrawer} ${
+          isMobileMenuOpen ? styles.drawerVisible : ""
+        }`}
       >
         <div className={styles.drawerLinks}>
           {navLinks.map((link) => (
@@ -170,9 +175,7 @@ export default function Header({ lang = "tr" }) {
             className={styles.drawerCta}
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            <span>
-              {isTr ? "Yeni Bir Proje Başlatın" : "Initiate a Project"}
-            </span>
+            <span>{dict.drawerCta}</span>
             <span>↗</span>
           </Link>
         </div>

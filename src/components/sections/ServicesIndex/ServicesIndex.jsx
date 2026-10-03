@@ -4,39 +4,54 @@ import { useState } from "react";
 import Link from "next/link";
 import styles from "./ServicesIndex.module.css";
 
-const services = [
+const servicesList = [
   {
     num: "01",
     slug: "web-tasarim-yazilim",
-    title: "Özel Web Mimarisi",
+    title: {
+      tr: "Özel Web Mimarisi",
+      en: "Bespoke Web Architecture",
+    },
     bgImage:
       "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1800&q=85",
   },
   {
     num: "02",
     slug: "sektorel-otomasyon-pos",
-    title: "Satış & Sipariş Sistemleri",
+    title: {
+      tr: "Satış & Sipariş Sistemleri",
+      en: "POS & Ordering Automation",
+    },
     bgImage:
       "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=1800&q=85",
   },
   {
     num: "03",
     slug: "yerel-seo-harita-dominasyonu",
-    title: "Google Harita & Yerel SEO",
+    title: {
+      tr: "Google Harita & Yerel SEO",
+      en: "Google Maps & Local SEO",
+    },
     bgImage:
       "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1800&q=85",
   },
   {
     num: "04",
     slug: "performans-pazarlama-ads",
-    title: "Performans Reklam Yönetimi",
+    title: {
+      tr: "Performans Reklam Yönetimi",
+      en: "Performance Media & Ads",
+    },
     bgImage:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1800&q=85",
   },
   {
     num: "05",
     slug: "marka-kimligi-kreatif",
-    title: "Kurumsal Marka Kimliği",
+    title: {
+      tr: "Kurumsal Marka Kimliği",
+      en: "Corporate Brand Identity",
+    },
     bgImage:
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=85",
   },
@@ -44,6 +59,7 @@ const services = [
 
 export default function ServicesIndex({ lang = "tr" }) {
   const [activeIdx, setActiveIdx] = useState(null);
+  const isTr = lang === "tr";
 
   return (
     <section
@@ -61,7 +77,7 @@ export default function ServicesIndex({ lang = "tr" }) {
           activeIdx !== null ? styles.containerActive : ""
         }`}
       >
-        {services.map((item, idx) => (
+        {servicesList.map((item, idx) => (
           <div
             key={item.num}
             className={`${styles.hoverImage} ${activeIdx === idx ? styles.active : ""}`}
@@ -75,27 +91,39 @@ export default function ServicesIndex({ lang = "tr" }) {
       <div className={styles.bottomFadeGradient} aria-hidden="true" />
 
       <div className={`container ${styles.container}`}>
-        <span className={styles.sectionTitle}>// HİZMET MİMARİSİ</span>
+        {/* SEMANTİK VE YEREL SEO KİLİDİ: DOĞRUDAN H2 BAŞLIĞI */}
+        <h2 className={styles.sectionTitle}>
+          {isTr
+            ? "Bursa Web Tasarım & Yazılım Hizmetleri"
+            : "Digital Engineering & Web Services"}
+        </h2>
 
         <div
           className={`${styles.servicesList} ${
             activeIdx !== null ? styles.hasActiveItem : ""
           }`}
         >
-          {services.map((item, idx) => (
-            <div
-              key={item.num}
-              className={`${styles.serviceItem} ${
-                activeIdx === idx ? styles.itemHovered : ""
-              }`}
-              onMouseEnter={() => setActiveIdx(idx)}
-            >
-              <Link href={`/${lang}/hizmetler`} className={styles.serviceLink}>
-                <h3 className={styles.serviceName}>{item.title}</h3>
-                <span className={styles.serviceNumber}>{item.num}</span>
-              </Link>
-            </div>
-          ))}
+          {servicesList.map((item, idx) => {
+            const currentTitle = isTr ? item.title.tr : item.title.en;
+
+            return (
+              <div
+                key={item.num}
+                className={`${styles.serviceItem} ${
+                  activeIdx === idx ? styles.itemHovered : ""
+                }`}
+                onMouseEnter={() => setActiveIdx(idx)}
+              >
+                <Link
+                  href={`/${lang}/hizmetler`}
+                  className={styles.serviceLink}
+                >
+                  <h3 className={styles.serviceName}>{currentTitle}</h3>
+                  <span className={styles.serviceNumber}>{item.num}</span>
+                </Link>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

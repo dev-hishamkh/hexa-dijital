@@ -8,7 +8,9 @@ export default function sitemap() {
     "",
     "/hizmetler",
     "/projeler",
-    "/bursa-nilufer-web-tasarim",
+    "/bursa-web-tasarim",
+    "/bursa-web-yazilim",
+    "/bursa-yerel-seo-haritalar",
     "/iletisim",
   ];
 
@@ -19,8 +21,8 @@ export default function sitemap() {
       sitemapEntries.push({
         url: `${baseUrl}/${lang}${route}`,
         lastModified: new Date(),
-        changeFrequency: "weekly",
-        priority: route === "" ? 1.0 : 0.8,
+        changeFrequency: route === "" ? "daily" : "weekly",
+        priority: route === "" ? 1.0 : route.includes("bursa") ? 0.9 : 0.8,
       });
     });
   });

@@ -59,11 +59,10 @@ export default function Footer({ lang = "tr" }) {
 
         <div className={styles.footerSocialRow}>
           <div className={styles.copyrightText}>
-            © {new Date().getFullYear()} Hexa Dijital • Bursa. Tüm hakları
-            saklıdır.
+            © {new Date().getFullYear()} Hexa Dijital Tüm hakları saklıdır.
           </div>
 
-          {/* Sosyal Medya İkonları (Harici paket gerektirmeyen saf SVG) */}
+          {/* Sosyal Medya İkonları */}
           <div className={styles.socialLinks}>
             <a
               href="https://instagram.com/hexadijital"

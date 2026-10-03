@@ -121,7 +121,6 @@
 .footerMassiveText span {
     text-align: center;
     width: 100%;
-    /* Siber gece zemininde lüks kabartma tonu */
     color: rgba(255, 255, 255, 0.035);
     text-transform: uppercase;
     font-size: 35vw;

@@ -4,7 +4,6 @@
     background-color: var(--hexa-bg);
     padding: 8rem 0 12rem 0;
     overflow: hidden;
-    border-top: 1px solid var(--hexa-border);
     transition: background-color 0.4s var(--ease-out);
 }
 

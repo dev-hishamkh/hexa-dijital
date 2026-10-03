@@ -25,8 +25,12 @@ const projectsData = [
     year: "2025",
     impact: "Sıfır Komisyonlu QR Menü & Paket Servis Sistemi",
     imageSrc: `${basePath}/projects/project-1.webp`,
+    imageAlt: {
+      tr: "Bursa Restoran QR Menü Sipariş ve Paket Servis Yazılımı - Munchico Fried Chicken",
+      en: "Bursa Restaurant QR Menu Ordering System - Munchico Fried Chicken",
+    },
     monogram: "MFC",
-    logoSrc: "", // public/projects/logos/munchico.svg koyunca buraya bağlanır
+    logoSrc: "",
   },
   {
     id: 2,
@@ -37,6 +41,10 @@ const projectsData = [
     year: "2025",
     impact: "Google Haritalar 1. Sıra Hakimiyeti & Rezervasyon Akışı",
     imageSrc: `${basePath}/projects/project-2.webp`,
+    imageAlt: {
+      tr: "Bursa Yerel SEO ve Google Haritalar 1. Sıra Çalışması - Alya Davet",
+      en: "Bursa Local SEO and Google Maps #1 Ranking - Alya Event",
+    },
     monogram: "ADY",
     logoSrc: "",
   },
@@ -49,6 +57,10 @@ const projectsData = [
     year: "2024",
     impact: "Hızlı Web Sitesi & Her Gün Telefon Çaldıran Reklam Motoru",
     imageSrc: `${basePath}/projects/project-3.jpeg`,
+    imageAlt: {
+      tr: "Bursa Web Tasarım ve Google Ads Reklam Yönetimi - Hira Koltuk Yıkama",
+      en: "Bursa Web Design and Google Ads Acquisition Engine - Hira Cleaning",
+    },
     monogram: "HHY",
     logoSrc: "",
   },
@@ -61,6 +73,10 @@ const projectsData = [
     year: "2024",
     impact: "Restoran Masaları, Adisyon & Kasa Otomasyonu",
     imageSrc: `${basePath}/projects/project-4.jpg`,
+    imageAlt: {
+      tr: "Bursa Restoran Masaları Adisyon ve Kasa Otomasyon Yazılımı - Taha Usta",
+      en: "Bursa Restaurant POS and Cashier Automation System - Taha Usta",
+    },
     monogram: "THU",
     logoSrc: "",
   },
@@ -73,6 +89,10 @@ const projectsData = [
     year: "2024",
     impact: "Kurumsal Mimari Portföy & Dijital Firma Vitrini",
     imageSrc: `${basePath}/projects/project-5.jpg`,
+    imageAlt: {
+      tr: "Bursa Kurumsal Web Tasarım ve Mimari Firma Kataloğu - Tataroğlu İnşaat",
+      en: "Bursa Corporate Architecture Web Platform - Tataroglu Construction",
+    },
     monogram: "TTR",
     logoSrc: "",
   },
@@ -85,6 +105,10 @@ const projectsData = [
     year: "2024",
     impact: "Küresel E-Ticaret & Tescilli İhracat Altyapısı",
     imageSrc: `${basePath}/projects/project-6.jpg`,
+    imageAlt: {
+      tr: "Bursa Özel Web Yazılımı ve Çok Dilli E-Ticaret İhracat Altyapısı - Damisco Global",
+      en: "Bursa Custom Web Development and Global Export Platform - Damisco Global",
+    },
     monogram: "DMC",
     logoSrc: "",
   },
@@ -114,20 +138,17 @@ export default function SelectedWorks({ lang = "tr" }) {
         {/* 1. ÜST EDİTORYAL BAŞLIK */}
         <header className={styles.header}>
           <div className={styles.eyebrowWrapper}>
-            <span className={styles.eyebrowDot} />
             <span className={styles.eyebrowText}>
-              {isTr
-                ? "// SEÇKİN ÇALIŞMALAR · 2024—2026"
-                : "// SELECTED WORK · 2024—2026"}
+              {isTr ? "SEÇKİN ÇALIŞMALAR" : "SELECTED WORK"}
             </span>
           </div>
 
           <h2 className={styles.mainTitle}>
             {isTr ? (
               <>
-                Bursa ve ötesinde, her gün <br className={styles.titleBr} />
+                Sözde değil sahada çalışan, <br className={styles.titleBr} />
                 <span className={styles.titleAccent}>
-                  karşılaştığınız markalar için ürettik.
+                  müşterisiyle buluşmuş projeler.
                 </span>
               </>
             ) : (
@@ -170,6 +191,8 @@ export default function SelectedWorks({ lang = "tr" }) {
         <div className={styles.showcaseGrid}>
           {filtered.map((item) => {
             const hasError = failedImages[item.id];
+            const currentAlt =
+              item.imageAlt?.[lang] || item.imageAlt?.tr || item.title;
 
             return (
               <article key={item.id} className={styles.projectCard}>
@@ -182,7 +205,7 @@ export default function SelectedWorks({ lang = "tr" }) {
                     {!hasError ? (
                       <Image
                         src={item.imageSrc}
-                        alt={item.title}
+                        alt={currentAlt}
                         fill
                         sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 420px"
                         className={styles.projectImg}
@@ -206,9 +229,7 @@ export default function SelectedWorks({ lang = "tr" }) {
                     {/* Karartma Tülü */}
                     <div className={styles.vignetteOverlay} />
 
-                    {/* 
-                      1. YENİ DETAY: SOL ÜST KÖŞEDEKİ MARKA LOGOSU / MONOGRAM ROZETİ 
-                    */}
+                    {/* Sol Üst Köşedeki Marka Monogramı */}
                     <div className={styles.brandLogoBadge}>
                       {item.logoSrc ? (
                         <Image
@@ -225,9 +246,7 @@ export default function SelectedWorks({ lang = "tr" }) {
                       )}
                     </div>
 
-                    {/* 
-                      2. YENİ DETAY: SAĞ ÜSTTEKİ HERO'DAN GELEN CERRAHİ SVG DIŞ BAĞLANTI OKU
-                    */}
+                    {/* Sağ Üstteki Cerrahi SVG Dış Bağlantı Oku */}
                     <div className={styles.heroArrowBadge}>
                       <svg
                         className={styles.ctaArrowSvg}
