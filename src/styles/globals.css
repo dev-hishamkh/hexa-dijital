@@ -8,6 +8,8 @@
     margin: 0;
     padding: 0;
     border: 0;
+    /* Mobilde dokunulduğunda çıkan o çirkin mavi/gri kutuyu kökten siler */
+    -webkit-tap-highlight-color: transparent !important;
 }
 
 html {
@@ -17,7 +19,7 @@ html {
 }
 
 /* ==========================================================================
-   LENIS SMOOTH SCROLL MOTORU STANDARTLARI (120 FPS INERTIA)
+   LENIS SMOOTH SCROLL STANDARTLARI (120 FPS)
    ========================================================================== */
 html.lenis,
 html.lenis body {
@@ -41,7 +43,7 @@ html.lenis body {
 }
 
 /* ==========================================================================
-   SİNEMATİK TEMA GEÇİŞ MOTORU
+   SİNEMATİK TEMA & MOBİL DOKUNSAL FEEDBACK
    ========================================================================== */
 body {
     min-height: 100vh;
@@ -71,6 +73,7 @@ svg {
     display: block;
     max-width: 100%;
     height: auto;
+    user-select: none;
 }
 
 h1,
@@ -105,10 +108,13 @@ button {
     cursor: pointer;
     border: none;
     outline: none;
-    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+    user-select: none;
+    transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.15s ease;
 }
 
-button:active {
+/* Mobilde ve masaüstünde basıldığı an dokunulduğunu hissettiren anlık çökme */
+button:active,
+a:active {
     transform: scale(0.96) !important;
 }
 
@@ -154,4 +160,11 @@ button:active {
     margin-right: auto;
     padding-left: 2rem;
     padding-right: 2rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
 }

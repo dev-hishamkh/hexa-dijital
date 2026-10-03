@@ -75,15 +75,15 @@ export default function ServicesIndex({ lang = "tr" }) {
     if (!items || items.length === 0) return;
 
     const ctx = gsap.context(() => {
+      // 1. Masaüstü/Mobil Bölüm Girişi
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 72%", // Bölüm ekranın %72'sine girdiğinde başlar
+          start: "top 72%",
           once: true,
         },
       });
 
-      // 1. Üst Başlık soldan süzülerek açılır
       if (titleEl) {
         tl.fromTo(
           titleEl,
@@ -92,7 +92,6 @@ export default function ServicesIndex({ lang = "tr" }) {
         );
       }
 
-      // 2. 5 Hizmet satırı dipten yukarı sırayla yaylanır
       tl.fromTo(
         items,
         { opacity: 0, y: 40 },
@@ -105,6 +104,19 @@ export default function ServicesIndex({ lang = "tr" }) {
         },
         "-=0.3",
       );
+
+      // 2. MOBİL ÇÖZÜMÜ: Ekrana Kaydırırken Ortalanan Satır Otomatik Olarak Uyanır!
+      if (window.innerWidth <= 768) {
+        items.forEach((item, idx) => {
+          ScrollTrigger.create({
+            trigger: item,
+            start: "top center",
+            end: "bottom center",
+            onEnter: () => setActiveIdx(idx),
+            onEnterBack: () => setActiveIdx(idx),
+          });
+        });
+      }
     }, sectionRef);
 
     return () => ctx.revert();
@@ -118,10 +130,9 @@ export default function ServicesIndex({ lang = "tr" }) {
       aria-label="Hizmetlerimiz"
       onMouseLeave={() => setActiveIdx(null)}
     >
-      {/* Üst Erime Sisi */}
       <div className={styles.topFadeGradient} aria-hidden="true" />
 
-      {/* Arka Plan Parallax Resimler & Koyu Perde */}
+      {/* Arka Plan Parallax Resimler */}
       <div
         className={`${styles.hoverImagesContainer} ${
           activeIdx !== null ? styles.containerActive : ""
@@ -130,25 +141,24 @@ export default function ServicesIndex({ lang = "tr" }) {
         {servicesList.map((item, idx) => (
           <div
             key={item.num}
-            className={`${styles.hoverImage} ${activeIdx === idx ? styles.active : ""}`}
+            className={`${styles.hoverImage} ${
+              activeIdx === idx ? styles.active : ""
+            }`}
             style={{ backgroundImage: `url(${item.bgImage})` }}
           />
         ))}
         <div className={styles.scrimBackdrop} />
       </div>
 
-      {/* Alt Erime Sisi */}
       <div className={styles.bottomFadeGradient} aria-hidden="true" />
 
       <div className={`container ${styles.container}`}>
-        {/* SEMANTİK H2 BAŞLIĞI */}
         <h2 ref={titleRef} className={styles.sectionTitle}>
           {isTr
             ? "Bursa Web Tasarım & Yazılım Hizmetleri"
             : "Digital Engineering & Web Services"}
         </h2>
 
-        {/* GSAP KADEMELİ GİRİŞ LİSTESİ */}
         <div
           ref={listRef}
           className={`${styles.servicesList} ${

@@ -129,7 +129,7 @@
     font-family: var(--font-main);
     font-size: 0.95rem;
     font-weight: 600;
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
@@ -150,7 +150,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 [data-theme="light"] .btnCircle {
@@ -161,7 +161,7 @@
     width: 16px;
     height: 16px;
     color: #FFFFFF;
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s var(--ease-out);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s var(--ease-out);
 }
 
 [data-theme="light"] .ctaArrowSvg {
@@ -260,7 +260,7 @@
 }
 
 /* ==========================================================================
-   SAĞ KAPSÜL KARTLAR & GSAP ŞELALE AKIŞI
+   SAĞ KAPSÜL KARTLAR
    ========================================================================== */
 .rightColumnsWrap {
     display: grid;
@@ -382,9 +382,6 @@
     opacity: 0;
 }
 
-/* ==========================================================================
-   2026 CSS GRID 0fr ➔ 1fr PÜRÜZSÜZ AKORDEON GEÇİŞİ
-   ========================================================================== */
 .drawer {
     display: grid;
     grid-template-rows: 0fr;
@@ -420,10 +417,27 @@
     transform: translateY(0);
 }
 
+/* ==========================================================================
+   MOBİL HİYERARŞİSİ (ÖNCE SORULAR GÖZÜKÜR, EN ALTA DESTEK PANELİ GEÇER)
+   ========================================================================== */
 @media (max-width: 1080px) {
     .container {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 3.5rem;
+    }
+
+    /* 1. ÖNCE 12 SORU LİSTELENİR */
+    .rightColumnsWrap {
+        order: 1;
+        grid-template-columns: 1fr;
+    }
+
+    /* 2. SORULAR BİTTİKTEN SONRA AKLINIZA TAKILAN KONU PANELİ GELİR */
+    .stickyColumn {
+        order: 2;
+        width: 100%;
+        position: static;
     }
 
     .contactCard {
@@ -433,15 +447,11 @@
 
 @media (max-width: 680px) {
     .section {
-        padding: 5rem 0 7rem 0;
-    }
-
-    .rightColumnsWrap {
-        grid-template-columns: 1fr;
+        padding: 5rem 0 6rem 0;
     }
 
     .contactCard {
-        padding: 2rem 1.5rem;
+        padding: 2.25rem 1.5rem;
     }
 
     .cardHeading {
