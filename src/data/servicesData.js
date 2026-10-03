@@ -1,32 +1,54 @@
 export const servicesData = [
   {
     id: 1,
-    title: "Özel Web Mimarisi",
+    title: "Web Tasarım & Dijital Vitrin",
+    categoryCode: "DEPT-01",
     subCategories: [
       {
-        title: "Web Yazılım",
+        title: "Web Mimarisi",
         items: [
-          { name: "Kurumsal Web Tasarım", slug: "kurumsal-web-tasarim" },
-          { name: "Özel Web Yazılımı", slug: "ozel-web-yazilimi" },
-          { name: "Next.js & React Geliştirme", slug: "nextjs-gelistirme" },
-          { name: "E-Ticaret Platformları", slug: "e-ticaret-platformlari" },
+          {
+            name: "Tek Sayfa Tanıtım Siteleri",
+            slug: "tek-sayfa-tanitim-siteleri",
+          },
+          { name: "Kurumsal Web Siteleri", slug: "kurumsal-web-siteleri" },
+          { name: "QR Kodlu Menü Sistemleri", slug: "qr-kodlu-menu" },
+          {
+            name: "Özel Tasarım & 3D Web Siteleri",
+            slug: "ozel-tasarim-3d-siteler",
+          },
+          { name: "E-Ticaret Satış Siteleri", slug: "e-ticaret-siteleri" },
         ],
       },
     ],
   },
   {
     id: 2,
-    title: "Sipariş & Otomasyon",
+    title: "Sipariş & Satış Sistemleri",
+    categoryCode: "DEPT-02",
     subCategories: [
       {
-        title: "Süreç Otomasyonu",
+        title: "Satış & Pazar Yeri",
         items: [
-          { name: "Restoran QR Menü", slug: "restoran-qr-menu" },
-          { name: "Adisyon & POS Sistemleri", slug: "adisyon-pos-sistemleri" },
-          { name: "B2B Bayi Sipariş Portalları", slug: "b2b-bayi-portallari" },
           {
-            name: "Özel SaaS Yönetim Panelleri",
-            slug: "saas-yonetim-panelleri",
+            name: "Toptan & Bayi Sipariş Sistemi",
+            slug: "toptan-bayi-siparis-sistemi",
+          },
+          {
+            name: "Komisyonsuz Paket Servis Sitesi",
+            slug: "komisyonsuz-paket-servis",
+          },
+          {
+            name: "WhatsApp Sipariş Sistemi",
+            slug: "whatsapp-siparis-sistemi",
+          },
+          {
+            name: "Yemek Sitelerinde Satış Artırma",
+            slug: "yemek-sitelerinde-satis-artirma",
+          },
+          {
+            name: "Pazar Yerlerinde Satış Artırma",
+            slug: "pazar-yerlerinde-satis-artirma",
           },
         ],
       },
@@ -34,23 +56,28 @@ export const servicesData = [
   },
   {
     id: 3,
-    title: "Yerel SEO & Büyüme",
+    title: "İşletme Otomasyonu & Yapay Zeka",
+    categoryCode: "DEPT-03",
     subCategories: [
       {
-        title: "Arama Motoru Dominasyonu",
+        title: "Süreç & Yazılım",
         items: [
-          { name: "Google Haritalar İlk 3 SEO", slug: "google-haritalar-seo" },
+          { name: "Adisyon ve Kasa Programı", slug: "adisyon-kasa-programi" },
           {
-            name: "Bursa Yerel Arama Hakimiyeti",
-            slug: "bursa-yerel-arama-seo",
+            name: "Otomatik Randevu Sistemi",
+            slug: "otomatik-randevu-sistemi",
           },
           {
-            name: "Google İşletme Kriz Yönetimi",
-            slug: "isletme-kriz-yonetimi",
+            name: "Yapay Zeka Müşteri Asistanı",
+            slug: "yapay-zeka-musteri-asistani",
           },
           {
-            name: "Teknik SEO & Hız Denetimi",
-            slug: "teknik-seo-hiz-denetimi",
+            name: "İş ve Evrak Takip Programı",
+            slug: "is-evrak-takip-programi",
+          },
+          {
+            name: "Barkod & Stok Takip Sistemi",
+            slug: "barkod-stok-takip-sistemi",
           },
         ],
       },
@@ -58,26 +85,31 @@ export const servicesData = [
   },
   {
     id: 4,
-    title: "Performans Reklam",
+    title: "Büyüme Reklamı & Haritalar 1. Sıra",
+    categoryCode: "DEPT-04",
     subCategories: [
       {
-        title: "Ücretli Medya Yönetimi",
+        title: "Pazar & Müşteri Edinme",
         items: [
           {
-            name: "Google Ads Arama Reklamları",
-            slug: "google-ads-reklamlari",
+            name: "Instagram & Facebook Reklamları",
+            slug: "meta-instagram-facebook-reklamlari",
           },
           {
-            name: "Meta (Instagram) Reklamları",
-            slug: "meta-instagram-reklamlari",
+            name: "Profesyonel Sosyal Medya Yönetimi",
+            slug: "sosyal-medya-yonetimi",
           },
           {
-            name: "Dönüşüm & ROI Optimizasyonu",
-            slug: "roi-donusum-optimizasyonu",
+            name: "Google Arama & Dönüşüm Reklamları",
+            slug: "google-reklamlari",
           },
           {
-            name: "Yeniden Pazarlama (Retargeting)",
-            slug: "yeniden-pazarlama",
+            name: "Google Haritalar & 1. Sıra Hakimiyeti",
+            slug: "google-haritalar-1-sira",
+          },
+          {
+            name: "Google Yorum & Puan Artırma Motoru",
+            slug: "google-yorum-puan-artirma",
           },
         ],
       },
@@ -85,20 +117,24 @@ export const servicesData = [
   },
   {
     id: 5,
-    title: "Marka & Tasarım",
+    title: "Marka, Baskı & Mekan Prodüksiyonu",
+    categoryCode: "DEPT-05",
     subCategories: [
       {
-        title: "Kreatif Mimari",
+        title: "Kreatif & Fiziksel Kimlik",
         items: [
-          { name: "Kurumsal Kimlik & Logo", slug: "kurumsal-kimlik-logo" },
-          { name: "UI/UX Arayüz Tasarımı", slug: "ui-ux-arayuz-tasarimi" },
+          { name: "Dükkana Özel Logo Tasarımı", slug: "ozel-logo-tasarimi" },
           {
-            name: "Dijital Menüboard & Tabela",
-            slug: "menuboard-tabela-tasarimi",
+            name: "Kartvizit, Magnet & Ambalaj Baskıları",
+            slug: "kartvizit-magnet-ambalaj-baskilari",
           },
           {
-            name: "Mekan & Prodüksiyon Çekimi",
-            slug: "mekan-produksiyon-cekimi",
+            name: "Ürün ve Dükkan Fotoğraf Çekimi",
+            slug: "urun-dukkan-fotograf-cekimi",
+          },
+          {
+            name: "Tabela & Cephe Giydirme Tasarımı",
+            slug: "tabela-cephe-giydirme-tasarimi",
           },
         ],
       },

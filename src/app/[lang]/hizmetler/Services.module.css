@@ -1,0 +1,889 @@
+.mainContainer {
+    min-height: 100vh;
+    background-color: var(--hexa-bg);
+    padding-top: calc(var(--header-height) + 3.5rem);
+    padding-bottom: 8rem;
+    transition: background-color 0.4s var(--ease-out);
+}
+
+/* ==========================================================================
+   1. GENİŞ EDİTORYAL HERO
+   ========================================================================== */
+.heroSection {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto 6.5rem auto;
+    padding-left: clamp(2rem, 6vw, 6.5rem);
+    padding-right: clamp(2rem, 6vw, 6.5rem);
+}
+
+.heroContent {
+    display: flex;
+    flex-direction: column;
+    max-width: 1150px;
+}
+
+.breadcrumbBadge {
+    display: inline-block;
+    font-family: monospace;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--hexa-accent);
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.heroTitle {
+    display: flex;
+    flex-direction: column;
+    font-size: clamp(3.2rem, 6.2vw, 6.4rem);
+    font-weight: 500;
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+    color: #F8FAFC;
+    margin-bottom: 2.5rem;
+}
+
+[data-theme="light"] .heroTitle {
+    color: #111827;
+}
+
+.titleLineWrapper {
+    display: block;
+    opacity: 0;
+    transform: translateY(35px);
+    animation: revealUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.titleLine {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.serifItalic {
+    font-family: var(--font-italic-serif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: var(--hexa-font-serif);
+}
+
+.accentWord {
+    color: var(--hexa-accent);
+    font-family: var(--font-italic-serif);
+    font-style: italic;
+    text-shadow: 0 0 24px var(--hexa-accent-glow);
+}
+
+.heroDesc {
+    font-family: var(--font-main);
+    font-size: clamp(1.15rem, 1.35vw, 1.28rem);
+    line-height: 1.65;
+    color: #cbd5e1;
+    letter-spacing: -0.015em;
+    max-width: 820px;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: revealUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+[data-theme="light"] .heroDesc {
+    color: #3f3f46;
+}
+
+.revealDelay1 {
+    animation-delay: 0.08s;
+}
+
+.revealDelay2 {
+    animation-delay: 0.16s;
+}
+
+.revealDelay3 {
+    animation-delay: 0.26s;
+}
+
+.revealDelay4 {
+    animation-delay: 0.36s;
+}
+
+.revealDelay5 {
+    animation-delay: 0.48s;
+}
+
+@keyframes revealUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   2. MASAÜSTÜ İNTERAKTİF WORKSPACE
+   ========================================================================== */
+.interactiveWorkspace {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto 9rem auto;
+    padding-left: clamp(2rem, 6vw, 6.5rem);
+    padding-right: clamp(2rem, 6vw, 6.5rem);
+    display: grid;
+    grid-template-columns: 460px 1fr;
+    gap: clamp(3rem, 6vw, 6.5rem);
+    align-items: flex-start;
+}
+
+/* SOL: CANLI VİTRİN KARTI */
+.liveStageAside {
+    position: relative;
+    height: 100%;
+}
+
+.liveStageCard {
+    position: sticky;
+    top: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #0D111A;
+    border: 1px solid var(--hexa-border);
+    border-radius: 24px;
+    padding: 2.75rem 2.5rem;
+    min-height: 520px;
+    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 255, 209, 0.04);
+    will-change: transform, opacity;
+}
+
+[data-theme="light"] .liveStageCard {
+    background: #FFFFFF;
+    border-color: rgba(0, 0, 0, 0.09);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
+}
+
+.stageContentMotionWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 1.85rem;
+    transition: opacity 0.16s ease, transform 0.16s ease, filter 0.16s ease;
+    will-change: opacity, transform, filter;
+}
+
+.stageFading {
+    opacity: 0.2;
+    transform: translateY(6px);
+    filter: blur(3px);
+}
+
+.stageHeadingArea {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--hexa-border);
+}
+
+.stageContextTag {
+    font-family: monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--hexa-accent);
+    letter-spacing: 0.12em;
+}
+
+.stageServiceName {
+    font-family: var(--font-main);
+    font-size: 1.95rem;
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    color: #F8FAFC;
+    line-height: 1.18;
+    margin: 0;
+}
+
+[data-theme="light"] .stageServiceName {
+    color: #111827;
+}
+
+.stageSectionBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.sectionHeaderTitle {
+    font-family: monospace;
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: var(--hexa-accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.sectionBodyText {
+    font-family: var(--font-main);
+    font-size: 1.05rem;
+    line-height: 1.62;
+    color: #cbd5e1;
+    letter-spacing: -0.015em;
+    margin: 0;
+    font-weight: 400;
+}
+
+[data-theme="light"] .sectionBodyText {
+    color: #374151;
+}
+
+/* ==========================================================================
+   HERO TARZI 45 DERECE DÖNEN MANYETİK BUTON
+   ========================================================================== */
+.stageBottomAction {
+    border-top: 1px solid var(--hexa-border);
+    padding-top: 1.75rem;
+    margin-top: 1.5rem;
+}
+
+.magneticLaunchBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.25rem;
+    text-decoration: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.actionCircle {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-full);
+    background: var(--hexa-surface);
+    border: 1px solid var(--hexa-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F8FAFC;
+    flex-shrink: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+
+[data-theme="light"] .actionCircle {
+    color: #111827;
+}
+
+.magneticLaunchBtn:hover .actionCircle {
+    background-color: var(--hexa-accent);
+    border-color: var(--hexa-accent);
+    color: #0A0E17;
+    transform: scale(1.08) rotate(45deg);
+    box-shadow: 0 0 28px var(--hexa-accent-glow-strong);
+}
+
+.arrowDiagonal {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.actionLabels {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.actionPrimaryText {
+    font-family: var(--font-main);
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: #F8FAFC;
+    letter-spacing: -0.02em;
+    transition: color 0.3s ease;
+}
+
+[data-theme="light"] .actionPrimaryText {
+    color: #111827;
+}
+
+.magneticLaunchBtn:hover .actionPrimaryText {
+    color: var(--hexa-accent);
+}
+
+.actionSubText {
+    font-family: var(--font-main);
+    font-size: 0.82rem;
+    color: var(--hexa-font-muted);
+    letter-spacing: -0.01em;
+}
+
+/* ==========================================================================
+   SAĞ: ANITSAL DEPARTMANLAR
+   ========================================================================== */
+.servicesListingCol {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+    width: 100%;
+}
+
+.deptGroupBlock {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    scroll-margin-top: 140px;
+}
+
+.groupHeaderRow {
+    display: flex;
+    align-items: baseline;
+    gap: 1.75rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--hexa-font-main);
+    will-change: transform, opacity;
+}
+
+[data-theme="light"] .groupHeaderRow {
+    border-color: #111827;
+}
+
+.monumentalNumber {
+    font-family: monospace;
+    font-size: 3.2rem;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    color: var(--hexa-accent);
+    line-height: 0.9;
+    user-select: none;
+}
+
+.groupTitleStack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.groupTitleText {
+    font-family: var(--font-main);
+    font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    color: #F8FAFC;
+    margin: 0;
+    line-height: 1.15;
+}
+
+[data-theme="light"] .groupTitleText {
+    color: #111827;
+}
+
+.groupRowsWrap {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.serviceInteractiveRow {
+    position: relative;
+    border-bottom: 1px solid var(--hexa-border);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+}
+
+.serviceInteractiveRow::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background: linear-gradient(90deg, var(--hexa-accent) 0%, rgba(0, 255, 209, 0.4) 60%, transparent 100%);
+    box-shadow: 0 0 12px var(--hexa-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+}
+
+.serviceInteractiveRow:hover::after,
+.rowHoverActive::after {
+    transform: scaleX(1);
+}
+
+.rowLinkBlock {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.85rem 0;
+    text-decoration: none;
+    width: 100%;
+}
+
+.rowLeftInfo {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+}
+
+.rowNum {
+    font-family: monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--hexa-font-muted);
+    letter-spacing: 0.08em;
+    transition: color 0.25s ease;
+}
+
+.serviceInteractiveRow:hover .rowNum,
+.rowHoverActive .rowNum {
+    color: var(--hexa-accent);
+}
+
+.rowTextStack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.rowServiceName {
+    font-family: var(--font-main);
+    font-size: clamp(1.2rem, 1.7vw, 1.5rem);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    color: var(--hexa-font-dim);
+    margin: 0;
+    transition: color 0.25s ease, transform 0.3s ease;
+}
+
+.serviceInteractiveRow:hover .rowServiceName,
+.rowHoverActive .rowServiceName {
+    color: #F8FAFC;
+    transform: translateX(8px);
+}
+
+[data-theme="light"] .serviceInteractiveRow:hover .rowServiceName,
+[data-theme="light"] .rowHoverActive .rowServiceName {
+    color: #111827;
+}
+
+.mobileOnlyOutcome {
+    display: none;
+}
+
+.rowRightBadge {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.desktopKpiTag {
+    font-family: monospace;
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: var(--hexa-font-muted);
+    letter-spacing: 0.05em;
+    transition: color 0.25s ease;
+}
+
+.serviceInteractiveRow:hover .desktopKpiTag,
+.rowHoverActive .desktopKpiTag {
+    color: var(--hexa-accent);
+}
+
+.arrowCircle {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    background: var(--hexa-surface);
+    border: 1px solid var(--hexa-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--hexa-font-muted);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.arrowSvg {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
+}
+
+.serviceInteractiveRow:hover .arrowCircle,
+.rowHoverActive .arrowCircle {
+    background-color: var(--hexa-accent);
+    border-color: var(--hexa-accent);
+    color: #0A0E17;
+    transform: scale(1.08);
+    box-shadow: 0 0 16px var(--hexa-accent-glow);
+}
+
+.serviceInteractiveRow:hover .arrowSvg,
+.rowHoverActive .arrowSvg {
+    transform: translate(2px, -2px);
+    color: #0A0E17;
+}
+
+/* ==========================================================================
+   3. SİBER-LÜKS VE YÜKSEK DÖNÜŞÜMLÜ CTA ŞERİDİ (YENİLENMİŞ APPLE/LINEAR KONSEPTİ)
+   ========================================================================== */
+.ctaContainer {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding-left: clamp(2rem, 6vw, 6.5rem);
+    padding-right: clamp(2rem, 6vw, 6.5rem);
+}
+
+.ctaBoxFrame {
+    position: relative;
+    background: #0D111A;
+    border: 1px solid var(--hexa-border);
+    border-radius: 28px;
+    padding: clamp(3rem, 5vw, 4.5rem);
+    display: grid;
+    grid-template-columns: 1.55fr 1fr;
+    align-items: center;
+    gap: clamp(3rem, 5vw, 5rem);
+    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 255, 209, 0.04);
+    overflow: hidden;
+    will-change: transform, opacity;
+}
+
+[data-theme="light"] .ctaBoxFrame {
+    background: #FFFFFF;
+    border-color: rgba(0, 0, 0, 0.09);
+    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.08);
+}
+
+.ctaContentLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.ctaBadgeArea {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+    background: rgba(0, 255, 209, 0.08);
+    border: 1px solid rgba(0, 255, 209, 0.2);
+    width: fit-content;
+}
+
+.ctaStatusDot {
+    width: 6px;
+    height: 6px;
+    border-radius: var(--radius-full);
+    background-color: var(--hexa-accent);
+    box-shadow: 0 0 8px var(--hexa-accent);
+}
+
+.ctaBadgeLabel {
+    font-family: monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--hexa-accent);
+}
+
+.ctaMainHeading {
+    font-family: var(--font-main);
+    font-size: clamp(2rem, 3.2vw, 2.9rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+    color: #F8FAFC;
+    margin: 0;
+}
+
+[data-theme="light"] .ctaMainHeading {
+    color: #111827;
+}
+
+.serifAccentWord {
+    font-family: var(--font-italic-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--hexa-font-serif);
+    letter-spacing: -0.01em;
+}
+
+.desktopBr {
+    display: block;
+}
+
+.ctaBodyText {
+    font-family: var(--font-main);
+    font-size: 1.05rem;
+    line-height: 1.62;
+    color: #cbd5e1;
+    /* Okunaklı fildişi */
+    letter-spacing: -0.015em;
+    max-width: 620px;
+    margin: 0;
+}
+
+[data-theme="light"] .ctaBodyText {
+    color: #4b5563;
+}
+
+/* SAĞ AKSİYON PANELİ */
+.ctaActionsRight {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: flex-start;
+}
+
+/* LÜKS BEYAZ KAPSÜL WHATSAPP BUTONU (DAİRESEL VE DÖNEN OKLU) */
+.luxuryWhatsappBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.75rem;
+    padding: 0.75rem 0.85rem 0.75rem 1.85rem;
+    border-radius: var(--radius-full);
+    background-color: #FFFFFF;
+    color: #0A0E17;
+    text-decoration: none;
+    font-family: var(--font-main);
+    font-size: 0.98rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    width: fit-content;
+}
+
+[data-theme="light"] .luxuryWhatsappBtn {
+    background-color: #111827;
+    color: #FFFFFF;
+}
+
+.btnMainText {
+    letter-spacing: -0.01em;
+}
+
+.btnIconCircle {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    background-color: #0A0E17;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="light"] .btnIconCircle {
+    background-color: #FFFFFF;
+}
+
+.btnArrowSvg {
+    width: 16px;
+    height: 16px;
+    color: #FFFFFF;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+
+[data-theme="light"] .btnArrowSvg {
+    color: #111827;
+}
+
+.luxuryWhatsappBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px var(--hexa-accent-glow);
+    background-color: #FFFFFF;
+}
+
+.luxuryWhatsappBtn:hover .btnIconCircle {
+    background-color: var(--hexa-accent);
+    transform: rotate(45deg);
+}
+
+.luxuryWhatsappBtn:hover .btnArrowSvg {
+    color: #0A0E17;
+}
+
+/* İkincil İletişim Linki */
+.secondaryInquiryLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-main);
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--hexa-font-muted);
+    text-decoration: none;
+    transition: color 0.25s ease;
+    padding-left: 0.25rem;
+}
+
+.smallArrow {
+    transition: transform 0.25s var(--ease-out);
+}
+
+.secondaryInquiryLink:hover {
+    color: #F8FAFC;
+}
+
+.secondaryInquiryLink:hover .smallArrow {
+    transform: translateX(4px);
+    color: var(--hexa-accent);
+}
+
+[data-theme="light"] .secondaryInquiryLink:hover {
+    color: #111827;
+}
+
+/* Canlı Mesai Durumu */
+.liveDeskRow {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding-left: 0.25rem;
+}
+
+.pulseGreenDot {
+    width: 7px;
+    height: 7px;
+    border-radius: var(--radius-full);
+    background-color: #10b981;
+    box-shadow: 0 0 8px #10b981;
+    animation: pulseGreen 2s infinite ease-in-out;
+}
+
+@keyframes pulseGreen {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(0.85);
+        opacity: 0.4;
+    }
+}
+
+.liveDeskText {
+    font-family: var(--font-main);
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--hexa-font-muted);
+    letter-spacing: -0.01em;
+}
+
+/* ==========================================================================
+   TABLET VE MOBİL UYUMU
+   ========================================================================== */
+@media (max-width: 1080px) {
+    .interactiveWorkspace {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+    }
+
+    .liveStageAside {
+        display: none;
+    }
+
+    .mobileOnlyOutcome {
+        display: block;
+        font-family: var(--font-main);
+        font-size: 0.88rem;
+        line-height: 1.5;
+        color: #94a3b8;
+        margin: 0;
+    }
+
+    .desktopKpiTag {
+        display: none;
+    }
+
+    .rowServiceName {
+        color: #F8FAFC;
+    }
+
+    .heroTitle {
+        font-size: clamp(2.6rem, 7.5vw, 4.4rem);
+    }
+
+    .titleLine {
+        white-space: normal;
+    }
+
+    .ctaBoxFrame {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding: 2.75rem 2rem;
+    }
+
+    .desktopBr {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .heroSection,
+    .interactiveWorkspace,
+    .ctaContainer {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+
+    .rowLinkBlock {
+        padding: 1.4rem 0;
+    }
+
+    .rowLeftInfo {
+        gap: 1rem;
+    }
+
+    .rowNum {
+        font-size: 0.78rem;
+    }
+
+    .rowServiceName {
+        font-size: 1.1rem;
+    }
+
+    .arrowCircle {
+        width: 32px;
+        height: 32px;
+    }
+
+    .monumentalNumber {
+        font-size: 2.2rem;
+    }
+
+    .ctaBoxFrame {
+        padding: 2.25rem 1.5rem;
+        border-radius: 20px;
+    }
+
+    .ctaActionsRight {
+        width: 100%;
+    }
+
+    .luxuryWhatsappBtn {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .secondaryInquiryLink,
+    .liveDeskRow {
+        width: 100%;
+        justify-content: flex-start;
+    }
+}
