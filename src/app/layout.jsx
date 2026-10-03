@@ -1,4 +1,5 @@
 import { Plus_Jakarta_Sans, Newsreader } from "next/font/google";
+import SmoothScroll from "@/components/providers/SmoothScroll";
 import "@/styles/globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -43,10 +44,11 @@ export default function RootLayout({ children }) {
           as="image"
           type="image/svg+xml"
         />
-        {/* Güvenli harici statik script: React 19 hatasını kökten siler */}
         <script src={`${basePath}/theme.js`} />
       </head>
-      <body>{children}</body>
+      <body>
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   );
 }

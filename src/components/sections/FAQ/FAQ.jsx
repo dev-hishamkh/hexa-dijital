@@ -138,15 +138,13 @@ export default function FAQ({ lang = "tr" }) {
   const dict = dictionary[lang]?.faq || dictionary.tr.faq;
   const currentFaq = faqItems[lang] || faqItems.tr;
 
-  // GOOGLE PROFİLİMİZ: Haftanın Her Günü 09:00 - 17:00 Çalışma Saatleri Kontrolü
   useEffect(() => {
     const checkOfficeHours = () => {
       const now = new Date();
       const utc = now.getTime() + now.getTimezoneOffset() * 60000;
-      const turkeyTime = new Date(utc + 3600000 * 3); // UTC+3
+      const turkeyTime = new Date(utc + 3600000 * 3);
       const hour = turkeyTime.getHours();
 
-      // Haftanın 7 günü 09:00 - 17:00 mesaisi
       const isWorkingTime = hour >= 9 && hour < 17;
       setIsOnline(isWorkingTime);
     };
@@ -181,8 +179,11 @@ export default function FAQ({ lang = "tr" }) {
           </div>
         </div>
 
+        {/* 2026 CSS Grid Akordeon Wrapper */}
         <div className={`${styles.drawer} ${isOpen ? styles.drawerOpen : ""}`}>
-          <p className={styles.answerText}>{item.a}</p>
+          <div className={styles.drawerInner}>
+            <p className={styles.answerText}>{item.a}</p>
+          </div>
         </div>
       </div>
     );
@@ -195,7 +196,6 @@ export default function FAQ({ lang = "tr" }) {
       aria-label="Sıkça Sorulan Sorular"
     >
       <div className={`container ${styles.container}`}>
-        {/* SOL STICKY BÖLÜM: DÖNÜŞÜM & TELEMETRİ KARTI */}
         <div className={styles.stickyColumn}>
           <div className={styles.contactCard}>
             <h2 className={styles.cardHeading}>{dict.leftHeading}</h2>
@@ -218,7 +218,6 @@ export default function FAQ({ lang = "tr" }) {
             </div>
 
             <div className={styles.cardFooter}>
-              {/* Gerçek Doğrulanmış WhatsApp Numarası: 0551 976 94 06 */}
               <a
                 href={`https://wa.me/905519769406?text=${encodeURIComponent(
                   dictionary[lang]?.whatsapp?.message ||
@@ -254,7 +253,6 @@ export default function FAQ({ lang = "tr" }) {
                 <span className={styles.arrowSmall}>→</span>
               </Link>
 
-              {/* Gerçek Zamanlı Telemetri Sinyali */}
               <div className={styles.liveStatusRow}>
                 <span
                   className={`${styles.statusPulseDot} ${
@@ -269,7 +267,6 @@ export default function FAQ({ lang = "tr" }) {
           </div>
         </div>
 
-        {/* SAĞ TARAF: 2 SÜTUNLU 12 ADET KAPSÜL KART */}
         <div className={styles.rightColumnsWrap}>
           <div className={styles.faqSubColumn}>
             {leftColumnItems.map(renderCard)}

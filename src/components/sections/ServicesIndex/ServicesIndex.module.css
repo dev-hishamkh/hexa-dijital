@@ -132,16 +132,41 @@
     border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
 
+/* ==========================================================================
+   HİZMET SATIRI & LASER LINE SWEEP ANİMASYONU
+   ========================================================================== */
 .serviceItem {
     position: relative;
     padding: 1.5rem 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     cursor: pointer;
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s var(--ease-out);
+    transition:
+        transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.4s var(--ease-out);
 }
 
 [data-theme="light"] .serviceItem {
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+/* Hover Anında Soldan Sağa Lazer Gibi Taranan 1px Neon Çizgi */
+.serviceItem::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, var(--hexa-accent) 0%, rgba(0, 255, 209, 0.4) 60%, transparent 100%);
+    box-shadow: 0 0 10px var(--hexa-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+}
+
+.serviceItem:hover::after {
+    transform: scaleX(1);
 }
 
 @media (min-width: 768px) {

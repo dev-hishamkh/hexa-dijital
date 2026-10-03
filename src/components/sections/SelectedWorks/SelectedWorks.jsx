@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./SelectedWorks.module.css";
@@ -116,8 +116,37 @@ const projectsData = [
 
 export default function SelectedWorks({ lang = "tr" }) {
   const [activeFilter, setActiveFilter] = useState("all");
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const [failedImages, setFailedImages] = useState({});
+  const [isSectionVisible, setIsSectionVisible] = useState(false);
+  const sectionRef = useRef(null);
   const isTr = lang === "tr";
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsSectionVisible(true);
+        }
+      },
+      { threshold: 0.15 },
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const handleFilterChange = (filterId) => {
+    if (filterId === activeFilter) return;
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setActiveFilter(filterId);
+      setIsTransitioning(false);
+    }, 220); // 220ms pürüzsüz geri çekilme süresi
+  };
 
   const handleImageError = (id) => {
     setFailedImages((prev) => ({ ...prev, [id]: true }));
@@ -130,6 +159,7 @@ export default function SelectedWorks({ lang = "tr" }) {
 
   return (
     <section
+      ref={sectionRef}
       className={styles.section}
       id="projeler"
       aria-label="Seçkin Projeler Vitrini"
@@ -173,8 +203,10 @@ export default function SelectedWorks({ lang = "tr" }) {
               return (
                 <button
                   key={tab.id}
-                  onClick={() => setActiveFilter(tab.id)}
-                  className={`${styles.filterPill} ${isActive ? styles.pillActive : ""}`}
+                  onClick={() => handleFilterChange(tab.id)}
+                  className={`${styles.filterPill} ${
+                    isActive ? styles.pillActive : ""
+                  }`}
                 >
                   <span>{tab.label}</span>
                 </button>
@@ -187,15 +219,27 @@ export default function SelectedWorks({ lang = "tr" }) {
           </span>
         </div>
 
-        {/* 3. 3 SÜTUNLU KART IZGARASI */}
-        <div className={styles.showcaseGrid}>
-          {filtered.map((item) => {
+        {/* 3. KADEMELİ SÜZÜLEN VE GEÇİŞLİ KART IZGARASI */}
+        <div
+          className={`${styles.showcaseGrid} ${
+            isTransitioning ? styles.gridFading : ""
+          }`}
+        >
+          {filtered.map((item, index) => {
             const hasError = failedImages[item.id];
             const currentAlt =
               item.imageAlt?.[lang] || item.imageAlt?.tr || item.title;
 
             return (
-              <article key={item.id} className={styles.projectCard}>
+              <article
+                key={item.id}
+                className={`${styles.projectCard} ${
+                  isSectionVisible ? styles.cardVisible : ""
+                }`}
+                style={{
+                  "--stagger-delay": `${index * 0.08}s`,
+                }}
+              >
                 <Link
                   href={`/${lang}/projeler/${item.slug}`}
                   className={styles.cardLink}
@@ -226,7 +270,6 @@ export default function SelectedWorks({ lang = "tr" }) {
                       </div>
                     )}
 
-                    {/* Karartma Tülü */}
                     <div className={styles.vignetteOverlay} />
 
                     {/* Sol Üst Köşedeki Marka Monogramı */}
@@ -263,7 +306,6 @@ export default function SelectedWorks({ lang = "tr" }) {
                       </svg>
                     </div>
 
-                    {/* Sol Alt Kategori Rozeti */}
                     <span className={styles.innerBadge}>{item.badge}</span>
                   </div>
 

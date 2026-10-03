@@ -15,9 +15,6 @@
     padding-right: clamp(2.5rem, 6vw, 6.5rem);
 }
 
-/* ==========================================================================
-   1. BÖLÜM BAŞLIĞI
-   ========================================================================== */
 .header {
     display: flex;
     flex-direction: column;
@@ -71,9 +68,7 @@
     letter-spacing: -0.02em;
 }
 
-/* ==========================================================================
-   2. FİLTRE ÇUBUĞU
-   ========================================================================== */
+/* 2. Filtre Çubuğu */
 .filterBar {
     display: flex;
     align-items: center;
@@ -138,19 +133,37 @@
 }
 
 /* ==========================================================================
-   3. 3 SÜTUNLU KART IZGARASI
+   3. KART IZGARASI & PÜRÜZSÜZ FİLTRE GEÇİŞİ
    ========================================================================== */
 .showcaseGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: clamp(1.5rem, 2.5vw, 2.5rem);
     width: 100%;
+    transition: opacity 0.22s var(--ease-out), transform 0.22s var(--ease-out);
 }
 
+.gridFading {
+    opacity: 0.25;
+    transform: scale(0.985);
+}
+
+/* Kademeli (Staggered) Kart Girişi */
 .projectCard {
     position: relative;
     display: flex;
     flex-direction: column;
+    opacity: 0;
+    transform: translateY(32px);
+    transition:
+        opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--stagger-delay),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--stagger-delay);
+    will-change: opacity, transform;
+}
+
+.cardVisible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .cardLink {
@@ -207,9 +220,6 @@
     pointer-events: none;
 }
 
-/* ==========================================================================
-   1. YENİ DETAY: SOL ÜST KÖŞEDEKİ MARKA LOGOSU ROZETİ
-   ========================================================================== */
 .brandLogoBadge {
     position: absolute;
     top: 1rem;
@@ -245,9 +255,6 @@
     object-fit: contain;
 }
 
-/* ==========================================================================
-   2. YENİ DETAY: SAĞ ÜSTTEKİ HERO'DAN GELEN CERRAHİ SVG OKU
-   ========================================================================== */
 .heroArrowBadge {
     position: absolute;
     top: 1rem;
@@ -273,7 +280,6 @@
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s var(--ease-out);
 }
 
-/* Hover: Daire büyür, zümrüt rengine boyanır ve ok fırlar */
 .projectCard:hover .heroArrowBadge {
     background-color: var(--hexa-accent);
     border-color: var(--hexa-accent);
@@ -286,7 +292,6 @@
     transform: translate(1px, -1px);
 }
 
-/* Sol Alt Kategori Rozeti */
 .innerBadge {
     position: absolute;
     bottom: 0.85rem;
@@ -305,7 +310,6 @@
     z-index: 5;
 }
 
-/* Fallback Canvas */
 .fallbackCanvas {
     position: relative;
     width: 100%;
@@ -367,9 +371,6 @@
     letter-spacing: 0.1em;
 }
 
-/* ==========================================================================
-   4. KART ALTI EDİTORYAL TİPOGRAFİ
-   ========================================================================== */
 .cardMeta {
     display: flex;
     flex-direction: column;
@@ -417,9 +418,6 @@
     margin: 0;
 }
 
-/* ==========================================================================
-   RESPONSIVE (MOBİL VE TABLET)
-   ========================================================================== */
 @media (max-width: 1024px) {
     .showcaseGrid {
         grid-template-columns: repeat(2, 1fr);

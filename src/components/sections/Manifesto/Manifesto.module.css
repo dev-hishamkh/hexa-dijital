@@ -1,12 +1,11 @@
 .manifestoSection {
     position: relative;
     width: 100vw;
-    min-height: 80vh;
+    height: 100vh;
     background-color: var(--hexa-bg);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: clamp(6rem, 12vw, 12rem) 0;
     overflow: hidden;
     user-select: none;
     transition: background-color 0.4s var(--ease-out);
@@ -14,7 +13,7 @@
 
 .container {
     width: 100%;
-    max-width: 1350px;
+    max-width: 1380px;
     margin: 0 auto;
     padding-left: clamp(2rem, 5vw, 5.5rem);
     padding-right: clamp(2rem, 5vw, 5.5rem);
@@ -23,23 +22,39 @@
     justify-content: center;
 }
 
-/* ==========================================================================
-   MASAÜSTÜNDE ORTALANMIŞ ANITSAL FELSEFE METNİ
-   ========================================================================== */
 .centerStatement {
     font-family: var(--font-main);
     font-size: clamp(2.4rem, 4.4vw, 4.8rem);
     font-weight: 500;
-    line-height: 1.18;
+    line-height: 1.24;
     letter-spacing: -0.035em;
-    color: var(--hexa-font-main);
     text-align: center;
-    /* Masaüstünde ortalı */
     margin: 0;
 }
 
-/* Lüks İtalik Serif İmzası */
-.serifHighlight {
+.wordWrapper {
+    display: inline;
+}
+
+/* ==========================================================================
+   TÜM KELİMELER: BAŞLANGIÇTA AYNI KARANLIKTA VE AYNI RENKTE BEKLER!
+   ========================================================================== */
+.baseWord {
+    display: inline-block;
+    color: #F8FAFC;
+    opacity: 0.12;
+    /* Başlangıçta hepsi eşit derecede sönük */
+    will-change: opacity, transform, color, text-shadow;
+    transform-origin: center center;
+}
+
+[data-theme="light"] .baseWord {
+    color: #111827;
+    opacity: 0.12;
+}
+
+/* İtalik Serif İmzası */
+.serifWord {
     font-family: var(--font-italic-serif);
     font-style: italic;
     font-weight: 400;
@@ -47,31 +62,41 @@
     color: var(--hexa-font-serif);
 }
 
+/* 
+   NİHAİ VURGU KELİMESİ: BÜYÜTÜYORUZ / BUSINESS
+   Başlangıçta diğer kelimelerle BİREBİR AYNI renkte gizlenir!
+   GSAP sırası geldiğinde inline olarak #00FFD1 rengine patlar.
+*/
+.accentWord {
+    font-family: var(--font-italic-serif);
+    font-style: italic;
+    color: #F8FAFC;
+    /* Başlangıçta neon yok, tamamen gizli */
+}
+
+[data-theme="light"] .accentWord {
+    color: #111827;
+}
+
 .desktopBr {
     display: block;
 }
 
-/* ==========================================================================
-   MOBİL VE TABLET UYARLAMASI (KULE GÖRÜNÜMÜ YOK EDİLDİ)
-   ========================================================================== */
 @media (max-width: 900px) {
     .manifestoSection {
-        min-height: auto;
-        padding: 5rem 0;
-        /* Boşluk dengelendi */
+        height: auto;
+        min-height: 80vh;
+        padding: 6rem 0;
     }
 
     .container {
         padding-left: 1.5rem;
         padding-right: 1.5rem;
-        justify-content: flex-start;
-        /* Mobilde sola yasla */
     }
 
     .centerStatement {
-        text-align: center !important;
-        font-size: clamp(1.45rem, 5.2vw, 1.85rem) !important;
-        line-height: 1.42 !important;
+        font-size: clamp(1.5rem, 5.4vw, 2rem) !important;
+        line-height: 1.45 !important;
         letter-spacing: -0.025em !important;
     }
 

@@ -12,13 +12,36 @@
 
 html {
     font-size: 16px;
-    scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
 }
 
 /* ==========================================================================
-   SİNEMATİK TEMA GEÇİŞ MOTORU (FİRE & FORGET SMOOTHNESS)
+   LENIS SMOOTH SCROLL MOTORU STANDARTLARI (120 FPS INERTIA)
+   ========================================================================== */
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   SİNEMATİK TEMA GEÇİŞ MOTORU
    ========================================================================== */
 body {
     min-height: 100vh;
@@ -28,14 +51,12 @@ body {
     line-height: 1.5;
     letter-spacing: -0.025em;
     overflow-x: hidden;
-    /* Tüm arayüz elemanlarının renkleri 0.4s pürüzsüz yaylanmayla akar */
     transition:
         background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
         color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
         border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* View Transition API Destekleyen Tarayıcılar İçin Sinematik Fade */
 ::view-transition-old(root),
 ::view-transition-new(root) {
     animation-duration: 0.45s;
@@ -84,11 +105,9 @@ button {
     cursor: pointer;
     border: none;
     outline: none;
-    /* Dokunsal buton yaylanması */
     transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
 }
 
-/* Dokunulduğunda hafifçe içeri çöken Linear/Apple hissiyatı */
 button:active {
     transform: scale(0.96) !important;
 }

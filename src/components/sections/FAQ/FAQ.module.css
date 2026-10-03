@@ -19,9 +19,6 @@
     gap: clamp(2.5rem, 5vw, 4.5rem);
 }
 
-/* ==========================================================================
-   SOL SÜTUN: STICKY PANEL
-   ========================================================================== */
 .stickyColumn {
     position: relative;
     height: 100%;
@@ -65,7 +62,6 @@
     margin: 0;
 }
 
-/* Metrik Kutusu */
 .metricGrid {
     display: grid;
     grid-template-columns: 1fr 1px 1fr;
@@ -111,16 +107,12 @@
     background: rgba(0, 0, 0, 0.08);
 }
 
-/* ==========================================================================
-   BUTON HİYERARŞİSİ & CANLI TELEMETRİ ALANI
-   ========================================================================== */
 .cardFooter {
     display: flex;
     flex-direction: column;
     gap: 1.15rem;
 }
 
-/* 1. Birincil Buton: WhatsApp */
 .primaryWhatsappBtn {
     display: inline-flex;
     align-items: center;
@@ -187,7 +179,6 @@
     color: #0A0E17;
 }
 
-/* 2. İkincil Hafif Link */
 .secondaryFormLink {
     display: inline-flex;
     align-items: center;
@@ -214,9 +205,6 @@
     transform: translateX(4px);
 }
 
-/* ==========================================================================
-   CANLI DURUM SİNYALİ (GERÇEK ZAMANLI TELEMETRİ)
-   ========================================================================== */
 .liveStatusRow {
     display: flex;
     align-items: center;
@@ -231,7 +219,6 @@
     flex-shrink: 0;
 }
 
-/* Çevrimiçi: Yeşil Nabız */
 .dotOnline {
     background-color: #10b981;
     box-shadow: 0 0 10px #10b981;
@@ -254,7 +241,6 @@
     }
 }
 
-/* Çevrimdışı: Kırmızı / Kehribar Sakin Durum */
 .dotOffline {
     background-color: #ef4444;
     box-shadow: 0 0 8px #ef4444;
@@ -269,9 +255,6 @@
     line-height: 1.35;
 }
 
-/* ==========================================================================
-   SAĞ TARAF: BOŞLUKSUZ 2 BAĞIMSIZ SÜTUN
-   ========================================================================== */
 .rightColumnsWrap {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -391,17 +374,22 @@
     opacity: 0;
 }
 
+/* ==========================================================================
+   2026 CSS GRID 0fr ➔ 1fr PÜRÜZSÜZ AKORDEON GEÇİŞİ
+   ========================================================================== */
 .drawer {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s var(--ease-out), padding 0.35s ease;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .drawerOpen {
-    max-height: 250px;
-    opacity: 1;
-    padding-top: 1.25rem;
+    grid-template-rows: 1fr;
+}
+
+.drawerInner {
+    overflow: hidden;
+    min-height: 0;
 }
 
 .answerText {
@@ -411,9 +399,19 @@
     color: var(--hexa-font-dim);
     letter-spacing: -0.015em;
     margin: 0;
+    padding-top: 1.15rem;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition:
+        opacity 0.3s var(--ease-out) 0.1s,
+        transform 0.35s var(--ease-out) 0.1s;
 }
 
-/* Responsive */
+.drawerOpen .answerText {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 @media (max-width: 1080px) {
     .container {
         grid-template-columns: 1fr;
