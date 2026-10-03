@@ -142,8 +142,7 @@ export default function Footer({ lang = "tr" }) {
 
         <div ref={socialRowRef} className={styles.footerSocialRow}>
           <div className={styles.copyrightText}>
-            © {new Date().getFullYear()} Hexa Dijital • Nilüfer, Bursa. Tüm
-            hakları saklıdır.
+            © {new Date().getFullYear()} Hexa Dijital Tüm hakları saklıdır.
           </div>
 
           {/* Sosyal Medya İkonları */}
