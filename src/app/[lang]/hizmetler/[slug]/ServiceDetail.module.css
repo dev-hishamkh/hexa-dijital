@@ -6,7 +6,7 @@
 }
 
 /* ==========================================================================
-   1. SİNEMATİK BACKGROUND HERO
+   KATMAN 1: SİNEMATİK BACKGROUND HERO
    ========================================================================== */
 .heroSection {
     position: relative;
@@ -122,6 +122,7 @@
     flex-direction: column;
     max-width: 1100px;
     margin-top: auto;
+    will-change: transform, opacity;
 }
 
 .heroTitle {
@@ -153,7 +154,7 @@
 }
 
 /* ==========================================================================
-   2. REACT BITS PRO "FEATURES 8" BLOĞU
+   KATMAN 2: REACT BITS PRO "FEATURES 8" BLOĞU
    ========================================================================== */
 .features8Section {
     width: 100%;
@@ -180,6 +181,7 @@
     text-align: center;
     gap: 1.25rem;
     cursor: default;
+    will-change: transform, opacity;
 }
 
 .iconHolder {
@@ -247,7 +249,7 @@
 }
 
 /* ==========================================================================
-   3. REACT BITS PRO "FEATURES 11" BLOĞU
+   KATMAN 3: REACT BITS PRO "FEATURES 11" BLOĞU
    ========================================================================== */
 .features11Section {
     width: 100%;
@@ -265,6 +267,7 @@
     grid-template-columns: 1.35fr 1fr;
     gap: clamp(3rem, 5vw, 6.5rem);
     align-items: flex-end;
+    will-change: transform, opacity;
 }
 
 .f11MainHeadline {
@@ -320,6 +323,7 @@
     min-height: 310px;
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 0 15px 35px -15px rgba(0, 0, 0, 0.7);
+    will-change: transform, opacity;
 }
 
 .f11BoxCard:hover {
@@ -448,35 +452,39 @@
 }
 
 /* ==========================================================================
-   4. CIRCULAR ORBITAL INTEGRATION HUB (3'LÜ ARI PETEĞİ ALTIGEN MERKEZLİ)
+   KATMAN 4: ZİG-ZAG GÖRSEL MİMARİSİ (3'LÜ VİTRİN)
    ========================================================================== */
-.orbitalSection {
+.zigzagSection {
     width: 100%;
     max-width: var(--max-width);
     margin: 0 auto 9rem auto;
     padding-left: clamp(2rem, 6vw, 6.5rem);
     padding-right: clamp(2rem, 6vw, 6.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(5rem, 8vw, 9rem);
 }
 
-.orbitalLayout {
+.zigzagRow {
     display: grid;
-    grid-template-columns: 1.15fr 1fr;
-    gap: clamp(3rem, 5vw, 6.5rem);
+    grid-template-columns: 1fr 1.15fr;
+    gap: clamp(3rem, 5vw, 6rem);
     align-items: center;
-    padding-top: 3.5rem;
-    border-top: 1px solid var(--hexa-border);
+    will-change: transform, opacity;
 }
 
-.orbitalLeftContent {
+.rowImageLeft {
+    grid-template-columns: 1.15fr 1fr;
+}
+
+.zigzagContentCol {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+    will-change: transform, opacity;
 }
 
-.orbitalBadge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
+.zigzagTag {
     font-family: monospace;
     font-size: 0.74rem;
     font-weight: 700;
@@ -484,332 +492,89 @@
     color: var(--hexa-accent);
 }
 
-.orbitalMainHeading {
+.zigzagHeading {
     font-family: var(--font-main);
-    font-size: clamp(2.2rem, 3.4vw, 3.2rem);
+    font-size: clamp(2rem, 3.2vw, 2.9rem);
     font-weight: 600;
-    line-height: 1.12;
+    line-height: 1.15;
     letter-spacing: -0.035em;
     color: #F8FAFC;
     margin: 0;
 }
 
-[data-theme="light"] .orbitalMainHeading {
+[data-theme="light"] .zigzagHeading {
     color: #111827;
 }
 
-.orbitalDescription {
+.proofMetricPill {
+    display: inline-block;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--hexa-accent);
+    background: rgba(0, 255, 209, 0.08);
+    border: 1px solid rgba(0, 255, 209, 0.25);
+    padding: 0.4rem 0.95rem;
+    border-radius: var(--radius-full);
+    width: fit-content;
+}
+
+.zigzagText {
     font-family: var(--font-main);
     font-size: 1.05rem;
     line-height: 1.68;
     color: #cbd5e1;
     letter-spacing: -0.015em;
     margin: 0;
-    max-width: 540px;
 }
 
-[data-theme="light"] .orbitalDescription {
+[data-theme="light"] .zigzagText {
     color: #4b5563;
 }
 
-.orbitalActionRow {
-    display: flex;
-    align-items: center;
-    margin-top: 0.75rem;
-}
-
-.orbitalWhiteBtn {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.85rem 1.85rem;
-    border-radius: var(--radius-full);
-    background-color: #FFFFFF;
-    color: #0A0E17;
-    text-decoration: none;
-    font-family: var(--font-main);
-    font-size: 0.95rem;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-}
-
-[data-theme="light"] .orbitalWhiteBtn {
-    background-color: #111827;
-    color: #FFFFFF;
-}
-
-.orbitalWhiteBtn:hover {
-    background-color: var(--hexa-accent);
-    color: #0A0E17;
-    transform: translateY(-2px);
-    box-shadow: 0 15px 35px var(--hexa-accent-glow);
-}
-
-/* Sağ Yörünge Sahnesi */
-.orbitalRightDiagram {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.zigzagVisualCol {
     position: relative;
     width: 100%;
+    will-change: transform, opacity;
 }
 
-.orbitalStageWrap {
+.showcaseFrame {
     position: relative;
-    width: 420px;
-    height: 420px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Dış Çember */
-.orbitalRingOuter {
-    position: absolute;
-    inset: 15px;
-    border-radius: var(--radius-full);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-[data-theme="light"] .orbitalRingOuter {
-    border-color: rgba(0, 0, 0, 0.1);
-}
-
-/* İç Kesikli Çember */
-.orbitalRingInnerDashed {
-    position: absolute;
-    inset: 65px;
-    border-radius: var(--radius-full);
-    border: 1px dashed rgba(255, 255, 255, 0.14);
-}
-
-[data-theme="light"] .orbitalRingInnerDashed {
-    border-color: rgba(0, 0, 0, 0.12);
-}
-
-/* Radyal Bağlantı Kolları (Spoke Lines) */
-.spokeLine {
-    position: absolute;
-    top: 50%;
-    left: 0;
     width: 100%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.08) 50%, transparent 100%);
-    pointer-events: none;
-}
-
-.spoke1 {
-    transform: rotate(0deg);
-}
-
-.spoke2 {
-    transform: rotate(60deg);
-}
-
-.spoke3 {
-    transform: rotate(120deg);
-}
-
-/* Yörünge Üzerindeki Mikro Parıltı Parçacıkları (Orbit Dots) */
-.orbitDotParticle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    border-radius: var(--radius-full);
-    background-color: rgba(255, 255, 255, 0.45);
-    box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
-    pointer-events: none;
-}
-
-.pDot1 {
-    top: 12%;
-    left: 32%;
-}
-
-.pDot2 {
-    top: 15%;
-    right: 28%;
-}
-
-.pDot3 {
-    top: 50%;
-    right: 4%;
-}
-
-.pDot4 {
-    bottom: 12%;
-    right: 30%;
-}
-
-.pDot5 {
-    bottom: 15%;
-    left: 28%;
-}
-
-.pDot6 {
-    top: 50%;
-    left: 4%;
-}
-
-/* Merkez Kutu: 3'lü Arı Peteği Altıgen Bloğu */
-.orbitalCenterBox {
-    position: relative;
-    z-index: 10;
-    width: 116px;
-    height: 116px;
-    border-radius: 26px;
-    background: #0E131F;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.85);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.45rem;
-}
-
-[data-theme="light"] .orbitalCenterBox {
-    background: #FFFFFF;
-    border-color: rgba(0, 0, 0, 0.1);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-}
-
-/* 3'lü Arı Peteği (Honeycomb Cluster) Vektörleri */
-.honeycombCluster {
-    position: relative;
-    width: 38px;
-    height: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.hexPetek {
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    color: #F8FAFC;
-    transition: all 0.3s ease;
-}
-
-[data-theme="light"] .hexPetek {
-    color: #111827;
-}
-
-.hexTop {
-    top: 2px;
-    left: 11px;
-}
-
-.hexBottomLeft {
-    bottom: 3px;
-    left: 3px;
-}
-
-.hexBottomRight {
-    bottom: 3px;
-    right: 3px;
-}
-
-.orbitalCenterBox:hover .hexPetek {
-    color: var(--hexa-accent);
-}
-
-.centerHubLabel {
-    font-family: monospace;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    color: var(--hexa-font-muted);
-}
-
-/* 6 Yörünge Düğümü */
-.orbitalNodeItem {
-    position: absolute;
-    z-index: 12;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.45rem;
-    transform: translate(-50%, -50%);
-    transition: all 0.3s ease;
-}
-
-.nodeIconBox {
-    width: 52px;
-    height: 52px;
-    border-radius: 16px;
-    background: #0D111A;
+    aspect-ratio: 16 / 10.5;
+    border-radius: 24px;
+    overflow: hidden;
     border: 1px solid var(--hexa-border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #F8FAFC;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    background-color: #0D111A;
+    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 255, 209, 0.03);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
 }
 
-[data-theme="light"] .nodeIconBox {
-    background: #FFFFFF;
-    border-color: rgba(0, 0, 0, 0.08);
-    color: #111827;
+.showcaseFrame:hover {
+    transform: translateY(-4px);
+    border-color: var(--hexa-border-focus);
 }
 
-.orbitalNodeItem:hover .nodeIconBox {
-    background-color: var(--hexa-accent);
-    border-color: var(--hexa-accent);
-    color: #0A0E17;
-    transform: scale(1.1);
-    box-shadow: 0 0 24px var(--hexa-accent-glow);
+.showcaseImg {
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.88) contrast(1.08);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.nodeLabelText {
-    font-family: var(--font-main);
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: #cbd5e1;
-    letter-spacing: -0.01em;
-    white-space: nowrap;
+.showcaseFrame:hover .showcaseImg {
+    transform: scale(1.03);
 }
 
-[data-theme="light"] .nodeLabelText {
-    color: #374151;
-}
-
-/* 6 Düğümün Geometrik Açısal Konumları */
-.nodePosition1 {
-    top: 4%;
-    left: 50%;
-}
-
-.nodePosition2 {
-    top: 27%;
-    left: 96%;
-}
-
-.nodePosition3 {
-    top: 73%;
-    left: 96%;
-}
-
-.nodePosition4 {
-    top: 96%;
-    left: 50%;
-}
-
-.nodePosition5 {
-    top: 73%;
-    left: 4%;
-}
-
-.nodePosition6 {
-    top: 27%;
-    left: 4%;
+.frameVignette {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10, 14, 23, 0.5) 0%, transparent 50%);
+    pointer-events: none;
 }
 
 /* ==========================================================================
-   5. ŞEFFAF TESLİMAT STANDARTLARI (GÖRSELLE BİREBİR 4 SÜTUNLU IZGARA)
+   KATMAN 5: DENGELİ 2 SÜTUNLU TESLİMAT KALEMLERİ
    ========================================================================== */
 .deliverablesSection {
     width: 100%;
@@ -864,32 +629,55 @@
     color: #4b5563;
 }
 
-/* 4 Sütunlu Minimalist Izgara */
-.deliv4ColGrid {
+/* Dengeli 2 Sütunlu Kartlar (Asimetri Yok) */
+.delivBalancedGrid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: clamp(2rem, 3.5vw, 3.5rem);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
     width: 100%;
 }
 
-.delivGridItem {
+.delivItemCard {
+    background: #0A0E17;
+    border: 1px solid var(--hexa-border);
+    border-radius: 20px;
+    padding: 2.25rem;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1rem;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 15px 35px -15px rgba(0, 0, 0, 0.7);
+    will-change: transform, opacity;
+}
+
+.delivItemCard:hover {
+    border-color: var(--hexa-border-focus);
+    transform: translateY(-3px);
+    background-color: #0D121D;
+    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 255, 209, 0.04);
+}
+
+[data-theme="light"] .delivItemCard {
+    background: #FFFFFF;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .delivItemCard:hover {
+    background: #FAFAFA;
 }
 
 .delivItemTop {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 1rem;
 }
 
 .delivIconBadge {
-    width: 34px;
-    height: 34px;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--hexa-border);
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(0, 255, 209, 0.08);
+    border: 1px solid rgba(0, 255, 209, 0.25);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -898,15 +686,11 @@
     transition: all 0.3s ease;
 }
 
-[data-theme="light"] .delivIconBadge {
-    background: rgba(0, 0, 0, 0.04);
-}
-
-.delivGridItem:hover .delivIconBadge {
+.delivItemCard:hover .delivIconBadge {
     background-color: var(--hexa-accent);
     border-color: var(--hexa-accent);
     color: #0A0E17;
-    box-shadow: 0 0 15px var(--hexa-accent-glow);
+    box-shadow: 0 0 20px var(--hexa-accent-glow);
 }
 
 .delivIconSvg {
@@ -915,9 +699,9 @@
 
 .delivItemTitle {
     font-family: var(--font-main);
-    font-size: 1.08rem;
+    font-size: 1.2rem;
     font-weight: 600;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
     color: #F8FAFC;
     margin: 0;
     line-height: 1.25;
@@ -929,8 +713,8 @@
 
 .delivItemDesc {
     font-family: var(--font-main);
-    font-size: 0.9rem;
-    line-height: 1.58;
+    font-size: 0.95rem;
+    line-height: 1.62;
     color: #cbd5e1;
     letter-spacing: -0.01em;
     margin: 0;
@@ -941,97 +725,36 @@
 }
 
 /* ==========================================================================
-   6. KANITLANMIŞ SAHA ÇIKTISI (TEK PARÇA LÜKS VİTRİN)
+   KATMAN 6: YAN YANA BİRLEŞİK BÖLÜM (SOL: SSS — SAĞ: TAMAMLAYICI DİŞLİLER)
    ========================================================================== */
-.caseSection {
+.faqAndRelatedCombinedSection {
     width: 100%;
     max-width: var(--max-width);
-    margin: 0 auto 7.5rem auto;
+    margin: 0 auto 8.5rem auto;
     padding-left: clamp(2rem, 6vw, 6.5rem);
     padding-right: clamp(2rem, 6vw, 6.5rem);
+    will-change: transform, opacity;
 }
 
-.caseFrame {
-    background: #0D111A;
-    border: 1px solid var(--hexa-border);
-    border-radius: 24px;
-    padding: clamp(3rem, 5vw, 4.5rem);
+.combinedTwoColLayout {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: clamp(3rem, 5vw, 6rem);
+    align-items: flex-start;
+}
+
+.combinedFaqCol,
+.combinedRelatedCol {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 255, 209, 0.03);
-}
-
-[data-theme="light"] .caseFrame {
-    background: #FFFFFF;
-    border-color: rgba(0, 0, 0, 0.08);
-}
-
-.caseMeta {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.caseBadge {
-    font-family: monospace;
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: var(--hexa-accent);
-    letter-spacing: 0.1em;
-}
-
-.caseClient {
-    font-family: var(--font-main);
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--hexa-font-muted);
-}
-
-.caseMetricValue {
-    font-family: var(--font-main);
-    font-size: clamp(2rem, 3.4vw, 3.2rem);
-    font-weight: 700;
-    letter-spacing: -0.04em;
-    color: #F8FAFC;
-    line-height: 1.1;
-}
-
-[data-theme="light"] .caseMetricValue {
-    color: #111827;
-}
-
-.caseSummaryText {
-    font-family: var(--font-main);
-    font-size: 1.1rem;
-    line-height: 1.65;
-    color: #cbd5e1;
-    max-width: 860px;
-    margin: 0;
-}
-
-[data-theme="light"] .caseSummaryText {
-    color: #374151;
-}
-
-/* ==========================================================================
-   7. SSS (KUTUSUZ ÇİZGİSEL AKORDEON)
-   ========================================================================== */
-.faqSection {
     width: 100%;
-    max-width: var(--max-width);
-    margin: 0 auto 7.5rem auto;
-    padding-left: clamp(2rem, 6vw, 6.5rem);
-    padding-right: clamp(2rem, 6vw, 6.5rem);
-    display: flex;
-    flex-direction: column;
 }
 
-.sectionHeaderRow {
+.colHeaderWrap {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    margin-bottom: 3.5rem;
+    margin-bottom: 2.5rem;
 }
 
 .sectionLabel {
@@ -1044,17 +767,19 @@
 
 .sectionTitle {
     font-family: var(--font-main);
-    font-size: clamp(2rem, 3.2vw, 2.8rem);
+    font-size: clamp(1.8rem, 2.5vw, 2.4rem);
     font-weight: 600;
-    letter-spacing: -0.035em;
+    letter-spacing: -0.03em;
     color: #F8FAFC;
     margin: 0;
+    line-height: 1.2;
 }
 
 [data-theme="light"] .sectionTitle {
     color: #111827;
 }
 
+/* SSS Akordeon */
 .faqListContainer {
     display: flex;
     flex-direction: column;
@@ -1063,7 +788,7 @@
 
 .faqRowItem {
     border-bottom: 1px solid var(--hexa-border);
-    padding: 1.75rem 0;
+    padding: 1.5rem 0;
     transition: all 0.25s ease;
 }
 
@@ -1071,7 +796,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1.5rem;
+    gap: 1.25rem;
     cursor: pointer;
     user-select: none;
     list-style: none;
@@ -1083,7 +808,7 @@
 
 .faqQuestionText {
     font-family: var(--font-main);
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     font-weight: 600;
     letter-spacing: -0.02em;
     color: #F8FAFC;
@@ -1103,6 +828,7 @@
 .faqExpandIcon {
     color: var(--hexa-font-muted);
     transition: transform 0.3s ease, color 0.25s ease;
+    flex-shrink: 0;
 }
 
 .faqRowItem[open] .faqExpandIcon {
@@ -1111,13 +837,12 @@
 }
 
 .faqAnswerBody {
-    margin-top: 1.25rem;
-    max-width: 860px;
+    margin-top: 1rem;
 }
 
 .faqAnswerParagraph {
     font-family: var(--font-main);
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.65;
     color: #cbd5e1;
     margin: 0;
@@ -1127,44 +852,47 @@
     color: #4b5563;
 }
 
-/* ==========================================================================
-   8. İLGİLİ ÇÖZÜMLER (HİZMETLER SATIR DİLİ)
-   ========================================================================== */
-.relatedSection {
-    width: 100%;
-    max-width: var(--max-width);
-    margin: 0 auto 8rem auto;
-    padding-left: clamp(2rem, 6vw, 6.5rem);
-    padding-right: clamp(2rem, 6vw, 6.5rem);
+/* Sağ Sütun: Tamamlayıcı Çözüm Kartları */
+.relatedStackGroup {
     display: flex;
     flex-direction: column;
+    gap: 1.25rem;
 }
 
-.relatedRowsGroup {
+.relatedMiniCard {
+    background: #0A0E17;
+    border: 1px solid var(--hexa-border);
+    border-radius: 20px;
+    padding: 1.75rem 2rem;
     display: flex;
     flex-direction: column;
-    border-top: 1px solid var(--hexa-border);
-}
-
-.relatedRowLink {
-    display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 2rem 0;
-    border-bottom: 1px solid var(--hexa-border);
+    gap: 1.5rem;
     text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 15px 35px -15px rgba(0, 0, 0, 0.7);
 }
 
-.relatedRowLink:hover {
-    padding-left: 1rem;
-    border-bottom-color: var(--hexa-accent);
+.relatedMiniCard:hover {
+    border-color: var(--hexa-border-focus);
+    transform: translateX(4px);
+    background-color: #0D121D;
+    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 255, 209, 0.04);
 }
 
-.relatedLeftInfo {
+[data-theme="light"] .relatedMiniCard {
+    background: #FFFFFF;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .relatedMiniCard:hover {
+    background: #FAFAFA;
+}
+
+.relatedCardMain {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 0.5rem;
 }
 
 .relatedCategoryTag {
@@ -1172,13 +900,13 @@
     font-size: 0.72rem;
     font-weight: 700;
     color: var(--hexa-accent);
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
 }
 
 .relatedServiceName {
     font-family: var(--font-main);
-    font-size: clamp(1.25rem, 1.8vw, 1.6rem);
-    font-weight: 500;
+    font-size: 1.25rem;
+    font-weight: 600;
     letter-spacing: -0.025em;
     color: #F8FAFC;
     margin: 0;
@@ -1189,26 +917,44 @@
     color: #111827;
 }
 
-.relatedRowLink:hover .relatedServiceName {
+.relatedMiniCard:hover .relatedServiceName {
     color: var(--hexa-accent);
 }
 
-.relatedRightAction {
+.relatedServiceSnippet {
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: #cbd5e1;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+[data-theme="light"] .relatedServiceSnippet {
+    color: #4b5563;
+}
+
+.relatedCardBottom {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid var(--hexa-border);
 }
 
 .relatedKpiText {
     font-family: monospace;
-    font-size: 0.76rem;
+    font-size: 0.74rem;
     font-weight: 600;
     color: var(--hexa-font-muted);
 }
 
 .arrowCircleMini {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
     border-radius: var(--radius-full);
     background: var(--hexa-surface);
     border: 1px solid var(--hexa-border);
@@ -1223,7 +969,7 @@
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.relatedRowLink:hover .arrowCircleMini {
+.relatedMiniCard:hover .arrowCircleMini {
     background-color: var(--hexa-accent);
     border-color: var(--hexa-accent);
     color: #0A0E17;
@@ -1231,7 +977,7 @@
 }
 
 /* ==========================================================================
-   9. LÜKS BEYAZ KAPSÜL ALT CTA
+   KATMAN 7: LÜKS BEYAZ KAPSÜL ALT CTA
    ========================================================================== */
 .bottomCtaSection {
     width: 100%;
@@ -1251,6 +997,7 @@
     align-items: center;
     gap: clamp(3rem, 5vw, 5rem);
     box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 255, 209, 0.04);
+    will-change: transform, opacity;
 }
 
 [data-theme="light"] .ctaBoxFrame {
@@ -1419,22 +1166,6 @@
 /* ==========================================================================
    TABLET VE MOBİL DUYARLILIK
    ========================================================================== */
-@media (max-width: 1200px) {
-    .deliv4ColGrid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2.5rem;
-    }
-
-    .orbitalLayout {
-        grid-template-columns: 1fr;
-        gap: 4rem;
-    }
-
-    .orbitalRightDiagram {
-        justify-content: center;
-    }
-}
-
 @media (max-width: 1080px) {
     .features8Grid {
         grid-template-columns: 1fr;
@@ -1449,6 +1180,27 @@
     .f11CardsGrid {
         grid-template-columns: 1fr;
         gap: 1.25rem;
+    }
+
+    .zigzagRow,
+    .rowImageLeft {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .rowImageLeft {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .delivBalancedGrid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .combinedTwoColLayout {
+        grid-template-columns: 1fr;
+        gap: 4rem;
     }
 
     .ctaBoxFrame {
@@ -1468,11 +1220,9 @@
     .heroContainer,
     .features8Section,
     .features11Section,
-    .orbitalSection,
+    .zigzagSection,
     .deliverablesSection,
-    .caseSection,
-    .faqSection,
-    .relatedSection,
+    .faqAndRelatedCombinedSection,
     .bottomCtaSection {
         padding-left: 1.25rem;
         padding-right: 1.25rem;
@@ -1480,27 +1230,6 @@
 
     .heroTitle {
         font-size: clamp(2.4rem, 8.5vw, 3.8rem);
-    }
-
-    .orbitalStageWrap {
-        width: 320px;
-        height: 320px;
-    }
-
-    .deliv4ColGrid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .relatedRowLink {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-    }
-
-    .relatedRightAction {
-        width: 100%;
-        justify-content: space-between;
     }
 
     .luxuryWhatsappBtn {

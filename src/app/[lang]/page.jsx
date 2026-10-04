@@ -60,7 +60,6 @@ export default async function HomePage({ params }) {
   const lang = resolvedParams?.lang || "tr";
   const isTr = lang === "tr";
 
-  // Google Arama Sonuçlarında Akordeon Kutucuklar (Rich Snippets) Çıkaran SSS Listesi
   const faqSchemaData = isTr
     ? [
         {
@@ -115,7 +114,7 @@ export default async function HomePage({ params }) {
         },
       ];
 
-  // Google İşletme Profilimizle %100 Uyumlu Zengin Yerel SEO JSON-LD Şeması
+  // GOOGLE İŞLETME PROFİLİYLE %100 BİREBİR ZENGİN SCHEMA.ORG GRAFİĞİ
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -144,19 +143,15 @@ export default async function HomePage({ params }) {
           latitude: 40.215,
           longitude: 28.932,
         },
-        // Tüm Bursa ve çevre ilçelerini kapsayan servis alanı
+        // Google Profilindeki Resmi Hizmet Bölgeleri
         areaServed: [
           { "@type": "AdministrativeArea", name: "Bursa" },
           { "@type": "City", name: "Nilüfer" },
           { "@type": "City", name: "Osmangazi" },
           { "@type": "City", name: "Yıldırım" },
-          { "@type": "City", name: "Mudanya" },
-          { "@type": "City", name: "İnegöl" },
-          { "@type": "City", name: "Gemlik" },
-          { "@type": "City", name: "Karacabey" },
-          { "@type": "City", name: "Mustafakemalpaşa" },
+          { "@type": "Country", name: "Türkiye" },
         ],
-        // Google Profilimizdeki Çalışma Saatleri: Haftanın her günü 09:00 - 17:00
+        // Güncellenen Çalışma Saatleri: Haftanın 7 Günü 09:00 – 18:00
         openingHoursSpecification: [
           {
             "@type": "OpeningHoursSpecification",
@@ -170,10 +165,9 @@ export default async function HomePage({ params }) {
               "Sunday",
             ],
             opens: "09:00",
-            closes: "17:00",
+            closes: "18:00",
           },
         ],
-        // Google Profilimizdeki 5.0 Yıldız ve 5 Gerçek Müşteri Değerlendirmesi
         aggregateRating: {
           "@type": "AggregateRating",
           ratingValue: "5.0",
@@ -223,15 +217,16 @@ export default async function HomePage({ params }) {
             },
           ],
         },
+        // Google Profilindeki 6 Resmi Sosyal Medya Profili
         sameAs: [
-          "https://www.instagram.com/hexadijital",
-          "https://www.facebook.com/hexadijitall",
-          "https://www.youtube.com/@HEXADijital",
-          "https://www.tiktok.com/@hexadijital",
+          "https://instagram.com/hexadijital",
+          "https://facebook.com/hexadijitall",
+          "https://youtube.com/@hexadijital",
+          "https://tiktok.com/@hexadijital",
           "https://x.com/hexadijital",
+          "https://tr.pinterest.com/hexadijital",
         ],
       },
-      // GOOGLE ZENGİN ARAMA SONUCU: AKORDEON SSS ŞEMASI (FAQPage)
       {
         "@type": "FAQPage",
         "@id": `https://hexadijital.com/${lang}/#faq`,

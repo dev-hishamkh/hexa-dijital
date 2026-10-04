@@ -143,7 +143,7 @@ export default function FAQ({ lang = "tr" }) {
   const dict = dictionary[lang]?.faq || dictionary.tr.faq;
   const currentFaq = faqItems[lang] || faqItems.tr;
 
-  // GOOGLE PROFİLİ: 7 GÜN 09:00 - 17:00 CANLI MESAİ KONTROLÜ
+  // GOOGLE İŞLETME SAATLERİ: 7 GÜN 09:00 - 18:00 CANLI MESAİ KONTROLÜ
   useEffect(() => {
     const checkOfficeHours = () => {
       const now = new Date();
@@ -151,7 +151,8 @@ export default function FAQ({ lang = "tr" }) {
       const turkeyTime = new Date(utc + 3600000 * 3);
       const hour = turkeyTime.getHours();
 
-      const isWorkingTime = hour >= 9 && hour < 17;
+      // Kapanış 18:00 olarak güncellendi
+      const isWorkingTime = hour >= 9 && hour < 18;
       setIsOnline(isWorkingTime);
     };
 
@@ -160,7 +161,6 @@ export default function FAQ({ lang = "tr" }) {
     return () => clearInterval(interval);
   }, []);
 
-  // GSAP SCROLLTRIGGER İLE SENKRONİZE GİRİŞ
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -179,14 +179,12 @@ export default function FAQ({ lang = "tr" }) {
         },
       });
 
-      // 1. Sol Sticky Panel Girişi
       tl.fromTo(
         stickyCard,
         { opacity: 0, x: -30, scale: 0.98 },
         { opacity: 1, x: 0, scale: 1, duration: 0.8, ease: "power3.out" },
       );
 
-      // 2. Sağdaki 12 Kartın Şelale Süzülüşü
       tl.fromTo(
         cards,
         { opacity: 0, y: 24 },
@@ -229,7 +227,6 @@ export default function FAQ({ lang = "tr" }) {
           </div>
         </div>
 
-        {/* 2026 CSS Grid Akordeon Mekanizması */}
         <div className={`${styles.drawer} ${isOpen ? styles.drawerOpen : ""}`}>
           <div className={styles.drawerInner}>
             <p className={styles.answerText}>{item.a}</p>
@@ -312,7 +309,9 @@ export default function FAQ({ lang = "tr" }) {
                   }`}
                 />
                 <span className={styles.statusText}>
-                  {isOnline ? dict.teamOnline : dict.teamOffline}
+                  {isOnline
+                    ? "Bursa Masası Canlı (09:00 - 18:00)"
+                    : "Online 7/24 Aktif — Mesajınız İletilir"}
                 </span>
               </div>
             </div>
