@@ -1,35 +1,36 @@
 export const dictionary = {
   tr: {
     seo: {
-      metaTitle: "Bursa Web Tasarım & Özel Web Yazılım Şirketi | Hexa Dijital",
+      metaTitle:
+        "Özel Web Yazılımı, Dijital Mimarlık & Büyüme Sistemleri | Hexa Dijital",
       metaDesc:
-        "Bursa genelinde (Nilüfer, Osmangazi, Yıldırım, Mudanya, İnegöl) kurumsal web tasarım, özel web yazılım ve Google Haritalar ilk 3 SEO ajansı. Hızlı, dönüşüm ve ciro odaklı siber sistemler.",
+        "Hazır şablon kullanmadan, Next.js ile 0.8 saniyenin altında açılan kurumsal web sistemleri, sıfır komisyonlu sipariş ağları ve kasanıza müşteri çeken dijital büyüme motorları.",
     },
     nav: {
       works: "Projeler",
       services: "Hizmetler",
-      localSeo: "Bursa Web Tasarım & SEO",
+      about: "Hakkımızda",
       contact: "İletişim",
       initiate: "Proje Başlat",
       drawerCta: "Yeni Bir Proje Başlatın",
     },
     hero: {
-      h1Prefix: "Bursa Web Tasarım &",
-      h1Serif: "Özel Web Yazılım",
-      h1Suffix: "Şirketi.",
+      h1Prefix: "Özel Web Mimarisi,",
+      h1Serif: "hafif yazılımlar &",
+      h1Suffix: "dijital büyüme.",
       h1AccentWord: "Ciro Odaklı",
       manifesto:
-        "Hazır şablon sitelerin yavaşlığından kurtulun. Bursa sanayisi ve ticari işletmeleri için 0.8 saniyede açılan özel web yazılımları geliştiriyor, Google Haritalar'da ilk 3 sıraya taşıyarak hazır müşterileri doğrudan kasanıza yönlendiriyoruz.",
+        "Hazır şablon sitelerin yavaşlığından, her ay yenilenen lisans masraflarından ve boşa para yakan amatör reklamlardan kurtulun. Saniyeler içinde açılan hafif web yazılımları geliştiriyor, satın almaya hazır müşterileri doğrudan işletmenizin kasasına yönlendiriyoruz.",
       primaryCta: "Yeni Bir Proje Başlatın",
       subCta: "Birlikte dijital ciro motorunuzu kuralım",
     },
     works: {
-      eyebrow: "// SEÇKİN ÇALIŞMALAR & MÜHENDİSLİK",
+      eyebrow: "// SEÇKİN ÇALIŞMALAR & SAHA MÜHENDİSLİĞİ",
       titleMain: "Sözde değil sahada çalışan,",
-      titleAccent: "ciro üreten tescilli projeler.",
+      titleAccent: "ciro üreten tescilli sistemler.",
       filterAll: "TÜMÜ",
       filterWeb: "WEB TASARIM & YAZILIM",
-      filterSeo: "GOOGLE HARİTA & SEO",
+      filterSeo: "HARİTA & YEREL SEO",
       filterAuto: "SİPARİŞ & ADİSYON",
       filterLabel: "FİLTRE:",
       projectWord: "PROJE",
@@ -40,93 +41,94 @@ export const dictionary = {
         "Bir işletmeye yalnızca güzel görünen sıradan bir web sitesi teslim etmek ",
       highlight1: "ciro getirmiyor.",
       part2:
-        "Biz Bursa genelindeki her markayı; saniyeler içinde açılan özel yazılımlar ve kasaya doğrudan müşteri düşüren yerel SEO dominasyonu ile ",
+        "Biz her markayı; saniyeler içinde açılan hafif yazılımlar ve kasaya doğrudan müşteri düşüren büyüme mekanizmalarıyla ",
       highlight2: "pazarda 1. sıraya taşıyoruz.",
     },
     servicesIndex: {
-      badge: "HİZMET MİMARİSİ",
+      badge: "HİZMET FİHRİSTİ // 5 DEPARTMAN",
     },
     process: {
       eyebrow: "// ÇALIŞMA PROTOKOLÜ",
       titleMain: "Baştan Sona Çalışma",
       titleAccent: "Disiplinimiz.",
       subtitle:
-        "Sürpriz maliyetler veya ucu açık teslimat süreleri yok. Kapsamı, takvimi ve hedef cirosu net olarak taahhüt edilmiş 4 aşamalı mühendislik süreci.",
-      step1Code: "Strateji & Analiz",
-      step1Title: "Pazar & Rakip Açığı Tespiti",
+        "Sürpriz maliyetler, ertelenen teslimat tarihleri ve telefonunuza çıkmayan acemi ajanslar yok. Kapsamı, takvimi ve hedef çıktısı resmi sözleşmeyle tescillenen 4 adımlı mühendislik süreci.",
+      step1Code: "01 // TEŞHİS & STRATEJİ",
+      step1Title: "Pazar & Kaçan Müşteri Analizi",
       step1Desc:
-        "Bursa ve Türkiye genelindeki rakiplerinizin açıklarını analiz ediyor; işletmenizin aramalarda hangi kelimelerle doğrudan müşteri çekeceğini planlıyoruz.",
-      step1Badge: "Net Kapsam & SEO Haritası",
+        "Sektörünüzdeki rakiplerin zayıf noktalarını inceliyor, yavaş açılan siteler yüzünden kaçırdığınız potansiyel müşterileri tespit ediyor ve kuruşu kuruşuna geri dönüş getirecek yol haritasını çiziyoruz.",
+      step1Badge: "Net Kapsam & Resmi Yol Haritası",
 
-      step2Code: "Tasarım Mimarisi",
-      step2Title: "Siber-Lüks Arayüz Tasarımı",
+      step2Code: "02 // KUSURSUZ TASARIM",
+      step2Title: "Prestij Katan Siber Arayüz",
       step2Desc:
-        "Markanıza prestij katan, ziyaretçiyi anında güvenle bağlayan ekranlar çiziyoruz. Tek satır kod yazılmadan önce tüm detayları onaylıyorsunuz.",
+        "Müşterinizin girdiği anda güven duyacağı, firmanızı sektörün lideri gibi konumlandıran ekranlar hazırlıyoruz. Tek satır kod yazılmadan önce tüm detayları canlı ortamda onaylıyorsunuz.",
       step2Badge: "Piksel Hassasiyetinde Onay",
 
-      step3Code: "Özel Geliştirme",
-      step3Title: "Temiz Kod & 0.8s Açılış Hızı",
+      step3Code: "03 // HAFİF KODLAMA",
+      step3Title: "0.8s Hız & Sıfır Eklenti Çöplüğü",
       step3Desc:
-        "WordPress eklenti çöplüğüne dokunmadan, modern Next.js mimarisiyle temiz kodlama yapıyoruz. Arama motorları sitenizi kusursuz puanlarla ödüllendirir.",
-      step3Badge: "Lighthouse 100/100 Puan",
+        "WordPress şablonlarına dokunmadan, modern Next.js mimarisiyle temiz kod yazıyoruz. Siteniz tüm telefonlarda göz açıp kapayıncaya kadar açılır, arama motorlarında tam puan alır.",
+      step3Badge: "100/100 Performans Skoru",
 
-      step4Code: "Pazar Dominasyonu",
-      step4Title: "Google Harita İlk 3 & Reklam Motoru",
+      step4Code: "04 // PAZAR HAKİMİYETİ",
+      step4Title: "Arama Hakimiyeti & Reklam Motoru",
       step4Desc:
-        "Sitenizi yayına alıp kenara çekilmiyoruz. Bursa genelinde Google Haritalar ilk 3 dominasyonu ve nokta atışı reklamlarla kasanıza müşteri akıtıyoruz.",
+        "Sistemi teslim edip kenara çekilmiyoruz. Harita aramalarında ilk 3 sıra hakimiyeti ve nokta atışı reklam optimizasyonuyla telefonlarınızı çaldırıyor, kasanıza doğrudan müşteri akıtıyoruz.",
       step4Badge: "Kesintisiz Ciro & Büyüme",
     },
     faq: {
       leftHeading: "Aklınıza takılan farklı bir konu mu var?",
       leftText:
-        "Buradaki yanıtlar genel çerçeveyi özetler. Bursa'daki işletmenizin özel hedeflerini, bütçesini ve takvimini doğrudan mimarlarla konuşmak için bize dilediğiniz an ulaşabilirsiniz.",
+        "Tüm süreçlerimiz şeffaf ve resmi sözleşmeyle güvence altındadır. İşletmenizin özel hedeflerini, teknik ihtiyaçlarını ve teslim takvimini doğrudan proje mimarlarımızla görüşün.",
       metricSpeed: "< 15 Dk",
       metricSpeedLabel: "Ortalama İlk Yanıt",
       metricGuarantee: "%100",
-      metricGuaranteeLabel: "Şeffaf Sözleşme",
-      waBtn: "WhatsApp ile Görüşün",
+      metricGuaranteeLabel: "Resmi Sözleşme & E-Fatura",
+      waBtn: "WhatsApp ile Hemen Görüşün",
       formLink: "Veya Proje Formunu Doldurun",
-      teamOnline: "Ekip Çevrimiçi — 09:00 - 17:00 Canlı Destek",
+      teamOnline: "Bursa Proje Masası — 09:00 - 18:00 Canlı Destek",
       teamOffline: "Online Destek 7/24 Aktif — Mesajınız Anında İletilir",
     },
     whatsapp: {
-      primary: "Bursa Proje Hattı",
-      sub: "Doğrudan Ekibe Yazın",
+      primary: "Doğrudan Proje Hattı",
+      sub: "Teknik Ekiple Görüşün",
       message:
-        "Merhaba Hexa Dijital, Bursa genelinde web sitemiz / yazılım projemiz için bilgi ve teklif almak istiyoruz.",
+        "Merhaba Hexa Dijital, işletmemiz için web yazılım ve dijital büyüme sistemleri hakkında bilgi ve resmi teklif almak istiyoruz.",
     },
   },
   en: {
     seo: {
-      metaTitle: "Bursa Web Design & Custom Software Agency | Hexa Dijital",
+      metaTitle:
+        "Bespoke Web Architecture, Software & Growth Systems | Hexa Digital",
       metaDesc:
-        "Enterprise web design, bespoke web development, and Google Maps Local SEO dominance agency in Bursa, Turkey. Sub-second speed and conversion-driven platforms.",
+        "Sub-second web platforms engineered on Next.js, commission-free ordering systems, and high-converting growth engines without generic templates or plugin bloat.",
     },
     nav: {
       works: "Works",
       services: "Services",
-      localSeo: "Bursa Web & SEO",
+      about: "About",
       contact: "Contact",
       initiate: "Initiate Project",
       drawerCta: "Initiate a New Project",
     },
     hero: {
-      h1Prefix: "Bursa Web Design &",
-      h1Serif: "Bespoke Web Software",
-      h1Suffix: "Agency.",
+      h1Prefix: "Bespoke Web Architecture,",
+      h1Serif: "sub-second software &",
+      h1Suffix: "growth media.",
       h1AccentWord: "Revenue-Driven",
       manifesto:
-        "Escape the lag of generic templates. We build sub-second custom web platforms engineered for industrial leaders in Bursa, securing top-3 Google rankings and converting search intent into business revenue.",
+        "Escape slow templates, recurring plugin maintenance fees, and wasteful advertising spend. We engineer sub-second custom software backbones that capture high-intent commercial demand and convert it directly into bottom-line revenue.",
       primaryCta: "Initiate a Project",
-      subCta: "Let's engineer your growth engine",
+      subCta: "Let's engineer your commercial engine",
     },
     works: {
-      eyebrow: "// SELECTED WORKS & ARCHITECTURES",
+      eyebrow: "// SELECTED WORKS & FIELD ENGINEERING",
       titleMain: "Quiet craft, engineered for",
       titleAccent: "verifiable market dominance.",
       filterAll: "ALL",
       filterWeb: "WEB DESIGN & SOFTWARE",
-      filterSeo: "GOOGLE MAPS & SEO",
+      filterSeo: "MAPS & LOCAL SEO",
       filterAuto: "POS & ORDERING",
       filterLabel: "FILTER:",
       projectWord: "PROJECTS",
@@ -136,60 +138,60 @@ export const dictionary = {
       part1: "Handing an enterprise a merely attractive brochure website ",
       highlight1: "never solves the commercial puzzle.",
       part2:
-        "We equip forward-thinking brands across Bursa and beyond with high-speed bespoke software and Google Maps dominance that ",
+        "We equip forward-thinking brands with high-speed bespoke software and high-intent acquisition funnels that ",
       highlight2: "propel them to undisputed #1.",
     },
     servicesIndex: {
-      badge: "SERVICE ARCHITECTURE",
+      badge: "SERVICE DIRECTORY // 5 DEPARTMENTS",
     },
     process: {
       eyebrow: "// DELIVERY PROTOCOL",
       titleMain: "Zero Surprises.",
       titleAccent: "4-Phase Engineering Framework.",
       subtitle:
-        "No hidden fees, no ambiguous delivery windows. Predictable sprints engineered to secure measurable commercial outcomes.",
-      step1Code: "Strategy & Discovery",
-      step1Title: "Market & Gap Identification",
+        "No hidden fees, no ambiguous delivery windows, and no vanished agencies. Predictable sprints engineered to secure measurable commercial outcomes codified in binding contracts.",
+      step1Code: "01 // DIAGNOSIS & SCOPE",
+      step1Title: "Market & Opportunity Audit",
       step1Desc:
-        "We dissect regional competitors across Bursa and identify high-value search terms and software bottlenecks ready for capture.",
-      step1Badge: "Clear Scope & SEO Roadmap",
+        "We dissect regional competitors and uncover operational friction, identifying high-intent search queries and bottlenecks ready for capture with zero ad waste.",
+      step1Badge: "Fixed Scope & Legal Roadmap",
 
-      step2Code: "Design Architecture",
+      step2Code: "02 // PRESTIGE DESIGN",
       step2Title: "Bespoke Cyber-Luxury UI/UX",
       step2Desc:
-        "High-contrast, authoritative interfaces engineered to establish instant customer trust before a single line of production code is written.",
+        "Authoritative, high-contrast interfaces designed to establish instant commercial trust. You inspect and approve all screens in a live test environment before production code begins.",
       step2Badge: "Pixel-Level Signoff",
 
-      step3Code: "Custom Software",
+      step3Code: "03 // CLEAN CODE",
       step3Title: "Sub-0.8s Next.js Engineering",
       step3Desc:
-        "Zero bloated plugins or templates. Handcrafted Next.js architectures that score top marks across Google Core Web Vitals.",
-      step3Badge: "100/100 Lighthouse Benchmark",
+        "Zero generic WordPress plugins or template bloat. Handcrafted Next.js architectures that load instantly on every mobile viewport and lock 100/100 Lighthouse scores.",
+      step3Badge: "100/100 Core Web Vitals",
 
-      step4Code: "Market Capture",
-      step4Title: "Google Maps Top 3 & Growth Engine",
+      step4Code: "04 // MARKET CAPTURE",
+      step4Title: "Search Dominance & Conversion Engine",
       step4Desc:
-        "We don't ship and abandon. We continuously optimize regional map signals and paid acquisition funnels to deliver qualified inquiries directly to you.",
+        "We don't launch and disappear. We optimize map signals and paid acquisition funnels to route qualified inquiries and customer calls directly into your pipeline.",
       step4Badge: "Continuous ROI & Scaling",
     },
     faq: {
-      leftHeading: "Have specific questions about your project?",
+      leftHeading: "Have specific questions about your engagement?",
       leftText:
-        "These guidelines outline our execution standard. To evaluate your custom specifications, schedule, and revenue projections, talk directly with our lead architects.",
+        "All our engagements are backed by formal contracts, transparent milestones, and corporate e-invoicing. Contact our lead engineers directly to evaluate your roadmap.",
       metricSpeed: "< 15 Min",
       metricSpeedLabel: "Avg. First Response",
       metricGuarantee: "%100",
-      metricGuaranteeLabel: "Transparent Contract",
+      metricGuaranteeLabel: "Binding SLA & Invoicing",
       waBtn: "Chat via WhatsApp",
       formLink: "Or Submit Project Inquiry",
-      teamOnline: "Team Online — 09:00 to 17:00 Real-Time Desk",
+      teamOnline: "Project Desk — 09:00 to 18:00 Real-Time Support",
       teamOffline: "Online Desk Active 24/7 — Messages Logged Instantly",
     },
     whatsapp: {
-      primary: "Bursa Project Desk",
-      sub: "Message Directly",
+      primary: "Direct Project Desk",
+      sub: "Message Our Engineering Team",
       message:
-        "Hello Hexa Dijital, we would like to inquire about a custom web and software project in Bursa.",
+        "Hello Hexa Digital, we would like to evaluate our custom web software and digital growth systems with a formal proposal.",
     },
   },
 };

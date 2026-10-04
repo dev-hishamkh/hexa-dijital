@@ -38,7 +38,11 @@ export async function generateMetadata({ params }) {
   }
 
   const isTr = lang === "tr";
-  const metaTitle = `${data.title} | Hexa Dijital`;
+  // S+ Standardı: Başlık hizmet ve stüdyo otoritesini korur
+  const metaTitle = isTr
+    ? `${data.title} | Hexa Dijital`
+    : `${data.title} | Hexa Digital`;
+
   const metaDesc = data.leadText.slice(0, 158);
 
   return {
@@ -47,8 +51,8 @@ export async function generateMetadata({ params }) {
     keywords: [
       data.name,
       `${data.name} Bursa`,
-      "Bursa web tasarım",
-      "Bursa özel web yazılım",
+      "kurumsal web yazılım",
+      "özel yazılım geliştirme",
       data.departmentTitle,
       "Hexa Dijital",
     ],

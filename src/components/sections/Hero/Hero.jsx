@@ -3,12 +3,14 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import LightRays from "@/components/ui/LightRays/LightRays";
+import { dictionary } from "@/data/dictionary";
 import styles from "./Hero.module.css";
 
 export default function Hero({ lang = "tr" }) {
   const [isLightMode, setIsLightMode] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const isTr = lang === "tr";
+  const dict = dictionary[lang]?.hero || dictionary.tr.hero;
 
   useEffect(() => {
     setIsMounted(true);
@@ -50,51 +52,29 @@ export default function Hero({ lang = "tr" }) {
       </div>
 
       <div className={`container ${styles.heroContainer}`}>
-        {/* MERKEZİ EDİTORYAL TİPOGRAFİ */}
+        {/* MERKEZİ EDİTORYAL TİPOGRAFİ (S+ TIER-1 STANDARDI) */}
         <div className={styles.contentColumn}>
           <h1 className={styles.heroTitle}>
             <span className={`${styles.titleLineWrapper} ${styles.delay1}`}>
-              <span className={styles.titleLine}>
-                {isTr ? "Bursa Web Tasarım," : "Bespoke Web Design,"}
-              </span>
+              <span className={styles.titleLine}>{dict.h1Prefix}</span>
             </span>
 
             <span className={`${styles.titleLineWrapper} ${styles.delay2}`}>
               <span className={styles.titleLine}>
-                <span className={styles.serifItalic}>
-                  {isTr ? "özel yazılımlar &" : "custom software &"}
-                </span>
+                <span className={styles.serifItalic}>{dict.h1Serif}</span>
               </span>
             </span>
 
             <span className={`${styles.titleLineWrapper} ${styles.delay3}`}>
               <span className={styles.titleLine}>
-                <span>{isTr ? "ciro odaklı" : "high-impact"}</span>{" "}
-                <span className={styles.accentSerif}>
-                  {isTr ? "dijital büyüme." : "digital growth."}
-                </span>
+                <span>{isTr ? "ciro odaklı" : "revenue-driven"}</span>{" "}
+                <span className={styles.accentSerif}>{dict.h1Suffix}</span>
               </span>
             </span>
           </h1>
 
           <div className={`${styles.bottomArea} ${styles.delay4}`}>
-            <p className={styles.manifesto}>
-              {isTr ? (
-                <>
-                  Estetik arayüzler tasarlıyor, saniyeler içinde açılan özel web
-                  ve otomasyon altyapıları kodluyor, Google ve Meta
-                  reklamlarıyla hazır müşterileri doğrudan kasanıza çekiyoruz.
-                  Tasarımdan reklama, tüm dijital çarkları tek elden
-                  yönetiyoruz.
-                </>
-              ) : (
-                <>
-                  A creative agency specializing in bespoke software, web
-                  design, and growth media — building high-converting digital
-                  machines that scale businesses.
-                </>
-              )}
-            </p>
+            <p className={styles.manifesto}>{dict.manifesto}</p>
 
             <div className={styles.actionGroup}>
               <Link
@@ -118,13 +98,9 @@ export default function Hero({ lang = "tr" }) {
                 </div>
                 <div className={styles.actionLabels}>
                   <span className={styles.actionPrimaryText}>
-                    {isTr ? "Yeni Bir Proje Başlatın" : "Initiate a Project"}
+                    {dict.primaryCta}
                   </span>
-                  <span className={styles.actionSubText}>
-                    {isTr
-                      ? "Birlikte dijital makinenizi kuralım"
-                      : "Let’s engineer your growth"}
-                  </span>
+                  <span className={styles.actionSubText}>{dict.subCta}</span>
                 </div>
               </Link>
             </div>
@@ -132,10 +108,7 @@ export default function Hero({ lang = "tr" }) {
         </div>
       </div>
 
-      {/* 
-        KESKİN ÇİZGİYİ SİLEN SİHİRLİ SİNEMATİK GEÇİŞ:
-        Hero'nun zemin rengine doğru pürüzsüzce eriyen degrade katmanı
-      */}
+      {/* Keskin Çizgiyi Yok Eden Sinematik Erime Katmanı */}
       <div className={styles.bottomFadeGradient} aria-hidden="true" />
     </section>
   );

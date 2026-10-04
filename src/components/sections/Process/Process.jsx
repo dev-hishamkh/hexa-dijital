@@ -114,16 +114,15 @@ export default function Process({ lang = "tr" }) {
     if (!track || !fillLine) return;
 
     const ctx = gsap.context(() => {
-      // 1. Başlık Alanı Giriş Animasyonu
       if (header) {
         gsap.fromTo(
           header.children,
-          { opacity: 0, y: 30 },
+          { opacity: 0, y: 25 },
           {
             opacity: 1,
             y: 0,
             duration: 0.8,
-            stagger: 0.12,
+            stagger: 0.1,
             ease: "power3.out",
             scrollTrigger: {
               trigger: header,
@@ -134,21 +133,18 @@ export default function Process({ lang = "tr" }) {
         );
       }
 
-      // 2. Kinetik Çizginin GSAP ScrollTrigger ile Tereyağı Gibi Akışı
       ScrollTrigger.create({
         trigger: track,
-        start: "top 60%", // Çizgi ekranın %60'ına geldiğinde akmaya başlar
-        end: "bottom 60%", // Listenin sonuna ulaştığında tamamlanır
-        scrub: 0.5, // 0.5s ultra pürüzsüz takip
+        start: "top 60%",
+        end: "bottom 60%",
+        scrub: 0.5,
         onUpdate: (self) => {
           const progress = self.progress;
           const trackHeight = track.offsetHeight;
           const currentHeight = progress * trackHeight;
 
-          // Çizgi boyunu doğrudan donanım hızlandırmalı height ile güncelle
           fillLine.style.height = `${currentHeight}px`;
 
-          // Düğümlerin tam merkezine ulaşıldığında aktif et
           const newActives = nodeRefs.current.map((nodeEl) => {
             if (!nodeEl) return false;
             const nodeCenter = nodeEl.offsetTop + nodeEl.offsetHeight / 2;
@@ -166,13 +162,8 @@ export default function Process({ lang = "tr" }) {
   return (
     <section ref={sectionRef} className={styles.section} id="nasil-calisiyoruz">
       <div className={`container ${styles.container}`}>
-        {/* BÖLÜM BAŞLIĞI */}
+        {/* BÖLÜM BAŞLIĞI (2026 S+ MONOLİTİK DÜZEN) */}
         <header ref={headerRef} className={styles.header}>
-          <div className={styles.eyebrowWrapper}>
-            <span className={styles.eyebrowDot} />
-            <span className={styles.eyebrowText}>{dict.eyebrow}</span>
-          </div>
-
           <h2 className={styles.mainTitle}>
             {dict.titleMain} <br />
             <span className={styles.titleAccent}>{dict.titleAccent}</span>
@@ -183,13 +174,11 @@ export default function Process({ lang = "tr" }) {
 
         {/* KİNETİK TİMELİNE SAHNESİ */}
         <div className={styles.timelineStage}>
-          {/* Ortadaki Dikey Hat */}
           <div ref={trackRef} className={styles.timelineTrack}>
             <div className={styles.trackDashed} />
             <div ref={fillLineRef} className={styles.trackSolidFill} />
           </div>
 
-          {/* Adımlar Listesi */}
           <div className={styles.stepsList}>
             {steps.map((item, idx) => {
               const isReached = activeNodes[idx];
@@ -206,12 +195,11 @@ export default function Process({ lang = "tr" }) {
                     <h3 className={styles.stepTitle}>{item.title}</h3>
                     <p className={styles.stepDesc}>{item.desc}</p>
                     <div className={styles.metricPill}>
-                      <span className={styles.pillDot} />
                       <span>{item.badge}</span>
                     </div>
                   </div>
 
-                  {/* MERKEZ: KİNETİK İKON DÜĞÜMÜ */}
+                  {/* MERKEZ: DÜĞÜM */}
                   <div className={styles.nodeColumn}>
                     <div
                       ref={(el) => (nodeRefs.current[idx] = el)}
@@ -232,10 +220,10 @@ export default function Process({ lang = "tr" }) {
                     >
                       <div className={styles.cardTop}>
                         <span className={styles.phaseLabel}>
-                          PHASE // {item.step}
+                          Aşama 0{idx + 1}
                         </span>
                         <span className={styles.statusLabel}>
-                          {isReached ? "ACTIVE" : "STANDBY"}
+                          {isReached ? "Aktif" : "Sırada"}
                         </span>
                       </div>
                       <div className={styles.cardCenter}>

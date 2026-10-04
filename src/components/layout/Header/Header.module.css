@@ -8,97 +8,72 @@
     justify-content: center;
     padding: 1.5rem 1rem;
     pointer-events: none;
-    /* Arka plandaki tıklamaları engellemez */
 }
 
 /* ==========================================================================
-   2026 YÜZEN SİBER CAM KAPSÜL ADA (FLOATING ISLAND)
+   2026 S+ YÜZEN CAM MİMARİSİ
    ========================================================================== */
 .islandNav {
     pointer-events: auto;
-    /* Sadece ada tıklanabilir */
     width: 100%;
     max-width: 1140px;
-    height: 60px;
+    height: 56px;
     border-radius: var(--radius-full);
-    background: rgba(10, 14, 23, 0.65);
-    border: 1px solid var(--hexa-border);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    padding: 0 0.85rem 0 1.5rem;
+    background: rgba(10, 14, 23, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    padding: 0 0.75rem 0 1.75rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.8);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .islandScrolled {
-    background: rgba(10, 14, 23, 0.85);
+    background: rgba(10, 14, 23, 0.92);
     border-color: rgba(255, 255, 255, 0.14);
-    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.9), 0 0 20px var(--hexa-accent-glow);
-    transform: translateY(-4px) scale(0.99);
+    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.95);
+    transform: translateY(-2px) scale(0.995);
 }
 
 [data-theme="light"] .islandNav {
-    background: rgba(245, 245, 247, 0.82);
-    border-color: rgba(0, 0, 0, 0.09);
+    background: rgba(245, 245, 247, 0.88);
+    border-color: rgba(0, 0, 0, 0.08);
     box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
 }
 
 [data-theme="light"] .islandScrolled {
-    background: rgba(255, 255, 255, 0.94);
+    background: rgba(255, 255, 255, 0.96);
     box-shadow: 0 25px 45px -15px rgba(0, 0, 0, 0.12);
 }
 
 /* ==========================================================================
-   LOGO & TELEMETRİ NOKTASI
+   SAF MONOLİTİK MARKA İMZASI (NOKTALAR VE CILIZ YAZILAR YOK)
    ========================================================================== */
 .brandLink {
     display: inline-flex;
     align-items: center;
-    gap: 0.45rem;
     text-decoration: none;
     user-select: none;
 }
 
 .logoName {
     font-family: var(--font-main);
-    font-size: 1.15rem;
-    font-weight: 800;
-    letter-spacing: -0.04em;
-    color: var(--hexa-font-main);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    color: #F8FAFC;
+    transition: opacity 0.25s ease;
 }
 
-.logoTag {
-    font-family: var(--font-main);
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    color: var(--hexa-font-muted);
+[data-theme="light"] .logoName {
+    color: #111827;
 }
 
-.telemetryPulse {
-    width: 5px;
-    height: 5px;
-    border-radius: var(--radius-full);
-    background-color: var(--hexa-accent);
-    box-shadow: 0 0 8px var(--hexa-accent);
-    animation: pulsePoint 2s infinite ease-in-out;
-}
-
-@keyframes pulsePoint {
-
-    0%,
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: 0.35;
-        transform: scale(0.8);
-    }
+.brandLink:hover .logoName {
+    opacity: 0.85;
 }
 
 /* ==========================================================================
@@ -107,39 +82,38 @@
 .desktopNav {
     display: flex;
     align-items: center;
-    gap: 1.75rem;
+    gap: 2rem;
 }
 
 .navItem {
-    position: relative;
     font-family: var(--font-main);
-    font-size: 0.88rem;
+    font-size: 0.9rem;
     font-weight: 500;
-    color: var(--hexa-font-dim);
+    letter-spacing: -0.015em;
+    color: #94a3b8;
     text-decoration: none;
-    padding: 0.4rem 0;
     transition: color 0.25s var(--ease-out);
 }
 
+[data-theme="light"] .navItem {
+    color: #64748b;
+}
+
 .navItem:hover {
-    color: var(--hexa-font-main);
+    color: #F8FAFC;
+}
+
+[data-theme="light"] .navItem:hover {
+    color: #111827;
 }
 
 .navItemActive {
-    color: var(--hexa-font-main);
+    color: #F8FAFC;
     font-weight: 600;
 }
 
-.activeDot {
-    position: absolute;
-    bottom: -2px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4px;
-    height: 4px;
-    border-radius: var(--radius-full);
-    background-color: var(--hexa-accent);
-    box-shadow: 0 0 6px var(--hexa-accent);
+[data-theme="light"] .navItemActive {
+    color: #111827;
 }
 
 /* ==========================================================================
@@ -152,43 +126,53 @@
 }
 
 .langPill {
-    font-family: monospace;
-    font-size: 0.74rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    padding: 0.4rem 0.75rem;
+    font-family: var(--font-main);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    padding: 0.45rem 0.85rem;
     border-radius: var(--radius-full);
-    background: var(--hexa-surface);
-    border: 1px solid var(--hexa-border);
-    color: var(--hexa-font-dim);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #cbd5e1;
     text-decoration: none;
     transition: all 0.25s var(--ease-out);
 }
 
+[data-theme="light"] .langPill {
+    background: rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.08);
+    color: #475569;
+}
+
 .langPill:hover {
-    border-color: var(--hexa-accent);
-    color: var(--hexa-accent);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #FFFFFF;
 }
 
 .themeBtn {
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
     border-radius: var(--radius-full);
-    background: var(--hexa-surface);
-    border: 1px solid var(--hexa-border);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--hexa-font-dim);
+    color: #cbd5e1;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+[data-theme="light"] .themeBtn {
+    background: rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.08);
+    color: #475569;
+}
+
 .themeBtn:hover {
-    border-color: var(--hexa-accent);
-    color: var(--hexa-accent);
-    transform: rotate(20deg);
-    box-shadow: 0 0 15px var(--hexa-accent-glow);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #FFFFFF;
 }
 
 .themeSvg {
@@ -196,22 +180,21 @@
     height: 16px;
 }
 
-/* Cerrahi Proje Başlat Butonu */
 .launchBtn {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
-    padding: 0.55rem 1.15rem;
+    gap: 0.45rem;
+    padding: 0.55rem 1.35rem;
     border-radius: var(--radius-full);
     background-color: #FFFFFF;
     color: #0A0E17;
     font-family: var(--font-main);
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: -0.01em;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
     text-decoration: none;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
 }
 
 [data-theme="light"] .launchBtn {
@@ -225,10 +208,8 @@
 }
 
 .launchBtn:hover {
-    background-color: var(--hexa-accent);
-    color: #0A0E17;
     transform: translateY(-1px);
-    box-shadow: 0 0 25px var(--hexa-accent-glow-strong);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
 }
 
 .launchBtn:hover .launchArrow {
@@ -293,16 +274,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 2.25rem;
 }
 
 .drawerItem {
     font-family: var(--font-main);
     font-size: 2rem;
     font-weight: 600;
-    color: var(--hexa-font-main);
+    color: #F8FAFC;
     text-decoration: none;
     letter-spacing: -0.03em;
+}
+
+[data-theme="light"] .drawerItem {
+    color: #111827;
 }
 
 .drawerCta {
@@ -310,9 +295,9 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 1rem 2rem;
+    padding: 0.9rem 2rem;
     border-radius: var(--radius-full);
-    background-color: var(--hexa-accent);
+    background-color: #FFFFFF;
     color: #0A0E17;
     font-family: var(--font-main);
     font-size: 1rem;

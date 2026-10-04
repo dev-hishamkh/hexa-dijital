@@ -6,32 +6,32 @@ const richServiceProfiles = {
       categoryTag: "Web Mimarisi",
       title: "Tek Sayfa Tanıtım Siteleri",
       leadText:
-        "Bursa ve Türkiye genelindeki işletmeler için reklam bütçesini doğrudan telefon aramasına ve WhatsApp siparişine dönüştüren, telefonda anında açılan tek sayfa satış motoru.",
+        "Reklam bütçenizi doğrudan telefon aramasına ve WhatsApp siparişine dönüştüren, telefonda anında açılan tek sayfa satış motoru.",
       imageUrl:
         "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1800&q=85",
       features8: [
         {
           icon: "PhoneCall",
           serifTitle: "Doğrudan Telefon Çaldırır",
-          copy: "Ziyaretçiyi karışık menülerde kaybetmeden tek tuşla dükkanınızı aratan akıcı düzen.",
+          copy: "Ziyaretçiyi karmaşık menülerde kaybetmeden tek tuşla işletmenizi aratan cerrahi akış.",
         },
         {
           icon: "Zap",
           serifTitle: "Göz Açıp Kapayıncaya Kadar Hızlı",
-          copy: "Reklama tıklayan müşteriyi bekletmeden 1 saniyenin altında ekrana getiren hafif altyapı.",
+          copy: "Reklama tıklayan müşteriyi bekletmeden 0.8 saniyenin altında ekrana getiren hafif yapı.",
         },
         {
           icon: "Target",
           serifTitle: "Boşa Reklam Parası Yakmaz",
-          copy: "Hangi reklamdan kaç telefon geldiğini kuruşu kuruşuna gösteren net takip sistemi.",
+          copy: "Hangi reklamdan kaç telefon araması geldiğini kuruşu kuruşuna gösteren net takip sistemi.",
         },
       ],
       features11: {
         headlineMain: "Reklama para verip gelen müşteri",
         headlineItalic: "açılmayan sayfalarda bekleyip",
-        headlineEnd: "kaçmamalı.",
+        headlineEnd: "rakibe kaçmamalı.",
         leadParagraph:
-          "İnternetten hizmet arayan bir müşteri tıkladığı sayfa 2-3 saniye içinde açılmazsa veya arama butonunu hemen göremezse çıkar, rakibinizi arar. Tek sayfa tanıtım sitelerimiz müşteriyi bekletmeden doğrudan dükkanınıza bağlar.",
+          "İnternetten acil hizmet arayan bir müşteri tıkladığı sayfa 2 saniye içinde açılmazsa veya arama butonunu hemen göremezse çıkar, rakibinizi arar. Tek sayfa tanıtım sitelerimiz müşteriyi bekletmeden doğrudan işletmenize bağlar.",
         cards: [
           {
             index: "01",
@@ -43,7 +43,7 @@ const richServiceProfiles = {
           {
             index: "02",
             icon: "PhoneCall",
-            title: "Tek Dokunuşla Doğrudan Arama",
+            title: "Tek Dokunuşla Arama",
             text: "Uzun formlarla uğraştırmaz; ekranın her yerinde hazır bekleyen WhatsApp ve arama butonlarıyla telefonu çaldırır.",
             actionText: "Arama butonlarını görün",
           },
@@ -58,16 +58,16 @@ const richServiceProfiles = {
       },
       zigzagShowcase: {
         block1: {
-          tag: "01 // ODAK & TELEFON ARAMASI",
+          tag: "01 · Odak & Doğrudan Çağrı",
           heading:
             "Müşterinin aklını karıştırmayan, doğrudan iş bağlayan tek ekran.",
           text: "Hakkımızda, vizyon, misyon gibi müşteriyi ilgilendirmeyen sayfalarla vakit kaybettirmiyoruz. Sayfa doğrudan ne iş yaptığınızı, fiyat avantajınızı ve neden sizi seçmeleri gerektiğini anlatıp müşteriyi aramaya yönlendirir.",
           image:
             "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1400&q=85",
-          imageAlt: "Bursa Hızlı Açılan Tek Sayfa Tanıtım Sitesi Tasarımı",
+          imageAlt: "Hızlı Açılan Tek Sayfa Tanıtım Sitesi Tasarımı",
         },
         block2: {
-          tag: "02 // ŞEFFAF TAKİP",
+          tag: "02 · Şeffaf Reklam Takibi",
           heading: "Hangi reklamın telefon getirdiğini net olarak görün.",
           text: "Google veya Instagram reklamlarına verdiğiniz paranın nereye gittiğini tam bilirsiniz. Gün içinde kaç kişinin arama butonuna bastığını, kaç kişinin WhatsApp'tan yazdığını net ve sade rakamlarla takip edersiniz.",
           image:
@@ -75,9 +75,10 @@ const richServiceProfiles = {
           imageAlt: "Günlük Müşteri ve Telefon Çağrı Takip Ekranı",
         },
         block3: {
-          tag: "03 // SAHADA KANITLANMIŞ ÇIKTI",
-          heading: "Hira Yıkama — Günde 35+ Doğrudan Müşteri Araması",
-          text: "Açılması 5 saniye süren eski web sitesi yerine telefon odaklı tek sayfa mimariye geçildi; reklam harcaması artmadan dükkana gelen günlük telefon araması 4 katına çıktı.",
+          tag: "03 · Doğrulanmış Saha Çıktısı",
+          heading:
+            "Hira Halı & Koltuk Yıkama — Günde 35+ Doğrudan Müşteri Çağrısı",
+          text: "Açılması 5 saniye süren eski web sitesi yerine telefon odaklı tek sayfa mimariye geçildi; reklam harcaması artırılmadan dükkana gelen günlük doğrudan müşteri çağrısı 4 katına çıktı.",
           metricBadge: "Günde 35+ Gerçek Müşteri Çağrısı",
           image:
             "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=85",
@@ -87,7 +88,7 @@ const richServiceProfiles = {
       deliverablesHeader: {
         eyebrow: "Net ve Eksiksiz Teslimat",
         heading: "İşletmenize sağlanan somut çıktılar",
-        lead: "Sürpriz maliyetler olmadan, doğrudan telefon çaldırmak ve satış kapatmak için ihtiyacınız olan her şey hazır teslim edilir.",
+        lead: "Sürpriz maliyetler olmadan, doğrudan telefon çaldırmak ve satış kapatmak için ihtiyacınız olan her şey resmi sözleşmeyle hazır teslim edilir.",
       },
       pillars: [
         {
@@ -102,17 +103,17 @@ const richServiceProfiles = {
         },
         {
           icon: "Target",
-          title: "Google & Instagram Reklam Uyumu",
+          title: "Google & Instagram Reklam Takibi",
           desc: "Reklamlardan gelen her tıklamayı ölçen ve reklam maliyetinizi düşüren teknik altyapı.",
         },
         {
           icon: "Sliders",
           title: "Sade Talep Formu",
-          desc: "Müşteriyi sıkmadan sadece isim ve telefon alarak size anında SMS veya e-posta atan mini form.",
+          desc: "Müşteriyi sıkmadan sadece isim ve telefon alarak size anında bildirim atan mini form.",
         },
         {
           icon: "MailCheck",
-          title: "Şirket Adına E-Posta & Güvenlik Kilidi",
+          title: "Şirket Adına E-Posta & SSL Kilidi",
           desc: "Müşteriye güven veren yeşil kilitli güvenlik sertifikası ve resmi şirket e-posta adresleri.",
         },
         {
@@ -141,11 +142,12 @@ const richServiceProfiles = {
       ],
       relatedSlugs: ["kurumsal-web-siteleri", "google-reklamlari"],
     },
+
     "kurumsal-web-siteleri": {
       categoryTag: "Web Mimarisi",
       title: "Kurumsal Web Siteleri",
       leadText:
-        "Bursa sanayisi ve kurumsal markalar için telefonda ve bilgisayarda 1 saniyenin altında açılan, güven veren ve Google aramalarında şirketinizi en tepeye taşıyan prestijli şirket vitrini.",
+        "Telefonda ve bilgisayarda 1 saniyenin altında açılan, kurumsal güven veren ve Google aramalarında şirketinizi en tepeye taşıyan prestijli şirket vitrini.",
       imageUrl:
         "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1800&q=85",
       features8: [
@@ -157,7 +159,7 @@ const richServiceProfiles = {
         {
           icon: "KeyRound",
           serifTitle: "%100 Şirketinize Ait Mülkiyet",
-          copy: "Ajansa bağımlı kalmadan; tüm şifreleri, alan adı ve dosyaları doğrudan adınıza tescilli altyapı.",
+          copy: "Ajansa bağımlı kalmadan; tüm şifreleri, alan adı ve kaynak kodları doğrudan adınıza tescilli altyapı.",
         },
         {
           icon: "ShieldCheck",
@@ -170,7 +172,7 @@ const richServiceProfiles = {
         headlineItalic: "yavaş açılıp prestij kaybettirmemeli,",
         headlineEnd: "güven aşılamalı.",
         leadParagraph:
-          "Bursa'daki müşterileriniz veya yurt dışındaki iş ortaklarınız firmanızı araştırırken açılmayan, mobilde kayan bir siteyle karşılaşırsa profesyonelliğinizden şüphe duyar. Şirketinizin ağırlığına yakışan, saniyeler içinde açılan kurumsal platformlar inşa ediyoruz.",
+          "Müşterileriniz veya yurt dışındaki iş ortaklarınız firmanızı araştırırken açılmayan, mobilde kayan bir siteyle karşılaşırsa profesyonelliğinizden şüphe duyar. Şirketinizin ağırlığına yakışan, saniyeler içinde açılan kurumsal platformlar inşa ediyoruz.",
         cards: [
           {
             index: "01",
@@ -197,15 +199,15 @@ const richServiceProfiles = {
       },
       zigzagShowcase: {
         block1: {
-          tag: "01 // İLK İZLENİM & PRESTİJ",
+          tag: "01 · Kurumsal Kimlik & Prestij",
           heading: "Şirketinizin büyüklüğünü internete eksiksiz yansıtın.",
           text: "Piyasadaki kalitesiz kopyala-yapıştır şablonlar firmanızı amatör gösterir. Fabrikanızı, referanslarınızı, makine parkurunuzu ve belgelerinizi en net şekilde sergileyen, müşteride anında güven uyandıran kurumsal arayüzler çiziyoruz.",
           image:
             "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1400&q=85",
-          imageAlt: "Bursa Kurumsal Şirket Web Sitesi Tasarımı",
+          imageAlt: "Kurumsal Şirket Web Sitesi Tasarımı",
         },
         block2: {
-          tag: "02 // KOLAY GÜNCELLEME",
+          tag: "02 · Kolay Yönetim & Bağımsızlık",
           heading: "Yazıları ve referansları kendiniz tek tıkla güncelleyin.",
           text: "Küçük bir telefon numarası veya proje görseli değiştirmek için ajans peşinde koşmazsınız. Telefonunuzdan bile girip yeni işlerinizi ve haberlerinizi saniyeler içinde ekleyebileceğiniz son derece kolay bir panel teslim ediyoruz.",
           image:
@@ -213,9 +215,9 @@ const richServiceProfiles = {
           imageAlt: "Kolay Yönetilebilir Şirket Yönetim Paneli",
         },
         block3: {
-          tag: "03 // SAHA KANITI & SONUÇ",
+          tag: "03 · Doğrulanmış Saha Çıktısı",
           heading: "Tataroğlu İnşaat — 0.6s Açılış & 3 Kat Teklif Talebi",
-          text: "Eski hantal web sitesi yenilenerek açılış süresi 4 saniyeden 0.6 saniyeye düşürüldü; Google yerel aramalarda 1. sıraya yükselerek kurumsal proje teklif taleplerini 3 katına çıkardı.",
+          text: "Eski hantal web sitesi yenilenerek açılış süresi 4 saniyeden 0.6 saniyeye düşürüldü; aramalarda ilk sıraya yükselerek kurumsal proje teklif taleplerini 3 katına çıkardı.",
           metricBadge: "0.6s Açılış · 3 Kat Fazla Teklif",
           image:
             "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=85",
@@ -255,7 +257,7 @@ const richServiceProfiles = {
         },
         {
           icon: "Headset",
-          title: "Bursa Proje Masası Desteği",
+          title: "Kesintisiz Destek Masası",
           desc: "Haftanın her günü doğrudan teknik ekiple görüşebileceğiniz kesintisiz telefon ve WhatsApp desteği.",
         },
       ],
@@ -279,18 +281,19 @@ const richServiceProfiles = {
       ],
       relatedSlugs: ["google-haritalar-1-sira", "ozel-tasarim-3d-siteler"],
     },
+
     "google-haritalar-1-sira": {
       categoryTag: "Yerel SEO & Büyüme",
-      title: "Google Haritalar 1. Sıra",
+      title: "Google Haritalar 1. Sıra Hakimiyeti",
       leadText:
-        "Bursa genelinde hizmetinizi aratan müşterilerin karşısına haritada ilk 3 sırada çıkın; telefon araması, web ziyareti ve yol tarifi trafiğini doğrudan dükkanınıza çekin.",
+        "Bölgenizde hizmetinizi aratan müşterilerin karşısına haritada ilk 3 sırada çıkın; telefon araması, web ziyareti ve yol tarifi trafiğini doğrudan dükkanınıza çekin.",
       imageUrl:
         "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1800&q=85",
       features8: [
         {
           icon: "MapPin",
           serifTitle: "İlk 3 Sıra Hakimiyeti",
-          copy: "Bursa ve çevre ilçelerdeki aramalarda doğrudan haritanın en tepesindeki ilk 3 sırada çıkma gücü.",
+          copy: "Şehir ve çevre ilçelerdeki aramalarda doğrudan haritanın en tepesindeki ilk 3 sırada çıkma gücü.",
         },
         {
           icon: "PhoneCall",
@@ -308,13 +311,13 @@ const richServiceProfiles = {
         headlineItalic: "şansa veya tesadüfe",
         headlineEnd: "bırakılamaz.",
         leadParagraph:
-          "Google Harita profilini sadece açıp bırakmak dükkana müşteri getirmez. Doğru kategori ayarları, Bursa konum sinyalleri ve gerçek müşteri yorumlarıyla dükkanınızı haritada rakiplerinizin üstüne taşıyoruz.",
+          "Google Harita profilini sadece açıp bırakmak dükkana müşteri getirmez. Doğru kategori ayarları, bölgesel konum sinyalleri ve gerçek müşteri yorumlarıyla dükkanınızı haritada rakiplerinizin üstüne taşıyoruz.",
         cards: [
           {
             index: "01",
             icon: "MapPin",
             title: "Haritada İlk 3 Sıraya Giriş",
-            text: "Nilüfer'den Osmangazi'ye, Yıldırım'dan İnegöl'e kadar arama yapan müşterilerin doğrudan karşısına çıkın.",
+            text: "Yakın ve çevre ilçelerden arama yapan müşterilerin doğrudan karşısına çıkın.",
             actionText: "Harita kapsamını görün",
           },
           {
@@ -335,16 +338,16 @@ const richServiceProfiles = {
       },
       zigzagShowcase: {
         block1: {
-          tag: "01 // TEŞHİS & HARİTA ALGORİTMASI",
+          tag: "01 · Harita Algoritması",
           heading:
             "Dükkanınız harita aramalarında neden arka sıralarda kalıyor?",
           text: "Google Harita profilini açıp öylece bırakmak yetmez. Google; dükkan adresinizin diğer sitelerle tutarlılığına, fotoğraflarınızın konum etiketlerine ve düzenli gelen müşteri yorumlarına bakar. Bunlar eksik olduğunda arama yapan binlerce müşteri doğrudan rakiplerinize gider.",
           image:
             "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1400&q=85",
-          imageAlt: "Bursa Google Haritalar Yerel Arama Sıralaması",
+          imageAlt: "Google Haritalar Yerel Arama Sıralaması",
         },
         block2: {
-          tag: "02 // 5 YILDIZ TOPLAMA SİSTEMİ",
+          tag: "02 · 5 Yıldız Toplama Sistemi",
           heading:
             "Temassız kartla müşterilerden tek dokunuşla gerçek 5 yıldız.",
           text: "Dükkanınızdan memnun ayrılan müşterilerin kasada veya masada telefonunu dokundurarak 2 saniyede 5 yıldızlı yorum bırakmasını sağlayan temassız NFC ve QR yorum sistemi kuruyoruz.",
@@ -353,9 +356,9 @@ const richServiceProfiles = {
           imageAlt: "Temassız NFC Masa Yorum Kartı",
         },
         block3: {
-          tag: "03 // SAHA KANITI & SONUÇ",
+          tag: "03 · Doğrulanmış Saha Çıktısı",
           heading: "Alya Davet — Haritalarda 1. Sıra & 3 Kat Rezervasyon",
-          text: "Bursa genelindeki organizasyon ve mekan aramalarında ilk 3 harita sırasına yerleşerek doğrudan telefonla alınan randevu ve müşteri sayısını 3 katına çıkardı.",
+          text: "Organizasyon ve mekan aramalarında ilk 3 harita sırasına yerleşerek doğrudan telefonla alınan randevu ve müşteri sayısını 3 katına çıkardı.",
           metricBadge: "Haritalarda 1. Sıra · 3 Kat Çağrı Hacmi",
           image:
             "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=85",
@@ -363,9 +366,9 @@ const richServiceProfiles = {
         },
       },
       deliverablesHeader: {
-        eyebrow: "Yerel SEO Çıktıları",
+        eyebrow: "Yerel Arama Çıktıları",
         heading: "İşletmenize sağlanan somut çıktılar",
-        lead: "Bursa yerel aramalarında rakipleri geride bırakıp dükkanınızın telefonlarını çaldıracak eksiksiz harita çalışması.",
+        lead: "Yerel aramalarda rakipleri geride bırakıp dükkanınızın telefonlarını çaldıracak eksiksiz harita çalışması.",
       },
       pillars: [
         {
@@ -376,12 +379,12 @@ const richServiceProfiles = {
         {
           icon: "Compass",
           title: "Konum Etiketli Dükkan Fotoğrafları",
-          desc: "Fotoğrafların içine Bursa koordinatları işlenerek harita algoritmasına güçlü sinyal gönderilmesi.",
+          desc: "Fotoğrafların içine koordinatlar işlenerek harita algoritmasına güçlü sinyal gönderilmesi.",
         },
         {
           icon: "Building2",
           title: "40+ Güvenilir Rehbere Kayıt",
-          desc: "Türkiye ve Bursa genelindeki yerel rehberlere aynı adres ve telefonla resmi işletme kaydı.",
+          desc: "Türkiye genelindeki yerel rehberlere aynı adres ve telefonla resmi işletme kaydı.",
         },
         {
           icon: "Radio",
@@ -410,7 +413,7 @@ const richServiceProfiles = {
         },
         {
           q: "Sadece dükkanımızın yakınındaki aramalar için mi geçerli?",
-          a: "Hayır. Standart profiller sadece 500 metre civarında görünürken, yaptığımız bölgesel optimizasyon sayesinde Nilüfer, Osmangazi, Yıldırım ve sanayi bölgelerindeki aramalarda da ilk 3'e çıkarsınız.",
+          a: "Hayır. Standart profiller sadece 500 metre civarında görünürken, yaptığımız bölgesel optimizasyon sayesinde çevre ilçelerdeki aramalarda da ilk 3'e çıkarsınız.",
         },
         {
           q: "İlk 3 sıraya çıktıktan sonra yerimizi kaybeder miyiz?",
@@ -422,6 +425,7 @@ const richServiceProfiles = {
         "meta-instagram-facebook-reklamlari",
       ],
     },
+
     "komisyonsuz-paket-servis": {
       categoryTag: "Sipariş Sistemleri",
       title: "Komisyonsuz Paket Servis Sitesi",
@@ -478,7 +482,7 @@ const richServiceProfiles = {
       },
       zigzagShowcase: {
         block1: {
-          tag: "01 // TEŞHİS & KOMİSYON KAYBI",
+          tag: "01 · Komisyon Kaybına Son",
           heading: "Yemek siteleri kazancınızın üçte birini nasıl alıyor?",
           text: "Aracı yemek platformları hem sipariş başına yüzde 30'a varan komisyon keser hem de müşterinizin telefon numarasını sizden saklar. Kendi paket servis sitenizle sadık müşterilerinizin doğrudan sizden sipariş vermesini sağlar, komisyon kaybını durdurursunuz.",
           image:
@@ -486,7 +490,7 @@ const richServiceProfiles = {
           imageAlt: "Restoran Komisyonsuz Paket Servis Sitesi",
         },
         block2: {
-          tag: "02 // KOLAY VE OTOMATİK",
+          tag: "02 · Otomatik Mutfak Düzeni",
           heading: "Müşteri siparişi verir, mutfakta fiş anında basılır.",
           text: "Müşteri telefonundan kolayca ürünleri seçer, adresini girer. Sipariş onaylandığı anda mutfaktaki ve kurye masasındaki yazıcıdan fiş otomatik çıkar. Personelin kafası karışmaz, sipariş asla aksamaz.",
           image:
@@ -494,10 +498,11 @@ const richServiceProfiles = {
           imageAlt: "Otomatik Termal Mutfak Yazıcısı Entegrasyonu",
         },
         block3: {
-          tag: "03 // SAHA KANITI & KÂR",
-          heading: "Munchico Chicken — %0 Komisyon & Ayda 140.000₺ Kâr",
+          tag: "03 · Doğrulanmış Saha Çıktısı",
+          heading:
+            "Munchico Fried Chicken — %0 Komisyon & Ayda 140.000₺ Tasarruf",
           text: "Paket müşterilerini doğrudan dükkana ait sipariş sitesine yönlendirerek platformlara ödenen komisyonları sıfırladı; paket servis kârını 4 katına çıkardı.",
-          metricBadge: "%0 Komisyon · Ayda 140.000₺ Ekstra Kâr",
+          metricBadge: "%0 Komisyon · Ayda 140.000₺ Tasarruf",
           image:
             "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1400&q=85",
           imageAlt: "Munchico Fried Chicken Paket Servis Başarısı",
@@ -521,8 +526,8 @@ const richServiceProfiles = {
         },
         {
           icon: "MapPin",
-          title: "Mahalle Bazlı Minimum Paket Tutarı",
-          desc: "Uzak ve yakın mahallelere göre ayrı ayrı minimum paket tutarı ve kurye ücreti belirleme esnekliği.",
+          title: "Bölge Bazlı Minimum Paket Tutarı",
+          desc: "Uzak ve yakın mahallelere göre ayrı ayrı minimum sepet tutarı ve kurye ücreti belirleme esnekliği.",
         },
         {
           icon: "CreditCard",
@@ -572,7 +577,7 @@ const richServiceProfiles = {
       features8: [
         {
           icon: "Gauge",
-          serifTitle: "Sub-0.8s SLA",
+          serifTitle: "Sub-0.8s Latency SLA",
           copy: "Instantaneous load times with locked 100/100 Core Web Vitals across all viewports.",
         },
         {
@@ -583,13 +588,13 @@ const richServiceProfiles = {
         {
           icon: "ShieldCheck",
           serifTitle: "Hardened Security",
-          copy: "Zero plugin vulnerabilities deployed directly on edge infrastructure.",
+          copy: "Zero plugin vulnerabilities deployed directly on modern edge infrastructure.",
         },
       ],
       features11: {
         headlineMain: "Corporate digital systems",
         headlineItalic: "shouldn't be this bloated",
-        headlineEnd: "or complicated.",
+        headlineEnd: "or fragile.",
         leadParagraph:
           "We've experienced slow template chaos ourselves, so we engineered a sub-second, clean-code Next.js architecture that delivers verifiable commercial growth.",
         cards: [
@@ -618,15 +623,15 @@ const richServiceProfiles = {
       },
       zigzagShowcase: {
         block1: {
-          tag: "01 // DIAGNOSIS & ARCHITECTURE",
+          tag: "01 · Architecture & Diagnosis",
           heading: "Why generic template sites erode corporate revenue",
-          text: "Most agencies resell bloated $50 themes burdened with dozens of slow plugins. These sites take 4+ seconds to load, fail on mobile viewports, and depress Google Quality Scores. We engineer bespoke platforms that load in milliseconds and convert high-value prospects instantly.",
+          text: "Most agencies resell bloated $50 themes burdened with dozens of slow plugins. These sites take 4+ seconds to load, fail on mobile viewports, and depress search rankings. We engineer bespoke platforms that load in milliseconds and convert high-value prospects instantly.",
           image:
             "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1400&q=85",
           imageAlt: "Bespoke Clean Code Architecture",
         },
         block2: {
-          tag: "02 // OPERATIONS & CONTROL",
+          tag: "02 · Independent Control",
           heading: "Intuitive backoffice with zero vendor lock-in.",
           text: "Update dossiers, case studies, services, and corporate assets in seconds with a lightweight, secure cockpit requiring zero programming knowledge.",
           image:
@@ -634,10 +639,10 @@ const richServiceProfiles = {
           imageAlt: "Lightweight Backoffice Cockpit",
         },
         block3: {
-          tag: "03 // PROOF & CONVERSION",
-          heading: "Tataroglu Construction — 0.6s Load & 180% Inbound Surge",
-          text: "Replaced legacy architecture with sub-second Next.js; slashed latency from 4.8s to 0.6s and secured top organic search positions across regional industrial markets.",
-          metricBadge: "0.6s Latency · 180% Inbound Lift",
+          tag: "03 · Verified Impact",
+          heading: "Tataroglu Construction — 0.6s Load & 3x Inbound Lift",
+          text: "Replaced legacy architecture with sub-second Next.js; slashed latency from 4.8s to 0.6s and secured top organic search positions across regional commercial sectors.",
+          metricBadge: "0.6s Latency · 3x Inbound Lift",
           image:
             "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=85",
           imageAlt: "Tataroglu Construction Verified Case",
@@ -683,7 +688,7 @@ const richServiceProfiles = {
       faq: [
         {
           q: "Why choose bespoke Next.js over WordPress templates?",
-          a: "WordPress relies on bloated database calls and insecure plugins. Next.js delivers sub-0.8s static rendering, zero hack risk, and undeniable Google ranking favor.",
+          a: "WordPress relies on bloated database calls and insecure plugins. Next.js delivers sub-0.8s static rendering, zero hack risk, and undeniable search ranking favor.",
         },
         {
           q: "Can our internal team update content without coding?",
@@ -864,7 +869,7 @@ export function getServiceDetailData(slug, lang = "tr") {
     };
   }
 
-  // Dinamik Fallback Motoru
+  // 24 Mikro Hizmet İçin Tok ve Kaliteli Dinamik Üretim Motoru
   const otherSlugsInDept = matchedDept.services
     .filter((s) => s.slug !== matchedService.slug)
     .map((s) => s.slug)
@@ -873,44 +878,44 @@ export function getServiceDetailData(slug, lang = "tr") {
   const fallbackPillars = [
     {
       icon: "Code2",
-      title: isTr ? "Özel Mimari Tasarımı" : "Bespoke Architecture",
+      title: isTr ? "Özel ve Hafif Mimari" : "Bespoke Clean Architecture",
       desc: isTr
-        ? `${matchedService.name} için sıfırdan hazırlanan, hazır şablon içermeyen hafif kod tabanı.`
+        ? `${matchedService.name} için sıfırdan hazırlanan, hazır şablon barındırmayan hafif kod tabanı.`
         : `Turnkey architecture engineered specifically for ${matchedService.name}.`,
     },
     {
       icon: "Gauge",
-      title: isTr ? "Sıfır Gecikme & Hız Standardı" : "Zero Latency SLA",
+      title: isTr ? "0.8s Hız Standardı" : "Sub-0.8s Latency SLA",
       desc: isTr
-        ? "Tüm cihazlarda 0.8 saniyenin altında açılan ve takılmayan modern performans altyapısı."
+        ? "Tüm telefon ve bilgisayarlarda anında açılan ve kasmayan modern performans altyapısı."
         : "Sub-second responsive execution across all desktop and mobile viewports.",
     },
     {
       icon: "FileCode2",
-      title: isTr ? "Semantik SEO & Şemalar" : "Semantic Schema Graph",
+      title: isTr ? "Google Kurumsal Şeması" : "Semantic Schema Graph",
       desc: isTr
-        ? "Google arama motoru botlarının hizmetlerinizi eksiksiz tanımasını sağlayan JSON-LD verileri."
+        ? "Arama motorlarının işletmenizi eksiksiz tanımasını sağlayan teknik JSON-LD şifrelemesi."
         : "Structured data graph ensuring search engines index your corporate entities with precision.",
     },
     {
       icon: "ShieldAlert",
       title: isTr ? "Kurumsal Güvenlik & SSL" : "Enterprise Security",
       desc: isTr
-        ? "Cloudflare güvenlik duvarı ve uçtan uca şifrelenmiş güvenli veri akışı garantisi."
+        ? "Siber saldırılara karşı güvenlik duvarı ve uçtan uca şifrelenmiş veri akışı garantisi."
         : "Hardened security policies with automated cloud encryption.",
     },
     {
       icon: "Sliders",
       title: isTr ? "Sade Yönetim Paneli" : "Intuitive Backoffice",
       desc: isTr
-        ? "Kod bilmeden içerik ve referanslarınızı dilediğiniz an güncelleyebileceğiniz kokpit."
+        ? "Kod bilmenize gerek kalmadan içeriklerinizi dilediğiniz an güncelleyebileceğiniz sade panel."
         : "Lightweight dashboard allowing non-technical personnel to update projects in seconds.",
     },
     {
       icon: "Fingerprint",
-      title: isTr ? "%100 Şeffaf Mülkiyet" : "100% IP Ownership",
+      title: isTr ? "%100 Şirketinize Ait Mülkiyet" : "100% IP Ownership",
       desc: isTr
-        ? "Tüm kaynak kodları ve kontrol doğrudan şirketinize teslim edilir; bağımsız mülkiyet güvencesi."
+        ? "Ajansa bağımlı kalmadan tüm kaynak kodları ve kontrol doğrudan şirketinize teslim edilir."
         : "Zero vendor lock-ins with complete corporate asset ownership.",
     },
   ];
@@ -933,19 +938,21 @@ export function getServiceDetailData(slug, lang = "tr") {
           ? `${matchedService.kpi} Standardı`
           : `${matchedService.kpi} Benchmark`,
         copy: isTr
-          ? "İşletmenizin hızını ve pazar otoritesini artıran taahhütlü teknik çıktı."
+          ? "İşletmenizin hızını ve kâr marjını artıran taahhütlü teknik çıktı."
           : "Contractual delivery benchmark engineered to accelerate operational turnover.",
       },
       {
         icon: config.icons[1] || "Zap",
-        serifTitle: isTr ? "Sıfır Gecikme & SLA" : "Zero-Latency SLA",
+        serifTitle: isTr ? "0.8s Hız Standardı" : "Zero-Latency SLA",
         copy: isTr
-          ? "Tüm cihazlarda 0.8 saniyenin altında açılan ve takılmayan modern kod altyapısı."
+          ? "Tüm cihazlarda anında açılan ve takılmayan modern kod altyapısı."
           : "Sub-second execution across all desktop and mobile viewports.",
       },
       {
         icon: config.icons[2] || "ShieldCheck",
-        serifTitle: isTr ? "%100 Şeffaf Mülkiyet" : "100% IP Ownership",
+        serifTitle: isTr
+          ? "%100 Şirketinize Ait Mülkiyet"
+          : "100% IP Ownership",
         copy: isTr
           ? "Hiçbir ajansa bağımlı olmadan tüm kaynak kodları ve kontrolü şirketinize ait sistem."
           : "Zero vendor lock-ins with complete corporate asset ownership.",
@@ -982,15 +989,17 @@ export function getServiceDetailData(slug, lang = "tr") {
           icon: config.icons[2] || "TrendingUp",
           title: isTr ? "Kesintisiz Büyüme" : "Commercial Growth",
           text: isTr
-            ? "Bursa ve Türkiye genelindeki müşterileri doğrudan yakalayan odaklı mekanizma."
-            : "Bespoke digital architecture converting high-intent local demand.",
+            ? "Satın almaya hazır müşterileri doğrudan kasanıza çeken odaklı mekanizma."
+            : "Bespoke digital architecture converting high-intent demand.",
           actionText: isTr ? "Büyüme motoru" : "Growth engine",
         },
       ],
     },
     zigzagShowcase: {
       block1: {
-        tag: isTr ? "01 // TEŞHİS & MİMARİ" : "01 // DIAGNOSIS",
+        tag: isTr
+          ? "01 · Mühendislik & Teşhis"
+          : "01 · Architecture & Diagnosis",
         heading: isTr
           ? `${matchedService.name} sürecinde geleneksel kalıpların ötesi.`
           : `Beyond legacy agency workflows in ${matchedService.name}.`,
@@ -1001,7 +1010,7 @@ export function getServiceDetailData(slug, lang = "tr") {
         imageAlt: matchedService.name,
       },
       block2: {
-        tag: isTr ? "02 // OPERASYON & KONTROL" : "02 // OPERATIONS",
+        tag: isTr ? "02 · Operasyon & Kontrol" : "02 · Operations & Control",
         heading: isTr
           ? "Kod bilmeden kolay yönetim ve tam bağımsızlık."
           : "Frictionless operational control without code.",
@@ -1013,12 +1022,12 @@ export function getServiceDetailData(slug, lang = "tr") {
         imageAlt: "Operations and Control Cockpit",
       },
       block3: {
-        tag: isTr ? "03 // SAHA KANITI & CİRO" : "03 // VERIFIED IMPACT",
+        tag: isTr ? "03 · Doğrulanmış Saha Çıktısı" : "03 · Verified Impact",
         heading: isTr
           ? "Ölçülebilir başarı ve doğrudan ciro artışı."
           : "Verifiable growth and bottom-line turnover.",
         text: isTr
-          ? `Bursa genelindeki öncü markalar için geliştirilen ${matchedService.name} altyapısı ile kanıtlanmış somut saha çıktısı.`
+          ? `Sektörün öncü markaları için geliştirilen ${matchedService.name} altyapısı ile kanıtlanmış somut saha çıktısı.`
           : `Verified commercial performance engineered for forward-thinking enterprises.`,
         metricBadge: isTr
           ? `${matchedService.kpi} Başarısı`
@@ -1060,7 +1069,7 @@ export function getServiceDetailData(slug, lang = "tr") {
           ? "Sonradan sürpriz ek maliyet çıkar mı?"
           : "Are there any hidden unexpected fees?",
         a: isTr
-          ? "Hayır. Sözleşmede belirtilen anahtar teslim teklif geçerlidir; gizli ek maliyet veya zorunlu lisans ücretleri bulunmaz."
+          ? "Hayır. Resmi sözleşmede belirtilen anahtar teslim teklif geçerlidir; teslimat anında veya sonrasında gizli ek maliyet çıkarılmaz."
           : "Zero hidden costs. All deliverables and pricing parameters are fixed in our binding agreement.",
       },
       {
@@ -1068,7 +1077,7 @@ export function getServiceDetailData(slug, lang = "tr") {
           ? "Teslimattan sonra teknik destek nasıl işliyor?"
           : "How does support function post-deployment?",
         a: isTr
-          ? "Bursa Proje Masamız haftanın her günü 09:00 - 17:00 canlı olmak üzere 7/24 sunucu izleme desteği sağlar."
+          ? "Doğrudan teknik ekibimiz haftanın 7 günü 09:00 - 18:00 canlı destek sunar ve 7/24 kesintisiz sunucu izleme sağlar."
           : "Our technical project desk provides real-time support and 24/7 automated telemetry monitoring.",
       },
     ],

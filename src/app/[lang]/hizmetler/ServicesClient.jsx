@@ -91,7 +91,7 @@ export default function ServicesClient({ lang = "tr" }) {
         );
       }
 
-      // 3. Sağ Departmanların ScrollTrigger Senkronu (Lenis Uyumlu)
+      // 3. Sağ Departmanların ScrollTrigger Senkronu
       groupRefs.current.forEach((groupEl, idx) => {
         if (!groupEl) return;
         const group = groups[idx];
@@ -100,7 +100,6 @@ export default function ServicesClient({ lang = "tr" }) {
           `.${styles.serviceInteractiveRow}`,
         );
 
-        // Bölüm Giriş Animasyonu
         const groupTl = gsap.timeline({
           scrollTrigger: {
             trigger: groupEl,
@@ -132,7 +131,6 @@ export default function ServicesClient({ lang = "tr" }) {
           );
         }
 
-        // Lenis ile %100 Uyumlu Scroll Tetikleyicisi (Window Scroll Yerine)
         ScrollTrigger.create({
           trigger: groupEl,
           start: "top center",
@@ -206,8 +204,8 @@ export default function ServicesClient({ lang = "tr" }) {
         <div className={styles.heroContent}>
           <span className={`${styles.breadcrumbBadge} ${styles.revealDelay1}`}>
             {isTr
-              ? "HEXA DİJİTAL // HİZMET FİHRİSTİ"
-              : "HEXA DIGITAL // SERVICE DIRECTORY"}
+              ? "Hizmet Mimarisi · 5 Departman"
+              : "Service Architecture · 5 Departments"}
           </span>
 
           <h1 className={styles.heroTitle}>
@@ -244,9 +242,9 @@ export default function ServicesClient({ lang = "tr" }) {
               <>
                 İşletmenizin ciro rekoru kırması için üç dişlinin aynı anda
                 kusursuz dönmesi gerekir: Saniyeler içinde açılan hafif
-                yazılımlar, güven veren kurumsal kimlikler ve Google ile Meta
-                üzerinden hazır müşteri çeken reklamlar. Şablon kullanmıyor, 24
-                temel hizmeti tek merkezden yönetiyoruz.
+                yazılımlar, güven veren kurumsal kimlikler ve satın almaya hazır
+                müşteri çeken reklamlar. Şablon kullanmıyor, 24 temel hizmeti
+                tek merkezden yönetiyoruz.
               </>
             ) : (
               <>
@@ -264,7 +262,7 @@ export default function ServicesClient({ lang = "tr" }) {
         ref={workspaceRef}
         className={`container ${styles.interactiveWorkspace}`}
       >
-        {/* SOL: CANLI KATEGORİ TEŞHİSİ (MASAÜSTÜ STICKY) */}
+        {/* SOL: CANLI KATEGORİ VE ÇÖZÜM VİTRİNİ (STICKY) */}
         <aside className={styles.liveStageAside}>
           <div ref={stageRef} className={styles.liveStageCard}>
             <div
@@ -276,26 +274,26 @@ export default function ServicesClient({ lang = "tr" }) {
                 <span className={styles.stageContextTag}>
                   {stageData.isSpecificService
                     ? isTr
-                      ? "ÖZEL MODÜL DETAYI"
-                      : "SPECIFIC MODULE"
+                      ? "Modül İncelemesi"
+                      : "Module Scope"
                     : isTr
-                      ? "KATEGORİ TEŞHİSİ"
-                      : "CATEGORY DIAGNOSIS"}
+                      ? "Departman Kapsamı"
+                      : "Department Scope"}
                 </span>
                 <h3 className={styles.stageServiceName}>{stageData.title}</h3>
               </div>
 
               <div className={styles.stageSectionBlock}>
-                <span className={styles.sectionHeaderTitle}>
-                  {isTr ? "BU KATEGORİ KİMLER İÇİN UYGUN?" : "WHO IS THIS FOR?"}
-                </span>
+                <h4 className={styles.sectionHeaderTitle}>
+                  {isTr ? "Hedef Kitle & İhtiyaç" : "Who Is This For?"}
+                </h4>
                 <p className={styles.sectionBodyText}>{stageData.target}</p>
               </div>
 
               <div className={styles.stageSectionBlock}>
-                <span className={styles.sectionHeaderTitle}>
-                  {isTr ? "İŞLETMEYE SAĞLADIĞI KAZANÇ" : "COMMERCIAL OUTCOME"}
-                </span>
+                <h4 className={styles.sectionHeaderTitle}>
+                  {isTr ? "Somut Ticari Çıktı" : "Commercial Outcome"}
+                </h4>
                 <p className={styles.sectionBodyText}>{stageData.outcome}</p>
               </div>
             </div>
@@ -326,7 +324,7 @@ export default function ServicesClient({ lang = "tr" }) {
                   </span>
                   <span className={styles.actionSubText}>
                     {isTr
-                      ? "Detaylı özellikleri görün"
+                      ? "Teknik özellikleri ve teslimatları görün"
                       : "View technical specs"}
                   </span>
                 </div>
@@ -356,7 +354,7 @@ export default function ServicesClient({ lang = "tr" }) {
                 </div>
               </div>
 
-              {/* MOBİL İÇİN ÖZEL TEŞHİS KARTÇIĞI (MASAÜSTÜNDE GİZLİ) */}
+              {/* MOBİL İÇİN TEŞHİS KARTI */}
               <div className={styles.mobileDeptDiagnosis}>
                 <div className={styles.diagItem}>
                   <span className={styles.diagBadge}>
@@ -442,7 +440,7 @@ export default function ServicesClient({ lang = "tr" }) {
             <div className={styles.ctaBadgeArea}>
               <span className={styles.ctaStatusDot} />
               <span className={styles.ctaBadgeLabel}>
-                {isTr ? "ÜCRETSİZ DİJİTAL CHECK-UP" : "COMPLIMENTARY AUDIT"}
+                {isTr ? "Ücretsiz Dijital Denetim" : "Complimentary Audit"}
               </span>
             </div>
 
@@ -504,8 +502,8 @@ export default function ServicesClient({ lang = "tr" }) {
               <span className={styles.pulseGreenDot} />
               <span className={styles.liveDeskText}>
                 {isTr
-                  ? "Bursa Proje Masası — 09:00 - 17:00 Canlı"
-                  : "Bursa Project Desk — Online 24/7"}
+                  ? "Bursa Proje Masası — 09:00 - 18:00 Canlı"
+                  : "Bursa Project Desk — Online"}
               </span>
             </div>
           </div>

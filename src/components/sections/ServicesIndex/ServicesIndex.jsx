@@ -9,7 +9,7 @@ import styles from "./ServicesIndex.module.css";
 const servicesList = [
   {
     num: "01",
-    slug: "web-tasarim-yazilim",
+    slug: "kurumsal-web-siteleri",
     title: {
       tr: "Özel Web Mimarisi",
       en: "Bespoke Web Architecture",
@@ -19,7 +19,7 @@ const servicesList = [
   },
   {
     num: "02",
-    slug: "sektorel-otomasyon-pos",
+    slug: "komisyonsuz-paket-servis",
     title: {
       tr: "Satış & Sipariş Sistemleri",
       en: "POS & Ordering Automation",
@@ -29,27 +29,27 @@ const servicesList = [
   },
   {
     num: "03",
-    slug: "yerel-seo-harita-dominasyonu",
+    slug: "google-haritalar-1-sira",
     title: {
-      tr: "Google Harita & Yerel SEO",
-      en: "Google Maps & Local SEO",
+      tr: "Harita & Yerel Arama Hakimiyeti",
+      en: "Google Maps & Local Search Dominance",
     },
     bgImage:
       "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1800&q=85",
   },
   {
     num: "04",
-    slug: "performans-pazarlama-ads",
+    slug: "meta-instagram-facebook-reklamlari",
     title: {
       tr: "Performans Reklam Yönetimi",
-      en: "Performance Media & Ads",
+      en: "Performance Media & Acquisition",
     },
     bgImage:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1800&q=85",
   },
   {
     num: "05",
-    slug: "marka-kimligi-kreatif",
+    slug: "ozel-logo-tasarimi",
     title: {
       tr: "Kurumsal Marka Kimliği",
       en: "Corporate Brand Identity",
@@ -62,20 +62,18 @@ const servicesList = [
 export default function ServicesIndex({ lang = "tr" }) {
   const [activeIdx, setActiveIdx] = useState(null);
   const sectionRef = useRef(null);
-  const titleRef = useRef(null);
+  const headerRef = useRef(null);
   const listRef = useRef(null);
   const isTr = lang === "tr";
 
-  // GSAP SCROLLTRIGGER İLE KADEMELİ SAHNE GİRİŞİ
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const titleEl = titleRef.current;
+    const headerEl = headerRef.current;
     const items = listRef.current?.querySelectorAll(`.${styles.serviceItem}`);
     if (!items || items.length === 0) return;
 
     const ctx = gsap.context(() => {
-      // 1. Masaüstü/Mobil Bölüm Girişi
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -84,28 +82,33 @@ export default function ServicesIndex({ lang = "tr" }) {
         },
       });
 
-      if (titleEl) {
+      if (headerEl) {
         tl.fromTo(
-          titleEl,
-          { opacity: 0, x: -25 },
-          { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" },
+          headerEl.children,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.12,
+            ease: "power3.out",
+          },
         );
       }
 
       tl.fromTo(
         items,
-        { opacity: 0, y: 40 },
+        { opacity: 0, y: 35 },
         {
           opacity: 1,
           y: 0,
           duration: 0.8,
-          stagger: 0.1,
+          stagger: 0.08,
           ease: "power3.out",
         },
-        "-=0.3",
+        "-=0.4",
       );
 
-      // 2. MOBİL ÇÖZÜMÜ: Ekrana Kaydırırken Ortalanan Satır Otomatik Olarak Uyanır!
       if (window.innerWidth <= 768) {
         items.forEach((item, idx) => {
           ScrollTrigger.create({
@@ -153,12 +156,21 @@ export default function ServicesIndex({ lang = "tr" }) {
       <div className={styles.bottomFadeGradient} aria-hidden="true" />
 
       <div className={`container ${styles.container}`}>
-        <h2 ref={titleRef} className={styles.sectionTitle}>
-          {isTr
-            ? "Bursa Web Tasarım & Yazılım Hizmetleri"
-            : "Digital Engineering & Web Services"}
-        </h2>
+        {/* 2026 S+ ÇİFT FONT TİPOGRAFİK BAŞLIK (SANS + SERİF İTALİK İMZA) */}
+        <header ref={headerRef} className={styles.sectionHeader}>
+          <h2 className={styles.sectionMainTitle}>
+            <span className={styles.titleLineSans}>
+              {isTr ? "Tek merkezden yönetilen," : "Engineered from one core,"}
+            </span>
+            <span className={styles.titleLineSerif}>
+              {isTr
+                ? "5 senkronize büyüme motoru."
+                : "5 synchronized growth engines."}
+            </span>
+          </h2>
+        </header>
 
+        {/* LÜKS MİNİMALİST HİZMET LİSTESİ */}
         <div
           ref={listRef}
           className={`${styles.servicesList} ${

@@ -5,11 +5,13 @@ import Link from "next/link";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import styles from "./ServiceDetail.module.css";
 import {
   Zap,
   Gauge,
   KeyRound,
   ShieldCheck,
+  TrendingUp,
   MapPin,
   PhoneCall,
   Star,
@@ -64,13 +66,13 @@ import {
   ArrowRight,
   Plus,
 } from "lucide-react";
-import styles from "./ServiceDetail.module.css";
 
 const lucideRegistry = {
   Zap,
   Gauge,
   KeyRound,
   ShieldCheck,
+  TrendingUp,
   MapPin,
   PhoneCall,
   Star,
@@ -199,7 +201,7 @@ export default function ServiceDetailClient({
           "-=0.3",
         );
 
-      // 4. Zig-Zag Satırları (Her Satır Ekrana Girdikçe Akıcı Geçiş)
+      // 4. Zig-Zag Satırları
       const rows = gsap.utils.toArray(`.${styles.zigzagRow}`);
       rows.forEach((row) => {
         const contentCol = row.querySelector(`.${styles.zigzagContentCol}`);
@@ -290,7 +292,7 @@ export default function ServiceDetailClient({
   return (
     <main ref={rootRef} className={styles.mainContainer}>
       {/* ==========================================================================
-          KATMAN 1: SİNEMATİK BACKGROUND HERO (YAZI EN ALTA YASLI)
+          KATMAN 1: SİNEMATİK BACKGROUND HERO
           ========================================================================== */}
       <section className={styles.heroSection}>
         <div className={styles.heroBackground}>
@@ -310,7 +312,7 @@ export default function ServiceDetailClient({
           <div className={styles.navigationRow}>
             <Link href={`/${lang}/hizmetler`} className={styles.backNav}>
               <ArrowLeft size={16} className={styles.backArrow} />
-              <span>{isTr ? "Hizmetler" : "Services"}</span>
+              <span>{isTr ? "Hizmet Fihristi" : "Services"}</span>
             </Link>
             <span className={styles.navSeparator}>/</span>
             <span className={styles.currentDeptText}>{data.categoryTag}</span>
@@ -324,7 +326,7 @@ export default function ServiceDetailClient({
       </section>
 
       {/* ==========================================================================
-          KATMAN 2: REACT BITS PRO "FEATURES 8" (3 SÜTUNLU LUCIDE İKONLU MİMARİ)
+          KATMAN 2: 3 SÜTUNLU LUCIDE İKONLU MİMARİ
           ========================================================================== */}
       <section className={`container ${styles.features8Section}`}>
         <div className={styles.features8Grid}>
@@ -345,7 +347,7 @@ export default function ServiceDetailClient({
       </section>
 
       {/* ==========================================================================
-          KATMAN 3: REACT BITS PRO "FEATURES 11" (3 İNDEKSLİ KARTLAR)
+          KATMAN 3: SPLIT BAŞLIK & İNDEKSLİ KARTLAR
           ========================================================================== */}
       <section className={`container ${styles.features11Section}`}>
         <div className={styles.f11TopSplit}>
@@ -391,7 +393,7 @@ export default function ServiceDetailClient({
       </section>
 
       {/* ==========================================================================
-          KATMAN 4: ZİG-ZAG GÖRSEL MİMARİSİ (3'LÜ VİTRİN)
+          KATMAN 4: ZİG-ZAG GÖRSEL MİMARİSİ (TOKLUK VE ZARİF ETİKETLER)
           ========================================================================== */}
       <section className={`container ${styles.zigzagSection}`}>
         {/* 1. BLOK: Sol Metin — Sağ Görsel */}
@@ -482,7 +484,7 @@ export default function ServiceDetailClient({
       </section>
 
       {/* ==========================================================================
-          KATMAN 5: DENGELİ EDİTORYAL TESLİMAT KALEMLERİ (2 SÜTUNLU LÜKS BLOKLAR)
+          KATMAN 5: TESLİMAT KALEMLERİ (ÇİFT FONT VURGUSU ENTEGRE EDİLDİ)
           ========================================================================== */}
       <section className={`container ${styles.deliverablesSection}`}>
         <div className={styles.deliverablesHeader}>
@@ -490,7 +492,10 @@ export default function ServiceDetailClient({
             {data.deliverablesHeader.eyebrow}
           </span>
           <h2 className={styles.delivMainHeading}>
-            {data.deliverablesHeader.heading}
+            <span>{isTr ? "İşletmenize sağlanan " : "Engineered "}</span>
+            <span className={styles.delivSerifWord}>
+              {isTr ? "somut çıktılar." : "technical deliverables."}
+            </span>
           </h2>
           <p className={styles.delivLeadText}>{data.deliverablesHeader.lead}</p>
         </div>
@@ -519,14 +524,17 @@ export default function ServiceDetailClient({
           ========================================================================== */}
       <section className={`container ${styles.faqAndRelatedCombinedSection}`}>
         <div className={styles.combinedTwoColLayout}>
-          {/* SOL SÜTUN: SSS (KUTUSUZ AKORDEON) */}
+          {/* SOL SÜTUN: SSS */}
           <div className={styles.combinedFaqCol}>
             <div className={styles.colHeaderWrap}>
               <span className={styles.sectionLabel}>
-                {isTr ? "AKLINIZA TAKILANLAR" : "FAQ"}
+                {isTr ? "Merak Edilenler" : "Common Inquiries"}
               </span>
               <h2 className={styles.sectionTitle}>
-                {isTr ? "Sıkça Sorulan Sorular" : "Frequently Asked Questions"}
+                <span>{isTr ? "Sıkça sorulan " : "Frequently asked "}</span>
+                <span className={styles.titleSerifWord}>
+                  {isTr ? "sorular." : "questions."}
+                </span>
               </h2>
             </div>
 
@@ -549,16 +557,17 @@ export default function ServiceDetailClient({
             </div>
           </div>
 
-          {/* SAĞ SÜTUN: TAMAMLAYICI ÇÖZÜMLER (İLGİLİ DİŞLİLER) */}
+          {/* SAĞ SÜTUN: TAMAMLAYICI ÇÖZÜMLER */}
           <div className={styles.combinedRelatedCol}>
             <div className={styles.colHeaderWrap}>
               <span className={styles.sectionLabel}>
-                {isTr ? "TAMAMLAYICI DİŞLİLER" : "COMPLEMENTARY"}
+                {isTr ? "Tamamlayıcı Çarklar" : "Complementary Disciplines"}
               </span>
               <h2 className={styles.sectionTitle}>
-                {isTr
-                  ? "Bu hizmeti tamamlayan diğer dişliler."
-                  : "Complementary digital gears."}
+                <span>{isTr ? "Bu sistemi tamamlayan " : "Synchronized "}</span>
+                <span className={styles.titleSerifWord}>
+                  {isTr ? "diğer dişliler." : "digital gears."}
+                </span>
               </h2>
             </div>
 
@@ -593,7 +602,7 @@ export default function ServiceDetailClient({
       </section>
 
       {/* ==========================================================================
-          KATMAN 7: GENİŞ LÜKS BEYAZ KAPSÜL ALT CTA
+          KATMAN 7: ALT CTA (LÜKS VURGULAR KORUNDU)
           ========================================================================== */}
       <section className={`container ${styles.bottomCtaSection}`}>
         <div className={styles.ctaBoxFrame}>
@@ -601,7 +610,7 @@ export default function ServiceDetailClient({
             <div className={styles.ctaBadgeArea}>
               <span className={styles.ctaStatusDot} />
               <span className={styles.ctaBadgeLabel}>
-                {isTr ? "ÜCRETSİZ DİJİTAL CHECK-UP" : "COMPLIMENTARY AUDIT"}
+                {isTr ? "Ücretsiz Dijital Denetim" : "Complimentary Audit"}
               </span>
             </div>
 

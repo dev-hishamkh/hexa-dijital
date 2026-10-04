@@ -23,12 +23,13 @@
     max-width: 1150px;
 }
 
+/* DÜZELTİLEN TOK ÜST BAŞLIK (NEON ÇEKİCİLİĞİ KORUNDU) */
 .breadcrumbBadge {
     display: inline-block;
-    font-family: monospace;
-    font-size: 0.76rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
+    font-family: var(--font-main);
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
     color: var(--hexa-accent);
     margin-bottom: 2rem;
     opacity: 0;
@@ -191,12 +192,13 @@
     border-bottom: 1px solid var(--hexa-border);
 }
 
+/* DÜZELTİLEN TOK KAPSAM ETİKETİ */
 .stageContextTag {
-    font-family: monospace;
-    font-size: 0.72rem;
-    font-weight: 700;
+    font-family: var(--font-main);
+    font-size: 0.82rem;
+    font-weight: 600;
     color: var(--hexa-accent);
-    letter-spacing: 0.12em;
+    letter-spacing: 0.02em;
 }
 
 .stageServiceName {
@@ -219,13 +221,18 @@
     gap: 0.45rem;
 }
 
+/* DÜZELTİLEN TOK ARA BAŞLIKLAR */
 .sectionHeaderTitle {
-    font-family: monospace;
-    font-size: 0.76rem;
-    font-weight: 700;
-    color: var(--hexa-accent);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #F8FAFC;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+[data-theme="light"] .sectionHeaderTitle {
+    color: #111827;
 }
 
 .sectionBodyText {
@@ -242,7 +249,7 @@
     color: #374151;
 }
 
-/* HERO TARZI MANYETİK BUTON */
+/* BUTON (ORİJİNAL TURKUAZ HOVER KORUNDU) */
 .stageBottomAction {
     border-top: 1px solid var(--hexa-border);
     padding-top: 1.75rem;
@@ -322,7 +329,7 @@
 }
 
 /* ==========================================================================
-   SAĞ: ANITSAL DEPARTMANLAR
+   SAĞ: ANITSAL DEPARTMANLAR (ORİJİNAL LAZER VE RENKLER KORUNDU)
    ========================================================================== */
 .servicesListingCol {
     display: flex;
@@ -399,6 +406,7 @@
     will-change: transform, opacity;
 }
 
+/* ORİJİNAL LAZER ÇİZGİSİ */
 .serviceInteractiveRow::after {
     content: "";
     position: absolute;
@@ -534,7 +542,7 @@
 }
 
 /* ==========================================================================
-   3. CTA BÖLÜMÜ
+   3. CTA BÖLÜMÜ (ORİJİNAL TURKUAZ PARILTI KORUNDU)
    ========================================================================== */
 .ctaContainer {
     width: 100%;
@@ -591,10 +599,10 @@
 }
 
 .ctaBadgeLabel {
-    font-family: monospace;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
+    font-family: var(--font-main);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
     color: var(--hexa-accent);
 }
 
@@ -765,7 +773,6 @@
         display: none;
     }
 
-    /* Mobilde Kategori Teşhis Kartı Devreye Girer */
     .mobileDeptDiagnosis {
         display: flex;
         flex-direction: column;

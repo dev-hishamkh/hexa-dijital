@@ -1,0 +1,447 @@
+.mainContainer {
+    min-height: 100vh;
+    background-color: var(--hexa-bg);
+    padding-top: calc(var(--header-height) + 3.5rem);
+    padding-bottom: 8rem;
+    transition: background-color 0.4s var(--ease-out);
+}
+
+.heroSection {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto 7rem auto;
+    padding-left: clamp(2rem, 6vw, 6.5rem);
+    padding-right: clamp(2rem, 6vw, 6.5rem);
+    display: flex;
+    flex-direction: column;
+}
+
+.eyebrowBadge {
+    display: inline-block;
+    font-family: monospace;
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--hexa-accent);
+    letter-spacing: 0.12em;
+    margin-bottom: 1.75rem;
+}
+
+.heroTitle {
+    font-family: var(--font-main);
+    font-size: clamp(2.8rem, 5.4vw, 5.4rem);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    color: #F8FAFC;
+    margin: 0 0 1.75rem 0;
+    max-width: 1150px;
+}
+
+[data-theme="light"] .heroTitle {
+    color: #111827;
+}
+
+.serifAccentWord {
+    font-family: var(--font-italic-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--hexa-font-serif);
+}
+
+.heroDesc {
+    font-family: var(--font-main);
+    font-size: clamp(1.1rem, 1.3vw, 1.25rem);
+    line-height: 1.65;
+    color: #cbd5e1;
+    letter-spacing: -0.015em;
+    max-width: 860px;
+    margin: 0 0 2.5rem 0;
+}
+
+[data-theme="light"] .heroDesc {
+    color: #374151;
+}
+
+.heroActionRow {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+    flex-wrap: wrap;
+}
+
+.primaryLaunchBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.85rem 1.75rem;
+    border-radius: var(--radius-full);
+    background-color: #FFFFFF;
+    color: #0A0E17;
+    text-decoration: none;
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    font-weight: 700;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="light"] .primaryLaunchBtn {
+    background-color: #111827;
+    color: #FFFFFF;
+}
+
+.primaryLaunchBtn:hover {
+    background-color: var(--hexa-accent);
+    color: #0A0E17;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px var(--hexa-accent-glow);
+}
+
+.liveDeskPill {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-family: var(--font-main);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--hexa-font-muted);
+}
+
+.pulseDot {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-full);
+    background-color: #10b981;
+    box-shadow: 0 0 10px #10b981;
+}
+
+/* ==========================================================================
+   2. 5 DEPARTMAN IZGARASI
+   ========================================================================== */
+.deptOverviewSection {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto 8.5rem auto;
+    padding-left: clamp(2rem, 6vw, 6.5rem);
+    padding-right: clamp(2rem, 6vw, 6.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+}
+
+.sectionHeadingWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 850px;
+}
+
+.sectionMiniTag {
+    font-family: monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--hexa-accent);
+    letter-spacing: 0.12em;
+}
+
+.sectionMainHeading {
+    font-family: var(--font-main);
+    font-size: clamp(2rem, 3.2vw, 2.9rem);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    color: #F8FAFC;
+    margin: 0;
+    line-height: 1.15;
+}
+
+[data-theme="light"] .sectionMainHeading {
+    color: #111827;
+}
+
+.deptGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 2rem;
+}
+
+.deptCard {
+    background: #0A0E17;
+    border: 1px solid var(--hexa-border);
+    border-radius: 24px;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.deptCard:hover {
+    border-color: var(--hexa-border-focus);
+    transform: translateY(-4px);
+    background-color: #0D121D;
+    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.9);
+}
+
+[data-theme="light"] .deptCard {
+    background: #FFFFFF;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .deptCard:hover {
+    background: #FAFAFA;
+}
+
+.deptCardTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.deptNumber {
+    font-family: monospace;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--hexa-accent);
+    line-height: 1;
+}
+
+.deptCodeTag {
+    font-family: monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--hexa-font-muted);
+}
+
+.deptTitle {
+    font-family: var(--font-main);
+    font-size: 1.45rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    color: #F8FAFC;
+    margin: 0;
+}
+
+[data-theme="light"] .deptTitle {
+    color: #111827;
+}
+
+.deptDiagnosis {
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin: 0;
+}
+
+[data-theme="light"] .deptDiagnosis {
+    color: #4b5563;
+}
+
+.deptOutcomeHighlight {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1rem 1.25rem;
+    background: rgba(0, 255, 209, 0.05);
+    border: 1px solid rgba(0, 255, 209, 0.15);
+    border-radius: 12px;
+}
+
+.outcomeLabel {
+    font-family: monospace;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--hexa-accent);
+}
+
+.outcomeText {
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #F8FAFC;
+    margin: 0;
+    font-weight: 500;
+}
+
+[data-theme="light"] .outcomeText {
+    color: #111827;
+}
+
+.deptMicroServicesList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-top: 0.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--hexa-border);
+}
+
+.microServiceLink {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--hexa-font-muted);
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.microServiceLink:hover {
+    color: var(--hexa-accent);
+    transform: translateX(4px);
+}
+
+.linkArrow {
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   3. SAHA KANITI IZGARASI
+   ========================================================================== */
+.proofSection {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto 8.5rem auto;
+    padding-left: clamp(2rem, 6vw, 6.5rem);
+    padding-right: clamp(2rem, 6vw, 6.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+}
+
+.proofGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.proofCard {
+    background: #0D111A;
+    border: 1px solid var(--hexa-border);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+[data-theme="light"] .proofCard {
+    background: #FFFFFF;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+.proofBadge {
+    font-family: monospace;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--hexa-accent);
+}
+
+.proofClient {
+    font-family: var(--font-main);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #F8FAFC;
+    margin: 0;
+}
+
+[data-theme="light"] .proofClient {
+    color: #111827;
+}
+
+.proofImpact {
+    font-family: var(--font-main);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--hexa-accent);
+    margin: 0;
+}
+
+.proofText {
+    font-family: var(--font-main);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: #94a3b8;
+    margin: 0;
+}
+
+/* ==========================================================================
+   4. ŞEFFAF PROTOKOL KUTUSU
+   ========================================================================== */
+.commitmentsSection {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding-left: clamp(2rem, 6vw, 6.5rem);
+    padding-right: clamp(2rem, 6vw, 6.5rem);
+}
+
+.commitBox {
+    background: #0D111A;
+    border: 1px solid var(--hexa-border);
+    border-radius: 28px;
+    padding: clamp(3rem, 5vw, 4.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+[data-theme="light"] .commitBox {
+    background: #FFFFFF;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+.commitHeading {
+    font-family: var(--font-main);
+    font-size: clamp(2rem, 3.2vw, 2.9rem);
+    font-weight: 600;
+    color: #F8FAFC;
+    margin: 0;
+}
+
+[data-theme="light"] .commitHeading {
+    color: #111827;
+}
+
+.commitGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.commitItem {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.commitItem h4 {
+    font-family: var(--font-main);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #F8FAFC;
+    margin: 0;
+}
+
+[data-theme="light"] .commitItem h4 {
+    color: #111827;
+}
+
+.commitItem p {
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #94a3b8;
+    margin: 0;
+}
+
+@media (max-width: 1080px) {
+
+    .proofGrid,
+    .commitGrid {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+    }
+}

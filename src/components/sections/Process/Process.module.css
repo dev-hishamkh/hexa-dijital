@@ -15,36 +15,14 @@
     padding-right: clamp(2.5rem, 6vw, 6.5rem);
 }
 
-/* Bölüm Başlığı */
+/* ==========================================================================
+   2026 S+ MONOLİTİK BAŞLIK (ROZET VE NOKTA YOK)
+   ========================================================================== */
 .header {
     display: flex;
     flex-direction: column;
     max-width: 820px;
     margin-bottom: clamp(5rem, 8vw, 7.5rem);
-}
-
-.eyebrowWrapper {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1.25rem;
-}
-
-.eyebrowDot {
-    width: 6px;
-    height: 6px;
-    border-radius: var(--radius-full);
-    background-color: var(--hexa-accent);
-    box-shadow: 0 0 10px var(--hexa-accent);
-}
-
-.eyebrowText {
-    font-family: monospace;
-    font-size: 0.76rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: var(--hexa-font-muted);
-    text-transform: uppercase;
 }
 
 .mainTitle {
@@ -53,26 +31,36 @@
     font-weight: 600;
     line-height: 1.05;
     letter-spacing: -0.04em;
-    color: var(--hexa-font-main);
+    color: #F8FAFC;
     margin-bottom: 1.5rem;
 }
 
+[data-theme="light"] .mainTitle {
+    color: #111827;
+}
+
 .titleAccent {
-    color: var(--hexa-accent);
-    text-shadow: 0 0 25px var(--hexa-accent-glow);
+    color: var(--hexa-font-serif);
+    font-family: var(--font-italic-serif);
+    font-style: italic;
+    font-weight: 400;
 }
 
 .subtitle {
     font-family: var(--font-main);
-    font-size: clamp(1.05rem, 1.25vw, 1.2rem);
+    font-size: clamp(1.05rem, 1.25vw, 1.25rem);
     line-height: 1.6;
-    color: var(--hexa-font-dim);
+    color: #cbd5e1;
     letter-spacing: -0.015em;
     max-width: 640px;
 }
 
+[data-theme="light"] .subtitle {
+    color: #475569;
+}
+
 /* ==========================================================================
-   TİMELİNE HATTI (KESİKLİ ARKAPLAN + GSAP SCRUB DÜZ HAT)
+   TİMELİNE HATTI
    ========================================================================== */
 .timelineStage {
     position: relative;
@@ -96,7 +84,7 @@
     width: 100%;
     height: 100%;
     background-image: linear-gradient(to bottom,
-            rgba(255, 255, 255, 0.22) 50%,
+            rgba(255, 255, 255, 0.16) 50%,
             transparent 50%);
     background-size: 2px 14px;
 }
@@ -145,12 +133,12 @@
 }
 
 .stepCode {
-    font-family: monospace;
-    font-size: 0.74rem;
-    font-weight: 700;
+    font-family: var(--font-main);
+    font-size: 0.82rem;
+    font-weight: 600;
     color: var(--hexa-accent);
-    letter-spacing: 0.1em;
-    margin-bottom: 0.85rem;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.75rem;
 }
 
 .stepTitle {
@@ -159,43 +147,49 @@
     font-weight: 600;
     line-height: 1.2;
     letter-spacing: -0.03em;
-    color: var(--hexa-font-main);
+    color: #F8FAFC;
     margin-bottom: 1rem;
+}
+
+[data-theme="light"] .stepTitle {
+    color: #111827;
 }
 
 .stepDesc {
     font-family: var(--font-main);
     font-size: 0.98rem;
     line-height: 1.6;
-    color: var(--hexa-font-dim);
+    color: #cbd5e1;
     letter-spacing: -0.015em;
     margin-bottom: 1.5rem;
+}
+
+[data-theme="light"] .stepDesc {
+    color: #475569;
 }
 
 .metricPill {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.4rem 0.9rem;
+    padding: 0.4rem 0.95rem;
     border-radius: var(--radius-full);
-    background: var(--hexa-surface);
-    border: 1px solid var(--hexa-border);
-    font-family: monospace;
-    font-size: 0.76rem;
-    font-weight: 600;
-    color: var(--hexa-font-main);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    font-family: var(--font-main);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #F8FAFC;
     width: fit-content;
 }
 
-.pillDot {
-    width: 5px;
-    height: 5px;
-    border-radius: var(--radius-full);
-    background-color: var(--hexa-accent);
+[data-theme="light"] .metricPill {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.08);
+    color: #111827;
 }
 
 /* ==========================================================================
-   MERKEZ: KİNETİK DÜĞÜM (CIRCULAR ICON NODE)
+   MERKEZ: DÜĞÜM
    ========================================================================== */
 .nodeColumn {
     display: flex;
@@ -209,7 +203,7 @@
     height: 52px;
     border-radius: var(--radius-full);
     background: #0A0E17;
-    border: 2px solid rgba(255, 255, 255, 0.12);
+    border: 2px solid rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -221,11 +215,11 @@
     width: 36px;
     height: 36px;
     border-radius: var(--radius-full);
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.08);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #8E8E93;
+    color: #94a3b8;
     transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -235,21 +229,15 @@
     transition: transform 0.4s ease;
 }
 
-/* Çizgi Düğüme Değdiğinde Aktifleşen Siber Halka */
 .nodeActive {
-    border-color: rgba(0, 255, 209, 0.45);
-    box-shadow: 0 0 25px var(--hexa-accent-glow);
-    transform: scale(1.15);
+    border-color: #FFFFFF;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
+    transform: scale(1.12);
 }
 
 .nodeActive .iconNodeInner {
-    background: var(--hexa-accent);
+    background: #FFFFFF;
     color: #0A0E17;
-    box-shadow: 0 0 16px var(--hexa-accent);
-}
-
-.nodeActive .nodeIconSvg {
-    transform: scale(1.05);
 }
 
 /* ==========================================================================
@@ -268,8 +256,8 @@
     max-width: 440px;
     aspect-ratio: 16 / 9;
     border-radius: 18px;
-    background: var(--hexa-surface);
-    border: 1px solid var(--hexa-border);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
@@ -281,8 +269,8 @@
 
 .cardActive {
     opacity: 1;
-    border-color: var(--hexa-border-focus);
-    background-color: var(--hexa-surface-hover);
+    border-color: rgba(255, 255, 255, 0.16);
+    background-color: rgba(255, 255, 255, 0.035);
     box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.7);
     transform: translateY(-3px);
 }
@@ -291,23 +279,22 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid var(--hexa-border);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     padding-bottom: 0.75rem;
 }
 
 .phaseLabel {
-    font-family: monospace;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: var(--hexa-font-muted);
+    font-family: var(--font-main);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: #94a3b8;
 }
 
 .statusLabel {
-    font-family: monospace;
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
+    font-family: var(--font-main);
+    font-size: 0.76rem;
+    font-weight: 600;
     color: var(--hexa-accent);
 }
 
@@ -330,7 +317,7 @@
 }
 
 .cardActive .giantNum {
-    color: rgba(0, 255, 209, 0.15);
+    color: rgba(255, 255, 255, 0.18);
 }
 
 .radarPulseRing {
@@ -338,7 +325,7 @@
     width: 90px;
     height: 90px;
     border-radius: var(--radius-full);
-    border: 1px solid rgba(0, 255, 209, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     animation: radarExpand 2.2s infinite ease-out;
     pointer-events: none;
 }

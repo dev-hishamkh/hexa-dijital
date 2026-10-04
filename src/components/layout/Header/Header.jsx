@@ -45,7 +45,7 @@ export default function Header({ lang = "tr" }) {
   const navLinks = [
     { href: `/${lang}/projeler`, label: dict.works },
     { href: `/${lang}/hizmetler`, label: dict.services },
-    { href: `/${lang}/bursa-web-tasarim`, label: dict.localSeo },
+    { href: `/${lang}/bursa-dijital-ajans`, label: dict.about },
     { href: `/${lang}/iletisim`, label: dict.contact },
   ];
 
@@ -61,8 +61,6 @@ export default function Header({ lang = "tr" }) {
       >
         <Link href={`/${lang}`} className={styles.brandLink}>
           <span className={styles.logoName}>HEXA</span>
-          <span className={styles.logoTag}>DİJİTAL</span>
-          <span className={styles.telemetryPulse} />
         </Link>
 
         <nav className={styles.desktopNav}>
@@ -77,7 +75,6 @@ export default function Header({ lang = "tr" }) {
                 }`}
               >
                 <span>{link.label}</span>
-                {isActive && <span className={styles.activeDot} />}
               </Link>
             );
           })}
