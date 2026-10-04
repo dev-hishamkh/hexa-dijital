@@ -27,7 +27,6 @@ export default function ServicesClient({ lang = "tr" }) {
   const groupRefs = useRef([]);
   const ctaRef = useRef(null);
 
-  // LENIS İLE SENKRONİZE GSAP SCROLL ANİMASYONLARI
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -204,8 +203,8 @@ export default function ServicesClient({ lang = "tr" }) {
         <div className={styles.heroContent}>
           <span className={`${styles.breadcrumbBadge} ${styles.revealDelay1}`}>
             {isTr
-              ? "Hizmet Mimarisi · 5 Departman"
-              : "Service Architecture · 5 Departments"}
+              ? "Hizmet Kataloğu · 5 Temel Alan"
+              : "Service Catalogue · 5 Core Disciplines"}
           </span>
 
           <h1 className={styles.heroTitle}>
@@ -213,7 +212,7 @@ export default function ServicesClient({ lang = "tr" }) {
               className={`${styles.titleLineWrapper} ${styles.revealDelay2}`}
             >
               <span className={styles.titleLine}>
-                {isTr ? "Hafif yazılımlar," : "Bespoke software,"}
+                {isTr ? "Hızlı web siteleri," : "Bespoke software,"}
               </span>
             </span>
             <span
@@ -221,7 +220,7 @@ export default function ServicesClient({ lang = "tr" }) {
             >
               <span className={styles.titleLine}>
                 <span className={styles.serifItalic}>
-                  {isTr ? "kusursuz tasarımlar &" : "radical craft &"}
+                  {isTr ? "özel yazılımlar &" : "radical craft &"}
                 </span>
               </span>
             </span>
@@ -229,9 +228,9 @@ export default function ServicesClient({ lang = "tr" }) {
               className={`${styles.titleLineWrapper} ${styles.revealDelay4}`}
             >
               <span className={styles.titleLine}>
-                <span>{isTr ? "kasa dolduran" : "high-impact"}</span>{" "}
+                <span>{isTr ? "müşteri kazandıran" : "high-impact"}</span>{" "}
                 <span className={styles.accentWord}>
-                  {isTr ? "büyüme motoru." : "growth media."}
+                  {isTr ? "reklam yönetimi." : "growth media."}
                 </span>
               </span>
             </span>
@@ -240,17 +239,17 @@ export default function ServicesClient({ lang = "tr" }) {
           <p className={`${styles.heroDesc} ${styles.revealDelay5}`}>
             {isTr ? (
               <>
-                İşletmenizin ciro rekoru kırması için üç dişlinin aynı anda
-                kusursuz dönmesi gerekir: Saniyeler içinde açılan hafif
-                yazılımlar, güven veren kurumsal kimlikler ve satın almaya hazır
-                müşteri çeken reklamlar. Şablon kullanmıyor, 24 temel hizmeti
-                tek merkezden yönetiyoruz.
+                İşletmenizin satışlarını artırmak için ihtiyacınız olan temel
+                çözümler tek çatı altında: Anında açılan hafif web siteleri,
+                güven veren kurumsal kimlik tasarımı ve satın almaya hazır
+                müşteri çeken reklamlar. Hazır şablon kullanmadan, 24 temel
+                hizmeti doğrudan tek merkezden yönetiyoruz.
               </>
             ) : (
               <>
-                Sustainable commercial growth requires three synchronized
-                disciplines: sub-second software backbones, authoritative visual
-                identity systems, and algorithmic customer acquisition media.
+                Sustainable commercial growth requires synchronized disciplines:
+                fast custom software backbones, authoritative visual identity,
+                and targeted customer acquisition media.
               </>
             )}
           </p>
@@ -274,7 +273,7 @@ export default function ServicesClient({ lang = "tr" }) {
                 <span className={styles.stageContextTag}>
                   {stageData.isSpecificService
                     ? isTr
-                      ? "Modül İncelemesi"
+                      ? "Hizmet İncelemesi"
                       : "Module Scope"
                     : isTr
                       ? "Departman Kapsamı"
@@ -285,14 +284,14 @@ export default function ServicesClient({ lang = "tr" }) {
 
               <div className={styles.stageSectionBlock}>
                 <h4 className={styles.sectionHeaderTitle}>
-                  {isTr ? "Hedef Kitle & İhtiyaç" : "Who Is This For?"}
+                  {isTr ? "Kimler İçin Uygun?" : "Who Is This For?"}
                 </h4>
                 <p className={styles.sectionBodyText}>{stageData.target}</p>
               </div>
 
               <div className={styles.stageSectionBlock}>
                 <h4 className={styles.sectionHeaderTitle}>
-                  {isTr ? "Somut Ticari Çıktı" : "Commercial Outcome"}
+                  {isTr ? "Sağlanan Somut Fayda" : "Commercial Outcome"}
                 </h4>
                 <p className={styles.sectionBodyText}>{stageData.outcome}</p>
               </div>
@@ -320,11 +319,11 @@ export default function ServicesClient({ lang = "tr" }) {
                 </div>
                 <div className={styles.actionLabels}>
                   <span className={styles.actionPrimaryText}>
-                    {isTr ? "Çözümü İnceleyin" : "Explore Solution"}
+                    {isTr ? "Hizmeti İnceleyin" : "Explore Solution"}
                   </span>
                   <span className={styles.actionSubText}>
                     {isTr
-                      ? "Teknik özellikleri ve teslimatları görün"
+                      ? "Teknik detayları ve nelerin dahil olduğunu görün"
                       : "View technical specs"}
                   </span>
                 </div>
@@ -333,7 +332,7 @@ export default function ServicesClient({ lang = "tr" }) {
           </div>
         </aside>
 
-        {/* SAĞ: ANITSAL 5 DEPARTMAN & 24 HİZMET (YENİLENEN İTALİK SERİF SAYILAR) */}
+        {/* SAĞ: 5 DEPARTMAN & 24 HİZMET */}
         <div className={styles.servicesListingCol}>
           {groups.map((group, gIdx) => (
             <div
@@ -342,7 +341,6 @@ export default function ServicesClient({ lang = "tr" }) {
               className={styles.deptGroupBlock}
               onMouseLeave={() => handleMouseLeaveGroup(group)}
             >
-              {/* DEPARTMAN BAŞLIĞI */}
               <div className={styles.groupHeaderRow}>
                 <span className={styles.monumentalNumber}>
                   {group.categoryNumber}
@@ -354,7 +352,7 @@ export default function ServicesClient({ lang = "tr" }) {
                 </div>
               </div>
 
-              {/* MOBİL İÇİN TEŞHİS KARTI */}
+              {/* MOBİL İÇİN BİLGİ KARTI */}
               <div className={styles.mobileDeptDiagnosis}>
                 <div className={styles.diagItem}>
                   <span className={styles.diagBadge}>
@@ -364,7 +362,7 @@ export default function ServicesClient({ lang = "tr" }) {
                 </div>
                 <div className={styles.diagItem}>
                   <span className={styles.diagBadge}>
-                    {isTr ? "SOMUT KAZANÇ:" : "OUTCOME:"}
+                    {isTr ? "KAZANILAN FAYDA:" : "OUTCOME:"}
                   </span>
                   <p className={styles.diagTextHighlight}>
                     {group.categoryOutcome}
@@ -440,25 +438,25 @@ export default function ServicesClient({ lang = "tr" }) {
             <div className={styles.ctaBadgeArea}>
               <span className={styles.ctaStatusDot} />
               <span className={styles.ctaBadgeLabel}>
-                {isTr ? "Ücretsiz Dijital Denetim" : "Complimentary Audit"}
+                {isTr ? "Ücretsiz Ön İnceleme" : "Complimentary Audit"}
               </span>
             </div>
 
             <h3 className={styles.ctaMainHeading}>
               {isTr ? (
                 <>
-                  İşletmeniz için hangi çarkın{" "}
+                  İşletmeniz için hangi adımın{" "}
                   <br className={styles.desktopBr} />
                   <span className={styles.serifAccentWord}>
-                    eksik olduğunu konuşalım.
+                    öncelikli olduğunu konuşalım.
                   </span>
                 </>
               ) : (
                 <>
-                  Let’s diagnose which digital gear{" "}
+                  Let’s diagnose what your business{" "}
                   <br className={styles.desktopBr} />
                   <span className={styles.serifAccentWord}>
-                    your business is missing.
+                    needs to grow next.
                   </span>
                 </>
               )}
@@ -466,14 +464,14 @@ export default function ServicesClient({ lang = "tr" }) {
 
             <p className={styles.ctaBodyText}>
               {isTr
-                ? "Sitenizin açılış hızını, Google Harita sıralamanızı ve reklam dönüşümlerinizi ücretsiz inceleyelim; kasanıza doğrudan ciro kazandıracak net bir yol haritası çıkaralım."
-                : "We audit your site latency, Google Maps ranking, and ad efficiency — delivering an actionable, measurable growth roadmap."}
+                ? "Sitenizin hızını, Google Harita görünürlüğünüzü ve reklamlarınızı ücretsiz inceleyelim; doğrudan satış kazandıracak net bir yol haritası çıkaralım."
+                : "We audit your site speed, Google Maps ranking, and ad efficiency — delivering an actionable growth roadmap."}
             </p>
           </div>
 
           <div className={styles.ctaActionsRight}>
             <a
-              href="https://wa.me/905519769406?text=Merhaba%20Hexa%20Dijital,%20hizmetleriniz%20hakk%C4%B1nda%20teknik%20bilgi%20ve%20teklif%20almak%20istiyorum."
+              href="https://wa.me/905519769406?text=Merhaba%20Hexa%20Dijital,%20hizmetleriniz%20hakk%C4%B1nda%20bilgi%20ve%20fiyat%20almak%20istiyorum."
               target="_blank"
               rel="noopener noreferrer"
               className={styles.luxuryWhatsappBtn}
@@ -502,8 +500,8 @@ export default function ServicesClient({ lang = "tr" }) {
               <span className={styles.pulseGreenDot} />
               <span className={styles.liveDeskText}>
                 {isTr
-                  ? "Bursa Proje Masası — 09:00 - 18:00 Canlı"
-                  : "Bursa Project Desk — Online"}
+                  ? "Bursa Operasyon Masası — 09:00 - 18:00 Canlı"
+                  : "Operations Desk — Online"}
               </span>
             </div>
           </div>

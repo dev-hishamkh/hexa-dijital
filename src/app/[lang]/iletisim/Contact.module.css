@@ -16,9 +16,6 @@
     flex-direction: column;
 }
 
-/* ==========================================================================
-   1. HERO BÖLÜMÜ
-   ========================================================================== */
 .heroArea {
     max-width: 1050px;
     margin-bottom: 4.5rem;
@@ -84,9 +81,6 @@
     color: #4b5563;
 }
 
-/* ==========================================================================
-   2. İKİ SÜTUNLU KOKPİT DÜZENİ
-   ========================================================================== */
 .contactGrid {
     display: grid;
     grid-template-columns: 1fr 1.35fr;
@@ -95,37 +89,34 @@
     margin-bottom: 7rem;
 }
 
-/* ==========================================================================
-   SOL SÜTUN: KANALLAR
-   ========================================================================== */
 .channelsColumn {
     display: flex;
     flex-direction: column;
     gap: 1.75rem;
 }
 
+/* HİZMETLERDEKİ KART STANDARDI (#0D111A / 24PX) */
 .channelCard {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(13, 17, 26, 0.98) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 28px;
-    padding: 2.25rem 2.25rem;
+    background: #0D111A;
+    border: 1px solid var(--hexa-border);
+    border-radius: 24px;
+    padding: 2.5rem 2.25rem;
     display: flex;
     flex-direction: column;
     gap: 1.15rem;
-    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 255, 209, 0.03);
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 [data-theme="light"] .channelCard {
     background: #FFFFFF;
     border-color: rgba(0, 0, 0, 0.08);
-    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.06);
 }
 
 .channelCard:hover {
     border-color: var(--hexa-border-focus);
     transform: translateY(-3px);
-    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 255, 209, 0.06);
+    background-color: #101522;
 }
 
 .channelCardTop {
@@ -139,7 +130,7 @@
     height: 44px;
     border-radius: var(--radius-full);
     background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid var(--hexa-border);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -230,49 +221,94 @@
 }
 
 /* ==========================================================================
-   45 DERECE DÖNEN SİBER BUZLU CAM AKSİYON BUTONLARI
+   45 DERECE DÖNEN MASTER BUTON STANDARDI
    ========================================================================== */
-.cyberGlassActionBtn {
+.executiveActionBtn,
+.executiveSubmitBtn {
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1.15rem;
-    padding: 0.55rem 0.65rem 0.55rem 1.35rem;
+    gap: 1.25rem;
+    padding: 0.65rem 0.75rem 0.65rem 1.65rem;
     border-radius: var(--radius-full);
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    color: #F8FAFC;
+    background-color: #FFFFFF;
+    color: #0A0E17;
     text-decoration: none;
     font-family: var(--font-main);
-    font-size: 0.92rem;
+    font-size: 0.95rem;
     font-weight: 600;
     letter-spacing: -0.015em;
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     width: fit-content;
+    cursor: pointer;
+    border: none;
 }
 
-[data-theme="light"] .cyberGlassActionBtn {
-    background: #FFFFFF;
-    border-color: rgba(0, 0, 0, 0.12);
-    color: #111827;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
-}
-
-.cyberGlassActionBtn:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: var(--hexa-border-focus);
+[data-theme="light"] .executiveActionBtn,
+[data-theme="light"] .executiveSubmitBtn {
+    background-color: #111827;
     color: #FFFFFF;
+}
+
+.executiveActionBtn:hover,
+.executiveSubmitBtn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 255, 209, 0.12);
+    box-shadow: 0 15px 35px var(--hexa-accent-glow);
+    background-color: #FFFFFF;
 }
 
-[data-theme="light"] .cyberGlassActionBtn:hover {
-    background: #111827;
+[data-theme="light"] .executiveActionBtn:hover,
+[data-theme="light"] .executiveSubmitBtn:hover {
+    background-color: #111827;
+}
+
+.btnText {
+    letter-spacing: -0.01em;
+}
+
+.btnCircle {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    background-color: #0A0E17;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #FFFFFF;
-    border-color: #111827;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
+}
+
+[data-theme="light"] .btnCircle {
+    background-color: #FFFFFF;
+    color: #111827;
+}
+
+.btnArrowSvg {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+
+.executiveActionBtn:hover .btnCircle,
+.executiveSubmitBtn:hover .btnCircle {
+    background-color: var(--hexa-accent);
+    color: #0A0E17;
+    transform: scale(1.08) rotate(45deg);
+    box-shadow: 0 0 20px var(--hexa-accent-glow);
+}
+
+.executiveActionBtn:hover .btnArrowSvg,
+.executiveSubmitBtn:hover .btnArrowSvg {
+    color: #0A0E17;
+}
+
+[data-theme="light"] .executiveActionBtn:hover .btnCircle,
+[data-theme="light"] .executiveSubmitBtn:hover .btnCircle {
+    background-color: #FFFFFF;
+    color: #111827;
+    transform: scale(1.08) rotate(45deg);
 }
 
 .copyBtn {
@@ -282,7 +318,7 @@
     padding: 0.65rem 1.15rem;
     border-radius: var(--radius-full);
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--hexa-border);
     color: #F8FAFC;
     cursor: pointer;
     font-family: var(--font-main);
@@ -303,8 +339,8 @@
 }
 
 .infoMetaBox {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(13, 17, 26, 0.95) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #0D111A;
+    border: 1px solid var(--hexa-border);
     border-radius: 24px;
     padding: 2rem 2.25rem;
     display: flex;
@@ -354,28 +390,24 @@
     color: #4b5563;
 }
 
-/* ==========================================================================
-   SAĞ SÜTUN: FORM
-   ========================================================================== */
 .formColumn {
     width: 100%;
 }
 
 .cockpitForm {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(13, 17, 26, 0.98) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 32px;
-    padding: clamp(2.5rem, 4vw, 3.75rem);
+    background: #0D111A;
+    border: 1px solid var(--hexa-border);
+    border-radius: 24px;
+    padding: clamp(2.5rem, 4vw, 3.5rem);
     display: flex;
     flex-direction: column;
     gap: 1.75rem;
-    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.9);
 }
 
 [data-theme="light"] .cockpitForm {
     background: #FFFFFF;
     border-color: rgba(0, 0, 0, 0.08);
-    box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.08);
 }
 
 .formHeader {
@@ -439,7 +471,7 @@
     width: 100%;
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--hexa-border);
     padding: 0.95rem 1.25rem;
     font-family: var(--font-main);
     font-size: 0.95rem;
@@ -478,96 +510,6 @@
     min-height: 120px;
 }
 
-/* ==========================================================================
-   45 DERECE DÖNEN SİBER CAM FORM GÖNDERME BUTONU
-   ========================================================================== */
-.cyberGlassSubmitBtn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
-    padding: 0.75rem 0.85rem 0.75rem 1.85rem;
-    border-radius: var(--radius-full);
-    background: rgba(255, 255, 255, 0.07);
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    color: #F8FAFC;
-    font-family: var(--font-main);
-    font-size: 0.98rem;
-    font-weight: 700;
-    letter-spacing: -0.015em;
-    cursor: pointer;
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    width: fit-content;
-    margin-top: 0.5rem;
-}
-
-[data-theme="light"] .cyberGlassSubmitBtn {
-    background: #FFFFFF;
-    border-color: rgba(0, 0, 0, 0.12);
-    color: #111827;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-}
-
-.cyberGlassSubmitBtn:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: var(--hexa-border-focus);
-    color: #FFFFFF;
-    transform: translateY(-2px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 255, 209, 0.15);
-}
-
-[data-theme="light"] .cyberGlassSubmitBtn:hover {
-    background: #111827;
-    color: #FFFFFF;
-    border-color: #111827;
-}
-
-/* BUTON SAĞINDAKİ 45 DERECE DÖNEN MİKRO DAİRE */
-.btnIconCircle {
-    width: 36px;
-    height: 36px;
-    border-radius: var(--radius-full);
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #FFFFFF;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    flex-shrink: 0;
-}
-
-[data-theme="light"] .btnIconCircle {
-    background: rgba(0, 0, 0, 0.05);
-    border-color: rgba(0, 0, 0, 0.1);
-    color: #111827;
-}
-
-.btnArrowSvg {
-    width: 14px;
-    height: 14px;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
-}
-
-.cyberGlassActionBtn:hover .btnIconCircle,
-.cyberGlassSubmitBtn:hover .btnIconCircle {
-    background-color: var(--hexa-accent);
-    border-color: var(--hexa-accent);
-    color: #0A0E17;
-    transform: scale(1.08) rotate(45deg);
-    box-shadow: 0 0 20px var(--hexa-accent-glow);
-}
-
-[data-theme="light"] .cyberGlassActionBtn:hover .btnIconCircle,
-[data-theme="light"] .cyberGlassSubmitBtn:hover .btnIconCircle {
-    background-color: #FFFFFF;
-    color: #111827;
-    transform: scale(1.08) rotate(45deg);
-}
-
 .securityNote {
     font-family: var(--font-main);
     font-size: 0.82rem;
@@ -576,15 +518,12 @@
     line-height: 1.4;
 }
 
-/* ==========================================================================
-   3. ALT TAAHHÜT BARI
-   ========================================================================== */
 .trustBar {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem;
     padding: 3rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--hexa-border);
 }
 
 [data-theme="light"] .trustBar {
@@ -630,9 +569,6 @@
     color: #4b5563;
 }
 
-/* ==========================================================================
-   TABLET VE MOBİL DUYARLILIK
-   ========================================================================== */
 @media (max-width: 1080px) {
     .contactGrid {
         grid-template-columns: 1fr;
@@ -663,8 +599,8 @@
         padding: 2rem 1.5rem;
     }
 
-    .cyberGlassActionBtn,
-    .cyberGlassSubmitBtn {
+    .executiveActionBtn,
+    .executiveSubmitBtn {
         width: 100%;
         justify-content: space-between;
     }

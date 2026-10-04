@@ -5,9 +5,6 @@
     transition: background-color 0.4s var(--ease-out);
 }
 
-/* ==========================================================================
-   KATMAN 1: SİNEMATİK BACKGROUND HERO
-   ========================================================================== */
 .heroSection {
     position: relative;
     width: 100vw;
@@ -154,9 +151,6 @@
     color: #374151;
 }
 
-/* ==========================================================================
-   KATMAN 2: FEATURES 8 (3 SÜTUNLU İKONLU BÖLÜM)
-   ========================================================================== */
 .features8Section {
     width: 100%;
     max-width: var(--max-width);
@@ -250,7 +244,7 @@
 }
 
 /* ==========================================================================
-   KATMAN 3: YENİLENEN PROJE PASAPORTU (STRIPE/LINEAR TARZI ŞIK KONSOL)
+   PROJE PASAPORTU
    ========================================================================== */
 .passportSection {
     width: 100%;
@@ -264,17 +258,16 @@
     display: grid;
     grid-template-columns: 1.2fr auto 1fr auto 0.8fr auto 1.6fr;
     align-items: center;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(13, 17, 26, 0.98) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: #0D111A;
+    border: 1px solid var(--hexa-border);
     border-radius: 24px;
     padding: 2.25rem 2.75rem;
-    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 255, 209, 0.03);
 }
 
 [data-theme="light"] .projectPassportBar {
     background: #FFFFFF;
     border-color: rgba(0, 0, 0, 0.08);
-    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .passportItem {
@@ -306,15 +299,11 @@
 .passportDivider {
     width: 1px;
     height: 44px;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-[data-theme="light"] .passportDivider {
-    background: rgba(0, 0, 0, 0.08);
+    background: var(--hexa-border);
 }
 
 /* ==========================================================================
-   KATMAN 4: KRİZ VE MASADA YÜZ YÜZE KEŞİF
+   KRİZ VE MASADA YÜZ YÜZE KEŞİF (STANDART KART: #0D111A / 24PX)
    ========================================================================== */
 .storySection {
     width: 100%;
@@ -328,20 +317,19 @@
 }
 
 .storyBlock {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(13, 17, 26, 0.98) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 28px;
+    background: #0D111A;
+    border: 1px solid var(--hexa-border);
+    border-radius: 24px;
     padding: clamp(2.5rem, 4vw, 3.5rem);
     display: flex;
     flex-direction: column;
     gap: 1.35rem;
-    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 255, 209, 0.03);
 }
 
 [data-theme="light"] .storyBlock {
     background: #FFFFFF;
     border-color: rgba(0, 0, 0, 0.08);
-    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.06);
 }
 
 .storyTagWrap {
@@ -393,7 +381,7 @@
 }
 
 /* ==========================================================================
-   KATMAN 5: KAYDIRMALI GALERİ VİTRİNİ (DATA-LENIS-PREVENT İLE KORUNAN)
+   GALERİ
    ========================================================================== */
 .gallerySection {
     width: 100%;
@@ -438,7 +426,6 @@
     color: #111827;
 }
 
-/* APPLE PRO CAM BUTONLAR */
 .galleryControlGroup {
     display: flex;
     align-items: center;
@@ -465,7 +452,6 @@
     background: #FFFFFF;
     border-color: rgba(0, 0, 0, 0.1);
     color: #111827;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
 .galleryScrollBtn:hover {
@@ -476,7 +462,6 @@
     box-shadow: 0 0 20px var(--hexa-accent-glow);
 }
 
-/* YATAY KAYDIRMA İZİ */
 .horizontalScrollTrack {
     display: flex;
     gap: 1.75rem;
@@ -499,7 +484,7 @@
     aspect-ratio: 16 / 10;
     border-radius: 24px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid var(--hexa-border);
     background-color: #0A0E17;
     scroll-snap-align: start;
     box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.8);
@@ -545,9 +530,6 @@
     pointer-events: none;
 }
 
-/* ==========================================================================
-   KATMAN 6: ADIM ADIM İMALAT VE ÇÖZÜM MÜHENDİSLİĞİ
-   ========================================================================== */
 .solutionSection {
     width: 100%;
     max-width: var(--max-width);
@@ -588,7 +570,7 @@
 
 .stepCard {
     background: #0D111A;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--hexa-border);
     border-radius: 24px;
     padding: 2.25rem 2rem;
     display: flex;
@@ -602,16 +584,11 @@
     border-color: var(--hexa-border-focus);
     transform: translateY(-3px);
     background-color: #101522;
-    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 255, 209, 0.04);
 }
 
 [data-theme="light"] .stepCard {
     background: #FFFFFF;
     border-color: rgba(0, 0, 0, 0.08);
-}
-
-[data-theme="light"] .stepCard:hover {
-    background: #FAFAFA;
 }
 
 .stepCardTop {
@@ -654,9 +631,6 @@
     color: #4b5563;
 }
 
-/* ==========================================================================
-   KATMAN 7: KIRILMA NOKTASI: İLK HAFTA VE DÖNÜŞÜM
-   ========================================================================== */
 .shiftSection {
     width: 100%;
     max-width: var(--max-width);
@@ -666,14 +640,14 @@
 }
 
 .shiftCardBox {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(13, 17, 26, 0.98) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 32px;
+    background: #0D111A;
+    border: 1px solid var(--hexa-border);
+    border-radius: 24px;
     padding: clamp(3rem, 5vw, 4.5rem);
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 255, 209, 0.03);
 }
 
 [data-theme="light"] .shiftCardBox {
@@ -714,9 +688,6 @@
     color: #4b5563;
 }
 
-/* ==========================================================================
-   KATMAN 8: DOĞRULANMIŞ CİRO VE SAHA SONUÇLARI MATRİSİ
-   ========================================================================== */
 .metricsSection {
     width: 100%;
     max-width: var(--max-width);
@@ -727,13 +698,13 @@
 
 .metricsBoxFrame {
     background: #0D111A;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 32px;
+    border: 1px solid var(--hexa-border);
+    border-radius: 24px;
     padding: clamp(3rem, 5vw, 4.5rem);
     display: flex;
     flex-direction: column;
     gap: 3.5rem;
-    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 255, 209, 0.03);
 }
 
 [data-theme="light"] .metricsBoxFrame {
@@ -766,12 +737,8 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--hexa-border);
     padding-top: 3rem;
-}
-
-[data-theme="light"] .metricsGridRow {
-    border-color: rgba(0, 0, 0, 0.08);
 }
 
 .metricColumn {
@@ -802,7 +769,7 @@
 }
 
 /* ==========================================================================
-   BÜYÜK FİNAL CTA
+   BÜYÜK FİNAL CTA (45 DERECE DÖNEN MASTER BUTON)
    ========================================================================== */
 .finaleCtaSection {
     width: 100%;
@@ -813,15 +780,15 @@
 }
 
 .ctaCardFrame {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(13, 17, 26, 0.98) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 32px;
+    background: #0D111A;
+    border: 1px solid var(--hexa-border);
+    border-radius: 28px;
     padding: clamp(3rem, 5vw, 4.5rem);
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     align-items: center;
     gap: 3.5rem;
-    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 255, 209, 0.04);
 }
 
 [data-theme="light"] .ctaCardFrame {
@@ -882,56 +849,61 @@
     align-items: flex-start;
 }
 
-.ctaCyberGlassBtn {
+/* 45 DERECE DÖNEN MASTER PROJE BUTONU */
+.projectExecutiveBtn {
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1.35rem;
-    padding: 0.65rem 0.75rem 0.65rem 1.65rem;
+    gap: 1.5rem;
+    padding: 0.65rem 0.75rem 0.65rem 1.75rem;
     border-radius: var(--radius-full);
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    color: #F8FAFC;
+    background-color: #FFFFFF;
+    color: #0A0E17;
     text-decoration: none;
     font-family: var(--font-main);
     font-size: 0.98rem;
     font-weight: 600;
     letter-spacing: -0.015em;
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    width: fit-content;
 }
 
-[data-theme="light"] .ctaCyberGlassBtn {
-    background: #111827;
+[data-theme="light"] .projectExecutiveBtn {
+    background-color: #111827;
     color: #FFFFFF;
 }
 
-.ctaCyberGlassBtn:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: var(--hexa-border-focus);
+.projectExecutiveBtn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 255, 209, 0.15);
+    box-shadow: 0 15px 40px var(--hexa-accent-glow);
+    background-color: #FFFFFF;
+}
+
+[data-theme="light"] .projectExecutiveBtn:hover {
+    background-color: #111827;
+}
+
+.btnText {
+    letter-spacing: -0.01em;
 }
 
 .btnIconCircle {
     width: 38px;
     height: 38px;
     border-radius: var(--radius-full);
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.16);
+    background-color: #0A0E17;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #F8FAFC;
+    color: #FFFFFF;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     flex-shrink: 0;
 }
 
 [data-theme="light"] .btnIconCircle {
-    background: rgba(255, 255, 255, 0.2);
-    color: #FFFFFF;
+    background-color: #FFFFFF;
+    color: #111827;
 }
 
 .btnArrowSvg {
@@ -940,12 +912,21 @@
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
 }
 
-.ctaCyberGlassBtn:hover .btnIconCircle {
+.projectExecutiveBtn:hover .btnIconCircle {
     background-color: var(--hexa-accent);
-    border-color: var(--hexa-accent);
     color: #0A0E17;
     transform: scale(1.08) rotate(45deg);
-    box-shadow: 0 0 25px var(--hexa-accent-glow);
+    box-shadow: 0 0 22px var(--hexa-accent-glow);
+}
+
+.projectExecutiveBtn:hover .btnArrowSvg {
+    color: #0A0E17;
+}
+
+[data-theme="light"] .projectExecutiveBtn:hover .btnIconCircle {
+    background-color: #FFFFFF;
+    color: #111827;
+    transform: scale(1.08) rotate(45deg);
 }
 
 .returnProjectsLink {
@@ -966,9 +947,6 @@
     color: #111827;
 }
 
-/* ==========================================================================
-   TABLET VE MOBİL DUYARLILIK
-   ========================================================================== */
 @media (max-width: 1150px) {
     .storySection {
         grid-template-columns: 1fr;
@@ -1044,7 +1022,7 @@
         gap: 2rem;
     }
 
-    .ctaCyberGlassBtn {
+    .projectExecutiveBtn {
         width: 100%;
         justify-content: space-between;
     }

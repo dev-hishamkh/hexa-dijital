@@ -24,10 +24,10 @@ export const metadata = {
   metadataBase: new URL("https://hexadijital.com"),
   title: {
     template: "%s | Hexa Dijital",
-    default: "Hexa Dijital | Yazılım, Tasarım ve Büyüme Sistemleri",
+    default: "Hexa Dijital | Yazılım, Tasarım ve Reklam Ajansı",
   },
   description:
-    "Hazır şablon kullanmadan, Next.js ile 0.8 saniyenin altında açılan kurumsal web sistemleri, sıfır komisyonlu sipariş ağları ve kasanıza müşteri çeken dijital büyüme motorları.",
+    "Hazır şablon kullanmadan, telefonda ve bilgisayarda anında açılan kurumsal web siteleri, komisyonsuz sipariş sistemleri ve doğrudan müşteri kazandıran reklam yönetimi.",
 };
 
 export default function RootLayout({ children }) {

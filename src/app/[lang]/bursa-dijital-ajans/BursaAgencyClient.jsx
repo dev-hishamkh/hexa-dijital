@@ -64,7 +64,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
         },
       );
 
-      // 4. Saha Kanıtları (İç Kutulardan Arındırılmış Akıcı Kartlar)
+      // 4. Saha Kanıtları
       gsap.fromTo(
         `.${styles.proofCard}`,
         { opacity: 0, y: 30 },
@@ -135,18 +135,19 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
         </p>
 
         <div className={styles.heroActionRow}>
+          {/* YENİLENEN 45 DERECE DÖNEN MASTER HERO BUTONU */}
           <a
             href="https://wa.me/905519769406?text=Merhaba%20Hexa%20Dijital,%20Bursa'daki%20i%C5%9Fletmemizi%20ziyaret%20etmeniz%20ve%20y%C3%BCz%20y%C3%BCze%20g%C3%B6r%C3%BC%C5%9Fmek%20i%C3%A7in%20yaz%C4%B1yorum."
             target="_blank"
             rel="noopener noreferrer"
-            className={styles.heroCyberGlassBtn}
+            className={styles.heroExecutiveBtn}
           >
-            <span className={styles.heroBtnText}>
+            <span className={styles.btnText}>
               {isTr ? "Yerinde Görüşme Talep Edin" : "Request On-Site Meeting"}
             </span>
-            <div className={styles.heroBtnCircle}>
+            <div className={styles.btnCircle}>
               <svg
-                className={styles.heroArrowSvg}
+                className={styles.btnArrowSvg}
                 viewBox="0 0 16 16"
                 fill="none"
               >
@@ -173,7 +174,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
       </section>
 
       {/* ==========================================================================
-          2. EŞİT DENGELİ 2x2 BENTO GRID: BİZ KİMİZ & HİKAYEMİZ
+          2. EŞİT DENGELİ 2x2 BENTO GRID (#0D111A KART STANDARDI)
           ========================================================================== */}
       <section className={`container ${styles.storyBentoSection}`}>
         <div className={styles.sectionHeadingWrap}>
@@ -234,7 +235,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
             <h3 className={styles.bentoCardTitle}>
               {isTr
                 ? "Hatasız & Anında Açılan Sistemler"
-                : "Sub-Second Loading Guarantee"}
+                : "Instant Loading Guarantee"}
             </h3>
             <p className={styles.bentoCardParagraph}>
               {isTr
@@ -264,7 +265,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
       </section>
 
       {/* ==========================================================================
-          3. 2026 S+ İNTERAKTİF DEPARTMAN KOKPİTİ
+          3. 2026 S+ İNTERAKTİF DEPARTMAN KOKPİTİ (#0D111A STANDARDI)
           ========================================================================== */}
       <section className={`container ${styles.deptOverviewSection}`}>
         <div className={styles.sectionHeadingWrap}>
@@ -350,7 +351,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
                   <Link
                     key={item.slug}
                     href={`/${lang}/hizmetler/${item.slug}`}
-                    className={styles.cyberGlassServiceBtn}
+                    className={styles.cockpitServiceBtn}
                   >
                     <span className={styles.serviceBtnLabel}>{item.name}</span>
                     <div className={styles.btnIconCircle}>
@@ -377,7 +378,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
       </section>
 
       {/* ==========================================================================
-          4. SAHA KANITI: KUTU İÇİ KUTUDAN ARINDIRILMIŞ FERAH MİMARİ
+          4. SAHA KANITI: HİZMETLER KART STANDARDI (#0D111A)
           ========================================================================== */}
       <section className={`container ${styles.proofSection}`}>
         <div className={styles.sectionHeadingWrap}>
@@ -417,7 +418,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
             </p>
           </div>
 
-          {/* 2. VAKA: MUNCHICO (ABARTISIZ, GERÇEKÇİ ESNAF ÇÖZÜMÜ) */}
+          {/* 2. VAKA: MUNCHICO */}
           <div className={styles.proofCard}>
             <div className={styles.proofCardHeader}>
               <span className={styles.proofSectorTag}>
@@ -466,7 +467,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
       </section>
 
       {/* ==========================================================================
-          5. NET KAPSAM & SABİT FİYAT TAAHHÜTÜ
+          5. NET KAPSAM & SABİT FİYAT TAAHHÜTÜ (#0D111A STANDARDI)
           ========================================================================== */}
       <section className={`container ${styles.commitmentsSection}`}>
         <div className={styles.commitBox}>

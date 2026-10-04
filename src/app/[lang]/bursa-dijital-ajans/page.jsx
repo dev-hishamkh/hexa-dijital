@@ -14,25 +14,28 @@ export async function generateMetadata({ params }) {
   const isTr = lang === "tr";
 
   const title = isTr
-    ? "Bursa Dijital Ajans & Hakkımızda"
-    : "Bursa Digital Agency & About Us";
+    ? "Bursa Web Tasarım & Dijital Reklam Ajansı | Hexa Dijital"
+    : "Bursa Web Design & Digital Advertising Agency | Hexa Digital";
 
   const description = isTr
-    ? "İşletmenizi Bursa genelinde doğrudan yerinde ziyaret ediyor, firmanıza özel modern web siteleri, komisyonsuz sipariş sistemleri ve müşteri getiren reklam stratejileri kuruyoruz."
-    : "We visit your business on-site across Bursa to engineer bespoke web platforms, commission-free ordering systems, and high-converting marketing strategies.";
+    ? "Bursa genelinde işletmenizi yerinde ziyaret ediyoruz. Hızlı açılan web siteleri, restoran sipariş sistemleri ve masanızda yüz yüze planlanan reklam yönetimi."
+    : "We visit your business on-site across Bursa. Fast-loading websites, commission-free ordering systems, and targeted advertising planned face-to-face.";
 
   return {
     title,
     description,
     keywords: [
+      "Bursa web tasarım",
       "Bursa dijital ajans",
+      "Bursa reklam ajansı",
       "Bursa web tasarım şirketi",
       "Bursa yerinde web tasarım",
       "Bursa özel web yazılım",
       "Nilüfer web tasarım",
       "Osmangazi web tasarım",
-      "Bursa reklam ajansı",
-      "Hexa Dijital hakkında",
+      "Yıldırım web tasarım",
+      "Mudanya web tasarım",
+      "Hexa Dijital Bursa",
     ],
     openGraph: {
       title: `${title} | Hexa Dijital`,
@@ -74,19 +77,23 @@ export default async function BursaDigitalAgencyPage({ params }) {
             "@type": "ListItem",
             position: 2,
             name: isTr
-              ? "Bursa Dijital Ajans & Hakkımızda"
-              : "Bursa Digital Agency & About Us",
+              ? "Bursa Web Tasarım & Dijital Ajans"
+              : "Bursa Web Design & Digital Agency",
             item: `https://hexadijital.com/${lang}/bursa-dijital-ajans`,
           },
         ],
       },
       {
         "@type": ["LocalBusiness", "ProfessionalService"],
-        "@id": "https://hexadijital.com/#organization",
-        name: "HEXA Dijital",
+        "@id": "https://hexadijital.com/#bursa-hub",
+        name: "HEXA Dijital - Bursa Web Tasarım & Reklam Ajansı",
         legalName: "Hexa Dijital Web Tasarım ve Yazılım Şirketi",
         url: `https://hexadijital.com/${lang}/bursa-dijital-ajans`,
         telephone: "+905519769406",
+        priceRange: "₺₺₺",
+        currenciesAccepted: "TRY, USD, EUR",
+        paymentAccepted: "Bank Transfer, Credit Card",
+        hasMap: "https://maps.google.com/?q=Bursa+Nilufer+Hexa+Dijital",
         address: {
           "@type": "PostalAddress",
           streetAddress: "Nilüfer / Bursa",
@@ -102,9 +109,27 @@ export default async function BursaDigitalAgencyPage({ params }) {
         },
         areaServed: [
           { "@type": "City", name: "Bursa" },
-          { "@type": "City", name: "Nilüfer" },
-          { "@type": "City", name: "Osmangazi" },
-          { "@type": "City", name: "Yıldırım" },
+          { "@type": "AdministrativeArea", name: "Nilüfer" },
+          { "@type": "AdministrativeArea", name: "Osmangazi" },
+          { "@type": "AdministrativeArea", name: "Yıldırım" },
+          { "@type": "AdministrativeArea", name: "Mudanya" },
+          { "@type": "AdministrativeArea", name: "İnegöl" },
+        ],
+        openingHoursSpecification: [
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday",
+            ],
+            opens: "09:00",
+            closes: "18:00",
+          },
         ],
       },
     ],

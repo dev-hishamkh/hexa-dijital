@@ -14,11 +14,11 @@ export async function generateMetadata({ params }) {
   const isTr = lang === "tr";
 
   const title = isTr
-    ? "Hizmetlerimiz & Dijital Çözümlerimiz"
-    : "Our Services & Digital Solutions";
+    ? "Hizmetlerimiz & Çözümlerimiz | Hexa Dijital"
+    : "Our Services & Digital Solutions | Hexa Digital";
 
   const description = isTr
-    ? "İşletmenizi internette öne çıkaran kurumsal web siteleri, komisyonsuz online sipariş sistemleri, Google Haritalar üst sıralama ve müşteri kazandıran sosyal medya reklam yönetimi."
+    ? "İşletmeniz için özel web siteleri, komisyonsuz paket servis sistemleri, Google Haritalar ilk sıra çalışmaları ve doğrudan müşteri getiren reklam yönetimi."
     : "Modern corporate websites, commission-free ordering platforms, Google Maps optimization, and targeted social media ads engineered to grow your business.";
 
   return {
@@ -99,7 +99,7 @@ export default async function ServicesHubPage({ params }) {
       {
         "@type": "ItemList",
         name: isTr
-          ? "Hexa Dijital Hizmet Kataloğu & Dijital Çözümler"
+          ? "Hexa Dijital Hizmet Kataloğu & Çözümler"
           : "Hexa Digital Master Service Architecture",
         numberOfItems: allServicesList.length,
         itemListElement: allServicesList.map((service, idx) => ({

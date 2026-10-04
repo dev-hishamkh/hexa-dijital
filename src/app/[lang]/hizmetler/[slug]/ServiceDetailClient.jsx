@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import gsap from "gsap";
@@ -143,6 +143,8 @@ export default function ServiceDetailClient({
 }) {
   const isTr = lang === "tr";
   const rootRef = useRef(null);
+  // İpeksi Akordeon Durumu (İlk soru açık)
+  const [openFaqIdx, setOpenFaqIdx] = useState(0);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -201,39 +203,7 @@ export default function ServiceDetailClient({
           "-=0.3",
         );
 
-      // 4. Zig-Zag Satırları
-      const rows = gsap.utils.toArray(`.${styles.zigzagRow}`);
-      rows.forEach((row) => {
-        const contentCol = row.querySelector(`.${styles.zigzagContentCol}`);
-        const visualCol = row.querySelector(`.${styles.zigzagVisualCol}`);
-
-        const rowTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: row,
-            start: "top 75%",
-            once: true,
-          },
-        });
-
-        if (contentCol) {
-          rowTl.fromTo(
-            contentCol,
-            { opacity: 0, x: -25 },
-            { opacity: 1, x: 0, duration: 0.75, ease: "power3.out" },
-          );
-        }
-
-        if (visualCol) {
-          rowTl.fromTo(
-            visualCol,
-            { opacity: 0, scale: 0.96 },
-            { opacity: 1, scale: 1, duration: 0.85, ease: "power3.out" },
-            "-=0.5",
-          );
-        }
-      });
-
-      // 5. Deliverables Kartları
+      // 4. Deliverables Kartları
       gsap.fromTo(
         `.${styles.delivItemCard}`,
         { opacity: 0, y: 20 },
@@ -251,24 +221,7 @@ export default function ServiceDetailClient({
         },
       );
 
-      // 6. SSS & İlgili Çözümler
-      gsap.fromTo(
-        `.${styles.faqAndRelatedCombinedSection}`,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: `.${styles.faqAndRelatedCombinedSection}`,
-            start: "top 80%",
-            once: true,
-          },
-        },
-      );
-
-      // 7. Alt CTA Kutusu
+      // 5. Alt CTA Kutusu
       gsap.fromTo(
         `.${styles.ctaBoxFrame}`,
         { opacity: 0, y: 30 },
@@ -288,6 +241,10 @@ export default function ServiceDetailClient({
 
     return () => ctx.revert();
   }, []);
+
+  const toggleFaq = (idx) => {
+    setOpenFaqIdx(openFaqIdx === idx ? null : idx);
+  };
 
   return (
     <main ref={rootRef} className={styles.mainContainer}>
@@ -326,7 +283,7 @@ export default function ServiceDetailClient({
       </section>
 
       {/* ==========================================================================
-          KATMAN 2: 3 SÜTUNLU LUCIDE İKONLU MİMARİ
+          KATMAN 2: 3 SÜTUNLU MİMARİ
           ========================================================================== */}
       <section className={`container ${styles.features8Section}`}>
         <div className={styles.features8Grid}>
@@ -347,7 +304,7 @@ export default function ServiceDetailClient({
       </section>
 
       {/* ==========================================================================
-          KATMAN 3: SPLIT BAŞLIK & İNDEKSLİ KARTLAR
+          KATMAN 3: SPLIT BAŞLIK & KARTLAR
           ========================================================================== */}
       <section className={`container ${styles.features11Section}`}>
         <div className={styles.f11TopSplit}>
@@ -393,10 +350,9 @@ export default function ServiceDetailClient({
       </section>
 
       {/* ==========================================================================
-          KATMAN 4: ZİG-ZAG GÖRSEL MİMARİSİ (TOKLUK VE ZARİF ETİKETLER)
+          KATMAN 4: ZİG-ZAG GÖRSEL MİMARİSİ
           ========================================================================== */}
       <section className={`container ${styles.zigzagSection}`}>
-        {/* 1. BLOK: Sol Metin — Sağ Görsel */}
         <div className={`${styles.zigzagRow} ${styles.rowTextLeft}`}>
           <div className={styles.zigzagContentCol}>
             <span className={styles.zigzagTag}>
@@ -423,7 +379,6 @@ export default function ServiceDetailClient({
           </div>
         </div>
 
-        {/* 2. BLOK: Sol Görsel — Sağ Metin */}
         <div className={`${styles.zigzagRow} ${styles.rowImageLeft}`}>
           <div className={styles.zigzagVisualCol}>
             <div className={styles.showcaseFrame}>
@@ -450,7 +405,6 @@ export default function ServiceDetailClient({
           </div>
         </div>
 
-        {/* 3. BLOK: Sol Metin — Sağ Görsel */}
         <div className={`${styles.zigzagRow} ${styles.rowTextLeft}`}>
           <div className={styles.zigzagContentCol}>
             <span className={styles.zigzagTag}>
@@ -484,7 +438,7 @@ export default function ServiceDetailClient({
       </section>
 
       {/* ==========================================================================
-          KATMAN 5: TESLİMAT KALEMLERİ (ÇİFT FONT VURGUSU ENTEGRE EDİLDİ)
+          KATMAN 5: TESLİMAT KALEMLERİ
           ========================================================================== */}
       <section className={`container ${styles.deliverablesSection}`}>
         <div className={styles.deliverablesHeader}>
@@ -520,11 +474,11 @@ export default function ServiceDetailClient({
       </section>
 
       {/* ==========================================================================
-          KATMAN 6: YAN YANA BİRLEŞİK BÖLÜM (SOL: SSS — SAĞ: TAMAMLAYICI DİŞLİLER)
+          KATMAN 6: YAN YANA BİRLEŞİK BÖLÜM (İPEKSİ AKORDEON DÖNÜŞÜMÜ)
           ========================================================================== */}
       <section className={`container ${styles.faqAndRelatedCombinedSection}`}>
         <div className={styles.combinedTwoColLayout}>
-          {/* SOL SÜTUN: SSS */}
+          {/* SOL SÜTUN: İPEKSİ AKORDEON SSS */}
           <div className={styles.combinedFaqCol}>
             <div className={styles.colHeaderWrap}>
               <span className={styles.sectionLabel}>
@@ -539,21 +493,33 @@ export default function ServiceDetailClient({
             </div>
 
             <div className={styles.faqListContainer}>
-              {data.faq.map((item, idx) => (
-                <details
-                  key={idx}
-                  className={styles.faqRowItem}
-                  open={idx === 0}
-                >
-                  <summary className={styles.faqSummaryLine}>
-                    <h3 className={styles.faqQuestionText}>{item.q}</h3>
-                    <Plus size={18} className={styles.faqExpandIcon} />
-                  </summary>
-                  <div className={styles.faqAnswerBody}>
-                    <p className={styles.faqAnswerParagraph}>{item.a}</p>
+              {data.faq.map((item, idx) => {
+                const isOpen = openFaqIdx === idx;
+                return (
+                  <div
+                    key={idx}
+                    className={`${styles.faqRowItem} ${isOpen ? styles.faqRowActive : ""}`}
+                    onClick={() => toggleFaq(idx)}
+                  >
+                    <div className={styles.faqSummaryLine}>
+                      <h3 className={styles.faqQuestionText}>{item.q}</h3>
+                      <div
+                        className={`${styles.iconWrap} ${isOpen ? styles.iconWrapRotated : ""}`}
+                      >
+                        <Plus size={18} className={styles.faqExpandIcon} />
+                      </div>
+                    </div>
+                    {/* CSS GRID İLE İPEKSİ AŞAĞI KAYAN GÖVDE */}
+                    <div
+                      className={`${styles.faqSmoothDrawer} ${isOpen ? styles.drawerOpen : ""}`}
+                    >
+                      <div className={styles.drawerInner}>
+                        <p className={styles.faqAnswerParagraph}>{item.a}</p>
+                      </div>
+                    </div>
                   </div>
-                </details>
-              ))}
+                );
+              })}
             </div>
           </div>
 
@@ -602,7 +568,7 @@ export default function ServiceDetailClient({
       </section>
 
       {/* ==========================================================================
-          KATMAN 7: ALT CTA (LÜKS VURGULAR KORUNDU)
+          KATMAN 7: ALT CTA (45 DERECE DÖNEN MASTER BUTON)
           ========================================================================== */}
       <section className={`container ${styles.bottomCtaSection}`}>
         <div className={styles.ctaBoxFrame}>
@@ -610,7 +576,7 @@ export default function ServiceDetailClient({
             <div className={styles.ctaBadgeArea}>
               <span className={styles.ctaStatusDot} />
               <span className={styles.ctaBadgeLabel}>
-                {isTr ? "Ücretsiz Dijital Denetim" : "Complimentary Audit"}
+                {isTr ? "Ücretsiz Ön İnceleme" : "Complimentary Audit"}
               </span>
             </div>
 
@@ -633,12 +599,13 @@ export default function ServiceDetailClient({
 
             <p className={styles.ctaBodyText}>
               {isTr
-                ? "Sürpriz maliyetler veya ucu açık teslimat süreleri yok. Kapsamı, kullanılacak teknolojileri ve takvimi şeffafça belirleyelim."
+                ? "Sürpriz maliyetler veya ucu açık teslimat süreleri yok. Kapsamı, kullanılacak altyapıyı ve takvimi şeffafça belirleyelim."
                 : "Zero hidden costs or ambiguous delivery windows. We codify deliverables and timelines into binding agreements."}
             </p>
           </div>
 
           <div className={styles.ctaActionsRight}>
+            {/* 45 DERECE DÖNEN MASTER BUTON */}
             <a
               href={`https://wa.me/905519769406?text=${whatsappMessage}`}
               target="_blank"
@@ -649,7 +616,19 @@ export default function ServiceDetailClient({
                 {isTr ? "WhatsApp ile Başlatın" : "Initiate via WhatsApp"}
               </span>
               <div className={styles.btnIconCircle}>
-                <ArrowUpRight size={18} className={styles.btnArrowSvg} />
+                <svg
+                  className={styles.btnArrowSvg}
+                  viewBox="0 0 16 16"
+                  fill="none"
+                >
+                  <path
+                    d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </div>
             </a>
 

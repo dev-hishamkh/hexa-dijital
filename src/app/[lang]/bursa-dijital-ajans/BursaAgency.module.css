@@ -85,85 +85,83 @@
     flex-wrap: wrap;
 }
 
-.heroCyberGlassBtn {
+/* ==========================================================================
+   YENİLENEN 45 DERECE DÖNEN MASTER HERO BUTONU
+   ========================================================================== */
+.heroExecutiveBtn {
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1.35rem;
-    padding: 0.6rem 0.65rem 0.6rem 1.65rem;
+    gap: 1.5rem;
+    padding: 0.65rem 0.75rem 0.65rem 1.75rem;
     border-radius: var(--radius-full);
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    color: #F8FAFC;
+    background-color: #FFFFFF;
+    color: #0A0E17;
     text-decoration: none;
     font-family: var(--font-main);
-    font-size: 0.96rem;
+    font-size: 0.98rem;
     font-weight: 600;
     letter-spacing: -0.015em;
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    width: fit-content;
 }
 
-[data-theme="light"] .heroCyberGlassBtn {
-    background: #FFFFFF;
-    border-color: rgba(0, 0, 0, 0.12);
-    color: #111827;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-}
-
-.heroCyberGlassBtn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: var(--hexa-border-focus);
-    transform: translateY(-2px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 255, 209, 0.15);
-}
-
-[data-theme="light"] .heroCyberGlassBtn:hover {
-    background: #111827;
+[data-theme="light"] .heroExecutiveBtn {
+    background-color: #111827;
     color: #FFFFFF;
 }
 
-.heroBtnText {
+.heroExecutiveBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px var(--hexa-accent-glow);
+    background-color: #FFFFFF;
+}
+
+[data-theme="light"] .heroExecutiveBtn:hover {
+    background-color: #111827;
+}
+
+.btnText {
     letter-spacing: -0.01em;
 }
 
-.heroBtnCircle {
+.btnCircle {
     width: 38px;
     height: 38px;
     border-radius: var(--radius-full);
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.16);
+    background-color: #0A0E17;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #F8FAFC;
+    color: #FFFFFF;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     flex-shrink: 0;
 }
 
-[data-theme="light"] .heroBtnCircle {
-    background: rgba(0, 0, 0, 0.05);
-    border-color: rgba(0, 0, 0, 0.1);
+[data-theme="light"] .btnCircle {
+    background-color: #FFFFFF;
     color: #111827;
 }
 
-.heroArrowSvg {
+.btnArrowSvg {
     width: 15px;
     height: 15px;
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
 }
 
-.heroCyberGlassBtn:hover .heroBtnCircle {
+.heroExecutiveBtn:hover .btnCircle {
     background-color: var(--hexa-accent);
-    border-color: var(--hexa-accent);
     color: #0A0E17;
     transform: scale(1.08) rotate(45deg);
-    box-shadow: 0 0 25px var(--hexa-accent-glow);
+    box-shadow: 0 0 22px var(--hexa-accent-glow);
 }
 
-[data-theme="light"] .heroCyberGlassBtn:hover .heroBtnCircle {
+.heroExecutiveBtn:hover .btnArrowSvg {
+    color: #0A0E17;
+}
+
+[data-theme="light"] .heroExecutiveBtn:hover .btnCircle {
     background-color: #FFFFFF;
     color: #111827;
     transform: scale(1.08) rotate(45deg);
@@ -188,7 +186,7 @@
 }
 
 /* ==========================================================================
-   2. EŞİT DENGELİ 2x2 BENTO GRID
+   2. BENTO GRID (HİZMETLERDEKİ KART STANDARDI: #0D111A / 24PX)
    ========================================================================== */
 .storyBentoSection {
     width: 100%;
@@ -241,22 +239,23 @@
     width: 100%;
 }
 
+/* SİTEDEKİ DİĞER KARTLARLA %100 AYNI: #0D111A */
 .bentoCard {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(13, 17, 26, 0.95) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 28px;
+    background: #0D111A;
+    border: 1px solid var(--hexa-border);
+    border-radius: 24px;
     padding: 2.75rem 2.5rem;
     display: flex;
     flex-direction: column;
     gap: 1.15rem;
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 255, 209, 0.03);
 }
 
 [data-theme="light"] .bentoCard {
     background: #FFFFFF;
     border-color: rgba(0, 0, 0, 0.08);
-    box-shadow: 0 15px 35px -15px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    box-shadow: 0 15px 35px -15px rgba(0, 0, 0, 0.06);
 }
 
 .bentoCard:hover {
@@ -310,7 +309,7 @@
 }
 
 /* ==========================================================================
-   3. 2026 S+ İNTERAKTİF DEPARTMAN KOKPİTİ
+   3. DEPARTMAN KOKPİTİ (#0D111A STANDARDI)
    ========================================================================== */
 .deptOverviewSection {
     width: 100%;
@@ -328,11 +327,11 @@
     grid-template-columns: 430px 1fr;
     gap: 2.25rem;
     width: 100%;
-    background: #0A0E17;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 32px;
+    background: #0D111A;
+    border: 1px solid var(--hexa-border);
+    border-radius: 24px;
     padding: 1.75rem;
-    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.95);
     will-change: transform, opacity;
 }
 
@@ -342,7 +341,6 @@
     box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
 }
 
-/* Sol Navigasyon */
 .cockpitNavCol {
     display: flex;
     flex-direction: column;
@@ -355,7 +353,7 @@
     align-items: center;
     gap: 1.25rem;
     padding: 1.2rem 1.45rem;
-    border-radius: 20px;
+    border-radius: 18px;
     background: transparent;
     border: 1px solid transparent;
     cursor: pointer;
@@ -374,9 +372,9 @@
 }
 
 .cockpitNavBtnActive {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(13, 17, 26, 0.98) 100%) !important;
+    background: #101522 !important;
     border-color: var(--hexa-border-focus) !important;
-    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.9);
 }
 
 [data-theme="light"] .cockpitNavBtnActive {
@@ -397,14 +395,6 @@
 
 [data-theme="light"] .navBtnNumber {
     color: #94a3b8;
-}
-
-.cockpitNavBtn:hover .navBtnNumber {
-    color: #FFFFFF;
-}
-
-[data-theme="light"] .cockpitNavBtn:hover .navBtnNumber {
-    color: #111827;
 }
 
 .cockpitNavBtnActive .navBtnNumber {
@@ -448,11 +438,10 @@
     color: var(--hexa-font-muted);
 }
 
-/* Sağ Sahne */
 .cockpitStageCol {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(13, 17, 26, 0.98) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 26px;
+    background: #0A0E17;
+    border: 1px solid var(--hexa-border);
+    border-radius: 20px;
     padding: 3rem;
     display: flex;
     flex-direction: column;
@@ -460,13 +449,11 @@
     gap: 3rem;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 [data-theme="light"] .cockpitStageCol {
     background: #FFFFFF;
     border-color: rgba(0, 0, 0, 0.08);
-    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.08);
 }
 
 .stageTopHeader {
@@ -552,12 +539,8 @@
     display: flex;
     flex-direction: column;
     gap: 1.15rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--hexa-border);
     padding-top: 2rem;
-}
-
-[data-theme="light"] .stageServicesArea {
-    border-color: rgba(0, 0, 0, 0.08);
 }
 
 .servicesAreaLabel {
@@ -573,59 +556,43 @@
     gap: 0.85rem;
 }
 
-.cyberGlassServiceBtn {
+/* 45 DERECE DÖNEN KOKPİT HİZMET BUTONU */
+.cockpitServiceBtn {
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
     gap: 1.25rem;
-    padding: 0.65rem 0.75rem 0.65rem 1.45rem;
+    padding: 0.55rem 0.65rem 0.55rem 1.45rem;
     border-radius: var(--radius-full);
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: #0D111A;
+    border: 1px solid var(--hexa-border);
     color: #F8FAFC;
     text-decoration: none;
     font-family: var(--font-main);
     font-size: 0.94rem;
     font-weight: 500;
-    letter-spacing: -0.015em;
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.14);
     white-space: nowrap;
 }
 
-[data-theme="light"] .cyberGlassServiceBtn {
+[data-theme="light"] .cockpitServiceBtn {
     background: #FFFFFF;
     border-color: rgba(0, 0, 0, 0.1);
     color: #111827;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
 }
 
-.cyberGlassServiceBtn:hover {
-    background: rgba(255, 255, 255, 0.12);
+.cockpitServiceBtn:hover {
+    background-color: #101522;
     border-color: var(--hexa-border-focus);
-    color: #FFFFFF;
     transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 255, 209, 0.15);
-}
-
-[data-theme="light"] .cyberGlassServiceBtn:hover {
-    background: #111827;
-    color: #FFFFFF;
-    border-color: #111827;
-}
-
-.serviceBtnLabel {
-    letter-spacing: -0.01em;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 255, 209, 0.08);
 }
 
 .btnIconCircle {
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
     border-radius: var(--radius-full);
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.08);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -634,34 +601,25 @@
     flex-shrink: 0;
 }
 
-[data-theme="light"] .btnIconCircle {
-    background: rgba(0, 0, 0, 0.05);
-    border-color: rgba(0, 0, 0, 0.1);
-    color: #111827;
-}
-
 .btnArrowSvg {
     width: 14px;
     height: 14px;
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
 }
 
-.cyberGlassServiceBtn:hover .btnIconCircle {
+.cockpitServiceBtn:hover .btnIconCircle {
     background-color: var(--hexa-accent);
-    border-color: var(--hexa-accent);
     color: #0A0E17;
     transform: scale(1.08) rotate(45deg);
-    box-shadow: 0 0 20px var(--hexa-accent-glow);
+    box-shadow: 0 0 15px var(--hexa-accent-glow);
 }
 
-[data-theme="light"] .cyberGlassServiceBtn:hover .btnIconCircle {
-    background-color: #FFFFFF;
-    color: #111827;
-    transform: scale(1.08) rotate(45deg);
+.cockpitServiceBtn:hover .btnArrowSvg {
+    color: #0A0E17;
 }
 
 /* ==========================================================================
-   4. SAHA KANITI: FERAH, TEK PARÇA MONOLİTİK KARTLAR (İÇ KUTU YOK)
+   4. SAHA KANITI: HİZMETLER KART STANDARDI (#0D111A / 24PX)
    ========================================================================== */
 .proofSection {
     width: 100%;
@@ -681,27 +639,27 @@
 }
 
 .proofCard {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(13, 17, 26, 0.98) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 28px;
+    background: #0D111A;
+    border: 1px solid var(--hexa-border);
+    border-radius: 24px;
     padding: 2.75rem 2.25rem;
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 255, 209, 0.03);
 }
 
 .proofCard:hover {
     border-color: var(--hexa-border-focus);
     transform: translateY(-4px);
-    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 255, 209, 0.06);
+    background-color: #101522;
+    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.95), 0 0 25px rgba(0, 255, 209, 0.06);
 }
 
 [data-theme="light"] .proofCard {
     background: #FFFFFF;
     border-color: rgba(0, 0, 0, 0.08);
-    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.06);
 }
 
 .proofCardHeader {
@@ -740,7 +698,6 @@
     color: #111827;
 }
 
-/* KUTUSUZ, AKICI NET ÇIKTI BLOĞU */
 .proofResultBlock {
     display: flex;
     flex-direction: column;
@@ -778,7 +735,7 @@
 }
 
 /* ==========================================================================
-   5. ŞEFFAF PROTOKOL KUTUSU
+   5. TAAHHÜT KUTUSU (#0D111A / 24PX STANDARDI)
    ========================================================================== */
 .commitmentsSection {
     width: 100%;
@@ -790,14 +747,14 @@
 }
 
 .commitBox {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(13, 17, 26, 0.98) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 28px;
+    background: #0D111A;
+    border: 1px solid var(--hexa-border);
+    border-radius: 24px;
     padding: clamp(3rem, 5vw, 4.5rem);
     display: flex;
     flex-direction: column;
     gap: 3.5rem;
-    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 255, 209, 0.03);
 }
 
 [data-theme="light"] .commitBox {
@@ -882,9 +839,6 @@
     color: #4b5563;
 }
 
-/* ==========================================================================
-   TABLET VE MOBİL DUYARLILIK
-   ========================================================================== */
 @media (max-width: 1200px) {
     .bentoGridWrapper {
         grid-template-columns: 1fr;
@@ -917,28 +871,8 @@
         padding-right: 1.25rem;
     }
 
-    .stageTitleWrap {
-        flex-direction: column;
-        gap: 0.75rem;
-    }
-
-    .cockpitStageCol {
-        padding: 1.75rem 1.5rem;
-    }
-
-    .heroCyberGlassBtn,
-    .cyberGlassServiceBtn {
+    .heroExecutiveBtn {
         width: 100%;
         justify-content: space-between;
-    }
-
-    .commitGrid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .commitBox {
-        padding: 2.25rem 1.5rem;
-        border-radius: 20px;
     }
 }

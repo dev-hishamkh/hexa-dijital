@@ -104,7 +104,7 @@ export default function ContactClient({ lang }) {
         <div className={styles.contactGrid}>
           {/* SOL: KANALLAR */}
           <div className={styles.channelsColumn}>
-            {/* TELEFON KARTI */}
+            {/* TELEFON KARTI (#0D111A KART STANDARDI) */}
             <div className={styles.channelCard}>
               <div className={styles.channelCardTop}>
                 <div className={styles.channelIconWrap}>
@@ -122,17 +122,19 @@ export default function ContactClient({ lang }) {
               <h3 className={styles.channelValue}>0551 976 94 06</h3>
               <p className={styles.channelDesc}>
                 {isTr
-                  ? "Mesai saatleri içinde doğrudan teknik ekibimizi arayabilir, yerinde ziyaret randevusu oluşturabilirsiniz."
-                  : "Call our engineering team directly during business hours to arrange an on-site visit."}
+                  ? "Mesai saatleri içinde doğrudan ekibimizi arayabilir, işletmeniz için yerinde ziyaret randevusu oluşturabilirsiniz."
+                  : "Call our team directly during business hours to arrange an on-site visit."}
               </p>
               <div className={styles.channelActionRow}>
-                {/* 45 DERECE DÖNEN SİBER CAM ARAMA BUTONU */}
+                {/* 45 DERECE DÖNEN ARAMA BUTONU */}
                 <a
                   href="tel:+905519769406"
-                  className={styles.cyberGlassActionBtn}
+                  className={styles.executiveActionBtn}
                 >
-                  <span>{isTr ? "Hemen Arayın" : "Call Directly"}</span>
-                  <div className={styles.btnIconCircle}>
+                  <span className={styles.btnText}>
+                    {isTr ? "Hemen Arayın" : "Call Directly"}
+                  </span>
+                  <div className={styles.btnCircle}>
                     <svg
                       className={styles.btnArrowSvg}
                       viewBox="0 0 16 16"
@@ -181,20 +183,20 @@ export default function ContactClient({ lang }) {
               <h3 className={styles.channelValue}>WhatsApp Proje Masası</h3>
               <p className={styles.channelDesc}>
                 {isTr
-                  ? "Günün her saati dilediğiniz zaman yazabilirsiniz. Mesajınız anında teknik ekibimize iletilir ve hızla yanıtlanır."
-                  : "Message anytime 24/7. Your inquiry is directly routed to our engineering desk for immediate review."}
+                  ? "Günün her saati dilediğiniz zaman yazabilirsiniz. Mesajınız anında ekibimize iletilir ve hızla yanıtlanır."
+                  : "Message anytime 24/7. Your inquiry is directly routed to our desk for immediate review."}
               </p>
-              {/* 45 DERECE DÖNEN SİBER CAM WHATSAPP BUTONU */}
+              {/* 45 DERECE DÖNEN WHATSAPP BUTONU */}
               <a
                 href="https://wa.me/905519769406?text=Merhaba%20Hexa%20Dijital,%20i%C5%9Fletmemiz%20i%C3%A7in%20bilgi%20ve%20teklif%20almak%20istiyoruz."
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.cyberGlassActionBtn}
+                className={styles.executiveActionBtn}
               >
-                <span>
+                <span className={styles.btnText}>
                   {isTr ? "WhatsApp'tan Yazın" : "Message on WhatsApp"}
                 </span>
-                <div className={styles.btnIconCircle}>
+                <div className={styles.btnCircle}>
                   <svg
                     className={styles.btnArrowSvg}
                     viewBox="0 0 16 16"
@@ -212,7 +214,7 @@ export default function ContactClient({ lang }) {
               </a>
             </div>
 
-            {/* YERİNDE HİZMET */}
+            {/* YERİNDE HİZMET (NİLÜFER KALDIRILDI) */}
             <div className={styles.infoMetaBox}>
               <div className={styles.metaRow}>
                 <MapPin size={18} className={styles.metaIcon} />
@@ -321,14 +323,14 @@ export default function ContactClient({ lang }) {
                 />
               </div>
 
-              {/* 45 DERECE DÖNEN SİBER CAM FORM GÖNDERME BUTONU */}
-              <button type="submit" className={styles.cyberGlassSubmitBtn}>
-                <span>
+              {/* 45 DERECE DÖNEN MASTER FORM GÖNDERME BUTONU */}
+              <button type="submit" className={styles.executiveSubmitBtn}>
+                <span className={styles.btnText}>
                   {isTr
                     ? "Talebi WhatsApp ile İletin"
                     : "Transmit via WhatsApp"}
                 </span>
-                <div className={styles.btnIconCircle}>
+                <div className={styles.btnCircle}>
                   <svg
                     className={styles.btnArrowSvg}
                     viewBox="0 0 16 16"
@@ -347,8 +349,8 @@ export default function ContactClient({ lang }) {
 
               <span className={styles.securityNote}>
                 {isTr
-                  ? "Paylaştığınız bilgiler doğrudan teknik ekibimizle yerinde görüşme planlamak amacıyla kullanılır."
-                  : "Your details are strictly used to schedule technical consultations directly with our engineers."}
+                  ? "Paylaştığınız bilgiler doğrudan ekibimizle yerinde görüşme planlamak amacıyla kullanılır."
+                  : "Your details are strictly used to schedule consultations directly with our team."}
               </span>
             </form>
           </div>

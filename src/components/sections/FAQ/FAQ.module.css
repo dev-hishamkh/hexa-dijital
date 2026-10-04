@@ -19,9 +19,6 @@
     gap: clamp(2.5rem, 5vw, 4.5rem);
 }
 
-/* ==========================================================================
-   SOL SÜTUN: STICKY PANEL
-   ========================================================================== */
 .stickyColumn {
     position: relative;
     height: 100%;
@@ -117,10 +114,14 @@
     gap: 1.15rem;
 }
 
+/* ==========================================================================
+   45 DERECE DÖNEN WHATSAPP BUTONU
+   ========================================================================== */
 .primaryWhatsappBtn {
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1.25rem;
     padding: 0.75rem 0.85rem 0.75rem 1.65rem;
     border-radius: var(--radius-full);
     background-color: #FFFFFF;
@@ -129,7 +130,7 @@
     font-family: var(--font-main);
     font-size: 0.95rem;
     font-weight: 600;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
@@ -150,7 +151,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
 }
 
 [data-theme="light"] .btnCircle {
@@ -161,7 +163,7 @@
     width: 16px;
     height: 16px;
     color: #FFFFFF;
-    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s var(--ease-out);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
 }
 
 [data-theme="light"] .ctaArrowSvg {
@@ -174,13 +176,22 @@
     background-color: #FFFFFF;
 }
 
+/* 45 DERECE DÖNÜŞ VE SİBER ZÜMRÜT IŞIMA */
 .primaryWhatsappBtn:hover .btnCircle {
     background-color: var(--hexa-accent);
-    transform: translate(2px, -2px);
+    color: #0A0E17;
+    transform: scale(1.08) rotate(45deg);
+    box-shadow: 0 0 20px var(--hexa-accent-glow);
 }
 
 .primaryWhatsappBtn:hover .ctaArrowSvg {
     color: #0A0E17;
+}
+
+[data-theme="light"] .primaryWhatsappBtn:hover .btnCircle {
+    background-color: #FFFFFF;
+    color: #111827;
+    transform: scale(1.08) rotate(45deg);
 }
 
 .secondaryFormLink {
@@ -417,9 +428,6 @@
     transform: translateY(0);
 }
 
-/* ==========================================================================
-   MOBİL HİYERARŞİSİ (ÖNCE SORULAR GÖZÜKÜR, EN ALTA DESTEK PANELİ GEÇER)
-   ========================================================================== */
 @media (max-width: 1080px) {
     .container {
         display: flex;
@@ -427,13 +435,11 @@
         gap: 3.5rem;
     }
 
-    /* 1. ÖNCE 12 SORU LİSTELENİR */
     .rightColumnsWrap {
         order: 1;
         grid-template-columns: 1fr;
     }
 
-    /* 2. SORULAR BİTTİKTEN SONRA AKLINIZA TAKILAN KONU PANELİ GELİR */
     .stickyColumn {
         order: 2;
         width: 100%;

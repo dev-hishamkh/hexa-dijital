@@ -127,13 +127,13 @@ export default function Header({ lang = "tr" }) {
             </div>
           </button>
 
-          {/* HEADER İÇİN YENİLENEN SİBER CAM BUTON (45° DÖNEN OKLU) */}
+          {/* 45 DERECE DÖNEN MASTER HEADER BUTONU */}
           <Link
             href={`/${lang}/iletisim`}
-            className={styles.cyberGlassHeaderBtn}
+            className={styles.executiveHeaderBtn}
           >
-            <span className={styles.headerBtnText}>{dict.initiate}</span>
-            <div className={styles.btnIconCircle}>
+            <span className={styles.btnText}>{dict.initiate}</span>
+            <div className={styles.btnCircle}>
               <svg
                 className={styles.btnArrowSvg}
                 viewBox="0 0 16 16"

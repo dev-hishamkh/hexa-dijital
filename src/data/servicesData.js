@@ -14,6 +14,13 @@ export const servicesData = {
           slug: "tek-sayfa-tanitim-siteleri",
           name: "Tek Sayfa Tanıtım Siteleri",
           kpi: "Yüksek Telefon Dönüşümü",
+          sectors: [
+            "Halı Yıkama",
+            "Oto Çekici",
+            "Tesisat & Tadilat",
+            "Çilingir & Nakliyat",
+            "Acil Hizmetler",
+          ],
           target:
             "Reklam verip doğrudan telefon araması ve WhatsApp mesajı toplamak isteyen işletmeler için.",
           outcome:
@@ -33,6 +40,13 @@ export const servicesData = {
           slug: "kurumsal-web-siteleri",
           name: "Kurumsal Web Siteleri",
           kpi: "Hızlı & Mobil Uyumlu",
+          sectors: [
+            "İnşaat & Mimarlık",
+            "Fabrika & Sanayi",
+            "Avukatlık & Danışmanlık",
+            "Özel Sağlık Merkezleri",
+            "İhracat Firmaları",
+          ],
           target:
             "Müşterilerine ve iş ortaklarına kurumsal güven aşılamak isteyen firmalar için.",
           outcome:
@@ -52,6 +66,12 @@ export const servicesData = {
           slug: "qr-kodlu-menu",
           name: "QR Kodlu Menü Sistemleri",
           kpi: "Sıfır Baskı Masrafı",
+          sectors: [
+            "Kafeler & Restoranlar",
+            "Pastaneler & Tatlıcılar",
+            "Fast-Food & Büfeler",
+            "Otel & Plaj İşletmeleri",
+          ],
           target:
             "Her fiyat değişiminde yeniden kağıt menü bastırma maliyetinden kurtulmak isteyen restoran ve kafeler için.",
           outcome:
@@ -71,6 +91,12 @@ export const servicesData = {
           slug: "ozel-tasarim-3d-siteler",
           name: "Özel Tasarım & Animasyonlu Siteler",
           kpi: "Lüks & Modern Görünüm",
+          sectors: [
+            "Mimari Ofisler",
+            "Lüks Konut Projeleri",
+            "Teknoloji Girişimleri",
+            "Premium Markalar",
+          ],
           target:
             "Standart ve sıradan tasarımlardan sıkılmış, yenilikçi ve çok şık görünmek isteyen markalar için.",
           outcome:
@@ -90,6 +116,12 @@ export const servicesData = {
           slug: "e-ticaret-siteleri",
           name: "E-Ticaret Satış Siteleri",
           kpi: "İyzico & PayTR Entegre",
+          sectors: [
+            "Giyim & Butik",
+            "Yöresel Ürünler & Gıda",
+            "Yedek Parça & Hırdavat",
+            "Kozmetik & Aksesuar",
+          ],
           target:
             "7/24 internetten kredi kartıyla kesintisiz ürün satmak isteyen dükkan ve işletmeler için.",
           outcome:
@@ -120,6 +152,12 @@ export const servicesData = {
           slug: "toptan-bayi-siparis-sistemi",
           name: "Toptan Sipariş Sistemi",
           kpi: "Hatasız Sipariş Akışı",
+          sectors: [
+            "Tekstil & Konfeksiyon Toptancıları",
+            "Gıda İmalatçıları",
+            "Oto Yedek Parça Dağıtıcıları",
+            "İnşaat Malzemesi Satıcıları",
+          ],
           target:
             "WhatsApp ve telefonla toptan sipariş alırken ürün karışıklığı yaşayan toptancı ve üreticiler için.",
           outcome:
@@ -139,6 +177,12 @@ export const servicesData = {
           slug: "komisyonsuz-paket-servis",
           name: "Komisyonsuz Paket Servis Sitesi",
           kpi: "%0 Komisyon Kesintisi",
+          sectors: [
+            "Dönerci & Pideciler",
+            "Burger & Pizza Restoranları",
+            "Çiğ Köfteciler & Kebapçılar",
+            "Ev Yemekleri & Paket Servisler",
+          ],
           target:
             "Yemeksepeti ve Getir'e her ay yüksek komisyon ödemekten bıkmış restoranlar için.",
           outcome:
@@ -158,6 +202,12 @@ export const servicesData = {
           slug: "whatsapp-siparis-sistemi",
           name: "WhatsApp Sipariş Sistemi",
           kpi: "Tek Tıkla WhatsApp Siparişi",
+          sectors: [
+            "Butik Pastaneler",
+            "Çiçekçiler & Hediyelik",
+            "Mahalle Şarküterileri & Kasaplar",
+            "Hızlı Tüketim Dükkanları",
+          ],
           target:
             "Müşterileriyle birebir iletişimde kalarak hızlı satış kapatmak isteyen işletmeler için.",
           outcome:
@@ -177,6 +227,11 @@ export const servicesData = {
           slug: "yemek-sitelerinde-satis-artirma",
           name: "Yemek Sitelerinde Satış Artırma",
           kpi: "Üst Sıralara Çıkış",
+          sectors: [
+            "Restoranlar & Lokantalar",
+            "Fast-Food & Tavukçular",
+            "Tatlıcılar & Waffle Dükkanları",
+          ],
           target:
             "Yemek uygulamalarında arka sayfalarda kaybolan ve sipariş alamayan restoranlar için.",
           outcome:
@@ -196,6 +251,11 @@ export const servicesData = {
           slug: "pazar-yerlerinde-satis-artirma",
           name: "Pazar Yerlerinde Satış Artırma",
           kpi: "Satış & Ciro Artışı",
+          sectors: [
+            "Trendyol Satıcıları",
+            "Hepsiburada Mağazaları",
+            "N11 & Amazon Esnafı",
+          ],
           target:
             "Trendyol ve Hepsiburada'da satışlarını artırmak isteyen mağazalar için.",
           outcome:
@@ -226,6 +286,12 @@ export const servicesData = {
           slug: "adisyon-kasa-programi",
           name: "Adisyon ve Kasa Programı",
           kpi: "Sıfır Hesap Hatası",
+          sectors: [
+            "Kafeler & Kahveciler",
+            "Restoranlar & Lokantalar",
+            "Okey & Oyun Salonları",
+            "İnternet Kafeler & Eğlence Merkezleri",
+          ],
           target:
             "Masalarda hesap karışıklığı ve kaçak istemeyen kafe ve restoranlar için.",
           outcome:
@@ -245,6 +311,13 @@ export const servicesData = {
           slug: "otomatik-randevu-sistemi",
           name: "Otomatik Randevu Sistemi",
           kpi: "7/24 Kendi Kendine Randevu",
+          sectors: [
+            "Diş Klinikleri & Hekimleri",
+            "Kuaförler & Berberler",
+            "Güzellik Salonları & Saç Ekim Merkezleri",
+            "Diyetisyenler & Psikologlar",
+            "Veteriner Klinikleri",
+          ],
           target:
             "Randevu telefonlarına yetişemeyen klinikler, güzellik merkezleri ve kuaförler için.",
           outcome:
@@ -263,7 +336,13 @@ export const servicesData = {
           id: "03.3",
           slug: "yapay-zeka-musteri-asistani",
           name: "Yapay Zeka Müşteri Asistanı",
-          kpi: "Gece Mesaisinde Sıfır Müşteri Kaybı",
+          kpi: "Gece Mesaisinde Müşteri Yakalama",
+          sectors: [
+            "Özel Sağlık & Estetik Merkezleri",
+            "Emlak Ofisleri & Gayrimenkul",
+            "Oto Kiralama & Galeri",
+            "Eğitim Kurumları & Kurslar",
+          ],
           target:
             "Mesai saatleri dışında gelen müşteri mesajlarını satışa çevirmek isteyen işletmeler için.",
           outcome:
@@ -283,6 +362,12 @@ export const servicesData = {
           slug: "is-evrak-takip-programi",
           name: "İş ve Evrak Takip Programı",
           kpi: "Hatasız İş Takibi",
+          sectors: [
+            "Mali Müşavir & Muhasebe Ofisleri",
+            "Hukuk Büroları & Avukatlar",
+            "Mühendislik & Proje Şirketleri",
+            "Teknik Servisler",
+          ],
           target:
             "İş takibini Excel veya kağıtla yaparken süreçleri aksatan ofis ve işletmeler için.",
           outcome:
@@ -302,6 +387,12 @@ export const servicesData = {
           slug: "barkod-stok-takip-sistemi",
           name: "Barkod & Stok Takip Sistemi",
           kpi: "Canlı Stok Alarmı",
+          sectors: [
+            "Market & Şarküteriler",
+            "Hırdavat & Yapı Marketleri",
+            "Petshoplar & Kozmetik Dükkanları",
+            "Yedek Parça Depoları",
+          ],
           target:
             "Depodaki mal sayımını ve kritik stokları anlık kontrol etmek isteyen işletmeler için.",
           outcome:
@@ -321,17 +412,24 @@ export const servicesData = {
     {
       categoryNumber: "04",
       categoryCode: "DEPT 04",
-      categoryTitle: "Büyüme Reklamı & Haritalar 1. Sıra",
+      categoryTitle: "Büyüme Reklamı & Haritalar İlk Sıra",
       categoryDiagnosis:
         "Google Haritalar'da rakiplerinin arkasında kalan, reklam bütçesi harcayıp telefon çaldıramayan ve hazır müşteri çekmek isteyenler için.",
       categoryOutcome:
-        "Bölgenizdeki yerel aramalarda Google Haritalar ilk 3 sıra hakimiyeti ve kasanıza müşteri kazandıran reklamlar.",
+        "Bölgenizdeki yerel aramalarda Google Haritalar ilk sıralar hakimiyeti ve kasanıza müşteri kazandıran reklamlar.",
       services: [
         {
           id: "04.1",
           slug: "meta-instagram-facebook-reklamlari",
           name: "Instagram & Facebook Reklamları",
           kpi: "Doğrudan Telefon & Mesaj",
+          sectors: [
+            "Güzellik Salonları & Kuaförler",
+            "Diş Klinikleri",
+            "Restoranlar & Kafeler",
+            "Özel Okullar & Kurslar",
+            "Giyim & Perakende Dükkanları",
+          ],
           target:
             "Sosyal medyadan her gün dükkanına yeni müşteri çekmek isteyen işletmeler için.",
           outcome:
@@ -351,6 +449,12 @@ export const servicesData = {
           slug: "sosyal-medya-yonetimi",
           name: "Sosyal Medya Yönetimi",
           kpi: "Canlı & Güven Veren Sayfa",
+          sectors: [
+            "Kurumsal Şirketler",
+            "Klinikler & Doktorlar",
+            "Mekanlar & Restoranlar",
+            "Gayrimenkul Danışmanları",
+          ],
           target:
             "Instagram hesabı terkedilmiş gibi duran, kurumsal ve güvenilir görünmek isteyen işletmeler için.",
           outcome:
@@ -370,6 +474,13 @@ export const servicesData = {
           slug: "google-reklamlari",
           name: "Google Reklamları (Google Ads)",
           kpi: "Arama Yapan Hazır Müşteri",
+          sectors: [
+            "Oto Çekici & Yol Yardım",
+            "Halı Yıkama & Koltuk Yıkama",
+            "Tesisatçı & Çilingir",
+            "Kombi & Beyaz Eşya Servisi",
+            "Avukatlar & Özel Sağlık",
+          ],
           target:
             "Satın almaya hazır müşteriyi tam Google'da arama yaptığı anda yakalamak isteyenler için.",
           outcome:
@@ -387,8 +498,15 @@ export const servicesData = {
         {
           id: "04.4",
           slug: "google-haritalar-1-sira",
-          name: "Google Haritalar & 1. Sıra",
-          kpi: "Haritalarda İlk 3",
+          name: "Google Haritalar İlk Sıra",
+          kpi: "Haritalarda İlk 3 Sıra",
+          sectors: [
+            "Restoranlar & Kafeler",
+            "Diş Hekimleri & Klinikler",
+            "Kuaförler & Berberler",
+            "Oto Tamir & Bakım Servisleri",
+            "Organizasyon & Düğün Salonları",
+          ],
           target:
             "Bölgesindeki aramalarda rakiplerinin gerisinde kalan dükkan ve yerel işletmeler için.",
           outcome:
@@ -408,6 +526,12 @@ export const servicesData = {
           slug: "google-yorum-puan-artirma",
           name: "Google Yorum & Puan Artırma",
           kpi: "5 Yıldızlı İtibar",
+          sectors: [
+            "Mekanlar & Kafe Restoranlar",
+            "Güzellik Salonları",
+            "Özel Muayenehaneler",
+            "Otel & Konaklama Tesisleri",
+          ],
           target:
             "Google puanı düşük olduğu veya az yorum olduğu için müşteri kaybeden tüm işletmeler için.",
           outcome:
@@ -438,6 +562,12 @@ export const servicesData = {
           slug: "ozel-logo-tasarimi",
           name: "Dükkana Özel Logo Tasarımı",
           kpi: "Özgün Vektörel Çizim",
+          sectors: [
+            "Yeni Açılan Dükkanlar",
+            "Restoran & Kafeler",
+            "Kurumsal Şirketler",
+            "Giyim & Mağaza Markaları",
+          ],
           target:
             "İnternetten kopyalama amatör logolardan kurtulup kurumsallaşmak isteyen işletmeler için.",
           outcome:
@@ -457,6 +587,11 @@ export const servicesData = {
           slug: "kartvizit-magnet-ambalaj-baskilari",
           name: "Kartvizit, Magnet & Ambalaj Tasarımı",
           kpi: "Matbaaya Hazır Tasarım",
+          sectors: [
+            "Paket Servis Yapan Dükkanlar",
+            "Kurumsal Şirketler & Ofisler",
+            "Gıda İmalatçıları & Butikler",
+          ],
           target:
             "Müşterisine verdiği ambalaj, magnet ve kartvizitte kalitesini hissettirmek isteyen işletmeler için.",
           outcome:
@@ -476,6 +611,12 @@ export const servicesData = {
           slug: "urun-dukkan-fotograf-cekimi",
           name: "Ürün ve Dükkan Fotoğraf Çekimi",
           kpi: "4K Profesyonel Lensler",
+          sectors: [
+            "Restoran & Yemek İşletmeleri",
+            "Oteller & Mekanlar",
+            "E-Ticaret Mağazaları",
+            "Fabrika & Üretim Tesisleri",
+          ],
           target:
             "Kötü telefon fotoğrafları yüzünden ürününü ucuza satmak zorunda kalan mekan ve işletmeler için.",
           outcome:
@@ -495,6 +636,12 @@ export const servicesData = {
           slug: "tabela-cephe-giydirme-tasarimi",
           name: "Tabela & Cephe Giydirme Tasarımı",
           kpi: "Cadde Hakimiyeti",
+          sectors: [
+            "Cadde Üzeri Dükkanlar",
+            "Klinikler & Eczaneler",
+            "Kafe & Restoranlar",
+            "Kurumsal Şirket Binaları",
+          ],
           target:
             "Dükkanının önünden geçen insanların dikkatini çekmek isteyen mekanlar için.",
           outcome:
@@ -527,6 +674,12 @@ export const servicesData = {
           slug: "tek-sayfa-tanitim-siteleri",
           name: "Single Page Landing Sites",
           kpi: "High Call Conversion",
+          sectors: [
+            "Towing & Road Assistance",
+            "Carpet & Upholstery Cleaning",
+            "Plumbing & Emergency Services",
+            "Local Service Contractors",
+          ],
           target:
             "For businesses running performance ads seeking direct phone inquiries.",
           outcome:
@@ -546,14 +699,20 @@ export const servicesData = {
           slug: "kurumsal-web-siteleri",
           name: "Corporate Web Architecture",
           kpi: "Clean & Responsive",
+          sectors: [
+            "Architecture & Construction",
+            "Manufacturing & Industry",
+            "Law Firms & Consultancies",
+            "Healthcare Centers",
+          ],
           target:
             "For businesses seeking credible brand authority across all viewports.",
           outcome:
             "Clean corporate platforms establishing undeniable customer trust.",
           summary:
-            "Custom Next.js web systems free of bloated WordPress plugins, engineered to dominate organic Google rankings.",
+            "Custom web systems free of bloated WordPress plugins, engineered to dominate organic Google rankings.",
           deliverables: [
-            "Bespoke Next.js clean code without plugin bloat",
+            "Bespoke clean code without plugin bloat",
             "Google Business entity mapping",
             "Multi-language (i18n) global market readiness",
             "Intuitive, rock-solid content management",
@@ -565,6 +724,12 @@ export const servicesData = {
           slug: "qr-kodlu-menu",
           name: "QR Code Menu Systems",
           kpi: "Zero Reprint Cost",
+          sectors: [
+            "Cafes & Restaurants",
+            "Bakeries & Dessert Shops",
+            "Fast-Food & Diners",
+            "Hotels & Beach Clubs",
+          ],
           target:
             "For hospitality venues looking to eliminate printing costs and waiter friction.",
           outcome:
@@ -584,6 +749,12 @@ export const servicesData = {
           slug: "ozel-tasarim-3d-siteler",
           name: "Bespoke & Animated Websites",
           kpi: "Modern Aesthetic",
+          sectors: [
+            "Architectural Studios",
+            "Luxury Real Estate",
+            "Tech Startups",
+            "Premium Brands",
+          ],
           target:
             "For brands requiring unique visual concepts and smooth animations.",
           outcome:
@@ -602,15 +773,21 @@ export const servicesData = {
           id: "01.5",
           slug: "e-ticaret-siteleri",
           name: "E-Commerce Stores",
-          kpi: "İyzico & PayTR Gateway",
+          kpi: "Payment Gateway Integrated",
+          sectors: [
+            "Fashion & Boutiques",
+            "Gourmet Foods",
+            "Hardware & Spare Parts",
+            "Cosmetics & Jewelry",
+          ],
           target:
             "For retailers seeking secure credit card checkout pipelines.",
           outcome:
             "Fast online shopping systems integrated with secure payment gateways.",
           summary:
-            "Reliable online stores with automated credit card payments and installment plans via İyzico and PayTR.",
+            "Reliable online stores with automated credit card payments and installment plans via secure gateways.",
           deliverables: [
-            "Seamless credit card payments with installments via İyzico / PayTR",
+            "Seamless credit card payments with installments",
             "Frictionless single-page checkout without forced signups",
             "Rapid mobile product page performance",
             "Automated inventory and invoicing integration",
@@ -633,6 +810,12 @@ export const servicesData = {
           slug: "toptan-bayi-siparis-sistemi",
           name: "Wholesale Ordering Portals",
           kpi: "Streamlined B2B Orders",
+          sectors: [
+            "Textile Wholesalers",
+            "Food Producers",
+            "Auto Parts Distributors",
+            "Building Material Suppliers",
+          ],
           target:
             "For wholesale operations replacing messy phone and chat orders.",
           outcome:
@@ -652,6 +835,12 @@ export const servicesData = {
           slug: "komisyonsuz-paket-servis",
           name: "Direct Takeout & Delivery Sites",
           kpi: "0% Commission",
+          sectors: [
+            "Pizza & Burger Restaurants",
+            "Grills & Kebab Houses",
+            "Bakeries & Delis",
+            "Local Food Venues",
+          ],
           target:
             "For restaurants bleeding cash to high aggregator commissions.",
           outcome:
@@ -671,6 +860,11 @@ export const servicesData = {
           slug: "whatsapp-siparis-sistemi",
           name: "WhatsApp Ordering Funnels",
           kpi: "One-Click Checkout",
+          sectors: [
+            "Boutique Bakeries",
+            "Florists & Gift Shops",
+            "Local Butchers & Delis",
+          ],
           target:
             "For quick-commerce brands capturing rapid mobile checkout intent.",
           outcome:
@@ -690,6 +884,7 @@ export const servicesData = {
           slug: "yemek-sitelerinde-satis-artirma",
           name: "Food Delivery Marketplace Boost",
           kpi: "App Ranking",
+          sectors: ["Fast-Food Chains", "Local Restaurants", "Dessert Cafes"],
           target: "For restaurants buried on back pages of food delivery apps.",
           outcome:
             "Algorithmic optimization to rank your restaurant higher on food delivery apps.",
@@ -708,6 +903,11 @@ export const servicesData = {
           slug: "pazar-yerlerinde-satis-artirma",
           name: "E-Commerce Marketplace Growth",
           kpi: "Turnover Growth",
+          sectors: [
+            "Marketplace Retailers",
+            "Brand Sellers",
+            "E-Commerce Stores",
+          ],
           target:
             "For marketplace sellers seeking higher product visibility and sales.",
           outcome:
@@ -738,6 +938,11 @@ export const servicesData = {
           slug: "adisyon-kasa-programi",
           name: "POS & Cashier Floor Software",
           kpi: "Zero Floor Leakage",
+          sectors: [
+            "Coffee Shops & Cafes",
+            "Restaurants & Diners",
+            "Gaming Lounges & Entertainment Centers",
+          ],
           target: "For venues eliminating table confusion and cashier leakage.",
           outcome:
             "Manage restaurant tables, waiters, kitchen thermal printers, and live cash on one screen.",
@@ -756,6 +961,12 @@ export const servicesData = {
           slug: "otomatik-randevu-sistemi",
           name: "Autonomous Booking Engines",
           kpi: "24/7 Self-Booking",
+          sectors: [
+            "Dental & Medical Clinics",
+            "Salons & Barbershops",
+            "Dietitians & Psychologists",
+            "Veterinary Clinics",
+          ],
           target:
             "For clinics, salons, and consultants overwhelmed by scheduling phone calls.",
           outcome:
@@ -775,6 +986,12 @@ export const servicesData = {
           slug: "yapay-zeka-musteri-asistani",
           name: "AI Customer Assistant",
           kpi: "24/7 Lead Capture",
+          sectors: [
+            "Medical Spas & Aesthetic Centers",
+            "Real Estate Agencies",
+            "Car Rentals & Dealerships",
+            "Private Tutoring Centers",
+          ],
           target:
             "For businesses wanting to convert late-night WhatsApp leads into closed appointments.",
           outcome:
@@ -794,6 +1011,12 @@ export const servicesData = {
           slug: "is-evrak-takip-programi",
           name: "Workflow & Operations Tracker",
           kpi: "Complete Oversight",
+          sectors: [
+            "Accounting & Tax Firms",
+            "Law Practices",
+            "Engineering & Architecture Offices",
+            "Technical Field Services",
+          ],
           target: "For businesses replacing messy Excel spreadsheets.",
           outcome:
             "Custom internal software tracking customer dossiers, job timelines, and team milestones.",
@@ -812,6 +1035,12 @@ export const servicesData = {
           slug: "barkod-stok-takip-sistemi",
           name: "Barcode & Inventory Telemetry",
           kpi: "Live Stock Alarm",
+          sectors: [
+            "Retail Stores & Supermarkets",
+            "Hardware & Tool Stores",
+            "Cosmetics & Pet Shops",
+            "Auto Parts Warehouses",
+          ],
           target: "For retail and warehousing needing real-time stock alerts.",
           outcome:
             "Real-time stock level monitoring and barcode tracking with automated low-stock warnings.",
@@ -834,13 +1063,20 @@ export const servicesData = {
       categoryDiagnosis:
         "For businesses invisible on Google Maps, burning ad spend with zero qualified inbound inquiries.",
       categoryOutcome:
-        "Google Maps top 3 rankings and customer acquisition funnels for your local service area.",
+        "Google Maps top rankings and customer acquisition funnels for your local service area.",
       services: [
         {
           id: "04.1",
           slug: "meta-instagram-facebook-reklamlari",
           name: "Instagram & Facebook Ads",
           kpi: "Direct Phone & Chat Leads",
+          sectors: [
+            "Salons & Aesthetic Clinics",
+            "Dental Centers",
+            "Restaurants & Lounges",
+            "Private Schools & Tutors",
+            "Retail Stores",
+          ],
           target:
             "For businesses wanting daily qualified customer inquiries from social media.",
           outcome:
@@ -860,6 +1096,12 @@ export const servicesData = {
           slug: "sosyal-medya-yonetimi",
           name: "Corporate Social Media Management",
           kpi: "Active Brand Authority",
+          sectors: [
+            "Corporate Enterprises",
+            "Doctors & Private Clinics",
+            "Venues & Restaurants",
+            "Real Estate Consultants",
+          ],
           target:
             "For businesses whose social media looks abandoned and lacks commercial authority.",
           outcome:
@@ -879,6 +1121,13 @@ export const servicesData = {
           slug: "google-reklamlari",
           name: "Google Search Ads (Google Ads)",
           kpi: "High-Intent Searches",
+          sectors: [
+            "Towing & Emergency Repair",
+            "Cleaning & Maintenance Services",
+            "Locksmiths & Electricians",
+            "Appliance & HVAC Repair",
+            "Lawyers & Specialized Medical",
+          ],
           target:
             "For commercial operations capturing ready-to-buy customers at peak intent.",
           outcome:
@@ -896,8 +1145,15 @@ export const servicesData = {
         {
           id: "04.4",
           slug: "google-haritalar-1-sira",
-          name: "Google Maps #1 Dominance",
-          kpi: "Maps Top 3",
+          name: "Google Maps Top Ranking",
+          kpi: "Maps Top Pack",
+          sectors: [
+            "Restaurants & Coffee Shops",
+            "Dentists & Medical Clinics",
+            "Barbers & Hair Salons",
+            "Auto Repair & Body Shops",
+            "Event & Wedding Halls",
+          ],
           target:
             "For local businesses losing local map search traffic to competitors.",
           outcome:
@@ -917,6 +1173,12 @@ export const servicesData = {
           slug: "google-yorum-puan-artirma",
           name: "Google Review & Reputation Engine",
           kpi: "5-Star Reputation",
+          sectors: [
+            "Hospitality & Dining",
+            "Beauty & Spas",
+            "Private Practices",
+            "Boutique Hotels",
+          ],
           target:
             "For brands seeking authentic 5-star customer endorsement volume.",
           outcome:
@@ -947,6 +1209,12 @@ export const servicesData = {
           slug: "ozel-logo-tasarimi",
           name: "Custom Logo Design",
           kpi: "100% Vector Original",
+          sectors: [
+            "New Commercial Venues",
+            "Hospitality & Cafes",
+            "Corporate Firms",
+            "Fashion & Retail Brands",
+          ],
           target:
             "For businesses wanting to replace generic clipart with bespoke trademark-ready identity.",
           outcome:
@@ -966,6 +1234,11 @@ export const servicesData = {
           slug: "kartvizit-magnet-ambalaj-baskilari",
           name: "Business Card, Magnet & Packaging Design",
           kpi: "Print-Ready Pre-Press",
+          sectors: [
+            "Delivery Food Outlets",
+            "Corporate Offices",
+            "Food Producers & Boutiques",
+          ],
           target:
             "For businesses needing flawless graphic designs ready for print shops and production.",
           outcome:
@@ -985,6 +1258,12 @@ export const servicesData = {
           slug: "urun-dukkan-fotograf-cekimi",
           name: "Product & Venue 4K Photography",
           kpi: "4K Commercial Optics",
+          sectors: [
+            "Food & Dining Establishments",
+            "Boutique Hotels & Venues",
+            "E-Commerce Brands",
+            "Manufacturing Facilities",
+          ],
           target:
             "For brands tired of blurry mobile photos depressing product value.",
           outcome:
@@ -1004,6 +1283,12 @@ export const servicesData = {
           slug: "tabela-cephe-giydirme-tasarimi",
           name: "Signage & Storefront Facade Design",
           kpi: "Street Dominance",
+          sectors: [
+            "Street-Front Stores",
+            "Clinics & Pharmacies",
+            "Dining & Coffee Venues",
+            "Corporate Headquarters",
+          ],
           target:
             "For retail establishments wanting unavoidable street-level passerby attention.",
           outcome:

@@ -9,16 +9,26 @@ export default function sitemap() {
   const sitemapEntries = [];
   const currentDate = new Date();
 
-  // 1. Ana Statik Sayfalar
-  const coreRoutes = ["", "/hizmetler", "/projeler"];
+  // 1. Ana Statik Sayfalar (Bursa Hub ve İletişim eklendi)
+  const coreRoutes = [
+    { route: "", priority: 1.0, changeFrequency: "daily" },
+    {
+      route: "/bursa-dijital-ajans",
+      priority: 0.95,
+      changeFrequency: "weekly",
+    },
+    { route: "/hizmetler", priority: 0.9, changeFrequency: "weekly" },
+    { route: "/projeler", priority: 0.85, changeFrequency: "weekly" },
+    { route: "/iletisim", priority: 0.85, changeFrequency: "monthly" },
+  ];
 
   languages.forEach((lang) => {
-    coreRoutes.forEach((route) => {
+    coreRoutes.forEach(({ route, priority, changeFrequency }) => {
       sitemapEntries.push({
         url: `${baseUrl}/${lang}${route}`,
         lastModified: currentDate,
-        changeFrequency: route === "" ? "daily" : "weekly",
-        priority: route === "" ? 1.0 : 0.9,
+        changeFrequency,
+        priority,
       });
     });
   });
@@ -32,13 +42,13 @@ export default function sitemap() {
           url: `${baseUrl}/${lang}/hizmetler/${service.slug}`,
           lastModified: currentDate,
           changeFrequency: "weekly",
-          priority: 0.85,
+          priority: 0.8,
         });
       });
     });
   });
 
-  // 3. Proje Detay Sayfaları
+  // 3. Proje Detay Sayfaları (Vaka Analizleri)
   languages.forEach((lang) => {
     projectsData.forEach((project) => {
       sitemapEntries.push({

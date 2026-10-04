@@ -10,9 +10,6 @@
     pointer-events: none;
 }
 
-/* ==========================================================================
-   2026 S+ YÜZEN CAM MİMARİSİ
-   ========================================================================== */
 .islandNav {
     pointer-events: auto;
     width: 100%;
@@ -49,9 +46,6 @@
     box-shadow: 0 25px 45px -15px rgba(0, 0, 0, 0.12);
 }
 
-/* ==========================================================================
-   SAF MONOLİTİK LOGO
-   ========================================================================== */
 .brandLink {
     display: inline-flex;
     align-items: center;
@@ -76,9 +70,6 @@
     opacity: 0.85;
 }
 
-/* ==========================================================================
-   MASAÜSTÜ NAVİGASYON
-   ========================================================================== */
 .desktopNav {
     display: flex;
     align-items: center;
@@ -116,9 +107,6 @@
     color: #111827;
 }
 
-/* ==========================================================================
-   SAĞ AKSİYON PANELİ
-   ========================================================================== */
 .actionPanel {
     display: flex;
     align-items: center;
@@ -181,60 +169,40 @@
 }
 
 /* ==========================================================================
-   HEADER İÇİN SİBER BUZLU CAM BUTON (45 DERECE DÖNEN OKLU)
+   45 DERECE DÖNEN MASTER HEADER BUTONU
    ========================================================================== */
-.cyberGlassHeaderBtn {
+.executiveHeaderBtn {
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
     gap: 0.85rem;
     padding: 0.45rem 0.5rem 0.45rem 1.15rem;
     border-radius: var(--radius-full);
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    color: #F8FAFC;
+    background-color: #FFFFFF;
+    color: #0A0E17;
     text-decoration: none;
     font-family: var(--font-main);
     font-size: 0.86rem;
     font-weight: 600;
     letter-spacing: -0.015em;
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
 }
 
-[data-theme="light"] .cyberGlassHeaderBtn {
-    background: #FFFFFF;
-    border-color: rgba(0, 0, 0, 0.12);
-    color: #111827;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
-}
-
-.cyberGlassHeaderBtn:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: var(--hexa-border-focus);
+[data-theme="light"] .executiveHeaderBtn {
+    background-color: #111827;
     color: #FFFFFF;
-    transform: translateY(-1px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 255, 209, 0.12);
 }
 
-[data-theme="light"] .cyberGlassHeaderBtn:hover {
-    background: #111827;
-    color: #FFFFFF;
-    border-color: #111827;
-}
-
-.headerBtnText {
+.btnText {
     letter-spacing: -0.01em;
 }
 
-.btnIconCircle {
+.btnCircle {
     width: 30px;
     height: 30px;
     border-radius: var(--radius-full);
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.16);
+    background-color: #0A0E17;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -243,9 +211,8 @@
     flex-shrink: 0;
 }
 
-[data-theme="light"] .btnIconCircle {
-    background: rgba(0, 0, 0, 0.05);
-    border-color: rgba(0, 0, 0, 0.1);
+[data-theme="light"] .btnCircle {
+    background-color: #FFFFFF;
     color: #111827;
 }
 
@@ -255,21 +222,28 @@
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
 }
 
-.cyberGlassHeaderBtn:hover .btnIconCircle {
-    background-color: var(--hexa-accent);
-    border-color: var(--hexa-accent);
-    color: #0A0E17;
-    transform: scale(1.08) rotate(45deg);
-    box-shadow: 0 0 18px var(--hexa-accent-glow);
+.executiveHeaderBtn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 25px var(--hexa-accent-glow);
 }
 
-[data-theme="light"] .cyberGlassHeaderBtn:hover .btnIconCircle {
+.executiveHeaderBtn:hover .btnCircle {
+    background-color: var(--hexa-accent);
+    color: #0A0E17;
+    transform: scale(1.08) rotate(45deg);
+    box-shadow: 0 0 15px var(--hexa-accent-glow);
+}
+
+.executiveHeaderBtn:hover .btnArrowSvg {
+    color: #0A0E17;
+}
+
+[data-theme="light"] .executiveHeaderBtn:hover .btnCircle {
     background-color: #FFFFFF;
     color: #111827;
     transform: scale(1.08) rotate(45deg);
 }
 
-/* Burger */
 .burgerBtn {
     display: none;
     flex-direction: column;
@@ -299,7 +273,6 @@
     transform: translateY(-3.5px) rotate(-45deg);
 }
 
-/* Mobil Drawer */
 .mobileDrawer {
     position: fixed;
     top: 0;
@@ -361,7 +334,7 @@
 @media (max-width: 860px) {
 
     .desktopNav,
-    .cyberGlassHeaderBtn {
+    .executiveHeaderBtn {
         display: none;
     }
 

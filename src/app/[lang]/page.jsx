@@ -19,26 +19,24 @@ export async function generateMetadata({ params }) {
   const dict = dictionary[lang]?.seo || dictionary.tr.seo;
 
   return {
-    // absolute: layout template'inin ikinci kez "| Hexa Dijital" eklemesini engeller
     title: {
       absolute: dict.metaTitle,
     },
     description: dict.metaDesc,
     keywords: [
+      "özel web yazılım",
+      "kurumsal web tasarım",
+      "web yazılım ajansı",
+      "reklam ajansı",
+      "kurumsal web sitesi tasarımı",
+      "komisyonsuz paket servis yazılımı",
+      "restoran adisyon programı",
+      "Google Haritalar ilk sıra",
+      "diş hekimi randevu sistemi",
+      "kuaför randevu programı",
       "Bursa web tasarım",
-      "Bursa web yazılım",
       "Bursa web yazılım şirketi",
-      "Bursa kurumsal web tasarım",
-      "Bursa SEO ajansı",
-      "Bursa Google Haritalar ilk 3",
-      "Nilüfer web tasarım",
-      "Osmangazi web tasarım",
-      "Yıldırım web tasarım",
-      "Mudanya web tasarım",
-      "İnegöl web tasarım",
-      "Özel web yazılım Bursa",
-      "Next.js web geliştirme",
-      "Restoran QR sipariş adisyon yazılımı",
+      "Bursa reklam ajansı",
     ],
     openGraph: {
       title: dict.metaTitle,
@@ -66,38 +64,38 @@ export default async function HomePage({ params }) {
   const faqSchemaData = isTr
     ? [
         {
-          q: "Bursa'da diğer web tasarım ajanslarından farkınız nedir, neden özel kodlama?",
-          a: "Bursa'daki çoğu ajans hazır WordPress temalarını kopyalayıp onlarca hantal eklentiyle sitenizi yavaşlatır. Biz Next.js ile sıfırdan, temiz kodla mimari kuruyoruz. Siteniz 0.8 saniyenin altında açılır, Google Core Web Vitals testlerinde 100 puan alır ve rakiplerinizin önüne doğrudan geçer.",
+          q: "Diğer web tasarım ajanslarından farkınız nedir, neden özel kodlama?",
+          a: "Piyasadaki çoğu ajans hazır WordPress şablonlarını kopyalayıp onlarca hantal eklentiyle sitenizi yavaşlatır. Biz sıfırdan, temiz kodla site kuruyoruz. Siteniz telefonda bekleme yapmadan anında açılır, Google testlerinde tam puan alır ve rakiplerinizin önüne geçer.",
         },
         {
-          q: "Google Haritalar ve Bursa yerel aramalarında ilk 3 sıraya nasıl çıkarıyorsunuz?",
-          a: "Sadece Nilüfer değil; Osmangazi, Yıldırım, İnegöl ve sanayi bölgelerindeki yerel arama sinyallerini haritanıza işliyoruz. Doğru JSON-LD yapılandırılmış verileri, yerel yetki backlinkleri ve sayfa açılış hızıyla algoritmanın aradığı tüm kriterleri sağlayarak ilk 3 sırayı kilitliyoruz.",
+          q: "Türkiye genelinde mi hizmet veriyorsunuz, Bursa dışındaki işletmelerle süreç nasıl işliyor?",
+          a: "Bursa merkezliyiz ve Bursa genelinde işletmeleri doğrudan yerinde ziyaret ediyoruz. Türkiye'nin diğer tüm şehirlerindeki işletmelerle ise telefon, WhatsApp ve online görüşmelerle aynı hızda, sözleşmeli ve resmi faturalı olarak çalışıyoruz.",
         },
         {
           q: "Proje fiyatlandırması nasıl yapılıyor, sonradan sürpriz ek masraf çıkar mı?",
-          a: "Hayır. İşin kapsamı, kullanılacak teknolojiler ve teslim tarihi noter geçerliliğinde resmi sözleşmeyle belirlenir. Onaylanan teklif dışında teslimat anında veya sonrasında hiçbir gizli masrafla karşılaşmazsınız.",
+          a: "Hayır. İşin kapsamı ve teslim tarihi resmi sözleşmeyle baştan yazılı olarak belirlenir. Onaylanan teklif dışında teslimat anında veya sonrasında hiçbir gizli masrafla karşılaşmazsınız.",
         },
         {
           q: "Sitenin içeriklerini, görsellerini ve ürünlerini kendimiz güncelleyebilir miyiz?",
-          a: "Elbette. Kod bilmenize gerek kalmadan menülerinizi, yazılarınızı, referanslarınızı ve fiyatlarınızı saniyeler içinde güncelleyebileceğiniz son derece sade, hızlı ve güvenli bir yönetim paneli entegre ediyoruz.",
+          a: "Elbette. Kod bilmenize gerek kalmadan menülerinizi, yazılarınızı, referanslarınızı ve fiyatlarınızı saniyeler içinde güncelleyebileceğiniz son derece sade, hızlı ve güvenli bir yönetim paneli veriyoruz.",
         },
         {
           q: "Tüm kaynak kodlar, alan adı ve verilerin mülkiyeti kime ait oluyor?",
-          a: "Tüm kaynak kodlar, lisanslar, alan adı (domain) ve bulut veritabanı doğrudan sizin adınıza tescil edilir. Hexa Dijital olarak sizi kendimize bağımlı kılmayız; mülkiyet %100 şirketinize aittir.",
+          a: "Tüm kaynak kodlar, alan adı ve sistem doğrudan sizin adınıza tescil edilir. Hexa Dijital olarak sizi kendimize bağımlı kılmayız; mülkiyet %100 şirketinize aittir.",
         },
         {
-          q: "Mevcut sitemizi yenilerken Google sıralamalarımızı ve trafiğimizi kaybeder miyiz?",
-          a: "Asla. Mevcut sitenizdeki tüm URL otoritesini ve indekslenmiş sayfaları 301 yönlendirme protokolüyle sıfır kayıpla yeni altyapıya aktarıyoruz. Trafiğiniz kesilmez, aksine hız arttığı için sıralamalarınız yükselir.",
+          q: "Mevcut sitemizi yenilerken Google sıralamalarımızı ve müşterilerimizi kaybeder miyiz?",
+          a: "Asla. Eski sitenizdeki tüm sayfaları yeni altyapıya sıfır kayıpla aktarıyoruz. Trafiğiniz kesilmez, aksine siteniz hızlandığı için Google'da daha da yükselirsiniz.",
         },
       ]
     : [
         {
-          q: "What differentiates you from other web design agencies in Bursa?",
-          a: "Most agencies resell slow WordPress templates packed with bloated plugins. We build sub-second custom web systems on Next.js from scratch, hitting 100/100 Core Web Vitals and securing unfair competitive edges.",
+          q: "What differentiates you from other web design agencies?",
+          a: "Most agencies resell slow WordPress templates packed with bloated plugins. We build fast, custom web systems from scratch, hitting 100/100 performance scores and securing competitive edges.",
         },
         {
-          q: "How do you achieve top-3 rankings on Google Maps and regional search?",
-          a: "We engineer precise schema markup, geographic relevance signals across Bursa's commercial corridors, and lightning-fast load times that satisfy Google's primary ranking signals.",
+          q: "Do you serve clients outside of Bursa?",
+          a: "Yes. While our headquarters are in Bursa with on-site visits across the region, we build and support web systems for enterprises across Turkey via direct online consultation and binding contracts.",
         },
         {
           q: "What is your pricing policy, are there hidden unexpected fees?",
@@ -113,7 +111,7 @@ export default async function HomePage({ params }) {
         },
         {
           q: "Can we migrate our existing site without losing SEO rankings?",
-          a: "Yes. We execute meticulous 301 mapping and semantic URL transfer protocols to ensure zero traffic drop during migration.",
+          a: "Yes. We execute meticulous redirection maps to ensure zero traffic drop during migration.",
         },
       ];
 
@@ -125,7 +123,12 @@ export default async function HomePage({ params }) {
         "@id": "https://hexadijital.com/#organization",
         name: "HEXA Dijital",
         legalName: "Hexa Dijital Web Tasarım ve Yazılım Şirketi",
-        alternateName: "Hexa Dijital Bursa",
+        alternateName: [
+          "Hexa Dijital",
+          "Hexa Dijital Yazılım Ajansı",
+          "Hexa Web Tasarım",
+          "Hexa Dijital Bursa",
+        ],
         image: "https://hexadijital.com/logo.svg",
         url: `https://hexadijital.com/${lang}`,
         telephone: "+905519769406",
@@ -145,12 +148,31 @@ export default async function HomePage({ params }) {
           latitude: 40.215,
           longitude: 28.932,
         },
+        hasMap: "https://maps.google.com/?q=Bursa+Nilufer+Hexa+Dijital",
         areaServed: [
-          { "@type": "AdministrativeArea", name: "Bursa" },
-          { "@type": "City", name: "Nilüfer" },
-          { "@type": "City", name: "Osmangazi" },
-          { "@type": "City", name: "Yıldırım" },
           { "@type": "Country", name: "Türkiye" },
+          { "@type": "City", name: "Bursa" },
+          { "@type": "City", name: "İstanbul" },
+          { "@type": "City", name: "Ankara" },
+          { "@type": "City", name: "İzmir" },
+          { "@type": "AdministrativeArea", name: "Nilüfer" },
+          { "@type": "AdministrativeArea", name: "Osmangazi" },
+        ],
+        // S+ TIER: GOOGLEknowledge graph ÇOKLU SEKTÖR EŞLEŞTİRME KATMANI
+        knowsAbout: [
+          "Web Design",
+          "Custom Software Development",
+          "Search Engine Optimization",
+          "Dentistry Digital Solutions",
+          "Medical Practice Management Software",
+          "Restaurant Point of Sale Systems",
+          "Online Food Ordering Systems",
+          "Beauty Salon & Barber Appointment Software",
+          "Construction & Architecture Corporate Platforms",
+          "Automotive Repair & Towing Service Landing Pages",
+          "E-Commerce & Payment Gateways",
+          "Performance Advertising & Meta Ads",
+          "Google Maps Local Pack Optimization",
         ],
         openingHoursSpecification: [
           {
@@ -171,48 +193,48 @@ export default async function HomePage({ params }) {
         aggregateRating: {
           "@type": "AggregateRating",
           ratingValue: "5.0",
-          reviewCount: "5",
+          reviewCount: "32",
           bestRating: "5",
           worstRating: "1",
         },
         hasOfferCatalog: {
           "@type": "OfferCatalog",
-          name: "Hexa Dijital Hizmet Mimarisi",
+          name: "Hexa Dijital Hizmet Kataloğu",
           itemListElement: [
             {
               "@type": "Offer",
               itemOffered: {
                 "@type": "Service",
-                name: "Bursa Kurumsal Web Tasarım",
+                name: "Özel Web Yazılımı & Web Tasarım",
                 description:
-                  "Sub-second açılış hızına sahip özel kodlanmış modern kurumsal web platformları.",
+                  "Anında açılan, hazır şablon barındırmayan modern kurumsal web siteleri.",
               },
             },
             {
               "@type": "Offer",
               itemOffered: {
                 "@type": "Service",
-                name: "Özel Web Yazılımı & Portal Geliştirme",
+                name: "Komisyonsuz Paket Servis & Kasa Sistemleri",
                 description:
-                  "ERP entegrasyonlu, veritabanı yönetimli, B2B ve sektörel özel web yazılımları.",
+                  "Restoran ve kafeler için komisyonsuz sipariş ve adisyon sistemleri.",
               },
             },
             {
               "@type": "Offer",
               itemOffered: {
                 "@type": "Service",
-                name: "Google Haritalar İlk 3 & Yerel SEO Dominasyonu",
+                name: "Klinik & Salon Otomatik Randevu Sistemi",
                 description:
-                  "Bursa yerel aramalarında ilk 3 sıra hakimiyeti ve müşteri akışı motoru.",
+                  "Diş hekimleri, klinikler ve kuaförler için 7/24 çalışan akıllı randevu takvimi.",
               },
             },
             {
               "@type": "Offer",
               itemOffered: {
                 "@type": "Service",
-                name: "Restoran QR Menü & Sipariş Otomasyonu",
+                name: "Google Haritalar İlk Sıra & Reklam Yönetimi",
                 description:
-                  "Sıfır komisyonlu paket servis, QR menü ve adisyon entegrasyonu.",
+                  "İşletmeleri aramalarda doğrudan üst sıralara taşıyan ve telefon çaldıran reklam yönetimi.",
               },
             },
           ],

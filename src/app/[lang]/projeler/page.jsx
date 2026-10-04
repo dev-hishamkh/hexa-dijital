@@ -13,14 +13,31 @@ export async function generateMetadata({ params }) {
   const isTr = lang === "tr";
 
   const title = isTr
-    ? "Seçkin Projelerimiz & Portföy"
-    : "Featured Projects & Portfolio";
+    ? "Projelerimiz & Referanslarımız | Hexa Dijital"
+    : "Our Projects & Portfolio | Hexa Digital";
+
+  const description = isTr
+    ? "Farklı sektörlerdeki işletmeler için geliştirdiğimiz web siteleri, restoran sipariş sistemleri ve reklam çalışmalarını inceleyin."
+    : "Explore our portfolio of bespoke web platforms, online ordering systems, and high-converting advertising campaigns.";
 
   return {
     title,
-    description: isTr
-      ? "Farklı sektörlerdeki işletmeler için hayata geçirdiğimiz modern web tasarım, online satış ve müşteri kazandıran dijital reklam projelerimizi inceleyin."
-      : "Explore our portfolio of bespoke web platforms, online ordering systems, and high-converting digital acquisition projects.",
+    description,
+    keywords: [
+      "Hexa Dijital referanslar",
+      "web tasarım referansları",
+      "restoran sipariş sistemi projeleri",
+      "kurumsal web sitesi örnekleri",
+      "Bursa web tasarım projeleri",
+    ],
+    openGraph: {
+      title,
+      description,
+      url: `https://hexadijital.com/${lang}/projeler`,
+      siteName: "Hexa Dijital",
+      locale: isTr ? "tr_TR" : "en_US",
+      type: "website",
+    },
     alternates: {
       canonical: `https://hexadijital.com/${lang}/projeler`,
       languages: {
@@ -34,9 +51,57 @@ export async function generateMetadata({ params }) {
 export default async function ProjectsPage({ params }) {
   const resolvedParams = await params;
   const lang = resolvedParams?.lang || "tr";
+  const isTr = lang === "tr";
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: isTr ? "Ana Sayfa" : "Home",
+            item: `https://hexadijital.com/${lang}`,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: isTr ? "Projelerimiz" : "Portfolio",
+            item: `https://hexadijital.com/${lang}/projeler`,
+          },
+        ],
+      },
+      {
+        "@type": "CollectionPage",
+        name: isTr
+          ? "Hexa Dijital Başarı Hikayeleri & Referanslar"
+          : "Hexa Digital Verified Commercial Case Studies",
+        description: isTr
+          ? "İşletmeler için kurduğumuz gerçek web yazılım ve büyüme projeleri."
+          : "Verified commercial web systems operating live in operations.",
+        url: `https://hexadijital.com/${lang}/projeler`,
+        provider: {
+          "@type": "ProfessionalService",
+          name: "HEXA Dijital",
+          telephone: "+905519769406",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Bursa",
+            addressCountry: "TR",
+          },
+        },
+      },
+    ],
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Header lang={lang} />
       <ProjectsClient lang={lang} />
       <Footer lang={lang} />

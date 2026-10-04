@@ -36,7 +36,6 @@ export default function ProjectsClient({ lang }) {
   const rootRef = useRef(null);
   const isTr = lang === "tr";
 
-  // LINEAR SPOTLIGHT: Farenin kartlar üzerindeki cerrahi piksel takibi
   const handleMouseMove = (e) => {
     if (!gridRef.current) return;
     const cards = gridRef.current.querySelectorAll(`.${styles.projectCard}`);
@@ -55,7 +54,6 @@ export default function ProjectsClient({ lang }) {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      // 1. Hero Giriş Animasyonu
       gsap.fromTo(
         `.${styles.headerArea} > *`,
         { opacity: 0, y: 30 },
@@ -68,7 +66,6 @@ export default function ProjectsClient({ lang }) {
         },
       );
 
-      // 2. Kartların Sahneye Girişi
       gsap.fromTo(
         `.${styles.projectCard}`,
         { opacity: 0, y: 35, scale: 0.98 },
@@ -142,9 +139,6 @@ export default function ProjectsClient({ lang }) {
   return (
     <div ref={rootRef} className={styles.mainContainer}>
       <section className={styles.contentSection}>
-        {/* ==========================================================================
-            1. 2026 S+ ÇİFT FONT EDİTORYAL BAŞLIK
-            ========================================================================== */}
         <div className={styles.headerArea}>
           <span className={styles.eyebrowBadge}>
             {isTr
@@ -170,9 +164,6 @@ export default function ProjectsClient({ lang }) {
           </p>
         </div>
 
-        {/* ==========================================================================
-            2. RAFİNE MİNİMAL FİLTRE ÇUBUĞU
-            ========================================================================== */}
         <div className={styles.filterBar}>
           <div className={styles.filterPillsGroup}>
             {filterTabs.map((tab) => {
@@ -196,9 +187,6 @@ export default function ProjectsClient({ lang }) {
           </span>
         </div>
 
-        {/* ==========================================================================
-            3. SPOTLIGHT PROJE KARTLARI
-            ========================================================================== */}
         <div
           ref={gridRef}
           onMouseMove={handleMouseMove}
@@ -272,9 +260,7 @@ export default function ProjectsClient({ lang }) {
           })}
         </div>
 
-        {/* ==========================================================================
-            4. ALT DÖNÜŞÜM ÇAĞRISI (CTA)
-            ========================================================================== */}
+        {/* ALT DÖNÜŞÜM ÇAĞRISI (45 DERECE DÖNEN MASTER BUTON) */}
         <div className={styles.bottomCtaBox}>
           <div className={styles.ctaLeft}>
             <span className={styles.ctaEyebrow}>
@@ -300,12 +286,12 @@ export default function ProjectsClient({ lang }) {
               href="https://wa.me/905519769406?text=Merhaba%20Hexa%20Dijital,%20i%C5%9Fletmemiz%20i%C3%A7in%20g%C3%B6r%C3%BC%C5%9Fmek%20istiyoruz."
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.ctaCyberGlassBtn}
+              className={styles.ctaExecutiveBtn}
             >
-              <span>
+              <span className={styles.btnText}>
                 {isTr ? "Yerinde Görüşme Başlatın" : "Initiate Consultation"}
               </span>
-              <div className={styles.btnIconCircle}>
+              <div className={styles.btnCircle}>
                 <svg
                   className={styles.btnArrowSvg}
                   viewBox="0 0 16 16"

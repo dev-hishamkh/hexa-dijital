@@ -12,21 +12,21 @@ export async function generateMetadata({ params }) {
   const lang = resolvedParams?.lang || "tr";
   const isTr = lang === "tr";
 
-  const title = isTr ? "İletişim & Proje Masası" : "Contact & Project Desk";
+  const title = isTr ? "İletişim | Hexa Dijital" : "Contact | Hexa Digital";
 
   const description = isTr
-    ? "Hexa Dijital ile iletişime geçin. Bursa genelinde işletmenizi doğrudan yerinde ziyaret ediyor; web yazılım, sipariş sistemleri ve dijital büyüme projelerinizi masanızda planlıyoruz."
-    : "Connect with Hexa Digital. We meet on-site across Bursa to plan bespoke web software, ordering automation, and performance marketing directly at your table.";
+    ? "Hexa Dijital ile iletişime geçin. Bursa'da işletmenizi yerinde ziyaret ediyor, tüm Türkiye için kesintisiz web yazılım ve reklam desteği sunuyoruz."
+    : "Connect with Hexa Digital. We meet on-site across Bursa and provide seamless web software and advertising services nationwide.";
 
   return {
     title,
     description,
     keywords: [
       "Hexa Dijital iletişim",
+      "Hexa Dijital telefon",
       "Bursa web tasarım iletişim",
-      "Bursa dijital ajans telefon",
-      "Bursa yazılım şirketi adres",
-      "Nilüfer web tasarım randevu",
+      "Bursa reklam ajansı randevu",
+      "Nilüfer web tasarım telefon",
     ],
     openGraph: {
       title: `${title} | Hexa Dijital`,
@@ -57,14 +57,17 @@ export default async function ContactPage({ params }) {
     name: isTr ? "Hexa Dijital İletişim" : "Hexa Digital Contact",
     url: `https://hexadijital.com/${lang}/iletisim`,
     description: isTr
-      ? "Hexa Dijital doğrudan proje hattı ve Bursa geneli yerinde keşif masası."
+      ? "Hexa Dijital doğrudan proje hattı ve yerinde keşif masası."
       : "Hexa Digital direct project desk and on-site consultation hub.",
     mainEntity: {
       "@type": "ProfessionalService",
       name: "HEXA Dijital",
       telephone: "+905519769406",
       url: `https://hexadijital.com/${lang}`,
-      areaServed: "Bursa",
+      areaServed: [
+        { "@type": "Country", name: "Türkiye" },
+        { "@type": "City", name: "Bursa" },
+      ],
       address: {
         "@type": "PostalAddress",
         addressLocality: "Bursa",

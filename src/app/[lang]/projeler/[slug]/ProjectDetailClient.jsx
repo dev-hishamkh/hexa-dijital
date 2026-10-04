@@ -163,7 +163,6 @@ export default function ProjectDetailClient({ project, lang }) {
     return () => ctx.revert();
   }, []);
 
-  // Galeri Kaydırma Kontrolleri
   const scrollGallery = (direction) => {
     if (!galleryTrackRef.current) return;
     const distance = 580;
@@ -173,7 +172,6 @@ export default function ProjectDetailClient({ project, lang }) {
     });
   };
 
-  // Fare Tekerleği ile Yatay Kaydırma Desteği
   const handleGalleryWheel = (e) => {
     if (!galleryTrackRef.current) return;
     if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
@@ -229,7 +227,7 @@ export default function ProjectDetailClient({ project, lang }) {
       </section>
 
       {/* ==========================================================================
-          KATMAN 2: FEATURES 8 (3 SÜTUNLU İKONLU BÖLÜM)
+          KATMAN 2: FEATURES 8
           ========================================================================== */}
       {project.features8 && project.features8.length > 0 && (
         <section className={`container ${styles.features8Section}`}>
@@ -252,7 +250,7 @@ export default function ProjectDetailClient({ project, lang }) {
       )}
 
       {/* ==========================================================================
-          KATMAN 3: YENİLENEN PROJE PASAPORTU (STRIPE TARZI KONSOL)
+          KATMAN 3: PROJE PASAPORTU
           ========================================================================== */}
       <section className={`container ${styles.passportSection}`}>
         <div className={styles.projectPassportBar}>
@@ -320,7 +318,7 @@ export default function ProjectDetailClient({ project, lang }) {
       </section>
 
       {/* ==========================================================================
-          KATMAN 5: LENIS KORUMALI & OK BUTONLU KAYDIRMALI GALERİ
+          KATMAN 5: KAYDIRMALI GALERİ
           ========================================================================== */}
       <section className={`container ${styles.gallerySection}`}>
         <div className={styles.galleryHeaderWrap}>
@@ -335,7 +333,6 @@ export default function ProjectDetailClient({ project, lang }) {
             </h2>
           </div>
 
-          {/* APPLE PRO TARZI CAM KAYDIRMA BUTONLARI */}
           <div className={styles.galleryControlGroup}>
             <button
               onClick={() => scrollGallery("left")}
@@ -354,7 +351,6 @@ export default function ProjectDetailClient({ project, lang }) {
           </div>
         </div>
 
-        {/* DATA-LENIS-PREVENT İLE KORUNAN YATAY İZ */}
         <div
           ref={galleryTrackRef}
           data-lenis-prevent="true"
@@ -390,7 +386,7 @@ export default function ProjectDetailClient({ project, lang }) {
       </section>
 
       {/* ==========================================================================
-          KATMAN 6: ADIM ADIM İMALAT VE ÇÖZÜM MÜHENDİSLİĞİ
+          KATMAN 6: ADIM ADIM İMALAT
           ========================================================================== */}
       <section className={`container ${styles.solutionSection}`}>
         <div className={styles.sectionHeaderWrap}>
@@ -414,7 +410,7 @@ export default function ProjectDetailClient({ project, lang }) {
       </section>
 
       {/* ==========================================================================
-          KATMAN 7: KIRILMA NOKTASI: İLK HAFTA VE DÖNÜŞÜM
+          KATMAN 7: KIRILMA NOKTASI
           ========================================================================== */}
       <section className={`container ${styles.shiftSection}`}>
         <div className={styles.shiftCardBox}>
@@ -430,7 +426,7 @@ export default function ProjectDetailClient({ project, lang }) {
       </section>
 
       {/* ==========================================================================
-          KATMAN 8: DOĞRULANMIŞ CİRO VE SAHA SONUÇLARI MATRİSİ
+          KATMAN 8: METRİKLER
           ========================================================================== */}
       <section className={`container ${styles.metricsSection}`}>
         <div className={styles.metricsBoxFrame}>
@@ -457,7 +453,7 @@ export default function ProjectDetailClient({ project, lang }) {
       </section>
 
       {/* ==========================================================================
-          BÜYÜK FİNAL CTA
+          BÜYÜK FİNAL CTA (45 DERECE DÖNEN MASTER BUTON)
           ========================================================================== */}
       <section className={`container ${styles.finaleCtaSection}`}>
         <div className={styles.ctaCardFrame}>
@@ -483,6 +479,7 @@ export default function ProjectDetailClient({ project, lang }) {
           </div>
 
           <div className={styles.ctaActionsCol}>
+            {/* 45 DERECE DÖNEN MASTER PROJE BUTONU */}
             <a
               href={`https://wa.me/905519769406?text=${encodeURIComponent(
                 isTr
@@ -491,9 +488,9 @@ export default function ProjectDetailClient({ project, lang }) {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.ctaCyberGlassBtn}
+              className={styles.projectExecutiveBtn}
             >
-              <span>
+              <span className={styles.btnText}>
                 {isTr ? "Yerinde Keşif Talep Edin" : "Request On-Site Meeting"}
               </span>
               <div className={styles.btnIconCircle}>

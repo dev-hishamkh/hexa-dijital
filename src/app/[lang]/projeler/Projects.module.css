@@ -6,9 +6,6 @@
     transition: background-color 0.4s var(--ease-out);
 }
 
-/* ==========================================================================
-   DİĞER SAYFALARLA %100 BİREBİR EŞİTLENEN GENİŞLİK VE KENAR BOŞLUKLARI
-   ========================================================================== */
 .contentSection {
     width: 100%;
     max-width: var(--max-width);
@@ -19,9 +16,6 @@
     flex-direction: column;
 }
 
-/* ==========================================================================
-   1. HERO BAŞLIK ALANI
-   ========================================================================== */
 .headerArea {
     max-width: 1100px;
     margin-bottom: 3.5rem;
@@ -87,14 +81,11 @@
     color: #4b5563;
 }
 
-/* ==========================================================================
-   2. FİLTRE ÇUBUĞU
-   ========================================================================== */
 .filterBar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid var(--hexa-border);
     padding: 1.25rem 0;
     margin-bottom: 3.5rem;
     gap: 1.25rem;
@@ -119,7 +110,7 @@
     padding: 0.55rem 1.2rem;
     border-radius: var(--radius-full);
     background-color: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--hexa-border);
     color: #94a3b8;
     cursor: pointer;
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -165,9 +156,6 @@
     flex-shrink: 0;
 }
 
-/* ==========================================================================
-   3. 2026 S+ PROJE KARTLARI
-   ========================================================================== */
 .showcaseGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -176,30 +164,30 @@
     margin-bottom: 7rem;
 }
 
+/* HİZMETLER KART STANDARDI (#0D111A / 24PX) */
 .projectCard {
     position: relative;
     display: flex;
     flex-direction: column;
     padding: 1.35rem;
-    border-radius: 28px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(13, 17, 26, 0.98) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    background: #0D111A;
+    border: 1px solid var(--hexa-border);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     overflow: hidden;
     will-change: transform, opacity;
-    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 255, 209, 0.03);
 }
 
 [data-theme="light"] .projectCard {
     background: #FFFFFF;
     border-color: rgba(0, 0, 0, 0.08);
-    box-shadow: 0 15px 35px -15px rgba(0, 0, 0, 0.06);
 }
 
 .projectCard:hover {
     transform: translateY(-4px);
     border-color: var(--hexa-border-focus);
-    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.95), 0 0 25px rgba(0, 255, 209, 0.06);
+    background-color: #101522;
 }
 
 .spotlightBorder {
@@ -237,9 +225,9 @@
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 10.5;
-    border-radius: 18px;
+    border-radius: 16px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--hexa-border);
     background-color: #0A0E17;
     margin-bottom: 1.35rem;
 }
@@ -266,7 +254,7 @@
     pointer-events: none;
 }
 
-/* 45 DERECE DÖNEN OK BUTONU */
+/* 45 DERECE DÖNEN KART KÖŞE OKU */
 .heroArrowBadge {
     position: absolute;
     top: 1rem;
@@ -286,8 +274,8 @@
 }
 
 .ctaArrowSvg {
-    width: 16px;
-    height: 16px;
+    width: 15px;
+    height: 15px;
     color: #F8FAFC;
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -404,18 +392,18 @@
 }
 
 /* ==========================================================================
-   4. ALT DÖNÜŞÜM ÇAĞRISI (CTA)
+   ALT DÖNÜŞÜM ÇAĞRISI (CTA)
    ========================================================================== */
 .bottomCtaBox {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(13, 17, 26, 0.98) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 28px;
+    background: #0D111A;
+    border: 1px solid var(--hexa-border);
+    border-radius: 24px;
     padding: clamp(3rem, 5vw, 4.5rem);
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     align-items: center;
     gap: 3rem;
-    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 255, 209, 0.03);
 }
 
 [data-theme="light"] .bottomCtaBox {
@@ -475,56 +463,63 @@
     justify-content: flex-end;
 }
 
-.ctaCyberGlassBtn {
+/* ==========================================================================
+   45 DERECE DÖNEN MASTER CTA BUTONU
+   ========================================================================== */
+.ctaExecutiveBtn {
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1.35rem;
+    gap: 1.5rem;
     padding: 0.65rem 0.75rem 0.65rem 1.65rem;
     border-radius: var(--radius-full);
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    color: #F8FAFC;
+    background-color: #FFFFFF;
+    color: #0A0E17;
     text-decoration: none;
     font-family: var(--font-main);
     font-size: 0.98rem;
     font-weight: 600;
     letter-spacing: -0.015em;
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    width: fit-content;
 }
 
-[data-theme="light"] .ctaCyberGlassBtn {
-    background: #111827;
+[data-theme="light"] .ctaExecutiveBtn {
+    background-color: #111827;
     color: #FFFFFF;
 }
 
-.ctaCyberGlassBtn:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: var(--hexa-border-focus);
+.ctaExecutiveBtn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 255, 209, 0.15);
+    box-shadow: 0 15px 40px var(--hexa-accent-glow);
+    background-color: #FFFFFF;
 }
 
-.btnIconCircle {
+[data-theme="light"] .ctaExecutiveBtn:hover {
+    background-color: #111827;
+}
+
+.btnText {
+    letter-spacing: -0.01em;
+}
+
+.btnCircle {
     width: 38px;
     height: 38px;
     border-radius: var(--radius-full);
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.16);
+    background-color: #0A0E17;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #F8FAFC;
+    color: #FFFFFF;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     flex-shrink: 0;
 }
 
-[data-theme="light"] .btnIconCircle {
-    background: rgba(255, 255, 255, 0.2);
-    color: #FFFFFF;
+[data-theme="light"] .btnCircle {
+    background-color: #FFFFFF;
+    color: #111827;
 }
 
 .btnArrowSvg {
@@ -533,17 +528,23 @@
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
 }
 
-.ctaCyberGlassBtn:hover .btnIconCircle {
+.ctaExecutiveBtn:hover .btnCircle {
     background-color: var(--hexa-accent);
-    border-color: var(--hexa-accent);
     color: #0A0E17;
     transform: scale(1.08) rotate(45deg);
-    box-shadow: 0 0 25px var(--hexa-accent-glow);
+    box-shadow: 0 0 22px var(--hexa-accent-glow);
 }
 
-/* ==========================================================================
-   TABLET VE MOBİL DUYARLILIK
-   ========================================================================== */
+.ctaExecutiveBtn:hover .btnArrowSvg {
+    color: #0A0E17;
+}
+
+[data-theme="light"] .ctaExecutiveBtn:hover .btnCircle {
+    background-color: #FFFFFF;
+    color: #111827;
+    transform: scale(1.08) rotate(45deg);
+}
+
 @media (max-width: 1080px) {
     .showcaseGrid {
         grid-template-columns: repeat(2, 1fr);
@@ -598,7 +599,7 @@
         align-self: flex-end;
     }
 
-    .ctaCyberGlassBtn {
+    .ctaExecutiveBtn {
         width: 100%;
         justify-content: space-between;
     }

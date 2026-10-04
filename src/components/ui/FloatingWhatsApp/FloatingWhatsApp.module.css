@@ -1,194 +1,234 @@
-.floatingContainer {
+/* ==========================================================================
+   2026 S+ SİBER OBSİDYEN HUD KONTEYNERİ
+   ========================================================================== */
+.floatingWrapper {
     position: fixed;
     bottom: 2.25rem;
     right: 2.25rem;
-    /* SOL YERİNE SAĞ ALTA ALINDI */
     left: auto;
     z-index: 999;
     user-select: none;
-    animation: floatIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: hudEnter 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes floatIn {
+@keyframes hudEnter {
     from {
         opacity: 0;
-        transform: translateY(20px) scale(0.9);
+        transform: translateY(25px) scale(0.92);
+        filter: blur(10px);
     }
 
     to {
         opacity: 1;
         transform: translateY(0) scale(1);
+        filter: blur(0);
     }
 }
 
 /* ==========================================================================
-   SİBER CAM KAPSÜL (FROSTED CYBER CAPSULE)
+   SİBER LÜKS BUZLU CAM KAPSÜL (APPLE / LINEAR SEVİYESİ)
    ========================================================================== */
-.whatsappCapsule {
+.cyberCapsule {
     display: inline-flex;
     align-items: center;
-    gap: 0.85rem;
-    padding: 0.65rem 1.25rem 0.65rem 0.85rem;
+    gap: 1.15rem;
+    padding: 0.55rem 0.65rem 0.55rem 1.35rem;
     border-radius: var(--radius-full);
-    background: rgba(10, 14, 23, 0.82);
-    border: 1px solid var(--hexa-border);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    color: var(--hexa-font-main);
+    background: rgba(13, 17, 26, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
     text-decoration: none;
-    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.8);
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow:
+        0 20px 45px -10px rgba(0, 0, 0, 0.9),
+        0 0 35px rgba(0, 255, 209, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.14);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform, box-shadow;
+    position: relative;
+    overflow: hidden;
 }
 
-[data-theme="light"] .whatsappCapsule {
-    background: rgba(255, 255, 255, 0.92);
+[data-theme="light"] .cyberCapsule {
+    background: rgba(255, 255, 255, 0.94);
     border-color: rgba(0, 0, 0, 0.1);
-    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.12);
+    box-shadow:
+        0 15px 35px -10px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
-/* Hover: Kapsül hafifçe yükselir ve siber zümrüt aurası uyanır */
-.whatsappCapsule:hover {
+/* HOVER: SİBER ZÜMRÜT KALKANI UYANIR */
+.cyberCapsule:hover {
     transform: translateY(-3px) scale(1.02);
-    border-color: var(--hexa-accent);
-    box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.9), 0 0 25px var(--hexa-accent-glow);
+    border-color: var(--hexa-border-focus);
+    background-color: #101522;
+    box-shadow:
+        0 25px 55px -10px rgba(0, 0, 0, 0.95),
+        0 0 30px rgba(0, 255, 209, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
-.whatsappCapsule:active {
-    transform: translateY(0) scale(0.97);
+[data-theme="light"] .cyberCapsule:hover {
+    background-color: #FFFFFF;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+}
+
+.cyberCapsule:active {
+    transform: translateY(-1px) scale(0.98);
 }
 
 /* ==========================================================================
-   CANLI YEŞİL NABIZ NOKTASI (STATUS RADAR)
+   CANLI SİBER NABIZ ÇEKİRDEĞİ (NEON TURKUAZ SİNYAL)
    ========================================================================== */
-.statusRadar {
+.liveIndicator {
     position: relative;
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 .pulseCore {
     width: 6px;
     height: 6px;
     border-radius: var(--radius-full);
-    background-color: #25d366;
-    box-shadow: 0 0 8px #25d366;
+    background-color: var(--hexa-accent);
+    box-shadow: 0 0 10px var(--hexa-accent);
     z-index: 2;
 }
 
-.pulseRing {
+.pulseAura {
     position: absolute;
     width: 100%;
     height: 100%;
     border-radius: var(--radius-full);
-    background-color: rgba(37, 211, 102, 0.4);
-    animation: radarWave 2s infinite ease-out;
+    background-color: rgba(0, 255, 209, 0.45);
+    animation: cyberAura 2.2s infinite ease-out;
     z-index: 1;
 }
 
-@keyframes radarWave {
+@keyframes cyberAura {
     0% {
         transform: scale(0.8);
-        opacity: 1;
+        opacity: 0.9;
     }
 
     100% {
-        transform: scale(2.2);
+        transform: scale(2.8);
         opacity: 0;
     }
 }
 
-/* İkon Dairesi */
-.iconCircle {
-    width: 34px;
-    height: 34px;
-    border-radius: var(--radius-full);
-    background: rgba(37, 211, 102, 0.12);
-    border: 1px solid rgba(37, 211, 102, 0.25);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #25d366;
-    transition: all 0.3s var(--ease-out);
-}
-
-.waIcon {
-    width: 18px;
-    height: 18px;
-}
-
-.whatsappCapsule:hover .iconCircle {
-    background: #25d366;
-    color: #0A0E17;
-    border-color: #25d366;
-    box-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
-}
-
-/* Metin Alanı */
-.labelBlock {
+/* ==========================================================================
+   TİTANYUM MONOLİTİK ETİKET
+   ========================================================================== */
+.labelGroup {
     display: flex;
     flex-direction: column;
-    gap: 1px;
+    gap: 0.15rem;
 }
 
-.primaryText {
+.brandTitle {
     font-family: var(--font-main);
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    color: var(--hexa-font-main);
-    line-height: 1.2;
-    transition: color 0.25s var(--ease-out);
-}
-
-.whatsappCapsule:hover .primaryText {
-    color: var(--hexa-accent);
-}
-
-.subText {
-    font-family: var(--font-main);
-    font-size: 0.68rem;
-    color: var(--hexa-font-dim);
-    letter-spacing: 0.01em;
-    line-height: 1.2;
-}
-
-/* Sağ Ok */
-.arrowIcon {
     font-size: 0.88rem;
-    color: var(--hexa-font-muted);
-    transition: transform 0.3s var(--ease-out), color 0.3s var(--ease-out);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #F8FAFC;
+    line-height: 1.2;
+    transition: color 0.3s ease;
 }
 
-.whatsappCapsule:hover .arrowIcon {
+[data-theme="light"] .brandTitle {
+    color: #111827;
+}
+
+.cyberCapsule:hover .brandTitle {
+    color: #FFFFFF;
+}
+
+.statusLive {
+    font-family: var(--font-main);
+    font-size: 0.72rem;
+    font-weight: 500;
     color: var(--hexa-accent);
-    transform: translate(2px, -2px);
+    letter-spacing: 0.02em;
+    line-height: 1.2;
 }
 
 /* ==========================================================================
-   MOBİL VE TABLET UYARLAMASI (SAĞ ALTA SABİTLENDİ)
+   45 DERECE DÖNEN MASTER AKSİYON ÇEMBERİ (CERRAHİ TURKUAZ PARILTI)
+   ========================================================================== */
+.actionCircle {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F8FAFC;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
+}
+
+[data-theme="light"] .actionCircle {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.1);
+    color: #111827;
+}
+
+.arrowSvg {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+
+/* HOVER: 45° DÖNÜŞ VE SİBER ZÜMRÜT IŞIMA */
+.cyberCapsule:hover .actionCircle {
+    background-color: var(--hexa-accent);
+    border-color: var(--hexa-accent);
+    color: #0A0E17;
+    transform: scale(1.08) rotate(45deg);
+    box-shadow: 0 0 20px var(--hexa-accent-glow);
+}
+
+.cyberCapsule:hover .arrowSvg {
+    color: #0A0E17;
+}
+
+[data-theme="light"] .cyberCapsule:hover .actionCircle {
+    background-color: #111827;
+    color: #FFFFFF;
+    transform: scale(1.08) rotate(45deg);
+}
+
+/* ==========================================================================
+   MOBİL VE TABLET DUYARLILIK
    ========================================================================== */
 @media (max-width: 768px) {
-    .floatingContainer {
+    .floatingWrapper {
         bottom: 1.25rem;
         right: 1.25rem;
-        /* MOBİLDE DE SAĞ ALTA KİLİTLENDİ */
-        left: auto;
     }
 
-    .whatsappCapsule {
-        padding: 0.6rem 0.95rem;
-        gap: 0.65rem;
+    .cyberCapsule {
+        padding: 0.5rem 0.6rem 0.5rem 1.15rem;
+        gap: 0.85rem;
     }
 
-    .subText {
+    .statusLive {
         display: none;
     }
 
-    .primaryText {
-        font-size: 0.78rem;
+    .brandTitle {
+        font-size: 0.82rem;
+    }
+
+    .actionCircle {
+        width: 32px;
+        height: 32px;
     }
 }

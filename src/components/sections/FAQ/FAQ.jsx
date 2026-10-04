@@ -11,75 +11,75 @@ const faqItems = {
   tr: [
     {
       id: 1,
-      q: "Bursa'da diğer web tasarım ajanslarından farkınız nedir, neden özel kodlama?",
-      a: "Bursa'daki çoğu ajans hazır WordPress temalarını kopyalayıp onlarca hantal eklentiyle sitenizi yavaşlatır. Biz Next.js ile sıfırdan, temiz kodla mimari kuruyoruz. Siteniz 0.8 saniyenin altında açılır, Google Core Web Vitals testlerinde 100 puan alır ve rakiplerinizin önüne doğrudan geçer.",
+      q: "Diğer web tasarım ajanslarından farkınız nedir, neden özel kodlama?",
+      a: "Piyasadaki çoğu ajans hazır WordPress şablonlarını kopyalayıp onlarca hantal eklentiyle sitenizi yavaşlatır. Biz sıfırdan, temiz kodla site kuruyoruz. Siteniz telefonda bekleme yapmadan anında açılır, Google testlerinde tam puan alır ve rakiplerinizin önüne geçer.",
     },
     {
       id: 2,
-      q: "Google Haritalar ve Bursa yerel aramalarında ilk 3 sıraya nasıl çıkarıyorsunuz?",
-      a: "Sadece Nilüfer değil; Osmangazi, Yıldırım, İnegöl ve sanayi bölgelerindeki yerel arama sinyallerini haritanıza işliyoruz. Doğru JSON-LD yapılandırılmış verileri, yerel yetki backlinkleri ve sayfa açılış hızıyla algoritmanın aradığı tüm kriterleri sağlayarak ilk 3 sırayı kilitliyoruz.",
+      q: "Google Haritalar ve yerel aramalarda ilk sıralara nasıl çıkarıyorsunuz?",
+      a: "İşletmenizin fotoğraflarını, kategorilerini ve adres sinyallerini haritanıza işliyoruz. Masalarınıza yerleştireceğimiz temassız NFC yorum standlarıyla gerçek müşterilerinizden 5 yıldız toplayarak Google'da ilk sıralara yerleşmenizi sağlıyoruz.",
     },
     {
       id: 3,
       q: "Proje fiyatlandırması nasıl yapılıyor, sonradan sürpriz ek masraf çıkar mı?",
-      a: "Hayır. İşin kapsamı, kullanılacak teknolojiler ve teslim tarihi noter geçerliliğinde resmi sözleşmeyle belirlenir. Onaylanan teklif dışında teslimat anında veya sonrasında hiçbir gizli masrafla karşılaşmazsınız.",
+      a: "Hayır. İşin kapsamı ve teslim tarihi resmi sözleşmeyle baştan yazılı olarak belirlenir. Onaylanan teklif dışında teslimat anında veya sonrasında hiçbir gizli masrafla karşılaşmazsınız.",
     },
     {
       id: 4,
       q: "Sitenin içeriklerini, görsellerini ve ürünlerini kendimiz güncelleyebilir miyiz?",
-      a: "Elbette. Kod bilmenize gerek kalmadan menülerinizi, yazılarınızı, referanslarınızı ve fiyatlarınızı saniyeler içinde güncelleyebileceğiniz son derece sade, hızlı ve güvenli bir yönetim paneli entegre ediyoruz.",
+      a: "Elbette. Kod bilmenize gerek kalmadan menülerinizi, yazılarınızı, referanslarınızı ve fiyatlarınızı saniyeler içinde güncelleyebileceğiniz son derece sade, hızlı ve güvenli bir yönetim paneli veriyoruz.",
     },
     {
       id: 5,
       q: "Tüm kaynak kodlar, alan adı ve verilerin mülkiyeti kime ait oluyor?",
-      a: "Tüm kaynak kodlar, lisanslar, alan adı (domain) ve bulut veritabanı doğrudan sizin adınıza tescil edilir. Hexa Dijital olarak sizi kendimize bağımlı kılmayız; mülkiyet %100 şirketinize aittir.",
+      a: "Tüm kaynak kodlar, alan adı ve sistem doğrudan sizin adınıza tescil edilir. Hexa Dijital olarak sizi kendimize bağımlı kılmayız; mülkiyet %100 şirketinize aittir.",
     },
     {
       id: 6,
-      q: "Mevcut sitemizi yenilerken Google sıralamalarımızı ve trafiğimizi kaybeder miyiz?",
-      a: "Asla. Mevcut sitenizdeki tüm URL otoritesini ve indekslenmiş sayfaları 301 yönlendirme protokolüyle sıfır kayıpla yeni altyapıya aktarıyoruz. Trafiğiniz kesilmez, aksine hız arttığı için sıralamalarınız yükselir.",
+      q: "Mevcut sitemizi yenilerken Google sıralamalarımızı ve müşterilerimizi kaybeder miyiz?",
+      a: "Asla. Eski sitenizdeki tüm sayfaları yeni altyapıya sıfır kayıpla aktarıyoruz. Trafiğiniz kesilmez, aksine siteniz hızlandığı için Google'da daha da yükselirsiniz.",
     },
     {
       id: 7,
       q: "Bir projenin tamamlanması ortalama ne kadar sürer?",
-      a: "Kurumsal web siteleri ortalama 10 ila 15 iş günü içinde yayına alınır. Restoran adisyon/QR sistemleri ve özel ERP/B2B yazılımları ise 3 ila 4 haftalık sprintlerle anahtar teslim sunulur.",
+      a: "Kurumsal web siteleri ortalama 7 ila 10 iş günü içinde yayına alınır. Restoran sipariş/kasa sistemleri ise ortalama 2 hafta içinde anahtar teslim kurulup çalışır vaziyette teslim edilir.",
     },
     {
       id: 8,
-      q: "Teslimattan sonra teknik destek ve sunucu takibi nasıl işliyor?",
-      a: "Projeyi yayına alıp kenara çekilmiyoruz. 7/24 sunucu izleme, Cloudflare kurumsal güvenlik katmanı, SSL sertifikaları ve otomatik veri yedekleme kesintisiz olarak tarafımızdan yönetilir.",
+      q: "Teslimattan sonra teknik destek nasıl işliyor?",
+      a: "Projeyi teslim edip kenara çekilmiyoruz. 7/24 kesintisiz sunucu izleme, güvenlik sertifikaları ve otomatik veri yedekleme sürekli tarafımızdan takip edilir. Sorularınızda doğrudan telefonla bize ulaşırsınız.",
     },
     {
       id: 9,
-      q: "İşletmemizin kullandığı ERP, muhasebe veya CRM sistemleriyle entegre olabilir mi?",
-      a: "Evet. Logo, Mikro, SAP veya kullandığınız özel muhasebe ve depo yazılımlarıyla doğrudan RESTful API ve webhook entegrasyonu kurabiliyoruz. Süreçleriniz otomatik çalışır.",
+      q: "İşletmemizin kullandığı muhasebe veya kasa programıyla entegre olabilir mi?",
+      a: "Evet. Kullandığınız özel muhasebe veya sipariş yazılımlarıyla doğrudan bağlantı kurabiliyoruz. Süreçleriniz otomatik ve hatasız çalışır.",
     },
     {
       id: 10,
-      q: "Siber saldırılara ve veri kayıplarına karşı siteler nasıl korunuyor?",
-      a: "Sunucu tarafında Cloudflare Enterprise seviyesinde DDoS koruması, katı güvenlik başlıkları (HSTS, CSP) ve uçtan uca şifreleme uyguluyoruz.",
+      q: "Siber saldırılara ve bozulmalara karşı siteler nasıl korunuyor?",
+      a: "Gereksiz ve güvenlik açığı yaratan hazır eklentiler kullanmadığımız için sitelerimiz hacklenmeye ve çökmeye karşı en üst düzey kurumsal güvenlik kalkanıyla korunur.",
     },
     {
       id: 11,
       q: "Sözleşme ve faturalandırma resmi mi?",
-      a: "Tüm projeler karşılıklı ıslak imzalı veya KEP onaylı resmi hizmet sözleşmesi, şeffaf teslimat şartları ve kurumsal e-fatura ile yürütülür.",
+      a: "Tüm projeler karşılıklı imzalı resmi hizmet sözleşmesi, şeffaf teslimat maddeleri ve kurumsal e-fatura ile yürütülür.",
     },
     {
       id: 12,
-      q: "Web sitemiz bittiğinde Google ve Meta reklamlarını da yönetiyor musunuz?",
-      a: "Evet. Web mimarisini inşa ettiğimiz için dönüşüm piksellerini kusursuz entegre ederiz. Google Ads ve Instagram reklam bütçenizi en yüksek ciroya (ROI) dönüştürecek şekilde profesyonelce yönetiriz.",
+      q: "Web sitemiz bittiğinde Google ve Instagram reklamlarını da yönetiyor musunuz?",
+      a: "Evet. Web sitenizi doğrudan müşteri getirecek şekilde kurduğumuz için reklamları da yöneterek harcadığınız her liranın telefon araması ve sipariş olarak dönmesini sağlıyoruz.",
     },
   ],
   en: [
     {
       id: 1,
-      q: "What differentiates you from other web design agencies in Bursa?",
-      a: "Most agencies resell slow WordPress templates packed with bloated plugins. We build sub-second custom web systems on Next.js from scratch, hitting 100/100 Core Web Vitals and securing unfair competitive edges.",
+      q: "What differentiates you from other web design agencies?",
+      a: "Most agencies resell slow WordPress templates packed with bloated plugins. We build fast, custom web systems from scratch, hitting 100/100 performance scores and securing competitive edges.",
     },
     {
       id: 2,
-      q: "How do you achieve top-3 rankings on Google Maps and regional search?",
-      a: "We engineer precise schema markup, geographic relevance signals across Bursa's commercial corridors, and lightning-fast load times that satisfy Google's primary ranking signals.",
+      q: "How do you achieve top rankings on Google Maps and regional search?",
+      a: "We engineer precise business signals, geotagged imagery, and contactless NFC review cards that gather verified 5-star customer endorsements.",
     },
     {
       id: 3,
@@ -99,37 +99,37 @@ const faqItems = {
     {
       id: 6,
       q: "Can we migrate our existing site without losing SEO rankings?",
-      a: "Yes. We execute meticulous 301 mapping and semantic URL transfer protocols to ensure zero traffic drop during migration.",
+      a: "Yes. We execute meticulous redirection maps to ensure zero traffic drop during migration.",
     },
     {
       id: 7,
-      q: "What is the typical completion timeframe for an enterprise project?",
-      a: "Corporate web platforms are deployed within 10 to 15 business days. Bespoke automation and B2B portals require 3 to 4 planned sprint cycles.",
+      q: "What is the typical completion timeframe for a project?",
+      a: "Corporate web platforms are deployed within 7 to 10 business days. Custom ordering systems are typically delivered within two weeks.",
     },
     {
       id: 8,
       q: "How does maintenance and technical support function post-launch?",
-      a: "We maintain 24/7 server telemetry, Cloudflare DDoS firewalls, SSL automation, and enterprise database backups continuously.",
+      a: "We maintain 24/7 server telemetry, SSL automation, and database backups continuously with direct phone support.",
     },
     {
       id: 9,
-      q: "Can you integrate with our in-house ERP, CRM, or accounting systems?",
-      a: "Yes. We build native REST/GraphQL connectors to interface smoothly with SAP, Logo, Mikro, or proprietary operational platforms.",
+      q: "Can you integrate with our in-house accounting or POS software?",
+      a: "Yes. We build native connectors to interface smoothly with your existing inventory and accounting platforms.",
     },
     {
       id: 10,
-      q: "How is cyber security and data integrity handled?",
-      a: "We deploy enterprise-grade edge firewalls, strict Content Security Policies, and encrypted pipelines meeting international security standards.",
+      q: "How is security and stability handled?",
+      a: "Because we avoid fragile third-party plugins, our clean architectures remain impervious to common hacks and crashes.",
     },
     {
       id: 11,
       q: "Are engagements backed by formal contracts and invoices?",
-      a: "Every engagement is protected by legal service level agreements (SLAs), clear milestones, and corporate e-invoicing.",
+      a: "Every engagement is protected by legal service agreements, clear milestones, and corporate e-invoicing.",
     },
     {
       id: 12,
       q: "Do you handle paid acquisition campaigns on Google and Meta?",
-      a: "Yes. Because we build the conversion architecture, our tracking integrations are exact, enabling high-ROI ad performance.",
+      a: "Yes. We manage your Google Ads and Meta budgets to ensure direct inquiries and sales.",
     },
   ],
 };
@@ -143,7 +143,6 @@ export default function FAQ({ lang = "tr" }) {
   const dict = dictionary[lang]?.faq || dictionary.tr.faq;
   const currentFaq = faqItems[lang] || faqItems.tr;
 
-  // GOOGLE İŞLETME SAATLERİ: 7 GÜN 09:00 - 18:00 CANLI MESAİ KONTROLÜ
   useEffect(() => {
     const checkOfficeHours = () => {
       const now = new Date();
@@ -151,7 +150,6 @@ export default function FAQ({ lang = "tr" }) {
       const turkeyTime = new Date(utc + 3600000 * 3);
       const hour = turkeyTime.getHours();
 
-      // Kapanış 18:00 olarak güncellendi
       const isWorkingTime = hour >= 9 && hour < 18;
       setIsOnline(isWorkingTime);
     };
@@ -267,6 +265,7 @@ export default function FAQ({ lang = "tr" }) {
             </div>
 
             <div className={styles.cardFooter}>
+              {/* HOVER'DA 45 DERECE DÖNEN WHATSAPP BUTONU */}
               <a
                 href={`https://wa.me/905519769406?text=${encodeURIComponent(
                   dictionary[lang]?.whatsapp?.message ||
@@ -310,8 +309,8 @@ export default function FAQ({ lang = "tr" }) {
                 />
                 <span className={styles.statusText}>
                   {isOnline
-                    ? "Bursa Masası Canlı (09:00 - 18:00)"
-                    : "Online 7/24 Aktif — Mesajınız İletilir"}
+                    ? "Canlı Destek Hattı (09:00 - 18:00)"
+                    : "Online Destek 7/24 Aktif"}
                 </span>
               </div>
             </div>
