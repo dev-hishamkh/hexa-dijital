@@ -22,30 +22,47 @@ export default function ContactClient({ lang }) {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        `.${styles.heroArea} > *`,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          stagger: 0.12,
-          ease: "power3.out",
-        },
-      );
+      // 1. SAF GSAP: BAŞLIK VE KANALLARIN ARDI ARDINA DÖKÜLEN GİRİŞİ (CASCADE)
+      const contactTl = gsap.timeline();
 
+      contactTl
+        .fromTo(
+          `.${styles.heroArea} > *`,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: "power3.out",
+          },
+        )
+        .fromTo(
+          [`.${styles.channelsColumn}`, `.${styles.formColumn}`],
+          { opacity: 0, y: 35 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.85,
+            stagger: 0.12,
+            ease: "power3.out",
+          },
+          "-=0.35",
+        );
+
+      // 2. EN ALTTAKİ TAAHHÜT BARI SCROLL TRIGGER
       gsap.fromTo(
-        `.${styles.contactGrid} > *`,
-        { opacity: 0, y: 35 },
+        `.${styles.trustItem}`,
+        { opacity: 0, y: 25 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
-          stagger: 0.15,
+          duration: 0.7,
+          stagger: 0.1,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: `.${styles.contactGrid}`,
-            start: "top 80%",
+            trigger: `.${styles.trustBar}`,
+            start: "top 88%",
             once: true,
           },
         },
@@ -74,7 +91,6 @@ export default function ContactClient({ lang }) {
   return (
     <div ref={rootRef} className={styles.mainContainer}>
       <div className={`container ${styles.contentWrapper}`}>
-        {/* HERO */}
         <div className={styles.heroArea}>
           <span className={styles.eyebrowBadge}>
             {isTr
@@ -100,11 +116,9 @@ export default function ContactClient({ lang }) {
           </p>
         </div>
 
-        {/* İLETİŞİM GRİDİ */}
         <div className={styles.contactGrid}>
           {/* SOL: KANALLAR */}
           <div className={styles.channelsColumn}>
-            {/* TELEFON KARTI (#0D111A KART STANDARDI) */}
             <div className={styles.channelCard}>
               <div className={styles.channelCardTop}>
                 <div className={styles.channelIconWrap}>
@@ -126,7 +140,6 @@ export default function ContactClient({ lang }) {
                   : "Call our team directly during business hours to arrange an on-site visit."}
               </p>
               <div className={styles.channelActionRow}>
-                {/* 45 DERECE DÖNEN ARAMA BUTONU */}
                 <a
                   href="tel:+905519769406"
                   className={styles.executiveActionBtn}
@@ -165,7 +178,6 @@ export default function ContactClient({ lang }) {
               </div>
             </div>
 
-            {/* WHATSAPP KARTI */}
             <div className={styles.channelCard}>
               <div className={styles.channelCardTop}>
                 <div
@@ -186,7 +198,6 @@ export default function ContactClient({ lang }) {
                   ? "Günün her saati dilediğiniz zaman yazabilirsiniz. Mesajınız anında ekibimize iletilir ve hızla yanıtlanır."
                   : "Message anytime 24/7. Your inquiry is directly routed to our desk for immediate review."}
               </p>
-              {/* 45 DERECE DÖNEN WHATSAPP BUTONU */}
               <a
                 href="https://wa.me/905519769406?text=Merhaba%20Hexa%20Dijital,%20i%C5%9Fletmemiz%20i%C3%A7in%20bilgi%20ve%20teklif%20almak%20istiyoruz."
                 target="_blank"
@@ -214,7 +225,6 @@ export default function ContactClient({ lang }) {
               </a>
             </div>
 
-            {/* YERİNDE HİZMET (NİLÜFER KALDIRILDI) */}
             <div className={styles.infoMetaBox}>
               <div className={styles.metaRow}>
                 <MapPin size={18} className={styles.metaIcon} />
@@ -323,7 +333,6 @@ export default function ContactClient({ lang }) {
                 />
               </div>
 
-              {/* 45 DERECE DÖNEN MASTER FORM GÖNDERME BUTONU */}
               <button type="submit" className={styles.executiveSubmitBtn}>
                 <span className={styles.btnText}>
                   {isTr

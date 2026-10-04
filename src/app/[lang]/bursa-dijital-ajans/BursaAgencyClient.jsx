@@ -15,20 +15,20 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      // 1. Hero Giriş Animasyonu
+      // 1. SAF GSAP HERO GİRİŞ ANİMASYONU (PARLAMASIZ)
       gsap.fromTo(
         `.${styles.heroSection} > *`,
         { opacity: 0, y: 30 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
+          duration: 0.85,
           stagger: 0.12,
           ease: "power3.out",
         },
       );
 
-      // 2. Eşit 2x2 Bento Grid Girişi
+      // 2. BENTO KARTLAR SCROLL TRIGGER
       gsap.fromTo(
         `.${styles.bentoCard}`,
         { opacity: 0, y: 35, scale: 0.98 },
@@ -41,13 +41,13 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
           ease: "power3.out",
           scrollTrigger: {
             trigger: `.${styles.storyBentoSection}`,
-            start: "top 78%",
+            start: "top 80%",
             once: true,
           },
         },
       );
 
-      // 3. 5 Departman İnteraktif Kokpit Girişi
+      // 3. KOKPİT SCROLL TRIGGER
       gsap.fromTo(
         `.${styles.deptCockpitFrame}`,
         { opacity: 0, y: 35 },
@@ -58,13 +58,13 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
           ease: "power3.out",
           scrollTrigger: {
             trigger: `.${styles.deptOverviewSection}`,
-            start: "top 78%",
+            start: "top 80%",
             once: true,
           },
         },
       );
 
-      // 4. Saha Kanıtları
+      // 4. SAHA KANITI SCROLL TRIGGER
       gsap.fromTo(
         `.${styles.proofCard}`,
         { opacity: 0, y: 30 },
@@ -76,13 +76,13 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
           ease: "power3.out",
           scrollTrigger: {
             trigger: `.${styles.proofSection}`,
-            start: "top 80%",
+            start: "top 82%",
             once: true,
           },
         },
       );
 
-      // 5. Taahhüt Kutusu
+      // 5. TAAHHÜTLER SCROLL TRIGGER
       gsap.fromTo(
         `.${styles.commitBox}`,
         { opacity: 0, y: 30 },
@@ -93,7 +93,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
           ease: "power3.out",
           scrollTrigger: {
             trigger: `.${styles.commitmentsSection}`,
-            start: "top 82%",
+            start: "top 85%",
             once: true,
           },
         },
@@ -105,9 +105,6 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
 
   return (
     <div ref={rootRef}>
-      {/* ==========================================================================
-          1. BÖLGESEL HERO: YERİNDE ZİYARET VE ÇİFT FONT TİPOGRAFİ
-          ========================================================================== */}
       <section className={`container ${styles.heroSection}`}>
         <span className={styles.eyebrowBadge}>
           {isTr
@@ -135,7 +132,6 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
         </p>
 
         <div className={styles.heroActionRow}>
-          {/* YENİLENEN 45 DERECE DÖNEN MASTER HERO BUTONU */}
           <a
             href="https://wa.me/905519769406?text=Merhaba%20Hexa%20Dijital,%20Bursa'daki%20i%C5%9Fletmemizi%20ziyaret%20etmeniz%20ve%20y%C3%BCz%20y%C3%BCze%20g%C3%B6r%C3%BC%C5%9Fmek%20i%C3%A7in%20yaz%C4%B1yorum."
             target="_blank"
@@ -173,9 +169,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
         </div>
       </section>
 
-      {/* ==========================================================================
-          2. EŞİT DENGELİ 2x2 BENTO GRID (#0D111A KART STANDARDI)
-          ========================================================================== */}
+      {/* 2. BENTO GRID */}
       <section className={`container ${styles.storyBentoSection}`}>
         <div className={styles.sectionHeadingWrap}>
           <h2 className={styles.sectionMainHeading}>
@@ -264,9 +258,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
         </div>
       </section>
 
-      {/* ==========================================================================
-          3. 2026 S+ İNTERAKTİF DEPARTMAN KOKPİTİ (#0D111A STANDARDI)
-          ========================================================================== */}
+      {/* 3. DEPARTMAN KOKPİTİ */}
       <section className={`container ${styles.deptOverviewSection}`}>
         <div className={styles.sectionHeadingWrap}>
           <h2 className={styles.sectionMainHeading}>
@@ -377,9 +369,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
         </div>
       </section>
 
-      {/* ==========================================================================
-          4. SAHA KANITI: HİZMETLER KART STANDARDI (#0D111A)
-          ========================================================================== */}
+      {/* 4. SAHA KANITI */}
       <section className={`container ${styles.proofSection}`}>
         <div className={styles.sectionHeadingWrap}>
           <h2 className={styles.sectionMainHeading}>
@@ -398,7 +388,6 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
         </div>
 
         <div className={styles.proofGrid}>
-          {/* 1. VAKA: TATAROĞLU İNŞAAT */}
           <div className={styles.proofCard}>
             <div className={styles.proofCardHeader}>
               <span className={styles.proofSectorTag}>İnşaat & Mimari</span>
@@ -418,7 +407,6 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
             </p>
           </div>
 
-          {/* 2. VAKA: MUNCHICO */}
           <div className={styles.proofCard}>
             <div className={styles.proofCardHeader}>
               <span className={styles.proofSectorTag}>
@@ -440,7 +428,6 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
             </p>
           </div>
 
-          {/* 3. VAKA: HİRA HALI YIKAMA */}
           <div className={styles.proofCard}>
             <div className={styles.proofCardHeader}>
               <span className={styles.proofSectorTag}>
@@ -466,9 +453,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
         </div>
       </section>
 
-      {/* ==========================================================================
-          5. NET KAPSAM & SABİT FİYAT TAAHHÜTÜ (#0D111A STANDARDI)
-          ========================================================================== */}
+      {/* 5. TAAHHÜTLER */}
       <section className={`container ${styles.commitmentsSection}`}>
         <div className={styles.commitBox}>
           <div className={styles.commitHeader}>

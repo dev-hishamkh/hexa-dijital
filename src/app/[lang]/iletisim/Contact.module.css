@@ -23,6 +23,17 @@
     flex-direction: column;
 }
 
+/* GSAP TARAFINDAN YÖNETİLEN ELEMANLAR: SIFIR PARLAMA */
+.eyebrowBadge,
+.title,
+.subtitle,
+.channelsColumn,
+.formColumn,
+.trustItem {
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
 .eyebrowBadge {
     display: inline-block;
     font-family: var(--font-main);
@@ -95,7 +106,6 @@
     gap: 1.75rem;
 }
 
-/* HİZMETLERDEKİ KART STANDARDI (#0D111A / 24PX) */
 .channelCard {
     background: #0D111A;
     border: 1px solid var(--hexa-border);
@@ -220,9 +230,6 @@
     flex-wrap: wrap;
 }
 
-/* ==========================================================================
-   45 DERECE DÖNEN MASTER BUTON STANDARDI
-   ========================================================================== */
 .executiveActionBtn,
 .executiveSubmitBtn {
     display: inline-flex;

@@ -114,11 +114,14 @@
     color: var(--hexa-accent);
 }
 
-.heroContent {
-    display: flex;
-    flex-direction: column;
-    max-width: 1100px;
-    margin-top: auto;
+/* GSAP TARAFINDAN YÖNETİLEN ELEMANLAR: SIFIR PARLAMA */
+.heroContent,
+.features8Card,
+.f11TopSplit,
+.f11BoxCard,
+.delivItemCard,
+.ctaBoxFrame {
+    opacity: 0;
     will-change: transform, opacity;
 }
 
@@ -175,7 +178,6 @@
     text-align: center;
     gap: 1.25rem;
     cursor: default;
-    will-change: transform, opacity;
 }
 
 .iconHolder {
@@ -258,7 +260,6 @@
     grid-template-columns: 1.35fr 1fr;
     gap: clamp(3rem, 5vw, 6.5rem);
     align-items: flex-end;
-    will-change: transform, opacity;
 }
 
 .f11MainHeadline {
@@ -314,7 +315,6 @@
     min-height: 310px;
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 0 15px 35px -15px rgba(0, 0, 0, 0.7);
-    will-change: transform, opacity;
 }
 
 .f11BoxCard:hover {
@@ -453,7 +453,6 @@
     grid-template-columns: 1fr 1.15fr;
     gap: clamp(3rem, 5vw, 6rem);
     align-items: center;
-    will-change: transform, opacity;
 }
 
 .rowImageLeft {
@@ -464,7 +463,6 @@
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
-    will-change: transform, opacity;
 }
 
 .zigzagTag {
@@ -518,7 +516,6 @@
 .zigzagVisualCol {
     position: relative;
     width: 100%;
-    will-change: transform, opacity;
 }
 
 .showcaseFrame {
@@ -634,7 +631,6 @@
     gap: 1rem;
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 0 15px 35px -15px rgba(0, 0, 0, 0.7);
-    will-change: transform, opacity;
 }
 
 .delivItemCard:hover {
@@ -708,7 +704,7 @@
 }
 
 /* ==========================================================================
-   KATMAN 6: YAN YANA BİRLEŞİK BÖLÜM (İPEKSİ AKORDEON ANİMASYONU)
+   KATMAN 6: YAN YANA BİRLEŞİK BÖLÜM
    ========================================================================== */
 .faqAndRelatedCombinedSection {
     width: 100%;
@@ -716,7 +712,6 @@
     margin: 0 auto 8.5rem auto;
     padding-left: clamp(2rem, 6vw, 6.5rem);
     padding-right: clamp(2rem, 6vw, 6.5rem);
-    will-change: transform, opacity;
 }
 
 .combinedTwoColLayout {
@@ -775,7 +770,6 @@
     border-top: 1px solid var(--hexa-border);
 }
 
-/* İPEKSİ AKORDEON ELEMANI */
 .faqRowItem {
     border-bottom: 1px solid var(--hexa-border);
     padding: 1.5rem 0;
@@ -821,7 +815,6 @@
     color: var(--hexa-accent);
 }
 
-/* CSS GRID İLE İPEKSİ DÖKÜLEN GÖVDE */
 .faqSmoothDrawer {
     display: grid;
     grid-template-rows: 0fr;
@@ -857,7 +850,6 @@
     color: #4b5563;
 }
 
-/* Sağ Sütun */
 .relatedStackGroup {
     display: flex;
     flex-direction: column;
@@ -997,7 +989,6 @@
     align-items: center;
     gap: clamp(3rem, 5vw, 5rem);
     box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 255, 209, 0.04);
-    will-change: transform, opacity;
 }
 
 [data-theme="light"] .ctaBoxFrame {
@@ -1080,7 +1071,6 @@
     align-items: flex-start;
 }
 
-/* 45 DERECE DÖNEN BUTON */
 .luxuryWhatsappBtn {
     display: inline-flex;
     align-items: center;
@@ -1142,7 +1132,6 @@
     background-color: #FFFFFF;
 }
 
-/* 45 DERECE DÖNÜŞ VE SİBER IŞIMA */
 .luxuryWhatsappBtn:hover .btnIconCircle {
     background-color: var(--hexa-accent);
     color: #0A0E17;

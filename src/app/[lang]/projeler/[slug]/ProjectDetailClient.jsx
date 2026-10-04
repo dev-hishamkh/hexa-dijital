@@ -24,7 +24,6 @@ import {
   ShieldCheck,
   CalendarCheck,
   ArrowLeft,
-  ArrowRight,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
@@ -58,6 +57,11 @@ export default function ProjectDetailClient({ project, lang }) {
   const rootRef = useRef(null);
   const galleryTrackRef = useRef(null);
   const [failedImages, setFailedImages] = useState({});
+
+  // FAREYLE TUTUP SÜRÜKLEME (GRAB-TO-SCROLL) DURUMLARI
+  const isDraggingRef = useRef(false);
+  const startXRef = useRef(0);
+  const scrollLeftRef = useRef(0);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -163,20 +167,37 @@ export default function ProjectDetailClient({ project, lang }) {
     return () => ctx.revert();
   }, []);
 
+  // OK BUTONLARI İLE KAYDIRMA
   const scrollGallery = (direction) => {
     if (!galleryTrackRef.current) return;
-    const distance = 580;
+    const distance = 600;
     galleryTrackRef.current.scrollBy({
       left: direction === "left" ? -distance : distance,
       behavior: "smooth",
     });
   };
 
-  const handleGalleryWheel = (e) => {
-    if (!galleryTrackRef.current) return;
-    if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-      galleryTrackRef.current.scrollLeft += e.deltaY * 0.85;
-    }
+  // FARE İLE TUTUP ÇEKME (GRAB) ETKİNLİKLERİ - ASLA KİLİTLENME YAPMAZ
+  const handleMouseDown = (e) => {
+    const track = galleryTrackRef.current;
+    if (!track) return;
+    isDraggingRef.current = true;
+    startXRef.current = e.pageX - track.offsetLeft;
+    scrollLeftRef.current = track.scrollLeft;
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDraggingRef.current) return;
+    e.preventDefault();
+    const track = galleryTrackRef.current;
+    if (!track) return;
+    const x = e.pageX - track.offsetLeft;
+    const walk = (x - startXRef.current) * 1.5; // Akıcı sürükleme hızı
+    track.scrollLeft = scrollLeftRef.current - walk;
+  };
+
+  const handleMouseUpOrLeave = () => {
+    isDraggingRef.current = false;
   };
 
   const handleImageError = (idx) => {
@@ -318,7 +339,7 @@ export default function ProjectDetailClient({ project, lang }) {
       </section>
 
       {/* ==========================================================================
-          KATMAN 5: KAYDIRMALI GALERİ
+          KATMAN 5: GERÇEK GRAB-TO-SCROLL GALERİSİ (ASLA KİLİTLENMEZ)
           ========================================================================== */}
       <section className={`container ${styles.gallerySection}`}>
         <div className={styles.galleryHeaderWrap}>
@@ -351,10 +372,13 @@ export default function ProjectDetailClient({ project, lang }) {
           </div>
         </div>
 
+        {/* FARE İLE TUTUP SÜRÜKLENEBİLEN, DİKEYİ ASLA ENGELLEMEYEN HAT */}
         <div
           ref={galleryTrackRef}
-          data-lenis-prevent="true"
-          onWheel={handleGalleryWheel}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUpOrLeave}
+          onMouseLeave={handleMouseUpOrLeave}
           className={styles.horizontalScrollTrack}
         >
           {galleryImages.map((src, idx) => {
@@ -369,6 +393,7 @@ export default function ProjectDetailClient({ project, lang }) {
                     fill
                     sizes="(max-width: 768px) 85vw, 680px"
                     className={styles.galleryCardImg}
+                    draggable={false}
                     onError={() => handleImageError(idx)}
                   />
                 ) : (
@@ -479,7 +504,6 @@ export default function ProjectDetailClient({ project, lang }) {
           </div>
 
           <div className={styles.ctaActionsCol}>
-            {/* 45 DERECE DÖNEN MASTER PROJE BUTONU */}
             <a
               href={`https://wa.me/905519769406?text=${encodeURIComponent(
                 isTr

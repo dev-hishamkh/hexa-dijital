@@ -54,31 +54,58 @@ export default function ProjectsClient({ lang }) {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
+      // TEK MASTER GSAP TİMELİNE: ÖNCE BAŞLIK ➔ SONRA FİLTRELER ➔ EN SON KARTLAR
+      const masterTl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+      masterTl
+        // 1. ADIM: Başlık ve açıklama süzülür
+        .fromTo(
+          `.${styles.headerArea} > *`,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            stagger: 0.08,
+          },
+        )
+        // 2. ADIM: Filtre çubuğu (Haplar) sahneye çıkar
+        .fromTo(
+          `.${styles.filterBar}`,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+          },
+          "-=0.25", // Başlık biterken filtre hemen başlar
+        )
+        // 3. ADIM: Filtreler açıldığı an kartlar sırayla dökülür
+        .fromTo(
+          `.${styles.projectCard}`,
+          { opacity: 0, y: 35, scale: 0.98 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.65,
+            stagger: 0.08,
+          },
+          "-=0.15", // Filtre oturduğu an kartlar yağ gibi akar
+        );
+
+      // 4. ALT CTA KUTUSU SCROLL TRIGGER İLE GELİR
       gsap.fromTo(
-        `.${styles.headerArea} > *`,
+        `.${styles.bottomCtaBox}`,
         { opacity: 0, y: 30 },
         {
           opacity: 1,
           y: 0,
           duration: 0.8,
-          stagger: 0.12,
-          ease: "power3.out",
-        },
-      );
-
-      gsap.fromTo(
-        `.${styles.projectCard}`,
-        { opacity: 0, y: 35, scale: 0.98 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.75,
-          stagger: 0.08,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: `.${styles.showcaseGrid}`,
-            start: "top 80%",
+            trigger: `.${styles.bottomCtaBox}`,
+            start: "top 88%",
             once: true,
           },
         },
@@ -139,6 +166,7 @@ export default function ProjectsClient({ lang }) {
   return (
     <div ref={rootRef} className={styles.mainContainer}>
       <section className={styles.contentSection}>
+        {/* 1. BAŞLIK ALANI */}
         <div className={styles.headerArea}>
           <span className={styles.eyebrowBadge}>
             {isTr
@@ -164,6 +192,7 @@ export default function ProjectsClient({ lang }) {
           </p>
         </div>
 
+        {/* 2. ÖNCE GELEN FİLTRE HAPLARI */}
         <div className={styles.filterBar}>
           <div className={styles.filterPillsGroup}>
             {filterTabs.map((tab) => {
@@ -187,6 +216,7 @@ export default function ProjectsClient({ lang }) {
           </span>
         </div>
 
+        {/* 3. SONRA DÖKÜLEN KARTLAR */}
         <div
           ref={gridRef}
           onMouseMove={handleMouseMove}
@@ -223,7 +253,6 @@ export default function ProjectsClient({ lang }) {
 
                     <div className={styles.vignetteOverlay} />
 
-                    {/* SAĞ ÜST 45° DÖNEN MİKRO OK BUTONU */}
                     <div className={styles.heroArrowBadge}>
                       <svg
                         className={styles.ctaArrowSvg}
@@ -260,7 +289,7 @@ export default function ProjectsClient({ lang }) {
           })}
         </div>
 
-        {/* ALT DÖNÜŞÜM ÇAĞRISI (45 DERECE DÖNEN MASTER BUTON) */}
+        {/* 4. ALT DÖNÜŞÜM ÇAĞRISI */}
         <div className={styles.bottomCtaBox}>
           <div className={styles.ctaLeft}>
             <span className={styles.ctaEyebrow}>

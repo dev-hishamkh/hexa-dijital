@@ -35,35 +35,43 @@ export default function ServicesClient({ lang = "tr" }) {
     const cta = ctaRef.current;
 
     const ctx = gsap.context(() => {
-      // 1. Hero Giriş Animasyonu
+      // 1. SAF GSAP HERO GİRİŞ ANİMASYONU (SIFIR PARLAMA)
       if (hero) {
         const badge = hero.querySelector(`.${styles.breadcrumbBadge}`);
-        const titleLines = hero.querySelectorAll(`.${styles.titleLine}`);
+        const titleWrappers = hero.querySelectorAll(
+          `.${styles.titleLineWrapper}`,
+        );
         const desc = hero.querySelector(`.${styles.heroDesc}`);
 
-        const tl = gsap.timeline();
+        const heroTl = gsap.timeline();
 
         if (badge) {
-          tl.to(badge, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" });
+          heroTl.fromTo(
+            badge,
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
+          );
         }
 
-        if (titleLines && titleLines.length > 0) {
-          tl.to(
-            titleLines,
+        if (titleWrappers && titleWrappers.length > 0) {
+          heroTl.fromTo(
+            titleWrappers,
+            { opacity: 0, y: 35 },
             {
-              yPercent: 0,
               opacity: 1,
-              duration: 0.9,
+              y: 0,
+              duration: 0.85,
               stagger: 0.12,
-              ease: "power4.out",
+              ease: "power3.out",
             },
-            "-=0.2",
+            "-=0.3",
           );
         }
 
         if (desc) {
-          tl.to(
+          heroTl.fromTo(
             desc,
+            { opacity: 0, y: 25 },
             { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" },
             "-=0.4",
           );
@@ -198,35 +206,29 @@ export default function ServicesClient({ lang = "tr" }) {
 
   return (
     <main className={styles.mainContainer}>
-      {/* 1. EDİTORYAL HERO */}
+      {/* 1. EDİTORYAL HERO (SAF GSAP MOTORU) */}
       <section ref={heroRef} className={`container ${styles.heroSection}`}>
         <div className={styles.heroContent}>
-          <span className={`${styles.breadcrumbBadge} ${styles.revealDelay1}`}>
+          <span className={styles.breadcrumbBadge}>
             {isTr
               ? "Hizmet Kataloğu · 5 Temel Alan"
               : "Service Catalogue · 5 Core Disciplines"}
           </span>
 
           <h1 className={styles.heroTitle}>
-            <span
-              className={`${styles.titleLineWrapper} ${styles.revealDelay2}`}
-            >
+            <span className={styles.titleLineWrapper}>
               <span className={styles.titleLine}>
                 {isTr ? "Hızlı web siteleri," : "Bespoke software,"}
               </span>
             </span>
-            <span
-              className={`${styles.titleLineWrapper} ${styles.revealDelay3}`}
-            >
+            <span className={styles.titleLineWrapper}>
               <span className={styles.titleLine}>
                 <span className={styles.serifItalic}>
                   {isTr ? "özel yazılımlar &" : "radical craft &"}
                 </span>
               </span>
             </span>
-            <span
-              className={`${styles.titleLineWrapper} ${styles.revealDelay4}`}
-            >
+            <span className={styles.titleLineWrapper}>
               <span className={styles.titleLine}>
                 <span>{isTr ? "müşteri kazandıran" : "high-impact"}</span>{" "}
                 <span className={styles.accentWord}>
@@ -236,7 +238,7 @@ export default function ServicesClient({ lang = "tr" }) {
             </span>
           </h1>
 
-          <p className={`${styles.heroDesc} ${styles.revealDelay5}`}>
+          <p className={styles.heroDesc}>
             {isTr ? (
               <>
                 İşletmenizin satışlarını artırmak için ihtiyacınız olan temel
@@ -261,7 +263,6 @@ export default function ServicesClient({ lang = "tr" }) {
         ref={workspaceRef}
         className={`container ${styles.interactiveWorkspace}`}
       >
-        {/* SOL: CANLI KATEGORİ VE ÇÖZÜM VİTRİNİ (STICKY) */}
         <aside className={styles.liveStageAside}>
           <div ref={stageRef} className={styles.liveStageCard}>
             <div
@@ -332,7 +333,6 @@ export default function ServicesClient({ lang = "tr" }) {
           </div>
         </aside>
 
-        {/* SAĞ: 5 DEPARTMAN & 24 HİZMET */}
         <div className={styles.servicesListingCol}>
           {groups.map((group, gIdx) => (
             <div
@@ -352,7 +352,6 @@ export default function ServicesClient({ lang = "tr" }) {
                 </div>
               </div>
 
-              {/* MOBİL İÇİN BİLGİ KARTI */}
               <div className={styles.mobileDeptDiagnosis}>
                 <div className={styles.diagItem}>
                   <span className={styles.diagBadge}>
@@ -370,7 +369,6 @@ export default function ServicesClient({ lang = "tr" }) {
                 </div>
               </div>
 
-              {/* HİZMET SATIRLARI */}
               <div className={styles.groupRowsWrap}>
                 {group.services.map((service, sIdx) => {
                   const isSelected = stageData.title === service.name;
@@ -431,7 +429,7 @@ export default function ServicesClient({ lang = "tr" }) {
         </div>
       </section>
 
-      {/* 3. DÖNÜŞÜM ÇAĞRISI (CTA) */}
+      {/* 3. DÖNÜŞÜM ÇAĞRISI */}
       <section className={`container ${styles.ctaContainer}`}>
         <div ref={ctaRef} className={styles.ctaBoxFrame}>
           <div className={styles.ctaContentLeft}>

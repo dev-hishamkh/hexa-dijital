@@ -1,6 +1,3 @@
-/* ==========================================================================
-   1. BÖLGESEL HERO
-   ========================================================================== */
 .heroSection {
     width: 100%;
     max-width: var(--max-width);
@@ -10,6 +7,19 @@
     padding-right: clamp(2rem, 6vw, 6.5rem);
     display: flex;
     flex-direction: column;
+}
+
+/* GSAP TARAFINDAN YÖNETİLEN ELEMANLAR: SIFIR PARLAMA */
+.eyebrowBadge,
+.heroTitle,
+.heroDesc,
+.heroActionRow,
+.bentoCard,
+.deptCockpitFrame,
+.proofCard,
+.commitBox {
+    opacity: 0;
+    will-change: transform, opacity;
 }
 
 .eyebrowBadge {
@@ -85,9 +95,6 @@
     flex-wrap: wrap;
 }
 
-/* ==========================================================================
-   YENİLENEN 45 DERECE DÖNEN MASTER HERO BUTONU
-   ========================================================================== */
 .heroExecutiveBtn {
     display: inline-flex;
     align-items: center;
@@ -185,9 +192,6 @@
     box-shadow: 0 0 10px #10b981;
 }
 
-/* ==========================================================================
-   2. BENTO GRID (HİZMETLERDEKİ KART STANDARDI: #0D111A / 24PX)
-   ========================================================================== */
 .storyBentoSection {
     width: 100%;
     max-width: var(--max-width);
@@ -239,7 +243,6 @@
     width: 100%;
 }
 
-/* SİTEDEKİ DİĞER KARTLARLA %100 AYNI: #0D111A */
 .bentoCard {
     background: #0D111A;
     border: 1px solid var(--hexa-border);
@@ -308,9 +311,6 @@
     color: #4b5563;
 }
 
-/* ==========================================================================
-   3. DEPARTMAN KOKPİTİ (#0D111A STANDARDI)
-   ========================================================================== */
 .deptOverviewSection {
     width: 100%;
     max-width: var(--max-width);
@@ -395,6 +395,14 @@
 
 [data-theme="light"] .navBtnNumber {
     color: #94a3b8;
+}
+
+.cockpitNavBtn:hover .navBtnNumber {
+    color: #FFFFFF;
+}
+
+[data-theme="light"] .cockpitNavBtn:hover .navBtnNumber {
+    color: #111827;
 }
 
 .cockpitNavBtnActive .navBtnNumber {
@@ -556,7 +564,6 @@
     gap: 0.85rem;
 }
 
-/* 45 DERECE DÖNEN KOKPİT HİZMET BUTONU */
 .cockpitServiceBtn {
     display: inline-flex;
     align-items: center;
@@ -618,9 +625,6 @@
     color: #0A0E17;
 }
 
-/* ==========================================================================
-   4. SAHA KANITI: HİZMETLER KART STANDARDI (#0D111A / 24PX)
-   ========================================================================== */
 .proofSection {
     width: 100%;
     max-width: var(--max-width);
@@ -734,9 +738,6 @@
     color: #4b5563;
 }
 
-/* ==========================================================================
-   5. TAAHHÜT KUTUSU (#0D111A / 24PX STANDARDI)
-   ========================================================================== */
 .commitmentsSection {
     width: 100%;
     max-width: var(--max-width);

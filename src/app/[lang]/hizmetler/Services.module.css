@@ -6,9 +6,6 @@
     transition: background-color 0.4s var(--ease-out);
 }
 
-/* ==========================================================================
-   1. GENİŞ EDİTORYAL HERO (TAŞMA SORUNU GİDERİLDİ)
-   ========================================================================== */
 .heroSection {
     width: 100%;
     max-width: var(--max-width);
@@ -20,9 +17,10 @@
 .heroContent {
     display: flex;
     flex-direction: column;
-    max-width: 1600px;
+    max-width: 1100px;
 }
 
+/* GSAP TARAFINDAN YÖNETİLEN ELEMANLAR: PARLAMA YAPMAMASI İÇİN 0 İLE BEKLER */
 .breadcrumbBadge {
     display: inline-block;
     font-family: var(--font-main);
@@ -32,11 +30,9 @@
     color: var(--hexa-accent);
     margin-bottom: 1.75rem;
     opacity: 0;
-    transform: translateY(20px);
-    animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform, opacity;
 }
 
-/* TAŞMAYI ENGELLEYEN RAFİNE PUNTO VE SATIR YÜKSEKLİĞİ */
 .heroTitle {
     display: flex;
     flex-direction: column;
@@ -55,11 +51,9 @@
 .titleLineWrapper {
     display: block;
     opacity: 0;
-    transform: translateY(35px);
-    animation: revealUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform, opacity;
 }
 
-/* NOWRAP SİLİNDİ, EKRANA SIĞACAK ŞEKİLDE AYARLANDI */
 .titleLine {
     display: inline-block;
     max-width: 100%;
@@ -90,49 +84,13 @@
     max-width: 780px;
     margin: 0;
     opacity: 0;
-    transform: translateY(30px);
-    animation: revealUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform, opacity;
 }
 
 [data-theme="light"] .heroDesc {
     color: #3f3f46;
 }
 
-.revealDelay1 {
-    animation-delay: 0.08s;
-}
-
-.revealDelay2 {
-    animation-delay: 0.16s;
-}
-
-.revealDelay3 {
-    animation-delay: 0.26s;
-}
-
-.revealDelay4 {
-    animation-delay: 0.36s;
-}
-
-.revealDelay5 {
-    animation-delay: 0.48s;
-}
-
-@keyframes revealUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ==========================================================================
-   2. MASAÜSTÜ İNTERAKTİF WORKSPACE
-   ========================================================================== */
 .interactiveWorkspace {
     width: 100%;
     max-width: var(--max-width);
@@ -326,9 +284,6 @@
     letter-spacing: -0.01em;
 }
 
-/* ==========================================================================
-   SAĞ: ANITSAL DEPARTMANLAR
-   ========================================================================== */
 .servicesListingCol {
     display: flex;
     flex-direction: column;
@@ -544,9 +499,6 @@
     color: #0A0E17;
 }
 
-/* ==========================================================================
-   3. CTA BÖLÜMÜ
-   ========================================================================== */
 .ctaContainer {
     width: 100%;
     max-width: var(--max-width);
@@ -656,7 +608,6 @@
     align-items: flex-start;
 }
 
-/* 45 DERECE DÖNEN MASTER CTA BUTONU */
 .luxuryWhatsappBtn {
     display: inline-flex;
     align-items: center;
