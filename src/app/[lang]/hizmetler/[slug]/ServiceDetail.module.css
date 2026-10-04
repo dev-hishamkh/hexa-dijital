@@ -1,0 +1,1510 @@
+.mainContainer {
+    min-height: 100vh;
+    background-color: var(--hexa-bg);
+    padding-bottom: 9rem;
+    transition: background-color 0.4s var(--ease-out);
+}
+
+/* ==========================================================================
+   1. SİNEMATİK BACKGROUND HERO
+   ========================================================================== */
+.heroSection {
+    position: relative;
+    width: 100vw;
+    min-height: 82vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: calc(var(--header-height) + 3.5rem);
+    padding-bottom: 4rem;
+    overflow: hidden;
+}
+
+.heroBackground {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.heroBgImg {
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.24) contrast(1.15) saturate(1.1);
+    transform: scale(1.04);
+}
+
+[data-theme="light"] .heroBgImg {
+    filter: brightness(0.92) contrast(1.05) saturate(1.1);
+    opacity: 0.16;
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 60% 40%, rgba(10, 14, 23, 0.45) 0%, rgba(10, 14, 23, 0.94) 80%, #0A0E17 100%);
+}
+
+[data-theme="light"] .heroOverlay {
+    background: radial-gradient(circle at 60% 40%, rgba(245, 245, 247, 0.6) 0%, rgba(245, 245, 247, 0.96) 80%, #F5F5F7 100%);
+}
+
+.bottomFadeGradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to bottom, transparent 0%, var(--hexa-bg) 100%);
+}
+
+.heroContainer {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding-left: clamp(2rem, 6vw, 6.5rem);
+    padding-right: clamp(2rem, 6vw, 6.5rem);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: calc(82vh - var(--header-height) - 7.5rem);
+}
+
+.navigationRow {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 2rem;
+}
+
+.backNav {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-main);
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--hexa-font-muted);
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.backNav:hover {
+    color: var(--hexa-accent);
+}
+
+.backArrow {
+    transition: transform 0.25s ease;
+}
+
+.backNav:hover .backArrow {
+    transform: translateX(-3px);
+}
+
+.navSeparator {
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 0.88rem;
+}
+
+.currentDeptText {
+    font-family: var(--font-main);
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--hexa-accent);
+}
+
+.heroContent {
+    display: flex;
+    flex-direction: column;
+    max-width: 1100px;
+    margin-top: auto;
+}
+
+.heroTitle {
+    font-family: var(--font-main);
+    font-size: clamp(3.2rem, 6.2vw, 5.8rem);
+    font-weight: 600;
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+    color: #F8FAFC;
+    margin: 0 0 1.5rem 0;
+}
+
+[data-theme="light"] .heroTitle {
+    color: #111827;
+}
+
+.heroLead {
+    font-family: var(--font-main);
+    font-size: clamp(1.15rem, 1.35vw, 1.32rem);
+    line-height: 1.65;
+    color: #e2e8f0;
+    letter-spacing: -0.015em;
+    max-width: 860px;
+    margin: 0;
+}
+
+[data-theme="light"] .heroLead {
+    color: #374151;
+}
+
+/* ==========================================================================
+   2. REACT BITS PRO "FEATURES 8" BLOĞU
+   ========================================================================== */
+.features8Section {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto 7.5rem auto;
+    padding-left: clamp(2rem, 6vw, 6.5rem);
+    padding-right: clamp(2rem, 6vw, 6.5rem);
+}
+
+.features8Grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(2.5rem, 4.5vw, 4.5rem);
+    padding: 3.5rem 0;
+    border-top: 1px solid var(--hexa-border);
+    border-bottom: 1px solid var(--hexa-border);
+    text-align: center;
+}
+
+.features8Card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+    cursor: default;
+}
+
+.iconHolder {
+    width: 54px;
+    height: 54px;
+    border-radius: var(--radius-full);
+    background: rgba(0, 255, 209, 0.08);
+    border: 1px solid rgba(0, 255, 209, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--hexa-accent);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lucideIcon {
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.features8Card:hover .iconHolder {
+    background-color: var(--hexa-accent);
+    border-color: var(--hexa-accent);
+    color: #0A0E17;
+    box-shadow: 0 0 28px var(--hexa-accent-glow);
+    transform: translateY(-2px) scale(1.08);
+}
+
+.features8Card:hover .lucideIcon {
+    color: #0A0E17;
+    transform: scale(1.05);
+}
+
+.serifHeading {
+    font-family: var(--font-italic-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.45rem, 2vw, 1.85rem);
+    letter-spacing: -0.02em;
+    color: #F8FAFC;
+    margin: 0;
+    line-height: 1.2;
+    transition: color 0.3s ease;
+}
+
+[data-theme="light"] .serifHeading {
+    color: #111827;
+}
+
+.features8Card:hover .serifHeading {
+    color: var(--hexa-accent);
+}
+
+.minimalistCopy {
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    line-height: 1.62;
+    color: #cbd5e1;
+    letter-spacing: -0.015em;
+    margin: 0;
+    max-width: 320px;
+}
+
+[data-theme="light"] .minimalistCopy {
+    color: #4b5563;
+}
+
+/* ==========================================================================
+   3. REACT BITS PRO "FEATURES 11" BLOĞU
+   ========================================================================== */
+.features11Section {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto 8.5rem auto;
+    padding-left: clamp(2rem, 6vw, 6.5rem);
+    padding-right: clamp(2rem, 6vw, 6.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.f11TopSplit {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: clamp(3rem, 5vw, 6.5rem);
+    align-items: flex-end;
+}
+
+.f11MainHeadline {
+    font-family: var(--font-main);
+    font-size: clamp(2.4rem, 4.4vw, 4.2rem);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    color: #F8FAFC;
+    margin: 0;
+}
+
+[data-theme="light"] .f11MainHeadline {
+    color: #111827;
+}
+
+.f11ItalicWord {
+    font-family: var(--font-italic-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--hexa-font-serif);
+}
+
+.f11RightParagraph {
+    font-family: var(--font-main);
+    font-size: clamp(1.02rem, 1.2vw, 1.15rem);
+    line-height: 1.65;
+    color: #cbd5e1;
+    letter-spacing: -0.015em;
+    margin: 0;
+    max-width: 480px;
+}
+
+[data-theme="light"] .f11RightParagraph {
+    color: #4b5563;
+}
+
+.f11CardsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.f11BoxCard {
+    background: #0A0E17;
+    border: 1px solid var(--hexa-border);
+    border-radius: 20px;
+    padding: 2rem 2rem 1.75rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 310px;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 15px 35px -15px rgba(0, 0, 0, 0.7);
+}
+
+.f11BoxCard:hover {
+    border-color: var(--hexa-border-focus);
+    transform: translateY(-4px);
+    background-color: #0D121D;
+    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 255, 209, 0.05);
+}
+
+[data-theme="light"] .f11BoxCard {
+    background: #FFFFFF;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .f11BoxCard:hover {
+    background: #FAFAFA;
+}
+
+.f11CardTopHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.f11IconSquare {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--hexa-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F8FAFC;
+    transition: all 0.3s ease;
+}
+
+[data-theme="light"] .f11IconSquare {
+    background: rgba(0, 0, 0, 0.04);
+    color: #111827;
+}
+
+.f11BoxCard:hover .f11IconSquare {
+    background-color: rgba(0, 255, 209, 0.1);
+    border-color: var(--hexa-accent);
+    color: var(--hexa-accent);
+}
+
+.f11CardIndexNum {
+    font-family: monospace;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--hexa-font-muted);
+    letter-spacing: 0.05em;
+}
+
+.f11CardBody {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2.25rem;
+    flex-grow: 1;
+}
+
+.f11CardTitle {
+    font-family: var(--font-main);
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    color: #F8FAFC;
+    margin: 0;
+    line-height: 1.25;
+}
+
+[data-theme="light"] .f11CardTitle {
+    color: #111827;
+}
+
+.f11CardText {
+    font-family: var(--font-main);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    letter-spacing: -0.01em;
+    margin: 0;
+}
+
+[data-theme="light"] .f11CardText {
+    color: #4b5563;
+}
+
+.f11CardFooterLine {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--hexa-border);
+}
+
+.f11ActionText {
+    font-family: var(--font-main);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #F8FAFC;
+    letter-spacing: -0.01em;
+    transition: color 0.25s ease;
+}
+
+[data-theme="light"] .f11ActionText {
+    color: #111827;
+}
+
+.f11ActionArrow {
+    color: var(--hexa-font-muted);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
+}
+
+.f11BoxCard:hover .f11ActionText {
+    color: var(--hexa-accent);
+}
+
+.f11BoxCard:hover .f11ActionArrow {
+    color: var(--hexa-accent);
+    transform: translateX(4px);
+}
+
+/* ==========================================================================
+   4. CIRCULAR ORBITAL INTEGRATION HUB (3'LÜ ARI PETEĞİ ALTIGEN MERKEZLİ)
+   ========================================================================== */
+.orbitalSection {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto 9rem auto;
+    padding-left: clamp(2rem, 6vw, 6.5rem);
+    padding-right: clamp(2rem, 6vw, 6.5rem);
+}
+
+.orbitalLayout {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: clamp(3rem, 5vw, 6.5rem);
+    align-items: center;
+    padding-top: 3.5rem;
+    border-top: 1px solid var(--hexa-border);
+}
+
+.orbitalLeftContent {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.orbitalBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: monospace;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--hexa-accent);
+}
+
+.orbitalMainHeading {
+    font-family: var(--font-main);
+    font-size: clamp(2.2rem, 3.4vw, 3.2rem);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+    color: #F8FAFC;
+    margin: 0;
+}
+
+[data-theme="light"] .orbitalMainHeading {
+    color: #111827;
+}
+
+.orbitalDescription {
+    font-family: var(--font-main);
+    font-size: 1.05rem;
+    line-height: 1.68;
+    color: #cbd5e1;
+    letter-spacing: -0.015em;
+    margin: 0;
+    max-width: 540px;
+}
+
+[data-theme="light"] .orbitalDescription {
+    color: #4b5563;
+}
+
+.orbitalActionRow {
+    display: flex;
+    align-items: center;
+    margin-top: 0.75rem;
+}
+
+.orbitalWhiteBtn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.85rem 1.85rem;
+    border-radius: var(--radius-full);
+    background-color: #FFFFFF;
+    color: #0A0E17;
+    text-decoration: none;
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="light"] .orbitalWhiteBtn {
+    background-color: #111827;
+    color: #FFFFFF;
+}
+
+.orbitalWhiteBtn:hover {
+    background-color: var(--hexa-accent);
+    color: #0A0E17;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px var(--hexa-accent-glow);
+}
+
+/* Sağ Yörünge Sahnesi */
+.orbitalRightDiagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+}
+
+.orbitalStageWrap {
+    position: relative;
+    width: 420px;
+    height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Dış Çember */
+.orbitalRingOuter {
+    position: absolute;
+    inset: 15px;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="light"] .orbitalRingOuter {
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* İç Kesikli Çember */
+.orbitalRingInnerDashed {
+    position: absolute;
+    inset: 65px;
+    border-radius: var(--radius-full);
+    border: 1px dashed rgba(255, 255, 255, 0.14);
+}
+
+[data-theme="light"] .orbitalRingInnerDashed {
+    border-color: rgba(0, 0, 0, 0.12);
+}
+
+/* Radyal Bağlantı Kolları (Spoke Lines) */
+.spokeLine {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.08) 50%, transparent 100%);
+    pointer-events: none;
+}
+
+.spoke1 {
+    transform: rotate(0deg);
+}
+
+.spoke2 {
+    transform: rotate(60deg);
+}
+
+.spoke3 {
+    transform: rotate(120deg);
+}
+
+/* Yörünge Üzerindeki Mikro Parıltı Parçacıkları (Orbit Dots) */
+.orbitDotParticle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: var(--radius-full);
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+    pointer-events: none;
+}
+
+.pDot1 {
+    top: 12%;
+    left: 32%;
+}
+
+.pDot2 {
+    top: 15%;
+    right: 28%;
+}
+
+.pDot3 {
+    top: 50%;
+    right: 4%;
+}
+
+.pDot4 {
+    bottom: 12%;
+    right: 30%;
+}
+
+.pDot5 {
+    bottom: 15%;
+    left: 28%;
+}
+
+.pDot6 {
+    top: 50%;
+    left: 4%;
+}
+
+/* Merkez Kutu: 3'lü Arı Peteği Altıgen Bloğu */
+.orbitalCenterBox {
+    position: relative;
+    z-index: 10;
+    width: 116px;
+    height: 116px;
+    border-radius: 26px;
+    background: #0E131F;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.85);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+}
+
+[data-theme="light"] .orbitalCenterBox {
+    background: #FFFFFF;
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* 3'lü Arı Peteği (Honeycomb Cluster) Vektörleri */
+.honeycombCluster {
+    position: relative;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hexPetek {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    color: #F8FAFC;
+    transition: all 0.3s ease;
+}
+
+[data-theme="light"] .hexPetek {
+    color: #111827;
+}
+
+.hexTop {
+    top: 2px;
+    left: 11px;
+}
+
+.hexBottomLeft {
+    bottom: 3px;
+    left: 3px;
+}
+
+.hexBottomRight {
+    bottom: 3px;
+    right: 3px;
+}
+
+.orbitalCenterBox:hover .hexPetek {
+    color: var(--hexa-accent);
+}
+
+.centerHubLabel {
+    font-family: monospace;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--hexa-font-muted);
+}
+
+/* 6 Yörünge Düğümü */
+.orbitalNodeItem {
+    position: absolute;
+    z-index: 12;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.nodeIconBox {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: #0D111A;
+    border: 1px solid var(--hexa-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F8FAFC;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="light"] .nodeIconBox {
+    background: #FFFFFF;
+    border-color: rgba(0, 0, 0, 0.08);
+    color: #111827;
+}
+
+.orbitalNodeItem:hover .nodeIconBox {
+    background-color: var(--hexa-accent);
+    border-color: var(--hexa-accent);
+    color: #0A0E17;
+    transform: scale(1.1);
+    box-shadow: 0 0 24px var(--hexa-accent-glow);
+}
+
+.nodeLabelText {
+    font-family: var(--font-main);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #cbd5e1;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+}
+
+[data-theme="light"] .nodeLabelText {
+    color: #374151;
+}
+
+/* 6 Düğümün Geometrik Açısal Konumları */
+.nodePosition1 {
+    top: 4%;
+    left: 50%;
+}
+
+.nodePosition2 {
+    top: 27%;
+    left: 96%;
+}
+
+.nodePosition3 {
+    top: 73%;
+    left: 96%;
+}
+
+.nodePosition4 {
+    top: 96%;
+    left: 50%;
+}
+
+.nodePosition5 {
+    top: 73%;
+    left: 4%;
+}
+
+.nodePosition6 {
+    top: 27%;
+    left: 4%;
+}
+
+/* ==========================================================================
+   5. ŞEFFAF TESLİMAT STANDARTLARI (GÖRSELLE BİREBİR 4 SÜTUNLU IZGARA)
+   ========================================================================== */
+.deliverablesSection {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto 8.5rem auto;
+    padding-left: clamp(2rem, 6vw, 6.5rem);
+    padding-right: clamp(2rem, 6vw, 6.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.deliverablesHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 820px;
+}
+
+.delivEyebrow {
+    font-family: monospace;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--hexa-accent);
+}
+
+.delivMainHeading {
+    font-family: var(--font-main);
+    font-size: clamp(2.4rem, 4.4vw, 4.2rem);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    color: #F8FAFC;
+    margin: 0;
+}
+
+[data-theme="light"] .delivMainHeading {
+    color: #111827;
+}
+
+.delivLeadText {
+    font-family: var(--font-main);
+    font-size: clamp(1.02rem, 1.2vw, 1.15rem);
+    line-height: 1.65;
+    color: #cbd5e1;
+    letter-spacing: -0.015em;
+    margin: 0;
+}
+
+[data-theme="light"] .delivLeadText {
+    color: #4b5563;
+}
+
+/* 4 Sütunlu Minimalist Izgara */
+.deliv4ColGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(2rem, 3.5vw, 3.5rem);
+    width: 100%;
+}
+
+.delivGridItem {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.delivItemTop {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.delivIconBadge {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--hexa-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--hexa-accent);
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+[data-theme="light"] .delivIconBadge {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.delivGridItem:hover .delivIconBadge {
+    background-color: var(--hexa-accent);
+    border-color: var(--hexa-accent);
+    color: #0A0E17;
+    box-shadow: 0 0 15px var(--hexa-accent-glow);
+}
+
+.delivIconSvg {
+    transition: color 0.3s ease;
+}
+
+.delivItemTitle {
+    font-family: var(--font-main);
+    font-size: 1.08rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #F8FAFC;
+    margin: 0;
+    line-height: 1.25;
+}
+
+[data-theme="light"] .delivItemTitle {
+    color: #111827;
+}
+
+.delivItemDesc {
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    line-height: 1.58;
+    color: #cbd5e1;
+    letter-spacing: -0.01em;
+    margin: 0;
+}
+
+[data-theme="light"] .delivItemDesc {
+    color: #4b5563;
+}
+
+/* ==========================================================================
+   6. KANITLANMIŞ SAHA ÇIKTISI (TEK PARÇA LÜKS VİTRİN)
+   ========================================================================== */
+.caseSection {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto 7.5rem auto;
+    padding-left: clamp(2rem, 6vw, 6.5rem);
+    padding-right: clamp(2rem, 6vw, 6.5rem);
+}
+
+.caseFrame {
+    background: #0D111A;
+    border: 1px solid var(--hexa-border);
+    border-radius: 24px;
+    padding: clamp(3rem, 5vw, 4.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 255, 209, 0.03);
+}
+
+[data-theme="light"] .caseFrame {
+    background: #FFFFFF;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+.caseMeta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.caseBadge {
+    font-family: monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--hexa-accent);
+    letter-spacing: 0.1em;
+}
+
+.caseClient {
+    font-family: var(--font-main);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--hexa-font-muted);
+}
+
+.caseMetricValue {
+    font-family: var(--font-main);
+    font-size: clamp(2rem, 3.4vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: #F8FAFC;
+    line-height: 1.1;
+}
+
+[data-theme="light"] .caseMetricValue {
+    color: #111827;
+}
+
+.caseSummaryText {
+    font-family: var(--font-main);
+    font-size: 1.1rem;
+    line-height: 1.65;
+    color: #cbd5e1;
+    max-width: 860px;
+    margin: 0;
+}
+
+[data-theme="light"] .caseSummaryText {
+    color: #374151;
+}
+
+/* ==========================================================================
+   7. SSS (KUTUSUZ ÇİZGİSEL AKORDEON)
+   ========================================================================== */
+.faqSection {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto 7.5rem auto;
+    padding-left: clamp(2rem, 6vw, 6.5rem);
+    padding-right: clamp(2rem, 6vw, 6.5rem);
+    display: flex;
+    flex-direction: column;
+}
+
+.sectionHeaderRow {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 3.5rem;
+}
+
+.sectionLabel {
+    font-family: monospace;
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--hexa-accent);
+    letter-spacing: 0.12em;
+}
+
+.sectionTitle {
+    font-family: var(--font-main);
+    font-size: clamp(2rem, 3.2vw, 2.8rem);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    color: #F8FAFC;
+    margin: 0;
+}
+
+[data-theme="light"] .sectionTitle {
+    color: #111827;
+}
+
+.faqListContainer {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--hexa-border);
+}
+
+.faqRowItem {
+    border-bottom: 1px solid var(--hexa-border);
+    padding: 1.75rem 0;
+    transition: all 0.25s ease;
+}
+
+.faqSummaryLine {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+}
+
+.faqSummaryLine::-webkit-details-marker {
+    display: none;
+}
+
+.faqQuestionText {
+    font-family: var(--font-main);
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #F8FAFC;
+    margin: 0;
+    transition: color 0.25s ease;
+}
+
+[data-theme="light"] .faqQuestionText {
+    color: #111827;
+}
+
+.faqRowItem:hover .faqQuestionText,
+.faqRowItem[open] .faqQuestionText {
+    color: var(--hexa-accent);
+}
+
+.faqExpandIcon {
+    color: var(--hexa-font-muted);
+    transition: transform 0.3s ease, color 0.25s ease;
+}
+
+.faqRowItem[open] .faqExpandIcon {
+    transform: rotate(45deg);
+    color: var(--hexa-accent);
+}
+
+.faqAnswerBody {
+    margin-top: 1.25rem;
+    max-width: 860px;
+}
+
+.faqAnswerParagraph {
+    font-family: var(--font-main);
+    font-size: 1rem;
+    line-height: 1.65;
+    color: #cbd5e1;
+    margin: 0;
+}
+
+[data-theme="light"] .faqAnswerParagraph {
+    color: #4b5563;
+}
+
+/* ==========================================================================
+   8. İLGİLİ ÇÖZÜMLER (HİZMETLER SATIR DİLİ)
+   ========================================================================== */
+.relatedSection {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto 8rem auto;
+    padding-left: clamp(2rem, 6vw, 6.5rem);
+    padding-right: clamp(2rem, 6vw, 6.5rem);
+    display: flex;
+    flex-direction: column;
+}
+
+.relatedRowsGroup {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--hexa-border);
+}
+
+.relatedRowLink {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--hexa-border);
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.relatedRowLink:hover {
+    padding-left: 1rem;
+    border-bottom-color: var(--hexa-accent);
+}
+
+.relatedLeftInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.relatedCategoryTag {
+    font-family: monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--hexa-accent);
+    letter-spacing: 0.1em;
+}
+
+.relatedServiceName {
+    font-family: var(--font-main);
+    font-size: clamp(1.25rem, 1.8vw, 1.6rem);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    color: #F8FAFC;
+    margin: 0;
+    transition: color 0.25s ease;
+}
+
+[data-theme="light"] .relatedServiceName {
+    color: #111827;
+}
+
+.relatedRowLink:hover .relatedServiceName {
+    color: var(--hexa-accent);
+}
+
+.relatedRightAction {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.relatedKpiText {
+    font-family: monospace;
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: var(--hexa-font-muted);
+}
+
+.arrowCircleMini {
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-full);
+    background: var(--hexa-surface);
+    border: 1px solid var(--hexa-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--hexa-font-muted);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.arrowSvgMini {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.relatedRowLink:hover .arrowCircleMini {
+    background-color: var(--hexa-accent);
+    border-color: var(--hexa-accent);
+    color: #0A0E17;
+    transform: scale(1.08);
+}
+
+/* ==========================================================================
+   9. LÜKS BEYAZ KAPSÜL ALT CTA
+   ========================================================================== */
+.bottomCtaSection {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding-left: clamp(2rem, 6vw, 6.5rem);
+    padding-right: clamp(2rem, 6vw, 6.5rem);
+}
+
+.ctaBoxFrame {
+    background: #0D111A;
+    border: 1px solid var(--hexa-border);
+    border-radius: 28px;
+    padding: clamp(3rem, 5vw, 4.5rem);
+    display: grid;
+    grid-template-columns: 1.55fr 1fr;
+    align-items: center;
+    gap: clamp(3rem, 5vw, 5rem);
+    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 255, 209, 0.04);
+}
+
+[data-theme="light"] .ctaBoxFrame {
+    background: #FFFFFF;
+    border-color: rgba(0, 0, 0, 0.09);
+    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.08);
+}
+
+.ctaContentLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.ctaBadgeArea {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+    background: rgba(0, 255, 209, 0.08);
+    border: 1px solid rgba(0, 255, 209, 0.2);
+    width: fit-content;
+}
+
+.ctaStatusDot {
+    width: 6px;
+    height: 6px;
+    border-radius: var(--radius-full);
+    background-color: var(--hexa-accent);
+    box-shadow: 0 0 8px var(--hexa-accent);
+}
+
+.ctaBadgeLabel {
+    font-family: monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--hexa-accent);
+}
+
+.ctaMainHeading {
+    font-family: var(--font-main);
+    font-size: clamp(2rem, 3.2vw, 2.9rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+    color: #F8FAFC;
+    margin: 0;
+}
+
+[data-theme="light"] .ctaMainHeading {
+    color: #111827;
+}
+
+.serifAccentWord {
+    font-family: var(--font-italic-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--hexa-font-serif);
+}
+
+.ctaBodyText {
+    font-family: var(--font-main);
+    font-size: 1.05rem;
+    line-height: 1.62;
+    color: #cbd5e1;
+    max-width: 620px;
+    margin: 0;
+}
+
+[data-theme="light"] .ctaBodyText {
+    color: #4b5563;
+}
+
+.ctaActionsRight {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: flex-start;
+}
+
+.luxuryWhatsappBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.75rem;
+    padding: 0.75rem 0.85rem 0.75rem 1.85rem;
+    border-radius: var(--radius-full);
+    background-color: #FFFFFF;
+    color: #0A0E17;
+    text-decoration: none;
+    font-family: var(--font-main);
+    font-size: 0.98rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    width: fit-content;
+}
+
+[data-theme="light"] .luxuryWhatsappBtn {
+    background-color: #111827;
+    color: #FFFFFF;
+}
+
+.btnMainText {
+    letter-spacing: -0.01em;
+}
+
+.btnIconCircle {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    background-color: #0A0E17;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="light"] .btnIconCircle {
+    background-color: #FFFFFF;
+}
+
+.btnArrowSvg {
+    color: #FFFFFF;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="light"] .btnArrowSvg {
+    color: #111827;
+}
+
+.luxuryWhatsappBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px var(--hexa-accent-glow);
+    background-color: #FFFFFF;
+}
+
+.luxuryWhatsappBtn:hover .btnIconCircle {
+    background-color: var(--hexa-accent);
+    transform: rotate(45deg);
+}
+
+.secondaryInquiryLink {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-main);
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--hexa-font-muted);
+    text-decoration: none;
+    transition: color 0.25s ease;
+    padding-left: 0.25rem;
+}
+
+.secondaryInquiryLink:hover {
+    color: #F8FAFC;
+}
+
+[data-theme="light"] .secondaryInquiryLink:hover {
+    color: #111827;
+}
+
+/* ==========================================================================
+   TABLET VE MOBİL DUYARLILIK
+   ========================================================================== */
+@media (max-width: 1200px) {
+    .deliv4ColGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+
+    .orbitalLayout {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .orbitalRightDiagram {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 1080px) {
+    .features8Grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .f11TopSplit {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .f11CardsGrid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .ctaBoxFrame {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding: 2.75rem 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .heroSection {
+        min-height: 70vh;
+        padding-top: calc(var(--header-height) + 2rem);
+        padding-bottom: 3rem;
+    }
+
+    .heroContainer,
+    .features8Section,
+    .features11Section,
+    .orbitalSection,
+    .deliverablesSection,
+    .caseSection,
+    .faqSection,
+    .relatedSection,
+    .bottomCtaSection {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+
+    .heroTitle {
+        font-size: clamp(2.4rem, 8.5vw, 3.8rem);
+    }
+
+    .orbitalStageWrap {
+        width: 320px;
+        height: 320px;
+    }
+
+    .deliv4ColGrid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .relatedRowLink {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .relatedRightAction {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .luxuryWhatsappBtn {
+        width: 100%;
+        justify-content: space-between;
+    }
+}

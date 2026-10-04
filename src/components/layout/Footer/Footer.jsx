@@ -13,6 +13,8 @@ export default function Footer({ lang = "tr" }) {
   const massiveTextRef = useRef(null);
   const socialRowRef = useRef(null);
 
+  const groups = servicesData[lang] || servicesData.tr;
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -43,7 +45,7 @@ export default function Footer({ lang = "tr" }) {
         );
       }
 
-      // 2. Devasa 35VW HEXA Filigranının Parallax Yükselişi (Opasite boğulması kaldırıldı!)
+      // 2. Devasa HEXA Filigranının Parallax Yükselişi
       if (massiveText) {
         gsap.fromTo(
           massiveText,
@@ -56,7 +58,7 @@ export default function Footer({ lang = "tr" }) {
               trigger: footerRef.current,
               start: "top bottom",
               end: "bottom bottom",
-              scrub: 1, // Lenis ile senkronize akış
+              scrub: 1,
             },
           },
         );
@@ -90,47 +92,47 @@ export default function Footer({ lang = "tr" }) {
       <div className={`container ${styles.container}`}>
         {/* 5 HİZMET KATEGORİSİNİN YAN YANA EŞİT DİZİLİMİ */}
         <div ref={columnsRef} className={styles.footerColumns5grid}>
-          {servicesData.map((category) => {
-            const sub = category.subCategories[0];
-            if (!sub) return null;
-
-            return (
-              <div key={category.id} className={styles.footerColumnItem}>
-                <h4 className={styles.footerColumnTitle}>
-                  <Link
-                    href={`/${lang}/hizmetler`}
-                    className={styles.footerColHeaderLink}
+          {groups.map((category) => (
+            <div
+              key={category.categoryNumber}
+              className={styles.footerColumnItem}
+            >
+              <h4 className={styles.footerColumnTitle}>
+                <Link
+                  href={`/${lang}/hizmetler`}
+                  className={styles.footerColHeaderLink}
+                >
+                  <span>{category.categoryTitle}</span>
+                  <svg
+                    className={styles.colArrow}
+                    viewBox="0 0 16 16"
+                    fill="none"
                   >
-                    <span>{sub.title}</span>
-                    <svg
-                      className={styles.colArrow}
-                      viewBox="0 0 16 16"
-                      fill="none"
-                    >
-                      <path
-                        d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5"
-                        stroke="currentColor"
-                        strokeWidth="1.6"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </Link>
-                </h4>
-                <ul className={styles.footerLinksList}>
-                  {sub.items.map((item) => (
-                    <li key={item.slug}>
-                      <Link href={`/${lang}/hizmetler`}>{item.name}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            );
-          })}
+                    <path
+                      d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Link>
+              </h4>
+              <ul className={styles.footerLinksList}>
+                {category.services.map((item) => (
+                  <li key={item.slug}>
+                    <Link href={`/${lang}/hizmetler/${item.slug}`}>
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* DEVASA ORİJİNAL 35VW HEXA FİLİGRANI */}
+      {/* DEVASA 35VW HEXA FİLİGRANI */}
       <div className={styles.footerBottomContainer}>
         <div
           ref={massiveTextRef}
@@ -145,7 +147,6 @@ export default function Footer({ lang = "tr" }) {
             © {new Date().getFullYear()} Hexa Dijital Tüm hakları saklıdır.
           </div>
 
-          {/* Sosyal Medya İkonları */}
           <div className={styles.socialLinks}>
             <a
               href="https://instagram.com/hexadijital"

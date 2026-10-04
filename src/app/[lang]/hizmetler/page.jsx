@@ -58,14 +58,14 @@ export default async function ServicesHubPage({ params }) {
   const resolvedParams = await params;
   const lang = resolvedParams?.lang || "tr";
   const isTr = lang === "tr";
+  const groups = servicesData[lang] || servicesData.tr;
 
-  // TÜM 24 MİKRO HİZMETİ VE 5 DEPARTMANI İÇEREN KAPSAMLI SCHEMA.ORG GRAFİĞİ
-  const allServicesList = servicesData.flatMap((dept) =>
-    dept.subCategories[0].items.map((item) => ({
+  const allServicesList = groups.flatMap((dept) =>
+    dept.services.map((item) => ({
       "@type": "Service",
       name: item.name,
       url: `https://hexadijital.com/${lang}/hizmetler/${item.slug}`,
-      category: dept.title,
+      category: dept.categoryTitle,
       provider: {
         "@type": "ProfessionalService",
         name: "HEXA Dijital",

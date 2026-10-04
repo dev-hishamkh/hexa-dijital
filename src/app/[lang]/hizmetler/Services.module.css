@@ -242,9 +242,7 @@
     color: #374151;
 }
 
-/* ==========================================================================
-   HERO TARZI 45 DERECE DÖNEN MANYETİK BUTON
-   ========================================================================== */
+/* HERO TARZI MANYETİK BUTON */
 .stageBottomAction {
     border-top: 1px solid var(--hexa-border);
     padding-top: 1.75rem;
@@ -381,6 +379,11 @@
 
 [data-theme="light"] .groupTitleText {
     color: #111827;
+}
+
+/* MOBİL ÖZEL TEŞHİS KARTÇIĞI */
+.mobileDeptDiagnosis {
+    display: none;
 }
 
 .groupRowsWrap {
@@ -531,7 +534,7 @@
 }
 
 /* ==========================================================================
-   3. SİBER-LÜKS VE YÜKSEK DÖNÜŞÜMLÜ CTA ŞERİDİ (YENİLENMİŞ APPLE/LINEAR KONSEPTİ)
+   3. CTA BÖLÜMÜ
    ========================================================================== */
 .ctaContainer {
     width: 100%;
@@ -626,7 +629,6 @@
     font-size: 1.05rem;
     line-height: 1.62;
     color: #cbd5e1;
-    /* Okunaklı fildişi */
     letter-spacing: -0.015em;
     max-width: 620px;
     margin: 0;
@@ -636,7 +638,6 @@
     color: #4b5563;
 }
 
-/* SAĞ AKSİYON PANELİ */
 .ctaActionsRight {
     display: flex;
     flex-direction: column;
@@ -644,7 +645,6 @@
     align-items: flex-start;
 }
 
-/* LÜKS BEYAZ KAPSÜL WHATSAPP BUTONU (DAİRESEL VE DÖNEN OKLU) */
 .luxuryWhatsappBtn {
     display: inline-flex;
     align-items: center;
@@ -714,38 +714,6 @@
     color: #0A0E17;
 }
 
-/* İkincil İletişim Linki */
-.secondaryInquiryLink {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--font-main);
-    font-size: 0.88rem;
-    font-weight: 500;
-    color: var(--hexa-font-muted);
-    text-decoration: none;
-    transition: color 0.25s ease;
-    padding-left: 0.25rem;
-}
-
-.smallArrow {
-    transition: transform 0.25s var(--ease-out);
-}
-
-.secondaryInquiryLink:hover {
-    color: #F8FAFC;
-}
-
-.secondaryInquiryLink:hover .smallArrow {
-    transform: translateX(4px);
-    color: var(--hexa-accent);
-}
-
-[data-theme="light"] .secondaryInquiryLink:hover {
-    color: #111827;
-}
-
-/* Canlı Mesai Durumu */
 .liveDeskRow {
     display: flex;
     align-items: center;
@@ -795,6 +763,49 @@
 
     .liveStageAside {
         display: none;
+    }
+
+    /* Mobilde Kategori Teşhis Kartı Devreye Girer */
+    .mobileDeptDiagnosis {
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+        padding: 1.25rem;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--hexa-border);
+        border-radius: var(--radius-md);
+        margin: 1.5rem 0 1rem 0;
+    }
+
+    .diagItem {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .diagBadge {
+        font-family: monospace;
+        font-size: 0.68rem;
+        font-weight: 700;
+        color: var(--hexa-accent);
+        letter-spacing: 0.08em;
+    }
+
+    .diagText {
+        font-family: var(--font-main);
+        font-size: 0.88rem;
+        line-height: 1.5;
+        color: #94a3b8;
+        margin: 0;
+    }
+
+    .diagTextHighlight {
+        font-family: var(--font-main);
+        font-size: 0.92rem;
+        line-height: 1.5;
+        color: #F8FAFC;
+        font-weight: 500;
+        margin: 0;
     }
 
     .mobileOnlyOutcome {
@@ -879,11 +890,5 @@
     .luxuryWhatsappBtn {
         width: 100%;
         justify-content: space-between;
-    }
-
-    .secondaryInquiryLink,
-    .liveDeskRow {
-        width: 100%;
-        justify-content: flex-start;
     }
 }
