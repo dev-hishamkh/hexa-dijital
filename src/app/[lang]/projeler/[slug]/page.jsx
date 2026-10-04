@@ -1,7 +1,10 @@
+import { notFound } from "next/navigation";
 import Header from "@/components/layout/Header/Header";
+import Footer from "@/components/layout/Footer/Footer";
+import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp/FloatingWhatsApp";
 import { projectsData } from "@/data/projectsData";
+import ProjectDetailClient from "./ProjectDetailClient";
 
-// Statik export için tüm olası dil ve slug kombinasyonlarını önceden bildiriyoruz
 export async function generateStaticParams() {
   const languages = ["tr", "en"];
   const params = [];
@@ -19,48 +22,52 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const { lang, slug } = await params;
+  const resolvedParams = await params;
+  const lang = resolvedParams?.lang || "tr";
+  const slug = resolvedParams?.slug;
   const project = projectsData.find((p) => p.slug === slug);
 
+  if (!project) {
+    return {
+      title: "Proje Bulunamadı",
+    };
+  }
+
+  const isTr = lang === "tr";
+  const metaTitle = isTr
+    ? `${project.title} · Başarı Hikayesi & Vaka Analizi`
+    : `${project.title} · Case Study & Proven Impact`;
+
   return {
-    title: project ? `${project.title} | Hexa Dijital` : "Proje Detayı",
-    description: project ? project.description : "Proje detay sayfası.",
+    title: metaTitle,
+    description: project.heroLead.slice(0, 158),
+    openGraph: {
+      title: `${metaTitle} | Hexa Dijital`,
+      description: project.heroLead.slice(0, 158),
+      url: `https://hexadijital.com/${lang}/projeler/${project.slug}`,
+      siteName: "Hexa Dijital",
+      locale: isTr ? "tr_TR" : "en_US",
+      type: "article",
+    },
   };
 }
 
 export default async function ProjectDetailPage({ params }) {
-  const { lang, slug } = await params;
+  const resolvedParams = await params;
+  const lang = resolvedParams?.lang || "tr";
+  const slug = resolvedParams?.slug;
   const project = projectsData.find((p) => p.slug === slug);
+
+  if (!project) {
+    notFound();
+  }
 
   return (
     <>
       <Header lang={lang} />
-      <main
-        style={{
-          paddingTop: "calc(var(--header-height) + 4rem)",
-          minHeight: "100vh",
-          paddingLeft: "2rem",
-          paddingRight: "2rem",
-          maxWidth: "1200px",
-          margin: "0 auto",
-        }}
-      >
-        <span style={{ color: "var(--hexa-accent)", fontSize: "0.85rem" }}>
-          {project?.category}
-        </span>
-        <h1 style={{ fontSize: "2.5rem", margin: "1rem 0" }}>
-          {project?.title}
-        </h1>
-        <p
-          style={{
-            color: "var(--hexa-font-dim)",
-            lineHeight: 1.6,
-            fontSize: "1.1rem",
-          }}
-        >
-          {project?.description}
-        </p>
-      </main>
+      <ProjectDetailClient project={project} lang={lang} />
+      <Footer lang={lang} />
+      <FloatingWhatsApp lang={lang} />
     </>
   );
 }

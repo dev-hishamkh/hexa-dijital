@@ -1,22 +1,32 @@
 import Header from "@/components/layout/Header/Header";
-import Link from "next/link";
-import { projectsData } from "@/data/projectsData";
-import styles from "./Projects.module.css";
+import Footer from "@/components/layout/Footer/Footer";
+import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp/FloatingWhatsApp";
+import ProjectsClient from "./ProjectsClient";
+
+export async function generateStaticParams() {
+  return [{ lang: "tr" }, { lang: "en" }];
+}
 
 export async function generateMetadata({ params }) {
   const resolvedParams = await params;
   const lang = resolvedParams?.lang || "tr";
   const isTr = lang === "tr";
 
+  const title = isTr
+    ? "Seçkin Projelerimiz & Portföy"
+    : "Featured Projects & Portfolio";
+
   return {
-    title: isTr
-      ? "Projelerimiz & Dijital Mühendislik Çalışmaları"
-      : "Our Projects & Digital Engineering Works",
+    title,
     description: isTr
-      ? "Bursa sanayisine ve öncü markalarına geliştirdiğimiz yüksek hızlı web yazılımları, SEO dominasyon projeleri ve dijital altyapılar."
-      : "High-speed web software, SEO dominance projects, and digital architectures engineered in Bursa.",
+      ? "Farklı sektörlerdeki işletmeler için hayata geçirdiğimiz modern web tasarım, online satış ve müşteri kazandıran dijital reklam projelerimizi inceleyin."
+      : "Explore our portfolio of bespoke web platforms, online ordering systems, and high-converting digital acquisition projects.",
     alternates: {
       canonical: `https://hexadijital.com/${lang}/projeler`,
+      languages: {
+        tr: "https://hexadijital.com/tr/projeler",
+        en: "https://hexadijital.com/en/projeler",
+      },
     },
   };
 }
@@ -28,77 +38,9 @@ export default async function ProjectsPage({ params }) {
   return (
     <>
       <Header lang={lang} />
-      <main className={styles.mainContainer}>
-        <section className={`container ${styles.contentWrapper}`}>
-          {/* Başlık Hiyerarşisi */}
-          <div className={styles.headerArea}>
-            <span className={styles.badge}>
-              {lang === "tr"
-                ? "Seçkin Mühendislik Portföyü"
-                : "Engineered Works"}
-            </span>
-            <h1 className={styles.title}>
-              {lang === "tr" ? (
-                <>
-                  Bursa ve Ötesi İçin Üretilen{" "}
-                  <span className={styles.focusWord}>Siber Altyapılar</span>
-                </>
-              ) : (
-                <>
-                  Architectures Engineered for{" "}
-                  <span className={styles.focusWord}>Market Dominance</span>
-                </>
-              )}
-            </h1>
-            <p className={styles.subtitle}>
-              {lang === "tr"
-                ? "Şablon siteler değil; işletmelere somut ciro, operasyonel hız ve Google yerel hakimiyeti kazandıran tescilli projeler."
-                : "Zero templates. Handcrafted, sub-second web platforms engineered to generate tangible revenue and local dominance."}
-            </p>
-          </div>
-
-          {/* Jilet 1px Kenarlıklı Proje Kartları Izgarası */}
-          <div className={styles.grid}>
-            {projectsData.map((project) => (
-              <article key={project.slug} className={styles.card}>
-                <div className={styles.cardTop}>
-                  <span className={styles.category}>{project.category}</span>
-                  <div className={styles.scorePill}>
-                    <span className={styles.scoreDot} />
-                    <span>Lighthouse: {project.speedScore}</span>
-                  </div>
-                </div>
-
-                <h2 className={styles.projectTitle}>
-                  <Link href={`/${lang}/projeler/${project.slug}`}>
-                    {project.title}
-                  </Link>
-                </h2>
-
-                <p className={styles.description}>{project.description}</p>
-
-                <div className={styles.impactArea}>
-                  <span className={styles.impactLabel}>
-                    {lang === "tr" ? "Somut Çıktı:" : "Direct Impact:"}
-                  </span>
-                  <span className={styles.impactValue}>{project.impact}</span>
-                </div>
-
-                <div className={styles.cardFooter}>
-                  <div className={styles.stackGroup}>
-                    {project.techStack.map((tech) => (
-                      <span key={tech} className={styles.techTag}>
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <span className={styles.year}>{project.year}</span>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-      </main>
+      <ProjectsClient lang={lang} />
+      <Footer lang={lang} />
+      <FloatingWhatsApp lang={lang} />
     </>
   );
 }

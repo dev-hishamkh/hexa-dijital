@@ -1,8 +1,7 @@
 export const dictionary = {
   tr: {
     seo: {
-      metaTitle:
-        "Özel Web Yazılımı, Dijital Mimarlık & Büyüme Sistemleri | Hexa Dijital",
+      metaTitle: "Hexa Dijital | Yazılım, Tasarım ve Reklam Ajansı",
       metaDesc:
         "Hazır şablon kullanmadan, Next.js ile 0.8 saniyenin altında açılan kurumsal web sistemleri, sıfır komisyonlu sipariş ağları ve kasanıza müşteri çeken dijital büyüme motorları.",
     },
@@ -25,16 +24,16 @@ export const dictionary = {
       subCta: "Birlikte dijital ciro motorunuzu kuralım",
     },
     works: {
-      eyebrow: "// SEÇKİN ÇALIŞMALAR & SAHA MÜHENDİSLİĞİ",
+      eyebrow: "Seçkin Çalışmalar & Mühendislik",
       titleMain: "Sözde değil sahada çalışan,",
       titleAccent: "ciro üreten tescilli sistemler.",
-      filterAll: "TÜMÜ",
-      filterWeb: "WEB TASARIM & YAZILIM",
-      filterSeo: "HARİTA & YEREL SEO",
-      filterAuto: "SİPARİŞ & ADİSYON",
-      filterLabel: "FİLTRE:",
-      projectWord: "PROJE",
-      systemActive: "SİSTEM // AKTİF",
+      filterAll: "Tümü",
+      filterWeb: "Web Mimarisi",
+      filterSeo: "Arama Hakimiyeti",
+      filterAuto: "Sipariş & Kasa",
+      filterLabel: "Filtre:",
+      projectWord: "Sistem",
+      systemActive: "Sistem // Aktif",
     },
     manifesto: {
       part1:
@@ -45,10 +44,10 @@ export const dictionary = {
       highlight2: "pazarda 1. sıraya taşıyoruz.",
     },
     servicesIndex: {
-      badge: "HİZMET FİHRİSTİ // 5 DEPARTMAN",
+      badge: "Hizmet Mimarisi · 5 Departman",
     },
     process: {
-      eyebrow: "// ÇALIŞMA PROTOKOLÜ",
+      eyebrow: "Çalışma Protokolü",
       titleMain: "Baştan Sona Çalışma",
       titleAccent: "Disiplinimiz.",
       subtitle:
@@ -99,8 +98,7 @@ export const dictionary = {
   },
   en: {
     seo: {
-      metaTitle:
-        "Bespoke Web Architecture, Software & Growth Systems | Hexa Digital",
+      metaTitle: "Hexa Digital | Software, Design & Advertising Agency",
       metaDesc:
         "Sub-second web platforms engineered on Next.js, commission-free ordering systems, and high-converting growth engines without generic templates or plugin bloat.",
     },
@@ -123,16 +121,16 @@ export const dictionary = {
       subCta: "Let's engineer your commercial engine",
     },
     works: {
-      eyebrow: "// SELECTED WORKS & FIELD ENGINEERING",
+      eyebrow: "Selected Architectures",
       titleMain: "Quiet craft, engineered for",
       titleAccent: "verifiable market dominance.",
-      filterAll: "ALL",
-      filterWeb: "WEB DESIGN & SOFTWARE",
-      filterSeo: "MAPS & LOCAL SEO",
-      filterAuto: "POS & ORDERING",
-      filterLabel: "FILTER:",
-      projectWord: "PROJECTS",
-      systemActive: "SYSTEM // ONLINE",
+      filterAll: "All",
+      filterWeb: "Web Architecture",
+      filterSeo: "Search Dominance",
+      filterAuto: "POS & Ordering",
+      filterLabel: "Filter:",
+      projectWord: "Systems",
+      systemActive: "System // Online",
     },
     manifesto: {
       part1: "Handing an enterprise a merely attractive brochure website ",
@@ -142,10 +140,10 @@ export const dictionary = {
       highlight2: "propel them to undisputed #1.",
     },
     servicesIndex: {
-      badge: "SERVICE DIRECTORY // 5 DEPARTMENTS",
+      badge: "Capabilities · 5 Disciplines",
     },
     process: {
-      eyebrow: "// DELIVERY PROTOCOL",
+      eyebrow: "Delivery Protocol",
       titleMain: "Zero Surprises.",
       titleAccent: "4-Phase Engineering Framework.",
       subtitle:

@@ -23,7 +23,6 @@
     max-width: 1150px;
 }
 
-/* DÜZELTİLEN TOK ÜST BAŞLIK (NEON ÇEKİCİLİĞİ KORUNDU) */
 .breadcrumbBadge {
     display: inline-block;
     font-family: var(--font-main);
@@ -192,7 +191,6 @@
     border-bottom: 1px solid var(--hexa-border);
 }
 
-/* DÜZELTİLEN TOK KAPSAM ETİKETİ */
 .stageContextTag {
     font-family: var(--font-main);
     font-size: 0.82rem;
@@ -221,7 +219,6 @@
     gap: 0.45rem;
 }
 
-/* DÜZELTİLEN TOK ARA BAŞLIKLAR */
 .sectionHeaderTitle {
     font-family: var(--font-main);
     font-size: 0.95rem;
@@ -249,7 +246,7 @@
     color: #374151;
 }
 
-/* BUTON (ORİJİNAL TURKUAZ HOVER KORUNDU) */
+/* BUTON */
 .stageBottomAction {
     border-top: 1px solid var(--hexa-border);
     padding-top: 1.75rem;
@@ -329,7 +326,7 @@
 }
 
 /* ==========================================================================
-   SAĞ: ANITSAL DEPARTMANLAR (ORİJİNAL LAZER VE RENKLER KORUNDU)
+   SAĞ: ANITSAL DEPARTMANLAR (BURSA SAYFASINDAKİ İTALİK SERİF NUMARALARI)
    ========================================================================== */
 .servicesListingCol {
     display: flex;
@@ -358,14 +355,21 @@
     border-color: #111827;
 }
 
+/* YENİLENEN İTALİK SERİF ANITSAL NUMARA */
 .monumentalNumber {
-    font-family: monospace;
-    font-size: 3.2rem;
-    font-weight: 800;
-    letter-spacing: -0.05em;
+    font-family: var(--font-italic-serif);
+    font-style: italic;
+    font-size: 3.6rem;
+    font-weight: 400;
+    letter-spacing: -0.03em;
     color: var(--hexa-accent);
     line-height: 0.9;
     user-select: none;
+    transition: transform 0.3s ease;
+}
+
+.deptGroupBlock:hover .monumentalNumber {
+    transform: scale(1.05);
 }
 
 .groupTitleStack {
@@ -406,7 +410,6 @@
     will-change: transform, opacity;
 }
 
-/* ORİJİNAL LAZER ÇİZGİSİ */
 .serviceInteractiveRow::after {
     content: "";
     position: absolute;
@@ -442,12 +445,14 @@
     gap: 1.5rem;
 }
 
+/* YENİLENEN İTALİK SERİF SATIR NUMARALARI */
 .rowNum {
-    font-family: monospace;
-    font-size: 0.85rem;
-    font-weight: 700;
+    font-family: var(--font-italic-serif);
+    font-style: italic;
+    font-size: 1.15rem;
+    font-weight: 400;
     color: var(--hexa-font-muted);
-    letter-spacing: 0.08em;
+    letter-spacing: -0.01em;
     transition: color 0.25s ease;
 }
 
@@ -542,7 +547,7 @@
 }
 
 /* ==========================================================================
-   3. CTA BÖLÜMÜ (ORİJİNAL TURKUAZ PARILTI KORUNDU)
+   3. CTA BÖLÜMÜ
    ========================================================================== */
 .ctaContainer {
     width: 100%;
@@ -869,7 +874,7 @@
     }
 
     .rowNum {
-        font-size: 0.78rem;
+        font-size: 0.95rem;
     }
 
     .rowServiceName {
@@ -882,7 +887,7 @@
     }
 
     .monumentalNumber {
-        font-size: 2.2rem;
+        font-size: 2.6rem;
     }
 
     .ctaBoxFrame {

@@ -23,11 +23,11 @@ const basePath =
 export const metadata = {
   metadataBase: new URL("https://hexadijital.com"),
   title: {
-    template: "%s | Hexa Dijital - Bursa Web Tasarım & Yazılım Ajansı",
-    default: "Bursa Web Tasarım & Yazılım Ajansı | Hexa Dijital",
+    template: "%s | Hexa Dijital",
+    default: "Hexa Dijital | Yazılım, Tasarım ve Büyüme Sistemleri",
   },
   description:
-    "Hexa Dijital; Bursa merkezli, yüksek dönüşüm odaklı web tasarım, özel web yazılım ve SEO stratejileri üreten yeni nesil dijital ajanstır.",
+    "Hazır şablon kullanmadan, Next.js ile 0.8 saniyenin altında açılan kurumsal web sistemleri, sıfır komisyonlu sipariş ağları ve kasanıza müşteri çeken dijital büyüme motorları.",
 };
 
 export default function RootLayout({ children }) {
@@ -46,7 +46,6 @@ export default function RootLayout({ children }) {
         />
         <script src={`${basePath}/theme.js`} />
       </head>
-      {/* suppressHydrationWarning: Tarayıcı eklentilerinin (ColorZilla vb.) body'ye attribute basıp hata üretmesini engeller */}
       <body suppressHydrationWarning>
         <SmoothScroll>{children}</SmoothScroll>
       </body>

@@ -333,7 +333,7 @@ export default function ServicesClient({ lang = "tr" }) {
           </div>
         </aside>
 
-        {/* SAĞ: ANITSAL 5 DEPARTMAN & 24 HİZMET */}
+        {/* SAĞ: ANITSAL 5 DEPARTMAN & 24 HİZMET (YENİLENEN İTALİK SERİF SAYILAR) */}
         <div className={styles.servicesListingCol}>
           {groups.map((group, gIdx) => (
             <div

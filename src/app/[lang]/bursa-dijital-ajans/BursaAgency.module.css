@@ -1,15 +1,11 @@
-.mainContainer {
-    min-height: 100vh;
-    background-color: var(--hexa-bg);
-    padding-top: calc(var(--header-height) + 3.5rem);
-    padding-bottom: 8rem;
-    transition: background-color 0.4s var(--ease-out);
-}
-
+/* ==========================================================================
+   1. BÖLGESEL HERO
+   ========================================================================== */
 .heroSection {
     width: 100%;
     max-width: var(--max-width);
     margin: 0 auto 7rem auto;
+    padding-top: calc(var(--header-height) + 3.5rem);
     padding-left: clamp(2rem, 6vw, 6.5rem);
     padding-right: clamp(2rem, 6vw, 6.5rem);
     display: flex;
@@ -18,11 +14,11 @@
 
 .eyebrowBadge {
     display: inline-block;
-    font-family: monospace;
-    font-size: 0.74rem;
-    font-weight: 700;
+    font-family: var(--font-main);
+    font-size: 0.88rem;
+    font-weight: 600;
     color: var(--hexa-accent);
-    letter-spacing: 0.12em;
+    letter-spacing: 0.02em;
     margin-bottom: 1.75rem;
 }
 
@@ -35,10 +31,30 @@
     color: #F8FAFC;
     margin: 0 0 1.75rem 0;
     max-width: 1150px;
+    display: flex;
+    flex-direction: column;
 }
 
 [data-theme="light"] .heroTitle {
     color: #111827;
+}
+
+.heroLineSans {
+    display: block;
+    color: #F8FAFC;
+}
+
+[data-theme="light"] .heroLineSans {
+    color: #111827;
+}
+
+.heroLineSerif {
+    display: block;
+    font-family: var(--font-italic-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--hexa-font-serif);
+    letter-spacing: -0.02em;
 }
 
 .serifAccentWord {
@@ -69,32 +85,88 @@
     flex-wrap: wrap;
 }
 
-.primaryLaunchBtn {
+.heroCyberGlassBtn {
     display: inline-flex;
     align-items: center;
-    gap: 0.85rem;
-    padding: 0.85rem 1.75rem;
+    justify-content: space-between;
+    gap: 1.35rem;
+    padding: 0.6rem 0.65rem 0.6rem 1.65rem;
     border-radius: var(--radius-full);
-    background-color: #FFFFFF;
-    color: #0A0E17;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: #F8FAFC;
     text-decoration: none;
     font-family: var(--font-main);
-    font-size: 0.95rem;
-    font-weight: 700;
+    font-size: 0.96rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
-[data-theme="light"] .primaryLaunchBtn {
-    background-color: #111827;
+[data-theme="light"] .heroCyberGlassBtn {
+    background: #FFFFFF;
+    border-color: rgba(0, 0, 0, 0.12);
+    color: #111827;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.heroCyberGlassBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--hexa-border-focus);
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 255, 209, 0.15);
+}
+
+[data-theme="light"] .heroCyberGlassBtn:hover {
+    background: #111827;
     color: #FFFFFF;
 }
 
-.primaryLaunchBtn:hover {
+.heroBtnText {
+    letter-spacing: -0.01em;
+}
+
+.heroBtnCircle {
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F8FAFC;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
+}
+
+[data-theme="light"] .heroBtnCircle {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.1);
+    color: #111827;
+}
+
+.heroArrowSvg {
+    width: 15px;
+    height: 15px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+
+.heroCyberGlassBtn:hover .heroBtnCircle {
     background-color: var(--hexa-accent);
+    border-color: var(--hexa-accent);
     color: #0A0E17;
-    transform: translateY(-2px);
-    box-shadow: 0 15px 35px var(--hexa-accent-glow);
+    transform: scale(1.08) rotate(45deg);
+    box-shadow: 0 0 25px var(--hexa-accent-glow);
+}
+
+[data-theme="light"] .heroCyberGlassBtn:hover .heroBtnCircle {
+    background-color: #FFFFFF;
+    color: #111827;
+    transform: scale(1.08) rotate(45deg);
 }
 
 .liveDeskPill {
@@ -102,7 +174,7 @@
     align-items: center;
     gap: 0.65rem;
     font-family: var(--font-main);
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     font-weight: 500;
     color: var(--hexa-font-muted);
 }
@@ -116,37 +188,29 @@
 }
 
 /* ==========================================================================
-   2. 5 DEPARTMAN IZGARASI
+   2. EŞİT DENGELİ 2x2 BENTO GRID
    ========================================================================== */
-.deptOverviewSection {
+.storyBentoSection {
     width: 100%;
     max-width: var(--max-width);
-    margin: 0 auto 8.5rem auto;
+    margin: 0 auto 9rem auto;
     padding-left: clamp(2rem, 6vw, 6.5rem);
     padding-right: clamp(2rem, 6vw, 6.5rem);
     display: flex;
     flex-direction: column;
-    gap: 3.5rem;
+    gap: 4rem;
 }
 
 .sectionHeadingWrap {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    max-width: 850px;
-}
-
-.sectionMiniTag {
-    font-family: monospace;
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: var(--hexa-accent);
-    letter-spacing: 0.12em;
+    gap: 1rem;
+    max-width: 950px;
 }
 
 .sectionMainHeading {
     font-family: var(--font-main);
-    font-size: clamp(2rem, 3.2vw, 2.9rem);
+    font-size: clamp(2.2rem, 3.8vw, 3.4rem);
     font-weight: 600;
     letter-spacing: -0.035em;
     color: #F8FAFC;
@@ -158,157 +222,456 @@
     color: #111827;
 }
 
-.deptGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-    gap: 2rem;
-}
-
-.deptCard {
-    background: #0A0E17;
-    border: 1px solid var(--hexa-border);
-    border-radius: 24px;
-    padding: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.deptCard:hover {
-    border-color: var(--hexa-border-focus);
-    transform: translateY(-4px);
-    background-color: #0D121D;
-    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.9);
-}
-
-[data-theme="light"] .deptCard {
-    background: #FFFFFF;
-    border-color: rgba(0, 0, 0, 0.08);
-}
-
-[data-theme="light"] .deptCard:hover {
-    background: #FAFAFA;
-}
-
-.deptCardTop {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.deptNumber {
-    font-family: monospace;
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--hexa-accent);
-    line-height: 1;
-}
-
-.deptCodeTag {
-    font-family: monospace;
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: var(--hexa-font-muted);
-}
-
-.deptTitle {
+.sectionLeadText {
     font-family: var(--font-main);
-    font-size: 1.45rem;
-    font-weight: 600;
-    letter-spacing: -0.025em;
-    color: #F8FAFC;
+    font-size: clamp(1.05rem, 1.25vw, 1.18rem);
+    line-height: 1.62;
+    color: #94a3b8;
     margin: 0;
 }
 
-[data-theme="light"] .deptTitle {
+[data-theme="light"] .sectionLeadText {
+    color: #4b5563;
+}
+
+.bentoGridWrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+    width: 100%;
+}
+
+.bentoCard {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(13, 17, 26, 0.95) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 28px;
+    padding: 2.75rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="light"] .bentoCard {
+    background: #FFFFFF;
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 15px 35px -15px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.bentoCard:hover {
+    border-color: var(--hexa-border-focus);
+    transform: translateY(-3px);
+    background-color: #101522;
+    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.95), 0 0 25px rgba(0, 255, 209, 0.06);
+}
+
+[data-theme="light"] .bentoCard:hover {
+    background: #FAFAFA;
+}
+
+.bentoCardHeader {
+    display: flex;
+    align-items: center;
+}
+
+.bentoIndexPill {
+    font-family: var(--font-main);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--hexa-accent);
+    letter-spacing: 0.02em;
+}
+
+.bentoCardTitle {
+    font-family: var(--font-main);
+    font-size: clamp(1.25rem, 1.6vw, 1.5rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: #F8FAFC;
+    margin: 0;
+    line-height: 1.3;
+}
+
+[data-theme="light"] .bentoCardTitle {
     color: #111827;
 }
 
-.deptDiagnosis {
+.bentoCardParagraph {
     font-family: var(--font-main);
-    font-size: 0.95rem;
+    font-size: 0.96rem;
+    line-height: 1.65;
+    color: #cbd5e1;
+    margin: 0;
+}
+
+[data-theme="light"] .bentoCardParagraph {
+    color: #4b5563;
+}
+
+/* ==========================================================================
+   3. 2026 S+ İNTERAKTİF DEPARTMAN KOKPİTİ
+   ========================================================================== */
+.deptOverviewSection {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto 9rem auto;
+    padding-left: clamp(2rem, 6vw, 6.5rem);
+    padding-right: clamp(2rem, 6vw, 6.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.deptCockpitFrame {
+    display: grid;
+    grid-template-columns: 430px 1fr;
+    gap: 2.25rem;
+    width: 100%;
+    background: #0A0E17;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 32px;
+    padding: 1.75rem;
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    will-change: transform, opacity;
+}
+
+[data-theme="light"] .deptCockpitFrame {
+    background: #F8FAFC;
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
+}
+
+/* Sol Navigasyon */
+.cockpitNavCol {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    width: 100%;
+}
+
+.cockpitNavBtn {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.2rem 1.45rem;
+    border-radius: 20px;
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 100%;
+}
+
+.cockpitNavBtn:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="light"] .cockpitNavBtn:hover {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.cockpitNavBtnActive {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(13, 17, 26, 0.98) 100%) !important;
+    border-color: var(--hexa-border-focus) !important;
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="light"] .cockpitNavBtnActive {
+    background: #FFFFFF !important;
+    border-color: rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.1);
+}
+
+.navBtnNumber {
+    font-family: var(--font-italic-serif);
+    font-style: italic;
+    font-size: 1.9rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.45);
+    transition: color 0.3s ease, transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+[data-theme="light"] .navBtnNumber {
+    color: #94a3b8;
+}
+
+.cockpitNavBtn:hover .navBtnNumber {
+    color: #FFFFFF;
+}
+
+[data-theme="light"] .cockpitNavBtn:hover .navBtnNumber {
+    color: #111827;
+}
+
+.cockpitNavBtnActive .navBtnNumber {
+    color: var(--hexa-accent) !important;
+    transform: scale(1.05);
+}
+
+.navBtnTextStack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.navBtnTitle {
+    font-family: var(--font-main);
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #cbd5e1;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+[data-theme="light"] .navBtnTitle {
+    color: #4b5563;
+}
+
+.cockpitNavBtnActive .navBtnTitle {
+    color: #F8FAFC !important;
+}
+
+[data-theme="light"] .cockpitNavBtnActive .navBtnTitle {
+    color: #111827 !important;
+}
+
+.navBtnSub {
+    font-family: var(--font-main);
+    font-size: 0.78rem;
+    color: var(--hexa-font-muted);
+}
+
+/* Sağ Sahne */
+.cockpitStageCol {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(13, 17, 26, 0.98) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 26px;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 3rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="light"] .cockpitStageCol {
+    background: #FFFFFF;
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.08);
+}
+
+.stageTopHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.stageTitleWrap {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.stageGiantNumber {
+    font-family: var(--font-italic-serif);
+    font-style: italic;
+    font-size: 4rem;
+    font-weight: 400;
+    color: var(--hexa-accent);
+    line-height: 0.9;
+    user-select: none;
+    flex-shrink: 0;
+}
+
+.stageDeptHeading {
+    font-family: var(--font-main);
+    font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: #F8FAFC;
+    margin: 0 0 0.5rem 0;
+}
+
+[data-theme="light"] .stageDeptHeading {
+    color: #111827;
+}
+
+.stageDiagnosis {
+    font-family: var(--font-main);
+    font-size: 1rem;
     line-height: 1.6;
     color: #cbd5e1;
     margin: 0;
 }
 
-[data-theme="light"] .deptDiagnosis {
+[data-theme="light"] .stageDiagnosis {
     color: #4b5563;
 }
 
-.deptOutcomeHighlight {
+.stageOutcomeCard {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
-    padding: 1rem 1.25rem;
-    background: rgba(0, 255, 209, 0.05);
-    border: 1px solid rgba(0, 255, 209, 0.15);
-    border-radius: 12px;
+    gap: 0.35rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: 18px;
+    background: rgba(0, 255, 209, 0.08);
+    border: 1px solid rgba(0, 255, 209, 0.25);
 }
 
-.outcomeLabel {
-    font-family: monospace;
-    font-size: 0.68rem;
+.outcomeTagLabel {
+    font-family: var(--font-main);
+    font-size: 0.76rem;
     font-weight: 700;
     color: var(--hexa-accent);
+    letter-spacing: 0.04em;
 }
 
-.outcomeText {
+.outcomeLeadText {
     font-family: var(--font-main);
-    font-size: 0.9rem;
-    line-height: 1.5;
+    font-size: 0.98rem;
+    line-height: 1.55;
     color: #F8FAFC;
     margin: 0;
     font-weight: 500;
 }
 
-[data-theme="light"] .outcomeText {
+[data-theme="light"] .outcomeLeadText {
     color: #111827;
 }
 
-.deptMicroServicesList {
+.stageServicesArea {
     display: flex;
     flex-direction: column;
-    gap: 0.65rem;
-    margin-top: 0.5rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--hexa-border);
+    gap: 1.15rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
 }
 
-.microServiceLink {
+[data-theme="light"] .stageServicesArea {
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+.servicesAreaLabel {
+    font-family: var(--font-main);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #94a3b8;
+}
+
+.stageButtonsFlex {
     display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+}
+
+.cyberGlassServiceBtn {
+    display: inline-flex;
     align-items: center;
     justify-content: space-between;
-    font-family: var(--font-main);
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--hexa-font-muted);
+    gap: 1.25rem;
+    padding: 0.65rem 0.75rem 0.65rem 1.45rem;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: #F8FAFC;
     text-decoration: none;
-    transition: color 0.2s ease, transform 0.2s ease;
+    font-family: var(--font-main);
+    font-size: 0.94rem;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+    white-space: nowrap;
 }
 
-.microServiceLink:hover {
-    color: var(--hexa-accent);
-    transform: translateX(4px);
+[data-theme="light"] .cyberGlassServiceBtn {
+    background: #FFFFFF;
+    border-color: rgba(0, 0, 0, 0.1);
+    color: #111827;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
 }
 
-.linkArrow {
-    font-size: 0.9rem;
+.cyberGlassServiceBtn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--hexa-border-focus);
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 255, 209, 0.15);
+}
+
+[data-theme="light"] .cyberGlassServiceBtn:hover {
+    background: #111827;
+    color: #FFFFFF;
+    border-color: #111827;
+}
+
+.serviceBtnLabel {
+    letter-spacing: -0.01em;
+}
+
+.btnIconCircle {
+    width: 34px;
+    height: 34px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
+}
+
+[data-theme="light"] .btnIconCircle {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.1);
+    color: #111827;
+}
+
+.btnArrowSvg {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+
+.cyberGlassServiceBtn:hover .btnIconCircle {
+    background-color: var(--hexa-accent);
+    border-color: var(--hexa-accent);
+    color: #0A0E17;
+    transform: scale(1.08) rotate(45deg);
+    box-shadow: 0 0 20px var(--hexa-accent-glow);
+}
+
+[data-theme="light"] .cyberGlassServiceBtn:hover .btnIconCircle {
+    background-color: #FFFFFF;
+    color: #111827;
+    transform: scale(1.08) rotate(45deg);
 }
 
 /* ==========================================================================
-   3. SAHA KANITI IZGARASI
+   4. SAHA KANITI: FERAH, TEK PARÇA MONOLİTİK KARTLAR (İÇ KUTU YOK)
    ========================================================================== */
 .proofSection {
     width: 100%;
     max-width: var(--max-width);
-    margin: 0 auto 8.5rem auto;
+    margin: 0 auto 9rem auto;
     padding-left: clamp(2rem, 6vw, 6.5rem);
     padding-right: clamp(2rem, 6vw, 6.5rem);
     display: flex;
     flex-direction: column;
-    gap: 3.5rem;
+    gap: 4rem;
 }
 
 .proofGrid {
@@ -318,57 +681,104 @@
 }
 
 .proofCard {
-    background: #0D111A;
-    border: 1px solid var(--hexa-border);
-    border-radius: 20px;
-    padding: 2.5rem 2rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(13, 17, 26, 0.98) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 28px;
+    padding: 2.75rem 2.25rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.25rem;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.proofCard:hover {
+    border-color: var(--hexa-border-focus);
+    transform: translateY(-4px);
+    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 255, 209, 0.06);
 }
 
 [data-theme="light"] .proofCard {
     background: #FFFFFF;
     border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.06);
 }
 
-.proofBadge {
-    font-family: monospace;
-    font-size: 0.68rem;
-    font-weight: 700;
-    color: var(--hexa-accent);
+.proofCardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.proofClient {
+.proofSectorTag {
     font-family: var(--font-main);
-    font-size: 1.35rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--hexa-font-muted);
+}
+
+.proofMetricBadge {
+    font-family: var(--font-main);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--hexa-accent);
+    background: rgba(0, 255, 209, 0.08);
+    border: 1px solid rgba(0, 255, 209, 0.25);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+}
+
+.proofClientName {
+    font-family: var(--font-main);
+    font-size: 1.4rem;
     font-weight: 600;
     color: #F8FAFC;
     margin: 0;
 }
 
-[data-theme="light"] .proofClient {
+[data-theme="light"] .proofClientName {
     color: #111827;
 }
 
-.proofImpact {
+/* KUTUSUZ, AKICI NET ÇIKTI BLOĞU */
+.proofResultBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.resultLabel {
+    font-family: var(--font-main);
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: var(--hexa-font-muted);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.resultHighlight {
     font-family: var(--font-main);
     font-size: 1.05rem;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--hexa-accent);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.proofSummary {
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    line-height: 1.62;
+    color: #cbd5e1;
     margin: 0;
 }
 
-.proofText {
-    font-family: var(--font-main);
-    font-size: 0.92rem;
-    line-height: 1.6;
-    color: #94a3b8;
-    margin: 0;
+[data-theme="light"] .proofSummary {
+    color: #4b5563;
 }
 
 /* ==========================================================================
-   4. ŞEFFAF PROTOKOL KUTUSU
+   5. ŞEFFAF PROTOKOL KUTUSU
    ========================================================================== */
 .commitmentsSection {
     width: 100%;
@@ -376,21 +786,30 @@
     margin: 0 auto;
     padding-left: clamp(2rem, 6vw, 6.5rem);
     padding-right: clamp(2rem, 6vw, 6.5rem);
+    padding-bottom: 9rem;
 }
 
 .commitBox {
-    background: #0D111A;
-    border: 1px solid var(--hexa-border);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(13, 17, 26, 0.98) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 28px;
     padding: clamp(3rem, 5vw, 4.5rem);
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 3.5rem;
+    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 [data-theme="light"] .commitBox {
     background: #FFFFFF;
     border-color: rgba(0, 0, 0, 0.08);
+}
+
+.commitHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 860px;
 }
 
 .commitHeading {
@@ -399,30 +818,52 @@
     font-weight: 600;
     color: #F8FAFC;
     margin: 0;
+    line-height: 1.15;
 }
 
 [data-theme="light"] .commitHeading {
     color: #111827;
 }
 
+.commitSubText {
+    font-family: var(--font-main);
+    font-size: 1.05rem;
+    color: #94a3b8;
+    margin: 0;
+    line-height: 1.6;
+}
+
+[data-theme="light"] .commitSubText {
+    color: #4b5563;
+}
+
 .commitGrid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    gap: 2.25rem;
 }
 
 .commitItem {
     display: flex;
     flex-direction: column;
-    gap: 0.65rem;
+    gap: 0.75rem;
+}
+
+.commitNumber {
+    font-family: var(--font-italic-serif);
+    font-style: italic;
+    font-size: 1.6rem;
+    color: var(--hexa-accent);
+    line-height: 1;
 }
 
 .commitItem h4 {
     font-family: var(--font-main);
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 600;
     color: #F8FAFC;
     margin: 0;
+    line-height: 1.3;
 }
 
 [data-theme="light"] .commitItem h4 {
@@ -431,17 +872,73 @@
 
 .commitItem p {
     font-family: var(--font-main);
-    font-size: 0.9rem;
+    font-size: 0.92rem;
     line-height: 1.6;
-    color: #94a3b8;
+    color: #cbd5e1;
     margin: 0;
 }
 
-@media (max-width: 1080px) {
+[data-theme="light"] .commitItem p {
+    color: #4b5563;
+}
 
-    .proofGrid,
-    .commitGrid {
+/* ==========================================================================
+   TABLET VE MOBİL DUYARLILIK
+   ========================================================================== */
+@media (max-width: 1200px) {
+    .bentoGridWrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .deptCockpitFrame {
+        grid-template-columns: 1fr;
+        padding: 1.25rem;
+    }
+
+    .proofGrid {
         grid-template-columns: 1fr;
         gap: 1.75rem;
+    }
+
+    .commitGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .heroSection,
+    .storyBentoSection,
+    .deptOverviewSection,
+    .proofSection,
+    .commitmentsSection {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+
+    .stageTitleWrap {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .cockpitStageCol {
+        padding: 1.75rem 1.5rem;
+    }
+
+    .heroCyberGlassBtn,
+    .cyberGlassServiceBtn {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .commitGrid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .commitBox {
+        padding: 2.25rem 1.5rem;
+        border-radius: 20px;
     }
 }

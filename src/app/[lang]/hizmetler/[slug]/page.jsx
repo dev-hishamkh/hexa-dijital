@@ -33,16 +33,12 @@ export async function generateMetadata({ params }) {
 
   if (!data) {
     return {
-      title: "Hizmet Bulunamadı | Hexa Dijital",
+      title: "Hizmet Bulunamadı",
     };
   }
 
   const isTr = lang === "tr";
-  // S+ Standardı: Başlık hizmet ve stüdyo otoritesini korur
-  const metaTitle = isTr
-    ? `${data.title} | Hexa Dijital`
-    : `${data.title} | Hexa Digital`;
-
+  const metaTitle = data.title;
   const metaDesc = data.leadText.slice(0, 158);
 
   return {
@@ -57,7 +53,7 @@ export async function generateMetadata({ params }) {
       "Hexa Dijital",
     ],
     openGraph: {
-      title: metaTitle,
+      title: `${metaTitle} | Hexa Dijital`,
       description: metaDesc,
       url: `https://hexadijital.com/${lang}/hizmetler/${data.slug}`,
       siteName: "Hexa Dijital",
@@ -66,7 +62,7 @@ export async function generateMetadata({ params }) {
     },
     twitter: {
       card: "summary_large_image",
-      title: metaTitle,
+      title: `${metaTitle} | Hexa Dijital`,
       description: metaDesc,
     },
     alternates: {

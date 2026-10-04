@@ -19,7 +19,10 @@ export async function generateMetadata({ params }) {
   const dict = dictionary[lang]?.seo || dictionary.tr.seo;
 
   return {
-    title: dict.metaTitle,
+    // absolute: layout template'inin ikinci kez "| Hexa Dijital" eklemesini engeller
+    title: {
+      absolute: dict.metaTitle,
+    },
     description: dict.metaDesc,
     keywords: [
       "Bursa web tasarım",
@@ -114,7 +117,6 @@ export default async function HomePage({ params }) {
         },
       ];
 
-  // GOOGLE İŞLETME PROFİLİYLE %100 BİREBİR ZENGİN SCHEMA.ORG GRAFİĞİ
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -143,7 +145,6 @@ export default async function HomePage({ params }) {
           latitude: 40.215,
           longitude: 28.932,
         },
-        // Google Profilindeki Resmi Hizmet Bölgeleri
         areaServed: [
           { "@type": "AdministrativeArea", name: "Bursa" },
           { "@type": "City", name: "Nilüfer" },
@@ -151,7 +152,6 @@ export default async function HomePage({ params }) {
           { "@type": "City", name: "Yıldırım" },
           { "@type": "Country", name: "Türkiye" },
         ],
-        // Güncellenen Çalışma Saatleri: Haftanın 7 Günü 09:00 – 18:00
         openingHoursSpecification: [
           {
             "@type": "OpeningHoursSpecification",
@@ -217,7 +217,6 @@ export default async function HomePage({ params }) {
             },
           ],
         },
-        // Google Profilindeki 6 Resmi Sosyal Medya Profili
         sameAs: [
           "https://instagram.com/hexadijital",
           "https://facebook.com/hexadijitall",

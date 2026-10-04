@@ -60,7 +60,7 @@ export default function Header({ lang = "tr" }) {
         }`}
       >
         <Link href={`/${lang}`} className={styles.brandLink}>
-          <span className={styles.logoName}>HEXA</span>
+          <span className={styles.logoName}>Hexa Dijital</span>
         </Link>
 
         <nav className={styles.desktopNav}>
@@ -127,9 +127,27 @@ export default function Header({ lang = "tr" }) {
             </div>
           </button>
 
-          <Link href={`/${lang}/iletisim`} className={styles.launchBtn}>
-            <span>{dict.initiate}</span>
-            <span className={styles.launchArrow}>↗</span>
+          {/* HEADER İÇİN YENİLENEN SİBER CAM BUTON (45° DÖNEN OKLU) */}
+          <Link
+            href={`/${lang}/iletisim`}
+            className={styles.cyberGlassHeaderBtn}
+          >
+            <span className={styles.headerBtnText}>{dict.initiate}</span>
+            <div className={styles.btnIconCircle}>
+              <svg
+                className={styles.btnArrowSvg}
+                viewBox="0 0 16 16"
+                fill="none"
+              >
+                <path
+                  d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
           </Link>
 
           <button

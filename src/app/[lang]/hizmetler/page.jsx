@@ -14,34 +14,32 @@ export async function generateMetadata({ params }) {
   const isTr = lang === "tr";
 
   const title = isTr
-    ? "Web Tasarım, Özel Yazılım & Dijital Büyüme Sistemleri | Hexa Dijital"
-    : "Bespoke Web Design, Software & Growth Media Services | Hexa Digital";
+    ? "Hizmetlerimiz & Dijital Çözümlerimiz"
+    : "Our Services & Digital Solutions";
 
   const description = isTr
-    ? "Bursa geneli ve Türkiye genelindeki işletmeler için 0.8s açılan kurumsal web siteleri, sıfır komisyonlu sipariş otomasyonları, Google Haritalar ilk 3 yerel SEO ve büyüme reklamları mimarisi."
-    : "Sub-second corporate web platforms, commission-free ordering systems, Google Maps dominance, and growth media engineered across Bursa and Turkey.";
+    ? "İşletmenizi internette öne çıkaran kurumsal web siteleri, komisyonsuz online sipariş sistemleri, Google Haritalar üst sıralama ve müşteri kazandıran sosyal medya reklam yönetimi."
+    : "Modern corporate websites, commission-free ordering platforms, Google Maps optimization, and targeted social media ads engineered to grow your business.";
 
   return {
     title,
     description,
     keywords: [
-      "Bursa web tasarım",
-      "Bursa özel web yazılım",
-      "kurumsal web siteleri",
-      "restoran QR kodlu menü",
-      "komisyonsuz paket servis sitesi",
-      "adisyon ve kasa programı",
-      "yapay zeka müşteri asistanı",
-      "Google Haritalar 1. sıra SEO",
-      "Instagram Facebook reklam yönetimi",
-      "Bursa logo ve kurumsal kimlik tasarımı",
+      "kurumsal web tasarım",
+      "özel web yazılım",
+      "komisyonsuz paket servis sistemi",
+      "restoran adisyon kasa programı",
+      "Google Haritalar ilk 3",
+      "Instagram reklam yönetimi",
+      "Google Ads yönetimi",
+      "logo ve kurumsal kimlik tasarımı",
     ],
     openGraph: {
-      title,
+      title: `${title} | Hexa Dijital`,
       description,
       url: `https://hexadijital.com/${lang}/hizmetler`,
       siteName: "Hexa Dijital",
-      locale: lang === "tr" ? "tr_TR" : "en_US",
+      locale: isTr ? "tr_TR" : "en_US",
       type: "website",
     },
     alternates: {
