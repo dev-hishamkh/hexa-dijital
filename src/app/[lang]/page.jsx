@@ -39,6 +39,7 @@ export async function generateMetadata({ params }) {
       "Bursa web yazılım şirketi",
       "Bursa reklam ajansı",
     ],
+    // ANA SAYFA ÖZEL BACKGROUND.WEBP KART GÖRSELİ
     openGraph: {
       title: dict.metaTitle,
       description: dict.metaDesc,
@@ -48,9 +49,11 @@ export async function generateMetadata({ params }) {
       type: "website",
       images: [
         {
-          url: "https://hexadijital.com/home/servicess/mobile_development.webp",
+          url: "https://hexadijital.com/home/background.webp",
+          secureUrl: "https://hexadijital.com/home/background.webp",
           width: 1200,
           height: 630,
+          type: "image/webp",
           alt: "Hexa Dijital - Yazılım ve Reklam Ajansı",
         },
       ],
@@ -59,9 +62,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: dict.metaTitle,
       description: dict.metaDesc,
-      images: [
-        "https://hexadijital.com/home/servicess/mobile_development.webp",
-      ],
+      images: ["https://hexadijital.com/home/background.webp"],
     },
     alternates: {
       canonical: `https://hexadijital.com/${lang}`,

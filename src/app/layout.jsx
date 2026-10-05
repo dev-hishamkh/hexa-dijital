@@ -37,6 +37,7 @@ export const metadata = {
     "Bursa reklam ajansı",
     "özel web yazılım",
   ],
+  // RESMİ ARKA PLAN KAPAK GÖRSELİ BAĞLANDI (BACKGROUND.WEBP)
   openGraph: {
     title: "Hexa Dijital | Yazılım, Tasarım ve Reklam Ajansı",
     description:
@@ -47,10 +48,12 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "https://hexadijital.com/home/servicess/mobile_development.webp",
+        url: "https://hexadijital.com/home/background.webp",
+        secureUrl: "https://hexadijital.com/home/background.webp",
         width: 1200,
         height: 630,
-        alt: "Hexa Dijital - Yazılım ve Reklam Ajansı",
+        type: "image/webp",
+        alt: "Hexa Dijital - Yazılım, Tasarım ve Reklam Ajansı",
       },
     ],
   },
@@ -59,7 +62,7 @@ export const metadata = {
     title: "Hexa Dijital | Yazılım, Tasarım ve Reklam Ajansı",
     description:
       "Bursa merkezli kurumsal web tasarım, komisyonsuz paket servis sistemleri ve doğrudan müşteri kazandıran reklam yönetimi şirketi.",
-    images: ["https://hexadijital.com/home/servicess/mobile_development.webp"],
+    images: ["https://hexadijital.com/home/background.webp"],
   },
 };
 
