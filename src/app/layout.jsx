@@ -24,7 +24,38 @@ export const metadata = {
     default: "Hexa Dijital | Yazılım, Tasarım ve Reklam Ajansı",
   },
   description:
-    "Hazır şablon kullanmadan, telefonda ve bilgisayarda anında açılan kurumsal web siteleri, komisyonsuz sipariş sistemleri ve doğrudan müşteri kazandıran reklam yönetimi.",
+    "Bursa merkezli kurumsal web tasarım, komisyonsuz paket servis sistemleri ve doğrudan müşteri kazandıran reklam yönetimi şirketi.",
+  keywords: [
+    "Bursa web tasarım",
+    "Bursa dijital ajans",
+    "Bursa reklam ajansı",
+    "özel web yazılım",
+  ],
+  // WHATSAPP & SOSYAL MEDYA ÖNİZLEME KARTLARI
+  openGraph: {
+    title: "Hexa Dijital | Yazılım, Tasarım ve Reklam Ajansı",
+    description:
+      "Bursa merkezli kurumsal web tasarım, komisyonsuz paket servis sistemleri ve doğrudan müşteri kazandıran reklam yönetimi şirketi.",
+    url: "https://hexadijital.com",
+    siteName: "Hexa Dijital",
+    locale: "tr_TR",
+    type: "website",
+    images: [
+      {
+        url: "https://hexadijital.com/home/servicess/mobile_development.webp",
+        width: 1200,
+        height: 630,
+        alt: "Hexa Dijital - Yazılım ve Reklam Ajansı",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hexa Dijital | Yazılım, Tasarım ve Reklam Ajansı",
+    description:
+      "Bursa merkezli kurumsal web tasarım, komisyonsuz paket servis sistemleri ve doğrudan müşteri kazandıran reklam yönetimi şirketi.",
+    images: ["https://hexadijital.com/home/servicess/mobile_development.webp"],
+  },
 };
 
 export default function RootLayout({ children }) {

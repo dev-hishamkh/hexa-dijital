@@ -17,6 +17,7 @@ export async function generateMetadata({ params }) {
   const resolvedParams = await params;
   const lang = resolvedParams?.lang || "tr";
   const dict = dictionary[lang]?.seo || dictionary.tr.seo;
+  const isTr = lang === "tr";
 
   return {
     title: {
@@ -43,8 +44,24 @@ export async function generateMetadata({ params }) {
       description: dict.metaDesc,
       url: `https://hexadijital.com/${lang}`,
       siteName: "Hexa Dijital",
-      locale: lang === "tr" ? "tr_TR" : "en_US",
+      locale: isTr ? "tr_TR" : "en_US",
       type: "website",
+      images: [
+        {
+          url: "https://hexadijital.com/home/servicess/mobile_development.webp",
+          width: 1200,
+          height: 630,
+          alt: "Hexa Dijital - Yazılım ve Reklam Ajansı",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: dict.metaTitle,
+      description: dict.metaDesc,
+      images: [
+        "https://hexadijital.com/home/servicess/mobile_development.webp",
+      ],
     },
     alternates: {
       canonical: `https://hexadijital.com/${lang}`,
@@ -158,7 +175,6 @@ export default async function HomePage({ params }) {
           { "@type": "AdministrativeArea", name: "Nilüfer" },
           { "@type": "AdministrativeArea", name: "Osmangazi" },
         ],
-        // S+ TIER: GOOGLEknowledge graph ÇOKLU SEKTÖR EŞLEŞTİRME KATMANI
         knowsAbout: [
           "Web Design",
           "Custom Software Development",
