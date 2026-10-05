@@ -12,7 +12,7 @@ export async function generateMetadata({ params }) {
   const lang = resolvedParams?.lang || "tr";
   const isTr = lang === "tr";
 
-  const title = isTr ? "İletişim | Hexa Dijital" : "Contact | Hexa Digital";
+  const title = isTr ? "İletişim" : "Contact";
 
   const description = isTr
     ? "Hexa Dijital ile iletişime geçin. Bursa'da işletmenizi yerinde ziyaret ediyor, tüm Türkiye için kesintisiz web yazılım ve reklam desteği sunuyoruz."

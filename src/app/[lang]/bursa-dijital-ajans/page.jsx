@@ -14,8 +14,8 @@ export async function generateMetadata({ params }) {
   const isTr = lang === "tr";
 
   const title = isTr
-    ? "Bursa Web Tasarım & Dijital Reklam Ajansı | Hexa Dijital"
-    : "Bursa Web Design & Digital Advertising Agency | Hexa Digital";
+    ? "Bursa Web Tasarım & Dijital Reklam Ajansı"
+    : "Bursa Web Design & Digital Advertising Agency";
 
   const description = isTr
     ? "Bursa genelinde işletmenizi yerinde ziyaret ediyoruz. Hızlı açılan kurumsal web siteleri, sektörel özel yazılımlar ve masanızda yüz yüze planlanan reklam yönetimi."

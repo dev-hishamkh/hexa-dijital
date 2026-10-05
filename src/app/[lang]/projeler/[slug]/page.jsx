@@ -35,8 +35,8 @@ export async function generateMetadata({ params }) {
 
   const isTr = lang === "tr";
   const metaTitle = isTr
-    ? `${project.title} · Başarı Hikayesi | Hexa Dijital`
-    : `${project.title} · Case Study | Hexa Digital`;
+    ? `${project.title} · Başarı Hikayesi`
+    : `${project.title} · Case Study`;
 
   const heroLeadText =
     typeof project.heroLead === "object"

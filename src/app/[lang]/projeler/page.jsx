@@ -13,8 +13,8 @@ export async function generateMetadata({ params }) {
   const isTr = lang === "tr";
 
   const title = isTr
-    ? "Projelerimiz & Referanslarımız | Hexa Dijital"
-    : "Our Projects & Portfolio | Hexa Digital";
+    ? "Projelerimiz & Referanslarımız"
+    : "Our Projects & Portfolio";
 
   const description = isTr
     ? "Sanayiden sağlığa, inşaattan e-ticarete farklı sektörlerdeki işletmeler için geliştirdiğimiz kurumsal web siteleri ve özel yazılımları inceleyin."
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }) {
       "Bursa web tasarım projeleri",
     ],
     openGraph: {
-      title,
+      title: `${title} | Hexa Dijital`,
       description,
       url: `https://hexadijital.com/${lang}/projeler`,
       siteName: "Hexa Dijital",

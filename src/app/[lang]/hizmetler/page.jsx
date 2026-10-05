@@ -14,8 +14,8 @@ export async function generateMetadata({ params }) {
   const isTr = lang === "tr";
 
   const title = isTr
-    ? "Hizmetlerimiz & Çözümlerimiz | Hexa Dijital"
-    : "Our Services & Digital Solutions | Hexa Digital";
+    ? "Hizmetlerimiz & Çözümlerimiz"
+    : "Our Services & Digital Solutions";
 
   const description = isTr
     ? "İşletmeniz için modern kurumsal web siteleri, sektörel özel yazılımlar, Google Haritalar ilk sıra çalışmaları ve doğrudan müşteri getiren reklam yönetimi."
