@@ -58,10 +58,71 @@ export default function ProjectDetailClient({ project, lang }) {
   const galleryTrackRef = useRef(null);
   const [failedImages, setFailedImages] = useState({});
 
-  // FAREYLE TUTUP SÜRÜKLEME (GRAB-TO-SCROLL) DURUMLARI
   const isDraggingRef = useRef(false);
   const startXRef = useRef(0);
   const scrollLeftRef = useRef(0);
+
+  // Dil Değişkenleri
+  const categoryLabel =
+    typeof project.categoryLabel === "object"
+      ? isTr
+        ? project.categoryLabel.tr
+        : project.categoryLabel.en
+      : project.categoryLabel;
+  const roleText =
+    typeof project.role === "object"
+      ? isTr
+        ? project.role.tr
+        : project.role.en
+      : project.role;
+  const heroLeadText =
+    typeof project.heroLead === "object"
+      ? isTr
+        ? project.heroLead.tr
+        : project.heroLead.en
+      : project.heroLead;
+  const crisisHeadingText =
+    typeof project.crisisHeading === "object"
+      ? isTr
+        ? project.crisisHeading.tr
+        : project.crisisHeading.en
+      : project.crisisHeading;
+  const crisisStoryText =
+    typeof project.crisisStory === "object"
+      ? isTr
+        ? project.crisisStory.tr
+        : project.crisisStory.en
+      : project.crisisStory;
+  const discoveryHeadingText =
+    typeof project.discoveryHeading === "object"
+      ? isTr
+        ? project.discoveryHeading.tr
+        : project.discoveryHeading.en
+      : project.discoveryHeading;
+  const discoveryStoryText =
+    typeof project.discoveryStory === "object"
+      ? isTr
+        ? project.discoveryStory.tr
+        : project.discoveryStory.en
+      : project.discoveryStory;
+  const solutionHeadingText =
+    typeof project.solutionHeading === "object"
+      ? isTr
+        ? project.solutionHeading.tr
+        : project.solutionHeading.en
+      : project.solutionHeading;
+  const shiftHeadingText =
+    typeof project.shiftHeading === "object"
+      ? isTr
+        ? project.shiftHeading.tr
+        : project.shiftHeading.en
+      : project.shiftHeading;
+  const shiftStoryText =
+    typeof project.shiftStory === "object"
+      ? isTr
+        ? project.shiftStory.tr
+        : project.shiftStory.en
+      : project.shiftStory;
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -145,7 +206,24 @@ export default function ProjectDetailClient({ project, lang }) {
         },
       );
 
-      // 6. Metrikler Şeridi
+      // 6. Kırılma Noktası Kutusu
+      gsap.fromTo(
+        `.${styles.shiftCardBox}`,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.75,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: `.${styles.shiftSection}`,
+            start: "top 82%",
+            once: true,
+          },
+        },
+      );
+
+      // 7. Metrikler Şeridi
       gsap.fromTo(
         `.${styles.metricColumn}`,
         { opacity: 0, y: 25 },
@@ -162,12 +240,28 @@ export default function ProjectDetailClient({ project, lang }) {
           },
         },
       );
+
+      // 8. Final CTA
+      gsap.fromTo(
+        `.${styles.ctaCardFrame}`,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.85,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: `.${styles.finaleCtaSection}`,
+            start: "top 85%",
+            once: true,
+          },
+        },
+      );
     }, rootRef);
 
     return () => ctx.revert();
   }, []);
 
-  // OK BUTONLARI İLE KAYDIRMA
   const scrollGallery = (direction) => {
     if (!galleryTrackRef.current) return;
     const distance = 600;
@@ -177,7 +271,6 @@ export default function ProjectDetailClient({ project, lang }) {
     });
   };
 
-  // FARE İLE TUTUP ÇEKME (GRAB) ETKİNLİKLERİ - ASLA KİLİTLENME YAPMAZ
   const handleMouseDown = (e) => {
     const track = galleryTrackRef.current;
     if (!track) return;
@@ -192,7 +285,7 @@ export default function ProjectDetailClient({ project, lang }) {
     const track = galleryTrackRef.current;
     if (!track) return;
     const x = e.pageX - track.offsetLeft;
-    const walk = (x - startXRef.current) * 1.5; // Akıcı sürükleme hızı
+    const walk = (x - startXRef.current) * 1.5;
     track.scrollLeft = scrollLeftRef.current - walk;
   };
 
@@ -232,40 +325,53 @@ export default function ProjectDetailClient({ project, lang }) {
           <div className={styles.navigationRow}>
             <Link href={`/${lang}/projeler`} className={styles.backNav}>
               <ArrowLeft size={16} className={styles.backArrow} />
-              <span>{isTr ? "Seçkin Projelerimiz" : "Portfolio"}</span>
+              <span>{isTr ? "Seçkin Projelerimiz" : "Portfolio Index"}</span>
             </Link>
             <span className={styles.navSeparator}>/</span>
-            <span className={styles.currentNavBadge}>
-              {project.categoryLabel}
-            </span>
+            <span className={styles.currentNavBadge}>{categoryLabel}</span>
           </div>
 
           <div className={styles.heroContent}>
             <h1 className={styles.heroProjectTitle}>{project.title}</h1>
-            <p className={styles.heroProjectLead}>{project.heroLead}</p>
+            <p className={styles.heroProjectLead}>{heroLeadText}</p>
           </div>
         </div>
       </section>
 
       {/* ==========================================================================
-          KATMAN 2: FEATURES 8
+          KATMAN 2: FEATURES 8 (ÇİFT DİLLİ)
           ========================================================================== */}
       {project.features8 && project.features8.length > 0 && (
         <section className={`container ${styles.features8Section}`}>
           <div className={styles.features8Grid}>
-            {project.features8.map((item, idx) => (
-              <div key={idx} className={styles.features8Card}>
-                <div className={styles.iconHolder}>
-                  <DynamicIcon
-                    name={item.icon}
-                    size={22}
-                    className={styles.lucideIcon}
-                  />
+            {project.features8.map((item, idx) => {
+              const serifTitle =
+                typeof item.serifTitle === "object"
+                  ? isTr
+                    ? item.serifTitle.tr
+                    : item.serifTitle.en
+                  : item.serifTitle;
+              const copyText =
+                typeof item.copy === "object"
+                  ? isTr
+                    ? item.copy.tr
+                    : item.copy.en
+                  : item.copy;
+
+              return (
+                <div key={idx} className={styles.features8Card}>
+                  <div className={styles.iconHolder}>
+                    <DynamicIcon
+                      name={item.icon}
+                      size={22}
+                      className={styles.lucideIcon}
+                    />
+                  </div>
+                  <h3 className={styles.serifHeading}>{serifTitle}</h3>
+                  <p className={styles.minimalistCopy}>{copyText}</p>
                 </div>
-                <h3 className={styles.serifHeading}>{item.serifTitle}</h3>
-                <p className={styles.minimalistCopy}>{item.copy}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
       )}
@@ -295,7 +401,7 @@ export default function ProjectDetailClient({ project, lang }) {
 
           <div className={styles.passportItem}>
             <span className={styles.passportLabel}>
-              {isTr ? "TESLİM YILI" : "YEAR"}
+              {isTr ? "TESLİM YILI" : "DELIVERY YEAR"}
             </span>
             <span className={styles.passportValue}>{project.year}</span>
           </div>
@@ -306,7 +412,7 @@ export default function ProjectDetailClient({ project, lang }) {
             <span className={styles.passportLabel}>
               {isTr ? "HİZMET KAPSAMI" : "DISCIPLINES"}
             </span>
-            <span className={styles.passportValue}>{project.role}</span>
+            <span className={styles.passportValue}>{roleText}</span>
           </div>
         </div>
       </section>
@@ -322,8 +428,8 @@ export default function ProjectDetailClient({ project, lang }) {
               {isTr ? "Mevcut Durum & Büyük Kriz" : "Initial Bottleneck"}
             </span>
           </div>
-          <h2 className={styles.storyHeading}>{project.crisisHeading}</h2>
-          <p className={styles.storyParagraph}>{project.crisisStory}</p>
+          <h2 className={styles.storyHeading}>{crisisHeadingText}</h2>
+          <p className={styles.storyParagraph}>{crisisStoryText}</p>
         </div>
 
         <div className={styles.storyBlock}>
@@ -333,13 +439,13 @@ export default function ProjectDetailClient({ project, lang }) {
               {isTr ? "Masanızda Yüz Yüze Keşif" : "On-Site Discovery"}
             </span>
           </div>
-          <h2 className={styles.storyHeading}>{project.discoveryHeading}</h2>
-          <p className={styles.storyParagraph}>{project.discoveryStory}</p>
+          <h2 className={styles.storyHeading}>{discoveryHeadingText}</h2>
+          <p className={styles.storyParagraph}>{discoveryStoryText}</p>
         </div>
       </section>
 
       {/* ==========================================================================
-          KATMAN 5: GERÇEK GRAB-TO-SCROLL GALERİSİ (ASLA KİLİTLENMEZ)
+          KATMAN 5: GERÇEK GRAB-TO-SCROLL GALERİSİ
           ========================================================================== */}
       <section className={`container ${styles.gallerySection}`}>
         <div className={styles.galleryHeaderWrap}>
@@ -358,21 +464,20 @@ export default function ProjectDetailClient({ project, lang }) {
             <button
               onClick={() => scrollGallery("left")}
               className={styles.galleryScrollBtn}
-              aria-label="Önceki Görsel"
+              aria-label="Previous image"
             >
               <ChevronLeft size={18} />
             </button>
             <button
               onClick={() => scrollGallery("right")}
               className={styles.galleryScrollBtn}
-              aria-label="Sonraki Görsel"
+              aria-label="Next image"
             >
               <ChevronRight size={18} />
             </button>
           </div>
         </div>
 
-        {/* FARE İLE TUTUP SÜRÜKLENEBİLEN, DİKEYİ ASLA ENGELLEMEYEN HAT */}
         <div
           ref={galleryTrackRef}
           onMouseDown={handleMouseDown}
@@ -389,7 +494,7 @@ export default function ProjectDetailClient({ project, lang }) {
                 {!hasError ? (
                   <Image
                     src={src}
-                    alt={`${project.title} Görsel ${idx + 1}`}
+                    alt={`${project.title} ${idx + 1}`}
                     fill
                     sizes="(max-width: 768px) 85vw, 680px"
                     className={styles.galleryCardImg}
@@ -418,19 +523,34 @@ export default function ProjectDetailClient({ project, lang }) {
           <span className={styles.sectionMiniEyebrow}>
             {isTr ? "03 · Çözüm & İmalat" : "03 · Engineering"}
           </span>
-          <h2 className={styles.sectionMainTitle}>{project.solutionHeading}</h2>
+          <h2 className={styles.sectionMainTitle}>{solutionHeadingText}</h2>
         </div>
 
         <div className={styles.solutionGrid}>
-          {project.solutionSteps.map((step) => (
-            <div key={step.num} className={styles.stepCard}>
-              <div className={styles.stepCardTop}>
-                <span className={styles.stepCardNum}>{step.num}</span>
+          {project.solutionSteps.map((step) => {
+            const stepTitle =
+              typeof step.title === "object"
+                ? isTr
+                  ? step.title.tr
+                  : step.title.en
+                : step.title;
+            const stepDesc =
+              typeof step.desc === "object"
+                ? isTr
+                  ? step.desc.tr
+                  : step.desc.en
+                : step.desc;
+
+            return (
+              <div key={step.num} className={styles.stepCard}>
+                <div className={styles.stepCardTop}>
+                  <span className={styles.stepCardNum}>{step.num}</span>
+                </div>
+                <h3 className={styles.stepCardTitle}>{stepTitle}</h3>
+                <p className={styles.stepCardDesc}>{stepDesc}</p>
               </div>
-              <h3 className={styles.stepCardTitle}>{step.title}</h3>
-              <p className={styles.stepCardDesc}>{step.desc}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
@@ -445,8 +565,8 @@ export default function ProjectDetailClient({ project, lang }) {
               {isTr ? "Kırılma Noktası & İlk Hafta" : "The Turning Point"}
             </span>
           </div>
-          <h2 className={styles.shiftHeadingText}>{project.shiftHeading}</h2>
-          <p className={styles.shiftParagraphText}>{project.shiftStory}</p>
+          <h2 className={styles.shiftHeadingText}>{shiftHeadingText}</h2>
+          <p className={styles.shiftParagraphText}>{shiftStoryText}</p>
         </div>
       </section>
 
@@ -467,18 +587,27 @@ export default function ProjectDetailClient({ project, lang }) {
           </div>
 
           <div className={styles.metricsGridRow}>
-            {project.metrics.map((m, idx) => (
-              <div key={idx} className={styles.metricColumn}>
-                <span className={styles.metricBigNumber}>{m.figure}</span>
-                <span className={styles.metricDescLabel}>{m.label}</span>
-              </div>
-            ))}
+            {project.metrics.map((m, idx) => {
+              const metricLabel =
+                typeof m.label === "object"
+                  ? isTr
+                    ? m.label.tr
+                    : m.label.en
+                  : m.label;
+
+              return (
+                <div key={idx} className={styles.metricColumn}>
+                  <span className={styles.metricBigNumber}>{m.figure}</span>
+                  <span className={styles.metricDescLabel}>{metricLabel}</span>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* ==========================================================================
-          BÜYÜK FİNAL CTA (45 DERECE DÖNEN MASTER BUTON)
+          BÜYÜK FİNAL CTA
           ========================================================================== */}
       <section className={`container ${styles.finaleCtaSection}`}>
         <div className={styles.ctaCardFrame}>
@@ -517,7 +646,7 @@ export default function ProjectDetailClient({ project, lang }) {
               <span className={styles.btnText}>
                 {isTr ? "Yerinde Keşif Talep Edin" : "Request On-Site Meeting"}
               </span>
-              <div className={styles.btnIconCircle}>
+              <div className={styles.btnCircle}>
                 <svg
                   className={styles.btnArrowSvg}
                   viewBox="0 0 16 16"

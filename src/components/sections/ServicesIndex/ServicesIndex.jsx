@@ -6,56 +6,53 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./ServicesIndex.module.css";
 
+const basePath = "";
+
 const servicesList = [
   {
     num: "01",
-    slug: "kurumsal-web-siteleri",
+    categoryNumber: "01",
     title: {
-      tr: "Özel Web Mimarisi",
-      en: "Bespoke Web Architecture",
+      tr: "Web Siteleri & Dijital Vitrin",
+      en: "Websites & Digital Storefronts",
     },
-    bgImage:
-      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1800&q=85",
+    bgImage: `${basePath}/home/servicess/mobile_development.webp`,
   },
   {
     num: "02",
-    slug: "komisyonsuz-paket-servis",
+    categoryNumber: "02",
     title: {
-      tr: "Satış & Sipariş Sistemleri",
-      en: "POS & Ordering Automation",
+      tr: "Sipariş & Satış Sistemleri",
+      en: "Ordering & Sales Systems",
     },
-    bgImage:
-      "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=1800&q=85",
+    bgImage: `${basePath}/home/servicess/e-commerce.webp`,
   },
   {
     num: "03",
-    slug: "google-haritalar-1-sira",
+    categoryNumber: "03",
     title: {
-      tr: "Harita & Yerel Arama Hakimiyeti",
-      en: "Google Maps & Local Search Dominance",
+      tr: "İşletme Otomasyonu & Yazılım",
+      en: "Business Automation & Software",
     },
-    bgImage:
-      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1800&q=85",
+    bgImage: `${basePath}/home/servicess/business_management_software.webp`,
   },
   {
     num: "04",
-    slug: "meta-instagram-facebook-reklamlari",
+    categoryNumber: "04",
     title: {
-      tr: "Performans Reklam Yönetimi",
-      en: "Performance Media & Acquisition",
+      tr: "Büyüme Reklamı & Haritalar İlk Sıra",
+      en: "Growth Media & Google Maps #1",
     },
-    bgImage:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1800&q=85",
+    bgImage: `${basePath}/home/servicess/local_seo.webp`,
   },
   {
     num: "05",
-    slug: "ozel-logo-tasarimi",
+    categoryNumber: "05",
     title: {
-      tr: "Kurumsal Marka Kimliği",
-      en: "Corporate Brand Identity",
+      tr: "Marka Kimliği, Tasarım & Fotoğraf",
+      en: "Brand Identity, Design & Photography",
     },
-    bgImage:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=85",
+    bgImage: `${basePath}/home/servicess/social_medya.webp`,
   },
 ];
 
@@ -85,9 +82,9 @@ export default function ServicesIndex({ lang = "tr" }) {
       if (headerEl) {
         tl.fromTo(
           headerEl.children,
-          { opacity: 0, y: 30 },
+          { autoAlpha: 0, y: 30 },
           {
-            opacity: 1,
+            autoAlpha: 1,
             y: 0,
             duration: 0.8,
             stagger: 0.12,
@@ -98,9 +95,9 @@ export default function ServicesIndex({ lang = "tr" }) {
 
       tl.fromTo(
         items,
-        { opacity: 0, y: 35 },
+        { autoAlpha: 0, y: 35 },
         {
-          opacity: 1,
+          autoAlpha: 1,
           y: 0,
           duration: 0.8,
           stagger: 0.08,
@@ -135,7 +132,7 @@ export default function ServicesIndex({ lang = "tr" }) {
     >
       <div className={styles.topFadeGradient} aria-hidden="true" />
 
-      {/* Arka Plan Parallax Resimler */}
+      {/* Hazırladığın Gerçek Görsellerle Arka Plan Parallax Sahnesi */}
       <div
         className={`${styles.hoverImagesContainer} ${
           activeIdx !== null ? styles.containerActive : ""
@@ -156,7 +153,7 @@ export default function ServicesIndex({ lang = "tr" }) {
       <div className={styles.bottomFadeGradient} aria-hidden="true" />
 
       <div className={`container ${styles.container}`}>
-        {/* 2026 S+ ÇİFT FONT TİPOGRAFİK BAŞLIK (SANS + SERİF İTALİK İMZA) */}
+        {/* ÇİFT FONT TİPOGRAFİK BAŞLIK */}
         <header ref={headerRef} className={styles.sectionHeader}>
           <h2 className={styles.sectionMainTitle}>
             <span className={styles.titleLineSans}>
@@ -170,7 +167,7 @@ export default function ServicesIndex({ lang = "tr" }) {
           </h2>
         </header>
 
-        {/* LÜKS MİNİMALİST HİZMET LİSTESİ */}
+        {/* DOĞRUDAN O KATEGORİYE BAĞLAYAN LÜKS LİSTE */}
         <div
           ref={listRef}
           className={`${styles.servicesList} ${
@@ -189,7 +186,7 @@ export default function ServicesIndex({ lang = "tr" }) {
                 onMouseEnter={() => setActiveIdx(idx)}
               >
                 <Link
-                  href={`/${lang}/hizmetler`}
+                  href={`/${lang}/hizmetler#kategori-${item.categoryNumber}`}
                   className={styles.serviceLink}
                 >
                   <h3 className={styles.serviceName}>{currentTitle}</h3>

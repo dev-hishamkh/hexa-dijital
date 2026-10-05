@@ -27,6 +27,35 @@ export default function ServicesClient({ lang = "tr" }) {
   const groupRefs = useRef([]);
   const ctaRef = useRef(null);
 
+  // ANA SAYFADAN GELEN KATEGORİ ANKORUNU YAKALA VE ORAYA KAY
+  useEffect(() => {
+    const handleHashNavigation = () => {
+      const hash = window.location.hash;
+      if (!hash) return;
+
+      const targetCategoryNum = hash.replace("#kategori-", "");
+      const matchedGroupIdx = groups.findIndex(
+        (g) => g.categoryNumber === targetCategoryNum,
+      );
+
+      if (matchedGroupIdx !== -1) {
+        const matchedGroup = groups[matchedGroupIdx];
+        updateStageForCategory(matchedGroup);
+
+        setTimeout(() => {
+          const targetEl = document.getElementById(
+            `kategori-${targetCategoryNum}`,
+          );
+          if (targetEl) {
+            targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }, 150);
+      }
+    };
+
+    handleHashNavigation();
+  }, [groups]);
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -35,7 +64,7 @@ export default function ServicesClient({ lang = "tr" }) {
     const cta = ctaRef.current;
 
     const ctx = gsap.context(() => {
-      // 1. SAF GSAP HERO GİRİŞ ANİMASYONU (SIFIR PARLAMA)
+      // 1. SAF GSAP HERO GİRİŞ ANİMASYONU
       if (hero) {
         const badge = hero.querySelector(`.${styles.breadcrumbBadge}`);
         const titleWrappers = hero.querySelectorAll(
@@ -206,7 +235,7 @@ export default function ServicesClient({ lang = "tr" }) {
 
   return (
     <main className={styles.mainContainer}>
-      {/* 1. EDİTORYAL HERO (SAF GSAP MOTORU) */}
+      {/* 1. EDİTORYAL HERO */}
       <section ref={heroRef} className={`container ${styles.heroSection}`}>
         <div className={styles.heroContent}>
           <span className={styles.breadcrumbBadge}>
@@ -337,6 +366,7 @@ export default function ServicesClient({ lang = "tr" }) {
           {groups.map((group, gIdx) => (
             <div
               key={group.categoryNumber}
+              id={`kategori-${group.categoryNumber}`}
               ref={(el) => (groupRefs.current[gIdx] = el)}
               className={styles.deptGroupBlock}
               onMouseLeave={() => handleMouseLeaveGroup(group)}

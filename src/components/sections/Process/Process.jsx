@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { dictionary } from "@/data/dictionary";
 import styles from "./Process.module.css";
+import { Compass, Palette, Code2, TrendingUp } from "lucide-react";
 
 export default function Process({ lang = "tr" }) {
   const dict = dictionary[lang]?.process || dictionary.tr.process;
@@ -22,7 +23,10 @@ export default function Process({ lang = "tr" }) {
       title: dict.step1Title,
       desc: dict.step1Desc,
       badge: dict.step1Badge,
-      icon: (
+      stageIcon: (
+        <Compass size={56} strokeWidth={1.3} className={styles.stageHeroIcon} />
+      ),
+      nodeIcon: (
         <svg
           viewBox="0 0 24 24"
           fill="none"
@@ -43,7 +47,10 @@ export default function Process({ lang = "tr" }) {
       title: dict.step2Title,
       desc: dict.step2Desc,
       badge: dict.step2Badge,
-      icon: (
+      stageIcon: (
+        <Palette size={56} strokeWidth={1.3} className={styles.stageHeroIcon} />
+      ),
+      nodeIcon: (
         <svg
           viewBox="0 0 24 24"
           fill="none"
@@ -65,7 +72,10 @@ export default function Process({ lang = "tr" }) {
       title: dict.step3Title,
       desc: dict.step3Desc,
       badge: dict.step3Badge,
-      icon: (
+      stageIcon: (
+        <Code2 size={56} strokeWidth={1.3} className={styles.stageHeroIcon} />
+      ),
+      nodeIcon: (
         <svg
           viewBox="0 0 24 24"
           fill="none"
@@ -87,7 +97,14 @@ export default function Process({ lang = "tr" }) {
       title: dict.step4Title,
       desc: dict.step4Desc,
       badge: dict.step4Badge,
-      icon: (
+      stageIcon: (
+        <TrendingUp
+          size={56}
+          strokeWidth={1.3}
+          className={styles.stageHeroIcon}
+        />
+      ),
+      nodeIcon: (
         <svg
           viewBox="0 0 24 24"
           fill="none"
@@ -114,12 +131,13 @@ export default function Process({ lang = "tr" }) {
     if (!track || !fillLine) return;
 
     const ctx = gsap.context(() => {
+      // BAŞLIK GİRİŞİ (AUTOALPHA GÜVENCESİYLE SIFIR YANIP SÖNME)
       if (header) {
         gsap.fromTo(
           header.children,
-          { opacity: 0, y: 25 },
+          { autoAlpha: 0, y: 25 },
           {
-            opacity: 1,
+            autoAlpha: 1,
             y: 0,
             duration: 0.8,
             stagger: 0.1,
@@ -162,7 +180,6 @@ export default function Process({ lang = "tr" }) {
   return (
     <section ref={sectionRef} className={styles.section} id="nasil-calisiyoruz">
       <div className={`container ${styles.container}`}>
-        {/* BÖLÜM BAŞLIĞI (2026 S+ MONOLİTİK DÜZEN) */}
         <header ref={headerRef} className={styles.header}>
           <h2 className={styles.mainTitle}>
             {dict.titleMain} <br />
@@ -172,7 +189,6 @@ export default function Process({ lang = "tr" }) {
           <p className={styles.subtitle}>{dict.subtitle}</p>
         </header>
 
-        {/* KİNETİK TİMELİNE SAHNESİ */}
         <div className={styles.timelineStage}>
           <div ref={trackRef} className={styles.timelineTrack}>
             <div className={styles.trackDashed} />
@@ -185,7 +201,6 @@ export default function Process({ lang = "tr" }) {
 
               return (
                 <div key={item.step} className={styles.stepRow}>
-                  {/* SOL TARAF: TİPOGRAFİ */}
                   <div
                     className={`${styles.textSide} ${
                       isReached ? styles.textActive : ""
@@ -199,7 +214,6 @@ export default function Process({ lang = "tr" }) {
                     </div>
                   </div>
 
-                  {/* MERKEZ: DÜĞÜM */}
                   <div className={styles.nodeColumn}>
                     <div
                       ref={(el) => (nodeRefs.current[idx] = el)}
@@ -207,11 +221,12 @@ export default function Process({ lang = "tr" }) {
                         isReached ? styles.nodeActive : ""
                       }`}
                     >
-                      <div className={styles.iconNodeInner}>{item.icon}</div>
+                      <div className={styles.iconNodeInner}>
+                        {item.nodeIcon}
+                      </div>
                     </div>
                   </div>
 
-                  {/* SAĞ TARAF: TELEMETRİ KARTI */}
                   <div className={styles.cardSide}>
                     <div
                       className={`${styles.telemetryCard} ${
@@ -227,7 +242,9 @@ export default function Process({ lang = "tr" }) {
                         </span>
                       </div>
                       <div className={styles.cardCenter}>
-                        <span className={styles.giantNum}>{item.step}</span>
+                        <div className={styles.iconSculptureWrap}>
+                          {item.stageIcon}
+                        </div>
                         {isReached && (
                           <span className={styles.radarPulseRing} />
                         )}

@@ -5,116 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { projectsData, projectFilterTabs } from "@/data/projectsData";
 import styles from "./SelectedWorks.module.css";
-
-const basePath =
-  process.env.NODE_ENV === "production" ? "/hexa-dijital-final" : "";
-
-const filterTabs = [
-  { id: "all", label: "Tümü" },
-  { id: "web", label: "Web Mimarisi" },
-  { id: "seo", label: "Arama Hakimiyeti" },
-  { id: "automation", label: "Sipariş & Kasa" },
-];
-
-const projectsData = [
-  {
-    id: 1,
-    slug: "munchico-fried-chicken",
-    title: "Munchico Fried Chicken",
-    category: "automation",
-    badge: "Sipariş Altyapısı",
-    year: "2025",
-    impact: "Sıfır Komisyonlu QR Menü & Paket Servis Sistemi",
-    imageSrc: `${basePath}/projects/project-1.webp`,
-    imageAlt: {
-      tr: "Restoran QR Menü Sipariş ve Paket Servis Yazılımı - Munchico Fried Chicken",
-      en: "Restaurant QR Menu Ordering System - Munchico Fried Chicken",
-    },
-    monogram: "MFC",
-    logoSrc: "",
-  },
-  {
-    id: 2,
-    slug: "alya-davet",
-    title: "Alya Davet & Organizasyon",
-    category: "seo",
-    badge: "Haritalarda 1. Sıra",
-    year: "2025",
-    impact: "Google Haritalar 1. Sıra Hakimiyeti & Rezervasyon Akışı",
-    imageSrc: `${basePath}/projects/project-2.webp`,
-    imageAlt: {
-      tr: "Yerel SEO ve Google Haritalar 1. Sıra Çalışması - Alya Davet",
-      en: "Local SEO and Google Maps #1 Ranking - Alya Event",
-    },
-    monogram: "ADY",
-    logoSrc: "",
-  },
-  {
-    id: 3,
-    slug: "hira-koltuk-yikama",
-    title: "Hira Halı & Koltuk Yıkama",
-    category: "web",
-    badge: "Yazılım & Reklam",
-    year: "2024",
-    impact: "Hızlı Web Sitesi & Her Gün Telefon Çaldıran Reklam Motoru",
-    imageSrc: `${basePath}/projects/project-3.jpeg`,
-    imageAlt: {
-      tr: "Web Tasarım ve Google Ads Reklam Yönetimi - Hira Koltuk Yıkama",
-      en: "Web Design and Google Ads Acquisition Engine - Hira Cleaning",
-    },
-    monogram: "HHY",
-    logoSrc: "",
-  },
-  {
-    id: 4,
-    slug: "taha-usta",
-    title: "Taha Usta",
-    category: "automation",
-    badge: "Adisyon & Kasa",
-    year: "2024",
-    impact: "Restoran Masaları, Adisyon & Kasa Otomasyonu",
-    imageSrc: `${basePath}/projects/project-4.jpg`,
-    imageAlt: {
-      tr: "Restoran Masaları Adisyon ve Kasa Otomasyon Yazılımı - Taha Usta",
-      en: "Restaurant POS and Cashier Automation System - Taha Usta",
-    },
-    monogram: "THU",
-    logoSrc: "",
-  },
-  {
-    id: 5,
-    slug: "tataroglu-insaat",
-    title: "Tataroğlu İnşaat",
-    category: "web",
-    badge: "Kurumsal Web",
-    year: "2024",
-    impact: "Kurumsal Mimari Portföy & Dijital Firma Vitrini",
-    imageSrc: `${basePath}/projects/project-5.jpg`,
-    imageAlt: {
-      tr: "Kurumsal Web Tasarım ve Mimari Firma Kataloğu - Tataroğlu İnşaat",
-      en: "Corporate Architecture Web Platform - Tataroglu Construction",
-    },
-    monogram: "TTR",
-    logoSrc: "",
-  },
-  {
-    id: 6,
-    slug: "damisco",
-    title: "Damisco Global",
-    category: "web",
-    badge: "Global E-Ticaret",
-    year: "2024",
-    impact: "Küresel E-Ticaret & Tescilli İhracat Altyapısı",
-    imageSrc: `${basePath}/projects/project-6.jpg`,
-    imageAlt: {
-      tr: "Özel Web Yazılımı ve Çok Dilli E-Ticaret İhracat Altyapısı - Damisco Global",
-      en: "Custom Web Development and Global Export Platform - Damisco Global",
-    },
-    monogram: "DMC",
-    logoSrc: "",
-  },
-];
 
 export default function SelectedWorks({ lang = "tr" }) {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -255,7 +147,6 @@ export default function SelectedWorks({ lang = "tr" }) {
       aria-label="Seçkin Projeler Vitrini"
     >
       <div className={`container ${styles.container}`}>
-        {/* 1. SAF MONOLİTİK BAŞLIK (ARTIK GEREKSİZ MİNİK ROZET YOK) */}
         <header ref={headerRef} className={styles.header}>
           <h2 className={styles.mainTitle}>
             <span className={styles.maskContainer}>
@@ -276,10 +167,9 @@ export default function SelectedWorks({ lang = "tr" }) {
           </h2>
         </header>
 
-        {/* 2. RAFİNE MİNİMAL FİLTRE ÇUBUĞU */}
         <div ref={filterRef} className={styles.filterBar}>
           <div className={styles.filterPillsGroup}>
-            {filterTabs.map((tab) => {
+            {projectFilterTabs.map((tab) => {
               const isActive = activeFilter === tab.id;
               return (
                 <button
@@ -289,7 +179,7 @@ export default function SelectedWorks({ lang = "tr" }) {
                     isActive ? styles.pillActive : ""
                   }`}
                 >
-                  <span>{tab.label}</span>
+                  <span>{isTr ? tab.labelTR : tab.labelEN}</span>
                 </button>
               );
             })}
@@ -300,7 +190,6 @@ export default function SelectedWorks({ lang = "tr" }) {
           </span>
         </div>
 
-        {/* 3. SPOTLIGHT KART IZGARASI */}
         <div
           ref={gridRef}
           onMouseMove={handleMouseMove}
@@ -311,6 +200,25 @@ export default function SelectedWorks({ lang = "tr" }) {
             const currentAlt =
               item.imageAlt?.[lang] || item.imageAlt?.tr || item.title;
 
+            // Güvenli Resim Seçimi
+            const finalImageSrc =
+              item.imageSrc ||
+              (item.gallery && item.gallery.length > 0 ? item.gallery[0] : "");
+
+            const badgeText =
+              typeof item.badge === "object"
+                ? isTr
+                  ? item.badge.tr
+                  : item.badge.en
+                : item.badge;
+
+            const impactText =
+              typeof item.impact === "object"
+                ? isTr
+                  ? item.impact.tr
+                  : item.impact.en
+                : item.impact;
+
             return (
               <article key={item.id} className={styles.projectCard}>
                 <div className={styles.spotlightBorder} aria-hidden="true" />
@@ -320,9 +228,9 @@ export default function SelectedWorks({ lang = "tr" }) {
                   className={styles.cardLink}
                 >
                   <div className={styles.viewportArea}>
-                    {!hasError ? (
+                    {!hasError && finalImageSrc ? (
                       <Image
-                        src={item.imageSrc}
+                        src={finalImageSrc}
                         alt={currentAlt}
                         fill
                         sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 420px"
@@ -331,7 +239,6 @@ export default function SelectedWorks({ lang = "tr" }) {
                       />
                     ) : (
                       <div className={styles.fallbackCanvas}>
-                        <div className={styles.fallbackGridPattern} />
                         <span className={styles.fallbackMonogram}>
                           {item.monogram}
                         </span>
@@ -356,7 +263,7 @@ export default function SelectedWorks({ lang = "tr" }) {
                       </svg>
                     </div>
 
-                    <span className={styles.innerBadge}>{item.badge}</span>
+                    <span className={styles.innerBadge}>{badgeText}</span>
                   </div>
 
                   <div className={styles.cardMeta}>
@@ -364,7 +271,7 @@ export default function SelectedWorks({ lang = "tr" }) {
                       <h3 className={styles.cardTitle}>{item.title}</h3>
                       <span className={styles.projectYear}>{item.year}</span>
                     </div>
-                    <p className={styles.impactText}>{item.impact}</p>
+                    <p className={styles.impactText}>{impactText}</p>
                   </div>
                 </Link>
               </article>

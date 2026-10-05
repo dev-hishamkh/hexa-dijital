@@ -16,8 +16,16 @@
 }
 
 /* ==========================================================================
-   2026 S+ MONOLİTİK BAŞLIK ALANI (TÜM MİNİK ROZETLER SİLİNDİ)
+   GSAP ELEMANLARI: SIFIR PARLAMA KİLİDİ (OPACITY: 0)
    ========================================================================== */
+.titleLine1,
+.titleLine2,
+.filterBar,
+.projectCard {
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
 .header {
     display: flex;
     flex-direction: column;
@@ -50,7 +58,6 @@
 .titleLine1,
 .titleLine2 {
     display: inline-block;
-    will-change: transform, opacity;
 }
 
 .titleAccent {
@@ -61,9 +68,6 @@
     letter-spacing: -0.02em;
 }
 
-/* ==========================================================================
-   2. FİLTRE ÇUBUĞU
-   ========================================================================== */
 .filterBar {
     display: flex;
     align-items: center;
@@ -72,7 +76,6 @@
     padding: 1.25rem 0;
     margin-bottom: 3.5rem;
     gap: 1.25rem;
-    will-change: transform, opacity;
 }
 
 [data-theme="light"] .filterBar {
@@ -139,9 +142,6 @@
     flex-shrink: 0;
 }
 
-/* ==========================================================================
-   3. SPOTLIGHT KARTLARI
-   ========================================================================== */
 .showcaseGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -159,7 +159,6 @@
     border: 1px solid rgba(255, 255, 255, 0.08);
     transition: background-color 0.4s var(--ease-out), transform 0.4s var(--ease-out);
     overflow: hidden;
-    will-change: transform, opacity;
 }
 
 [data-theme="light"] .projectCard {
@@ -255,23 +254,22 @@
 }
 
 .ctaArrowSvg {
-    width: 16px;
-    height: 16px;
+    width: 15px;
+    height: 15px;
     color: #F8FAFC;
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
 }
 
 .projectCard:hover .heroArrowBadge {
-    background-color: #FFFFFF;
-    border-color: #FFFFFF;
+    background-color: var(--hexa-accent);
+    border-color: var(--hexa-accent);
     color: #0A0E17;
-    transform: translate(2px, -2px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    transform: translate(2px, -2px) rotate(45deg);
+    box-shadow: 0 10px 25px var(--hexa-accent-glow);
 }
 
 .projectCard:hover .ctaArrowSvg {
     color: #0A0E17;
-    transform: translate(1px, -1px);
 }
 
 .innerBadge {
@@ -340,7 +338,7 @@
 }
 
 .projectCard:hover .cardTitle {
-    color: #FFFFFF;
+    color: var(--hexa-accent);
 }
 
 .projectYear {

@@ -24,6 +24,15 @@
     height: 100%;
 }
 
+/* ==========================================================================
+   GSAP ELEMANLARI: SIFIR PARLAMA KİLİDİ (OPACITY: 0)
+   ========================================================================== */
+.contactCard,
+.capsuleCard {
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
 .contactCard {
     position: sticky;
     top: 120px;
@@ -35,13 +44,12 @@
     flex-direction: column;
     gap: 2rem;
     box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.7);
-    will-change: transform, opacity;
 }
 
 [data-theme="light"] .contactCard {
-    background: #FFFFFF;
-    border-color: rgba(0, 0, 0, 0.08);
-    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.08);
+    background: #FFFFFF !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08) !important;
 }
 
 .cardHeading {
@@ -54,6 +62,10 @@
     margin: 0;
 }
 
+[data-theme="light"] .cardHeading {
+    color: #111827 !important;
+}
+
 .cardText {
     font-family: var(--font-main);
     font-size: 0.95rem;
@@ -61,6 +73,10 @@
     color: var(--hexa-font-dim);
     letter-spacing: -0.015em;
     margin: 0;
+}
+
+[data-theme="light"] .cardText {
+    color: #4b5563 !important;
 }
 
 .metricGrid {
@@ -91,6 +107,10 @@
     line-height: 1;
 }
 
+[data-theme="light"] .metricVal {
+    color: #111827 !important;
+}
+
 .metricSub {
     font-family: var(--font-main);
     font-size: 0.78rem;
@@ -114,9 +134,6 @@
     gap: 1.15rem;
 }
 
-/* ==========================================================================
-   45 DERECE DÖNEN WHATSAPP BUTONU
-   ========================================================================== */
 .primaryWhatsappBtn {
     display: inline-flex;
     align-items: center;
@@ -135,12 +152,14 @@
 }
 
 [data-theme="light"] .primaryWhatsappBtn {
-    background-color: #111827;
-    color: #FFFFFF;
+    background-color: #111827 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
 }
 
 .btnText {
     letter-spacing: -0.01em;
+    color: inherit;
 }
 
 .btnCircle {
@@ -156,7 +175,7 @@
 }
 
 [data-theme="light"] .btnCircle {
-    background-color: #FFFFFF;
+    background-color: #FFFFFF !important;
 }
 
 .ctaArrowSvg {
@@ -167,16 +186,15 @@
 }
 
 [data-theme="light"] .ctaArrowSvg {
-    color: #111827;
+    color: #111827 !important;
 }
 
 .primaryWhatsappBtn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 15px 35px var(--hexa-accent-glow);
+    box-shadow: 0 15px 40px var(--hexa-accent-glow);
     background-color: #FFFFFF;
 }
 
-/* 45 DERECE DÖNÜŞ VE SİBER ZÜMRÜT IŞIMA */
 .primaryWhatsappBtn:hover .btnCircle {
     background-color: var(--hexa-accent);
     color: #0A0E17;
@@ -188,10 +206,19 @@
     color: #0A0E17;
 }
 
+[data-theme="light"] .primaryWhatsappBtn:hover {
+    background-color: #111827 !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25) !important;
+}
+
 [data-theme="light"] .primaryWhatsappBtn:hover .btnCircle {
-    background-color: #FFFFFF;
-    color: #111827;
+    background-color: #FFFFFF !important;
+    color: #111827 !important;
     transform: scale(1.08) rotate(45deg);
+}
+
+[data-theme="light"] .primaryWhatsappBtn:hover .ctaArrowSvg {
+    color: #111827 !important;
 }
 
 .secondaryFormLink {
@@ -214,6 +241,10 @@
 
 .secondaryFormLink:hover {
     color: var(--hexa-font-main);
+}
+
+[data-theme="light"] .secondaryFormLink:hover {
+    color: #111827;
 }
 
 .secondaryFormLink:hover .arrowSmall {
@@ -270,9 +301,6 @@
     line-height: 1.35;
 }
 
-/* ==========================================================================
-   SAĞ KAPSÜL KARTLAR
-   ========================================================================== */
 .rightColumnsWrap {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -300,12 +328,11 @@
         border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
         background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
         transform 0.25s var(--ease-out);
-    will-change: transform, opacity;
 }
 
 [data-theme="light"] .capsuleCard {
-    background: #FFFFFF;
-    border-color: rgba(0, 0, 0, 0.08);
+    background: #FFFFFF !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
 }
 
 .capsuleCard:hover {
@@ -314,15 +341,20 @@
     transform: translateY(-1px);
 }
 
+[data-theme="light"] .capsuleCard:hover {
+    background-color: #FAFAFA !important;
+    border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
 .cardExpanded {
-    border-color: rgba(0, 255, 209, 0.3);
-    background-color: rgba(255, 255, 255, 0.035);
+    border-color: rgba(0, 255, 209, 0.3) !important;
+    background-color: rgba(255, 255, 255, 0.035) !important;
     box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 255, 209, 0.06);
 }
 
 [data-theme="light"] .cardExpanded {
-    border-color: rgba(0, 168, 135, 0.35);
-    background-color: #FAFAFA;
+    border-color: rgba(0, 168, 135, 0.35) !important;
+    background-color: #FAFAFA !important;
 }
 
 .capsuleTop {
@@ -343,9 +375,22 @@
     transition: color 0.25s var(--ease-out);
 }
 
+[data-theme="light"] .questionText {
+    color: #111827 !important;
+}
+
 .capsuleCard:hover .questionText,
 .cardExpanded .questionText {
     color: #FFFFFF;
+}
+
+[data-theme="light"] .capsuleCard:hover .questionText,
+[data-theme="light"] .cardExpanded .questionText {
+    color: #111827 !important;
+}
+
+[data-theme="light"] .cardExpanded .questionText {
+    color: var(--hexa-accent) !important;
 }
 
 .iconBox {
@@ -421,6 +466,10 @@
     transition:
         opacity 0.3s var(--ease-out) 0.1s,
         transform 0.35s var(--ease-out) 0.1s;
+}
+
+[data-theme="light"] .answerText {
+    color: #4b5563 !important;
 }
 
 .drawerOpen .answerText {

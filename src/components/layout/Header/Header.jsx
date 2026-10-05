@@ -52,6 +52,12 @@ export default function Header({ lang = "tr" }) {
   const targetLang = lang === "tr" ? "en" : "tr";
   const switchLangHref = pathname.replace(`/${lang}`, `/${targetLang}`);
 
+  const handleLanguageSwitch = () => {
+    try {
+      localStorage.setItem("hexa-lang", targetLang);
+    } catch (e) {}
+  };
+
   return (
     <div className={styles.headerWrapper}>
       <header
@@ -59,10 +65,15 @@ export default function Header({ lang = "tr" }) {
           isScrolled ? styles.islandScrolled : ""
         }`}
       >
+        {/* SOL LOGO: HEXA (SANS) + DİJİTAL (İTALİK SERİF İMZA) */}
         <Link href={`/${lang}`} className={styles.brandLink}>
-          <span className={styles.logoName}>Hexa Dijital</span>
+          <span className={styles.logoSans}>Hexa</span>
+          <span className={styles.logoSerif}>
+            {lang === "tr" ? "Dijital" : "Digital"}
+          </span>
         </Link>
 
+        {/* DESKTOP NAVİGASYON: İTALİK SERİF İMZA LİNKLER */}
         <nav className={styles.desktopNav}>
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
@@ -80,9 +91,12 @@ export default function Header({ lang = "tr" }) {
           })}
         </nav>
 
+        {/* SAĞ AKSİYON PANELİ */}
         <div className={styles.actionPanel}>
+          {/* DİL DEĞİŞTİRME BUTONU (TERCİHİ HAFIZAYA KAYDEDER) */}
           <Link
             href={switchLangHref}
+            onClick={handleLanguageSwitch}
             className={styles.langPill}
             aria-label="Change Language"
           >
@@ -169,6 +183,7 @@ export default function Header({ lang = "tr" }) {
         </div>
       </header>
 
+      {/* MOBİL ÇEKMECE */}
       <div
         className={`${styles.mobileDrawer} ${
           isMobileMenuOpen ? styles.drawerVisible : ""

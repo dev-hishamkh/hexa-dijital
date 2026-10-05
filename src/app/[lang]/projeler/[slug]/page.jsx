@@ -38,7 +38,22 @@ export async function generateMetadata({ params }) {
     ? `${project.title} · Başarı Hikayesi | Hexa Dijital`
     : `${project.title} · Case Study | Hexa Digital`;
 
-  const metaDesc = project.heroLead.slice(0, 158);
+  // ÇİFT DİLLİ METİN AYIKLAMA (HATAYI KÖKTEN ÇÖZER)
+  const heroLeadText =
+    typeof project.heroLead === "object"
+      ? isTr
+        ? project.heroLead.tr
+        : project.heroLead.en
+      : project.heroLead || "";
+
+  const roleText =
+    typeof project.role === "object"
+      ? isTr
+        ? project.role.tr
+        : project.role.en
+      : project.role || "";
+
+  const metaDesc = heroLeadText.slice(0, 158);
 
   return {
     title: metaTitle,
@@ -47,7 +62,7 @@ export async function generateMetadata({ params }) {
       project.title,
       `${project.title} Bursa`,
       project.client,
-      project.role,
+      roleText,
       "web yazılım referansı",
       "Hexa Dijital başarı hikayeleri",
     ],
@@ -85,6 +100,20 @@ export default async function ProjectDetailPage({ params }) {
     notFound();
   }
 
+  const heroLeadText =
+    typeof project.heroLead === "object"
+      ? isTr
+        ? project.heroLead.tr
+        : project.heroLead.en
+      : project.heroLead || "";
+
+  const roleText =
+    typeof project.role === "object"
+      ? isTr
+        ? project.role.tr
+        : project.role.en
+      : project.role || "";
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -114,8 +143,8 @@ export default async function ProjectDetailPage({ params }) {
       {
         "@type": "Article",
         headline: project.title,
-        description: project.heroLead,
-        about: project.role,
+        description: heroLeadText,
+        about: roleText,
         author: {
           "@type": "ProfessionalService",
           name: "HEXA Dijital",

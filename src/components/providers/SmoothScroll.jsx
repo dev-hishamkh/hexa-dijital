@@ -10,11 +10,23 @@ export default function SmoothScroll({ children }) {
   const pathname = usePathname();
   const lenisRef = useRef(null);
 
+  // 1. REACT 19 UYUMLU SIFIR SCRIPT HATALI TEMA İLKLENDİRİCİSİ
   useEffect(() => {
-    // 1. GSAP ScrollTrigger Eklentisini Kaydet
+    try {
+      const storedTheme = localStorage.getItem("hexa-theme");
+      const prefersLight = window.matchMedia(
+        "(prefers-color-scheme: light)",
+      ).matches;
+      const theme = storedTheme || (prefersLight ? "light" : "dark");
+      document.documentElement.setAttribute("data-theme", theme);
+    } catch (e) {}
+  }, []);
+
+  useEffect(() => {
+    // 2. GSAP ScrollTrigger Eklentisini Kaydet
     gsap.registerPlugin(ScrollTrigger);
 
-    // 2. Lenis Akıcı Kaydırma Motorunu Başlat
+    // 3. Lenis Akıcı Kaydırma Motorunu Başlat
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -26,7 +38,7 @@ export default function SmoothScroll({ children }) {
     });
     lenisRef.current = lenis;
 
-    // 3. Lenis ile GSAP Senkronizasyonu
+    // 4. Lenis ile GSAP Senkronizasyonu
     lenis.on("scroll", ScrollTrigger.update);
 
     const updateTicker = (time) => {
@@ -51,7 +63,6 @@ export default function SmoothScroll({ children }) {
     }
     window.scrollTo(0, 0);
 
-    // Yeni sayfanın tetikleyicilerini sıfır gecikmeyle yenile
     const timer = setTimeout(() => {
       ScrollTrigger.refresh();
     }, 80);

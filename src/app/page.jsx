@@ -7,8 +7,31 @@ export default function RootRedirect() {
   const router = useRouter();
 
   useEffect(() => {
-    // Kök dizine gelen kullanıcıyı varsayılan olarak /tr sayfasına yönlendir
-    router.replace("/tr");
+    try {
+      // 1. Ziyaretçi daha önce sitede dil seçmiş mi?
+      const savedLang = localStorage.getItem("hexa-lang");
+
+      if (savedLang === "en" || savedLang === "tr") {
+        router.replace(`/${savedLang}`);
+        return;
+      }
+
+      // 2. Ziyaretçinin cihaz / tarayıcı dilini tespit et
+      const browserLang = (
+        navigator.language ||
+        navigator.userLanguage ||
+        "tr"
+      ).toLowerCase();
+
+      // Cihaz dili Türkçe ise /tr, yabancı bir ülke ise doğrudan /en
+      if (browserLang.startsWith("tr")) {
+        router.replace("/tr");
+      } else {
+        router.replace("/en");
+      }
+    } catch (e) {
+      router.replace("/tr");
+    }
   }, [router]);
 
   return (

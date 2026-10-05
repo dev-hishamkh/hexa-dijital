@@ -16,8 +16,16 @@
 }
 
 /* ==========================================================================
-   2026 S+ MONOLİTİK BAŞLIK (ROZET VE NOKTA YOK)
+   GSAP ELEMANLARI: SIFIR PARLAMA KİLİDİ (OPACITY: 0)
    ========================================================================== */
+.header>*,
+.textSide,
+.iconNodeOuter,
+.telemetryCard {
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
 .header {
     display: flex;
     flex-direction: column;
@@ -59,9 +67,6 @@
     color: #475569;
 }
 
-/* ==========================================================================
-   TİMELİNE HATTI
-   ========================================================================== */
 .timelineStage {
     position: relative;
     width: 100%;
@@ -89,6 +94,12 @@
     background-size: 2px 14px;
 }
 
+[data-theme="light"] .trackDashed {
+    background-image: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.14) 50%,
+            transparent 50%);
+}
+
 .trackSolidFill {
     position: absolute;
     top: 0;
@@ -99,6 +110,11 @@
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px var(--hexa-accent);
     will-change: height;
     pointer-events: none;
+}
+
+[data-theme="light"] .trackSolidFill {
+    background: #111827;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .stepsList {
@@ -117,18 +133,16 @@
     width: 100%;
 }
 
-/* Sol Taraf */
 .textSide {
     display: flex;
     flex-direction: column;
     padding-right: 1.5rem;
-    opacity: 0.35;
     transform: translateY(8px);
     transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
 }
 
 .textActive {
-    opacity: 1;
+    opacity: 1 !important;
     transform: translateY(0);
 }
 
@@ -188,9 +202,6 @@
     color: #111827;
 }
 
-/* ==========================================================================
-   MERKEZ: DÜĞÜM
-   ========================================================================== */
 .nodeColumn {
     display: flex;
     align-items: center;
@@ -211,6 +222,11 @@
     will-change: transform, box-shadow;
 }
 
+[data-theme="light"] .iconNodeOuter {
+    background: #FFFFFF;
+    border-color: rgba(0, 0, 0, 0.12);
+}
+
 .iconNodeInner {
     width: 36px;
     height: 36px;
@@ -223,6 +239,11 @@
     transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+[data-theme="light"] .iconNodeInner {
+    background: rgba(0, 0, 0, 0.04);
+    color: #4b5563;
+}
+
 .nodeIconSvg {
     width: 18px;
     height: 18px;
@@ -230,9 +251,15 @@
 }
 
 .nodeActive {
+    opacity: 1 !important;
     border-color: #FFFFFF;
     box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
     transform: scale(1.12);
+}
+
+[data-theme="light"] .nodeActive {
+    border-color: #111827;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .nodeActive .iconNodeInner {
@@ -240,9 +267,11 @@
     color: #0A0E17;
 }
 
-/* ==========================================================================
-   SAĞ TARAF: TELEMETRİ KARTI
-   ========================================================================== */
+[data-theme="light"] .nodeActive .iconNodeInner {
+    background: #111827;
+    color: #FFFFFF;
+}
+
 .cardSide {
     display: flex;
     align-items: center;
@@ -255,8 +284,8 @@
     width: 100%;
     max-width: 440px;
     aspect-ratio: 16 / 9;
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.02);
+    border-radius: 20px;
+    background: #0D111A;
     border: 1px solid rgba(255, 255, 255, 0.08);
     padding: 1.5rem;
     display: flex;
@@ -264,15 +293,26 @@
     justify-content: space-between;
     overflow: hidden;
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    opacity: 0.3;
+}
+
+[data-theme="light"] .telemetryCard {
+    background: #FFFFFF !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04) !important;
 }
 
 .cardActive {
-    opacity: 1;
-    border-color: rgba(255, 255, 255, 0.16);
-    background-color: rgba(255, 255, 255, 0.035);
-    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.7);
+    opacity: 1 !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    background-color: #101522 !important;
+    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 255, 209, 0.04);
     transform: translateY(-3px);
+}
+
+[data-theme="light"] .cardActive {
+    background-color: #FFFFFF !important;
+    border-color: rgba(0, 0, 0, 0.16) !important;
+    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.1) !important;
 }
 
 .cardTop {
@@ -283,18 +323,26 @@
     padding-bottom: 0.75rem;
 }
 
+[data-theme="light"] .cardTop {
+    border-color: rgba(0, 0, 0, 0.06);
+}
+
 .phaseLabel {
     font-family: var(--font-main);
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     font-weight: 600;
     letter-spacing: -0.01em;
     color: #94a3b8;
 }
 
+[data-theme="light"] .phaseLabel {
+    color: #64748b;
+}
+
 .statusLabel {
     font-family: var(--font-main);
     font-size: 0.76rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--hexa-accent);
 }
 
@@ -306,18 +354,31 @@
     flex: 1;
 }
 
-.giantNum {
-    font-family: var(--font-main);
-    font-size: 4.8rem;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.06);
-    letter-spacing: -0.05em;
-    user-select: none;
-    transition: color 0.5s var(--ease-out);
+.iconSculptureWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.cardActive .giantNum {
-    color: rgba(255, 255, 255, 0.18);
+.stageHeroIcon {
+    color: rgba(255, 255, 255, 0.25);
+    transition: all 0.4s ease;
+}
+
+[data-theme="light"] .stageHeroIcon {
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.cardActive .stageHeroIcon {
+    color: #F8FAFC !important;
+    filter: drop-shadow(0 0 16px var(--hexa-accent-glow));
+    transform: scale(1.08);
+}
+
+[data-theme="light"] .cardActive .stageHeroIcon {
+    color: #111827 !important;
+    filter: none;
 }
 
 .radarPulseRing {
@@ -328,6 +389,10 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
     animation: radarExpand 2.2s infinite ease-out;
     pointer-events: none;
+}
+
+[data-theme="light"] .radarPulseRing {
+    border-color: rgba(0, 0, 0, 0.15);
 }
 
 @keyframes radarExpand {

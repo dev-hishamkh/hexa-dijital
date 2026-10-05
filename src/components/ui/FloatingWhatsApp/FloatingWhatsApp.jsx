@@ -5,9 +5,9 @@ import { dictionary } from "@/data/dictionary";
 import styles from "./FloatingWhatsApp.module.css";
 
 export default function FloatingWhatsApp({ lang = "tr" }) {
+  const isTr = lang === "tr";
   const dict = dictionary[lang]?.whatsapp || dictionary.tr.whatsapp;
 
-  // Doğrulanmış Proje Masası: 0551 976 94 06
   const whatsappUrl = `https://wa.me/905519769406?text=${encodeURIComponent(
     dict.message,
   )}`;
@@ -15,7 +15,11 @@ export default function FloatingWhatsApp({ lang = "tr" }) {
   return (
     <aside
       className={styles.floatingWrapper}
-      aria-label="Hexa Dijital Canlı WhatsApp Masası"
+      aria-label={
+        isTr
+          ? "Hexa Dijital Canlı WhatsApp Masası"
+          : "Hexa Digital Live Project Desk"
+      }
     >
       <a
         href={whatsappUrl}
@@ -23,19 +27,23 @@ export default function FloatingWhatsApp({ lang = "tr" }) {
         rel="noopener noreferrer"
         className={styles.cyberCapsule}
       >
-        {/* SİBER CANLI NABIZ ÇEKİRDEĞİ (NEON TURKUAZ) */}
+        {/* SİBER CANLI NABIZ ÇEKİRDEĞİ */}
         <div className={styles.liveIndicator}>
           <span className={styles.pulseCore} />
           <span className={styles.pulseAura} />
         </div>
 
-        {/* TİTANYUM MONOLİTİK ETİKET */}
+        {/* TİTANYUM ETİKET (ÇİFT DİLLİ) */}
         <div className={styles.labelGroup}>
-          <span className={styles.brandTitle}>WhatsApp Masası</span>
-          <span className={styles.statusLive}>Canlı Destek</span>
+          <span className={styles.brandTitle}>
+            {isTr ? "WhatsApp Masası" : "WhatsApp Desk"}
+          </span>
+          <span className={styles.statusLive}>
+            {isTr ? "Canlı Destek" : "Online Direct"}
+          </span>
         </div>
 
-        {/* 45 DERECE DÖNEN MASTER AKSİYON ÇEMBERİ */}
+        {/* 45 DERECE DÖNEN AKSİYON ÇEMBERİ */}
         <div className={styles.actionCircle}>
           <svg className={styles.arrowSvg} viewBox="0 0 16 16" fill="none">
             <path

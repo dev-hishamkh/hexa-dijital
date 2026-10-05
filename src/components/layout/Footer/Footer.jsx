@@ -91,14 +91,14 @@ export default function Footer({ lang = "tr" }) {
   return (
     <footer ref={footerRef} className={styles.hexaPremiumFooter}>
       <div className={`container ${styles.container}`}>
-        {/* GOOGLE İŞLETME PROFİLİ DOĞRULAMA ŞERİDİ (NİLÜFER KALDIRILDI) */}
+        {/* DOĞRULAMA ŞERİDİ (ÇİFT DİLLİ) */}
         <div className={styles.napHeaderStrip}>
           <div className={styles.napIdentityBlock}>
             <div className={styles.napBrandName}>HEXA DİJİTAL</div>
             <p className={styles.napDescription}>
               {isTr
                 ? "Bursa merkezli web tasarım ve özel yazılım şirketi. Hazır şablon kullanmadan, %100 özgün ve anında açılan kurumsal web çözümleri."
-                : "Bespoke web design and software engineering agency in Bursa, Turkey."}
+                : "Bursa-based bespoke web engineering and advertising studio. Zero slow templates; sub-second performance architectures."}
             </p>
           </div>
 
@@ -118,7 +118,7 @@ export default function Footer({ lang = "tr" }) {
               </span>
               <span className={styles.napMetaValue}>
                 {isTr
-                  ? "Pzt - Paz · 09:00 - 18:00 (Canlı)"
+                  ? "Pzt - Paz · 09:00 - 18:00"
                   : "Mon - Sun · 09:00 - 18:00"}
               </span>
             </div>
@@ -130,13 +130,13 @@ export default function Footer({ lang = "tr" }) {
               <span className={styles.napMetaValue}>
                 {isTr
                   ? "Bursa Geneli Yerinde Ziyaret"
-                  : "On-Site Visits Across Bursa"}
+                  : "On-Site Business Visits"}
               </span>
             </div>
           </div>
         </div>
 
-        {/* 5 HİZMET KATEGORİSİNİN YAN YANA EŞİT DİZİLİMİ */}
+        {/* 5 HİZMET KATEGORİSİNİN DİZİLİMİ */}
         <div ref={columnsRef} className={styles.footerColumns5grid}>
           {groups.map((category) => (
             <div
@@ -178,7 +178,7 @@ export default function Footer({ lang = "tr" }) {
         </div>
       </div>
 
-      {/* DEVASA 35VW HEXA FİLİGRANI */}
+      {/* DEVASA HEXA FİLİGRANI */}
       <div className={styles.footerBottomContainer}>
         <div
           ref={massiveTextRef}
@@ -189,9 +189,11 @@ export default function Footer({ lang = "tr" }) {
         </div>
 
         <div ref={socialRowRef} className={styles.footerSocialRow}>
+          {/* ÇİFT DİLLİ TELİF METNİ */}
           <div className={styles.copyrightText}>
-            © {new Date().getFullYear()} Hexa Dijital — Yazılım, Tasarım ve
-            Reklam Ajansı. Tüm hakları saklıdır.
+            {isTr
+              ? `© ${new Date().getFullYear()} Hexa Dijital — Yazılım, Tasarım ve Reklam Ajansı. Tüm hakları saklıdır.`
+              : `© ${new Date().getFullYear()} Hexa Digital — Bespoke Software & Growth Engineering. All rights reserved.`}
           </div>
 
           <div className={styles.socialLinks}>

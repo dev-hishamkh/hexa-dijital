@@ -115,12 +115,13 @@
     color: var(--hexa-accent);
 }
 
-/* GSAP TARAFINDAN YÖNETİLEN ELEMANLAR: SIFIR PARLAMA */
+/* GSAP TARAFINDAN YÖNETİLEN ELEMANLAR */
 .heroContent,
 .features8Card,
 .projectPassportBar,
 .storyBlock,
 .stepCard,
+.shiftCardBox,
 .metricColumn,
 .ctaCardFrame {
     opacity: 0;
@@ -155,6 +156,9 @@
     color: #374151;
 }
 
+/* ==========================================================================
+   FEATURES 8
+   ========================================================================== */
 .features8Section {
     width: 100%;
     max-width: var(--max-width);
@@ -246,6 +250,9 @@
     color: #4b5563;
 }
 
+/* ==========================================================================
+   PASAPORT
+   ========================================================================== */
 .passportSection {
     width: 100%;
     max-width: var(--max-width);
@@ -302,6 +309,9 @@
     background: var(--hexa-border);
 }
 
+/* ==========================================================================
+   HİKAYE
+   ========================================================================== */
 .storySection {
     width: 100%;
     max-width: var(--max-width);
@@ -377,6 +387,9 @@
     color: #4b5563;
 }
 
+/* ==========================================================================
+   GALERİ
+   ========================================================================== */
 .gallerySection {
     width: 100%;
     max-width: var(--max-width);
@@ -529,6 +542,9 @@
     pointer-events: none;
 }
 
+/* ==========================================================================
+   İMALAT / ÇÖZÜM
+   ========================================================================= */
 .solutionSection {
     width: 100%;
     max-width: var(--max-width);
@@ -630,6 +646,9 @@
     color: #4b5563;
 }
 
+/* ==========================================================================
+   KIRILMA NOKTASI (SHIFT)
+   ========================================================================== */
 .shiftSection {
     width: 100%;
     max-width: var(--max-width);
@@ -687,6 +706,9 @@
     color: #4b5563;
 }
 
+/* ==========================================================================
+   METRİKLER
+   ========================================================================== */
 .metricsSection {
     width: 100%;
     max-width: var(--max-width);
@@ -767,6 +789,9 @@
     color: #4b5563;
 }
 
+/* ==========================================================================
+   BÜYÜK FİNAL CTA KUTUSU (ARTIK KESİNTİSİZ ÇIKAR)
+   ========================================================================== */
 .finaleCtaSection {
     width: 100%;
     max-width: var(--max-width);
@@ -883,7 +908,7 @@
     letter-spacing: -0.01em;
 }
 
-.btnIconCircle {
+.btnCircle {
     width: 38px;
     height: 38px;
     border-radius: var(--radius-full);
@@ -896,7 +921,7 @@
     flex-shrink: 0;
 }
 
-[data-theme="light"] .btnIconCircle {
+[data-theme="light"] .btnCircle {
     background-color: #FFFFFF;
     color: #111827;
 }
@@ -907,7 +932,7 @@
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
 }
 
-.projectExecutiveBtn:hover .btnIconCircle {
+.projectExecutiveBtn:hover .btnCircle {
     background-color: var(--hexa-accent);
     color: #0A0E17;
     transform: scale(1.08) rotate(45deg);
@@ -918,7 +943,7 @@
     color: #0A0E17;
 }
 
-[data-theme="light"] .projectExecutiveBtn:hover .btnIconCircle {
+[data-theme="light"] .projectExecutiveBtn:hover .btnCircle {
     background-color: #FFFFFF;
     color: #111827;
     transform: scale(1.08) rotate(45deg);

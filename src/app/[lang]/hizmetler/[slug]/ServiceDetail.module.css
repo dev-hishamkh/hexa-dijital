@@ -3,8 +3,13 @@
     background-color: var(--hexa-bg);
     padding-bottom: 9rem;
     transition: background-color 0.4s var(--ease-out);
+    position: relative;
+    overflow-x: hidden;
 }
 
+/* ==========================================================================
+   KATMAN 1: SİNEMATİK BACKGROUND HERO
+   ========================================================================== */
 .heroSection {
     position: relative;
     width: 100vw;
@@ -114,15 +119,40 @@
     color: var(--hexa-accent);
 }
 
-/* GSAP TARAFINDAN YÖNETİLEN ELEMANLAR: SIFIR PARLAMA */
-.heroContent,
+/* GSAP TARAFINDAN YÖNETİLEN ELEMANLAR */
+.heroContent>*,
 .features8Card,
+.monolithBlock,
 .f11TopSplit,
 .f11BoxCard,
 .delivItemCard,
 .ctaBoxFrame {
     opacity: 0;
     will-change: transform, opacity;
+}
+
+.heroKpiPill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.35rem 0.95rem;
+    border-radius: var(--radius-full);
+    background: rgba(0, 255, 209, 0.08);
+    border: 1px solid rgba(0, 255, 209, 0.25);
+    font-family: var(--font-main);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--hexa-accent);
+    margin-bottom: 1.5rem;
+    width: fit-content;
+}
+
+.kpiDot {
+    width: 6px;
+    height: 6px;
+    border-radius: var(--radius-full);
+    background-color: var(--hexa-accent);
+    box-shadow: 0 0 8px var(--hexa-accent);
 }
 
 .heroTitle {
@@ -133,6 +163,7 @@
     letter-spacing: -0.04em;
     color: #F8FAFC;
     margin: 0 0 1.5rem 0;
+    max-width: 1100px;
 }
 
 [data-theme="light"] .heroTitle {
@@ -153,10 +184,13 @@
     color: #374151;
 }
 
+/* ==========================================================================
+   KATMAN 2: 3 SÜTUNLU ÖZELLİK IZGARASI
+   ========================================================================== */
 .features8Section {
     width: 100%;
     max-width: var(--max-width);
-    margin: 0 auto 7.5rem auto;
+    margin: 0 auto 6.5rem auto;
     padding-left: clamp(2rem, 6vw, 6.5rem);
     padding-right: clamp(2rem, 6vw, 6.5rem);
 }
@@ -190,10 +224,6 @@
     align-items: center;
     justify-content: center;
     color: var(--hexa-accent);
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.lucideIcon {
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -244,6 +274,183 @@
     color: #4b5563;
 }
 
+/* ==========================================================================
+   KATMAN 3: DEV LUCIDE İKONİK SAHNELERİ
+   ========================================================================== */
+.architecturalSection {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto 8.5rem auto;
+    padding-left: clamp(2rem, 6vw, 6.5rem);
+    padding-right: clamp(2rem, 6vw, 6.5rem);
+}
+
+.monolithGrid {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(4rem, 6vw, 6.5rem);
+    width: 100%;
+}
+
+.monolithBlock {
+    display: grid;
+    grid-template-columns: 1fr 1.35fr;
+    gap: clamp(3rem, 5vw, 6rem);
+    align-items: center;
+}
+
+.blockRowReversed {
+    grid-template-columns: 1.35fr 1fr;
+}
+
+.blockRowReversed .monolithVisualCol {
+    order: 2;
+}
+
+.blockRowReversed .monolithContentCol {
+    order: 1;
+}
+
+.monolithVisualCol {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sculptureFrame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 11;
+    border-radius: 28px;
+    background: radial-gradient(circle at 50% 50%, #101524 0%, #0A0E17 100%);
+    border: 1px solid var(--hexa-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 255, 209, 0.03);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="light"] .sculptureFrame {
+    background: radial-gradient(circle at 50% 50%, #FFFFFF 0%, #F5F5F7 100%);
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 15px 35px -15px rgba(0, 0, 0, 0.08);
+}
+
+.sculptureFrame:hover {
+    transform: translateY(-4px);
+    border-color: var(--hexa-border-focus);
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.95), 0 0 35px rgba(0, 255, 209, 0.08);
+}
+
+.sculptureGlowOrb {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border-radius: var(--radius-full);
+    background: radial-gradient(circle, rgba(0, 255, 209, 0.12) 0%, transparent 70%);
+    filter: blur(40px);
+    pointer-events: none;
+    transition: all 0.4s ease;
+}
+
+[data-theme="light"] .sculptureGlowOrb {
+    background: radial-gradient(circle, rgba(0, 168, 135, 0.1) 0%, transparent 70%);
+}
+
+.sculptureFrame:hover .sculptureGlowOrb {
+    background: radial-gradient(circle, rgba(0, 255, 209, 0.22) 0%, transparent 70%);
+    transform: scale(1.15);
+}
+
+.giantHeroLucide {
+    position: relative;
+    z-index: 2;
+    color: #F8FAFC;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="light"] .giantHeroLucide {
+    color: #111827;
+}
+
+.sculptureFrame:hover .giantHeroLucide {
+    color: var(--hexa-accent);
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 16px var(--hexa-accent-glow));
+}
+
+.sculptureIndexBadge {
+    position: absolute;
+    bottom: 1.25rem;
+    font-family: monospace;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--hexa-font-muted);
+}
+
+.monolithContentCol {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.monolithTag {
+    font-family: var(--font-main);
+    font-size: 0.84rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--hexa-accent);
+}
+
+.monolithHeading {
+    font-family: var(--font-main);
+    font-size: clamp(2rem, 3.2vw, 2.9rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+    color: #F8FAFC;
+    margin: 0;
+}
+
+[data-theme="light"] .monolithHeading {
+    color: #111827;
+}
+
+.proofMetricPill {
+    display: inline-block;
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--hexa-accent);
+    background: rgba(0, 255, 209, 0.08);
+    border: 1px solid rgba(0, 255, 209, 0.25);
+    padding: 0.4rem 0.95rem;
+    border-radius: var(--radius-full);
+    width: fit-content;
+}
+
+.monolithText {
+    font-family: var(--font-main);
+    font-size: 1.05rem;
+    line-height: 1.68;
+    color: #cbd5e1;
+    letter-spacing: -0.015em;
+    margin: 0;
+}
+
+[data-theme="light"] .monolithText {
+    color: #4b5563;
+}
+
+/* ==========================================================================
+   KATMAN 4: SPLIT BAŞLIK & TERTEMİZ KARTLAR (İNCELEYİN/GÖRÜN KALDIRILDI)
+   ========================================================================== */
 .features11Section {
     width: 100%;
     max-width: var(--max-width);
@@ -308,11 +515,10 @@
     background: #0A0E17;
     border: 1px solid var(--hexa-border);
     border-radius: 20px;
-    padding: 2rem 2rem 1.75rem 2rem;
+    padding: 2.25rem 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    min-height: 310px;
+    gap: 1.35rem;
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 0 15px 35px -15px rgba(0, 0, 0, 0.7);
 }
@@ -333,13 +539,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 2rem;
 }
 
 .f11IconSquare {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid var(--hexa-border);
     display: flex;
@@ -371,8 +576,6 @@
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    margin-bottom: 2.25rem;
-    flex-grow: 1;
 }
 
 .f11CardTitle {
@@ -391,8 +594,8 @@
 
 .f11CardText {
     font-family: var(--font-main);
-    font-size: 0.92rem;
-    line-height: 1.6;
+    font-size: 0.95rem;
+    line-height: 1.62;
     color: #cbd5e1;
     letter-spacing: -0.01em;
     margin: 0;
@@ -402,157 +605,9 @@
     color: #4b5563;
 }
 
-.f11CardFooterLine {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--hexa-border);
-}
-
-.f11ActionText {
-    font-family: var(--font-main);
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: #F8FAFC;
-    letter-spacing: -0.01em;
-    transition: color 0.25s ease;
-}
-
-[data-theme="light"] .f11ActionText {
-    color: #111827;
-}
-
-.f11ActionArrow {
-    color: var(--hexa-font-muted);
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
-}
-
-.f11BoxCard:hover .f11ActionText {
-    color: var(--hexa-accent);
-}
-
-.f11BoxCard:hover .f11ActionArrow {
-    color: var(--hexa-accent);
-    transform: translateX(4px);
-}
-
-.zigzagSection {
-    width: 100%;
-    max-width: var(--max-width);
-    margin: 0 auto 9rem auto;
-    padding-left: clamp(2rem, 6vw, 6.5rem);
-    padding-right: clamp(2rem, 6vw, 6.5rem);
-    display: flex;
-    flex-direction: column;
-    gap: clamp(5rem, 8vw, 9rem);
-}
-
-.zigzagRow {
-    display: grid;
-    grid-template-columns: 1fr 1.15fr;
-    gap: clamp(3rem, 5vw, 6rem);
-    align-items: center;
-}
-
-.rowImageLeft {
-    grid-template-columns: 1.15fr 1fr;
-}
-
-.zigzagContentCol {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-}
-
-.zigzagTag {
-    font-family: var(--font-main);
-    font-size: 0.84rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    color: var(--hexa-accent);
-}
-
-.zigzagHeading {
-    font-family: var(--font-main);
-    font-size: clamp(2rem, 3.2vw, 2.9rem);
-    font-weight: 600;
-    line-height: 1.15;
-    letter-spacing: -0.035em;
-    color: #F8FAFC;
-    margin: 0;
-}
-
-[data-theme="light"] .zigzagHeading {
-    color: #111827;
-}
-
-.proofMetricPill {
-    display: inline-block;
-    font-family: var(--font-main);
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--hexa-accent);
-    background: rgba(0, 255, 209, 0.08);
-    border: 1px solid rgba(0, 255, 209, 0.25);
-    padding: 0.4rem 0.95rem;
-    border-radius: var(--radius-full);
-    width: fit-content;
-}
-
-.zigzagText {
-    font-family: var(--font-main);
-    font-size: 1.05rem;
-    line-height: 1.68;
-    color: #cbd5e1;
-    letter-spacing: -0.015em;
-    margin: 0;
-}
-
-[data-theme="light"] .zigzagText {
-    color: #4b5563;
-}
-
-.zigzagVisualCol {
-    position: relative;
-    width: 100%;
-}
-
-.showcaseFrame {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 10.5;
-    border-radius: 24px;
-    overflow: hidden;
-    border: 1px solid var(--hexa-border);
-    background-color: #0D111A;
-    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 255, 209, 0.03);
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
-}
-
-.showcaseFrame:hover {
-    transform: translateY(-4px);
-    border-color: var(--hexa-border-focus);
-}
-
-.showcaseImg {
-    object-fit: cover;
-    object-position: center;
-    filter: brightness(0.88) contrast(1.08);
-    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.showcaseFrame:hover .showcaseImg {
-    transform: scale(1.03);
-}
-
-.frameVignette {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(10, 14, 23, 0.5) 0%, transparent 50%);
-    pointer-events: none;
-}
-
+/* ==========================================================================
+   KATMAN 5: TESLİMAT KALEMLERİ
+   ========================================================================== */
 .deliverablesSection {
     width: 100%;
     max-width: var(--max-width);
@@ -670,10 +725,6 @@
     border-color: var(--hexa-accent);
     color: #0A0E17;
     box-shadow: 0 0 20px var(--hexa-accent-glow);
-}
-
-.delivIconSvg {
-    transition: color 0.3s ease;
 }
 
 .delivItemTitle {
@@ -882,6 +933,11 @@
     border-color: rgba(0, 0, 0, 0.08);
 }
 
+[data-theme="light"] .relatedMiniCard:hover {
+    border-color: rgba(0, 0, 0, 0.16);
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.08);
+}
+
 .relatedCardMain {
     display: flex;
     flex-direction: column;
@@ -945,8 +1001,8 @@
 }
 
 .arrowCircleMini {
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
     border-radius: var(--radius-full);
     background: var(--hexa-surface);
     border: 1px solid var(--hexa-border);
@@ -954,22 +1010,44 @@
     align-items: center;
     justify-content: center;
     color: var(--hexa-font-muted);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="light"] .arrowCircleMini {
+    background: rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.08);
+    color: #111827;
 }
 
 .arrowSvgMini {
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
 }
 
 .relatedMiniCard:hover .arrowCircleMini {
     background-color: var(--hexa-accent);
     border-color: var(--hexa-accent);
     color: #0A0E17;
-    transform: scale(1.08);
+    transform: scale(1.08) rotate(45deg);
+    box-shadow: 0 0 16px var(--hexa-accent-glow);
+}
+
+.relatedMiniCard:hover .arrowSvgMini {
+    color: #0A0E17;
+}
+
+[data-theme="light"] .relatedMiniCard:hover .arrowCircleMini {
+    background-color: #111827;
+    border-color: #111827;
+    color: #FFFFFF;
+    transform: scale(1.08) rotate(45deg);
+}
+
+[data-theme="light"] .relatedMiniCard:hover .arrowSvgMini {
+    color: #FFFFFF;
 }
 
 /* ==========================================================================
-   KATMAN 7: ALT CTA (45 DERECE DÖNEN MASTER BUTON)
+   KATMAN 7: ALT CTA
    ========================================================================== */
 .bottomCtaSection {
     width: 100%;
@@ -992,9 +1070,9 @@
 }
 
 [data-theme="light"] .ctaBoxFrame {
-    background: #FFFFFF;
-    border-color: rgba(0, 0, 0, 0.09);
-    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.08);
+    background: #FFFFFF !important;
+    border-color: rgba(0, 0, 0, 0.09) !important;
+    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.08) !important;
 }
 
 .ctaContentLeft {
@@ -1091,12 +1169,14 @@
 }
 
 [data-theme="light"] .luxuryWhatsappBtn {
-    background-color: #111827;
-    color: #FFFFFF;
+    background-color: #111827 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
 }
 
 .btnMainText {
     letter-spacing: -0.01em;
+    color: inherit;
 }
 
 .btnIconCircle {
@@ -1112,7 +1192,7 @@
 }
 
 [data-theme="light"] .btnIconCircle {
-    background-color: #FFFFFF;
+    background-color: #FFFFFF !important;
 }
 
 .btnArrowSvg {
@@ -1123,7 +1203,7 @@
 }
 
 [data-theme="light"] .btnArrowSvg {
-    color: #111827;
+    color: #111827 !important;
 }
 
 .luxuryWhatsappBtn:hover {
@@ -1141,6 +1221,21 @@
 
 .luxuryWhatsappBtn:hover .btnArrowSvg {
     color: #0A0E17;
+}
+
+[data-theme="light"] .luxuryWhatsappBtn:hover {
+    background-color: #111827 !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25) !important;
+}
+
+[data-theme="light"] .luxuryWhatsappBtn:hover .btnIconCircle {
+    background-color: #FFFFFF !important;
+    color: #111827 !important;
+    transform: scale(1.08) rotate(45deg);
+}
+
+[data-theme="light"] .luxuryWhatsappBtn:hover .btnArrowSvg {
+    color: #111827 !important;
 }
 
 .secondaryInquiryLink {
@@ -1179,15 +1274,18 @@
         gap: 1.25rem;
     }
 
-    .zigzagRow,
-    .rowImageLeft {
+    .monolithBlock,
+    .blockRowReversed {
         grid-template-columns: 1fr;
         gap: 2.5rem;
     }
 
-    .rowImageLeft {
-        display: flex;
-        flex-direction: column-reverse;
+    .blockRowReversed .monolithVisualCol {
+        order: 1;
+    }
+
+    .blockRowReversed .monolithContentCol {
+        order: 2;
     }
 
     .delivBalancedGrid {
@@ -1216,8 +1314,8 @@
 
     .heroContainer,
     .features8Section,
+    .architecturalSection,
     .features11Section,
-    .zigzagSection,
     .deliverablesSection,
     .faqAndRelatedCombinedSection,
     .bottomCtaSection {
@@ -1227,6 +1325,15 @@
 
     .heroTitle {
         font-size: clamp(2.4rem, 8.5vw, 3.8rem);
+    }
+
+    .sculptureFrame {
+        aspect-ratio: 16 / 10;
+    }
+
+    .giantHeroLucide {
+        width: 64px;
+        height: 64px;
     }
 
     .luxuryWhatsappBtn {

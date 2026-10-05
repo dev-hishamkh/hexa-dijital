@@ -14,6 +14,7 @@ import {
   TrendingUp,
   MapPin,
   PhoneCall,
+  PhoneOff,
   Star,
   Percent,
   Printer,
@@ -31,6 +32,7 @@ import {
   Building2,
   Workflow,
   MessageSquare,
+  MessageCircle,
   CircleDollarSign,
   Receipt,
   CalendarCheck,
@@ -38,15 +40,20 @@ import {
   Bot,
   Cpu,
   FileText,
+  FileX,
+  FileCheck,
   CheckCircle2,
   Barcode,
   PackageCheck,
   BellRing,
   Palette,
   Search,
+  Filter,
   Ruler,
   Frame,
   Camera,
+  Focus,
+  Video,
   Code2,
   FileCode2,
   ShieldAlert,
@@ -54,13 +61,13 @@ import {
   MailCheck,
   Fingerprint,
   Headset,
-  Settings2,
-  Compass,
-  Radio,
-  BarChart3,
-  Smartphone,
-  Tag,
+  Coins,
+  LayoutGrid,
+  PenTool,
+  Lightbulb,
   Share2,
+  Smartphone,
+  Eye,
   ArrowUpRight,
   ArrowLeft,
   ArrowRight,
@@ -75,6 +82,7 @@ const lucideRegistry = {
   TrendingUp,
   MapPin,
   PhoneCall,
+  PhoneOff,
   Star,
   Percent,
   Printer,
@@ -92,6 +100,7 @@ const lucideRegistry = {
   Building2,
   Workflow,
   MessageSquare,
+  MessageCircle,
   CircleDollarSign,
   Receipt,
   CalendarCheck,
@@ -99,15 +108,20 @@ const lucideRegistry = {
   Bot,
   Cpu,
   FileText,
+  FileX,
+  FileCheck,
   CheckCircle2,
   Barcode,
   PackageCheck,
   BellRing,
   Palette,
   Search,
+  Filter,
   Ruler,
   Frame,
   Camera,
+  Focus,
+  Video,
   Code2,
   FileCode2,
   ShieldAlert,
@@ -115,22 +129,22 @@ const lucideRegistry = {
   MailCheck,
   Fingerprint,
   Headset,
-  Settings2,
-  Compass,
-  Radio,
-  BarChart3,
-  Smartphone,
-  Tag,
+  Coins,
+  LayoutGrid,
+  PenTool,
+  Lightbulb,
   Share2,
+  Smartphone,
+  Eye,
 };
 
-function DynamicLucideIcon({ name, size = 20, className }) {
+function DynamicLucideIcon({ name, size = 22, strokeWidth = 1.4, className }) {
   const IconComp = lucideRegistry[name] || Zap;
   return (
     <IconComp
       size={size}
-      strokeWidth={1.8}
-      className={className || styles.f11IconSvg}
+      strokeWidth={strokeWidth}
+      className={className || styles.defaultIconSvg}
     />
   );
 }
@@ -143,21 +157,26 @@ export default function ServiceDetailClient({
 }) {
   const isTr = lang === "tr";
   const rootRef = useRef(null);
-  // İpeksi Akordeon Durumu (İlk soru açık)
   const [openFaqIdx, setOpenFaqIdx] = useState(0);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      // 1. Hero Girişi
+      // 1. Hero Giriş Animasyonu
       gsap.fromTo(
-        `.${styles.heroContent}`,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.85, ease: "power3.out" },
+        `.${styles.heroContent} > *`,
+        { opacity: 0, y: 28 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: "power3.out",
+        },
       );
 
-      // 2. Features 8 Kademeli Giriş
+      // 2. 3 Sütunlu Özellikler
       gsap.fromTo(
         `.${styles.features8Card}`,
         { opacity: 0, y: 25 },
@@ -175,11 +194,29 @@ export default function ServiceDetailClient({
         },
       );
 
-      // 3. Features 11 Split Başlık & Kartlar
+      // 3. Devasa İkonik Mimari Katmanları
+      gsap.fromTo(
+        `.${styles.monolithBlock}`,
+        { opacity: 0, y: 35 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.85,
+          stagger: 0.14,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: `.${styles.architecturalSection}`,
+            start: "top 78%",
+            once: true,
+          },
+        },
+      );
+
+      // 4. Features 11 Split Başlık & Kartlar
       const f11Tl = gsap.timeline({
         scrollTrigger: {
           trigger: `.${styles.features11Section}`,
-          start: "top 78%",
+          start: "top 80%",
           once: true,
         },
       });
@@ -188,7 +225,7 @@ export default function ServiceDetailClient({
         .fromTo(
           `.${styles.f11TopSplit}`,
           { opacity: 0, y: 25 },
-          { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" },
+          { opacity: 1, y: 0, duration: 0.65, ease: "power3.out" },
         )
         .fromTo(
           `.${styles.f11BoxCard}`,
@@ -200,10 +237,10 @@ export default function ServiceDetailClient({
             stagger: 0.08,
             ease: "power3.out",
           },
-          "-=0.3",
+          "-=0.25",
         );
 
-      // 4. Deliverables Kartları
+      // 5. Teslimat Kalemleri
       gsap.fromTo(
         `.${styles.delivItemCard}`,
         { opacity: 0, y: 20 },
@@ -215,13 +252,13 @@ export default function ServiceDetailClient({
           ease: "power3.out",
           scrollTrigger: {
             trigger: `.${styles.deliverablesSection}`,
-            start: "top 78%",
+            start: "top 80%",
             once: true,
           },
         },
       );
 
-      // 5. Alt CTA Kutusu
+      // 6. Alt CTA
       gsap.fromTo(
         `.${styles.ctaBoxFrame}`,
         { opacity: 0, y: 30 },
@@ -246,6 +283,10 @@ export default function ServiceDetailClient({
     setOpenFaqIdx(openFaqIdx === idx ? null : idx);
   };
 
+  const block1Icon = data?.zigzagShowcase?.block1?.icon || "Zap";
+  const block2Icon = data?.zigzagShowcase?.block2?.icon || "Workflow";
+  const block3Icon = data?.zigzagShowcase?.block3?.icon || "Award";
+
   return (
     <main ref={rootRef} className={styles.mainContainer}>
       {/* ==========================================================================
@@ -269,13 +310,21 @@ export default function ServiceDetailClient({
           <div className={styles.navigationRow}>
             <Link href={`/${lang}/hizmetler`} className={styles.backNav}>
               <ArrowLeft size={16} className={styles.backArrow} />
-              <span>{isTr ? "Hizmet Fihristi" : "Services"}</span>
+              <span>{isTr ? "Hizmet Kataloğu" : "Service Index"}</span>
             </Link>
             <span className={styles.navSeparator}>/</span>
             <span className={styles.currentDeptText}>{data.categoryTag}</span>
           </div>
 
           <div className={styles.heroContent}>
+            <div className={styles.heroKpiPill}>
+              <span className={styles.kpiDot} />
+              <span>
+                {data.kpi ||
+                  (isTr ? "Mühendislik Standardı" : "Engineering Benchmark")}
+              </span>
+            </div>
+
             <h1 className={styles.heroTitle}>{data.title}</h1>
             <p className={styles.heroLead}>{data.leadText}</p>
           </div>
@@ -283,159 +332,174 @@ export default function ServiceDetailClient({
       </section>
 
       {/* ==========================================================================
-          KATMAN 2: 3 SÜTUNLU MİMARİ
+          KATMAN 2: 3 SÜTUNLU ÖZELLİK MİMARİSİ
           ========================================================================== */}
-      <section className={`container ${styles.features8Section}`}>
-        <div className={styles.features8Grid}>
-          {data.features8.map((item, idx) => (
-            <div key={idx} className={styles.features8Card}>
-              <div className={styles.iconHolder}>
-                <DynamicLucideIcon
-                  name={item.icon}
-                  size={22}
-                  className={styles.lucideIcon}
-                />
-              </div>
-              <h3 className={styles.serifHeading}>{item.serifTitle}</h3>
-              <p className={styles.minimalistCopy}>{item.copy}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ==========================================================================
-          KATMAN 3: SPLIT BAŞLIK & KARTLAR
-          ========================================================================== */}
-      <section className={`container ${styles.features11Section}`}>
-        <div className={styles.f11TopSplit}>
-          <h2 className={styles.f11MainHeadline}>
-            <span>{data.features11.headlineMain} </span>
-            <span className={styles.f11ItalicWord}>
-              {data.features11.headlineItalic}{" "}
-            </span>
-            <span>{data.features11.headlineEnd}</span>
-          </h2>
-
-          <p className={styles.f11RightParagraph}>
-            {data.features11.leadParagraph}
-          </p>
-        </div>
-
-        <div className={styles.f11CardsGrid}>
-          {data.features11.cards.map((card) => (
-            <div key={card.index} className={styles.f11BoxCard}>
-              <div className={styles.f11CardTopHeader}>
-                <div className={styles.f11IconSquare}>
+      {data.features8 && data.features8.length > 0 && (
+        <section className={`container ${styles.features8Section}`}>
+          <div className={styles.features8Grid}>
+            {data.features8.map((item, idx) => (
+              <div key={idx} className={styles.features8Card}>
+                <div className={styles.iconHolder}>
                   <DynamicLucideIcon
-                    name={card.icon}
-                    size={20}
-                    className={styles.f11IconSvg}
+                    name={item.icon}
+                    size={24}
+                    strokeWidth={1.5}
+                    className={styles.lucideIcon}
                   />
                 </div>
-                <span className={styles.f11CardIndexNum}>{card.index}</span>
+                <h3 className={styles.serifHeading}>{item.serifTitle}</h3>
+                <p className={styles.minimalistCopy}>{item.copy}</p>
               </div>
-
-              <div className={styles.f11CardBody}>
-                <h3 className={styles.f11CardTitle}>{card.title}</h3>
-                <p className={styles.f11CardText}>{card.text}</p>
-              </div>
-
-              <div className={styles.f11CardFooterLine}>
-                <span className={styles.f11ActionText}>{card.actionText}</span>
-                <ArrowRight size={15} className={styles.f11ActionArrow} />
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* ==========================================================================
-          KATMAN 4: ZİG-ZAG GÖRSEL MİMARİSİ
+          KATMAN 3: BAŞLIĞA ÖZEL DEV LUCIDE İKONİK SAHNELERİ
           ========================================================================== */}
-      <section className={`container ${styles.zigzagSection}`}>
-        <div className={`${styles.zigzagRow} ${styles.rowTextLeft}`}>
-          <div className={styles.zigzagContentCol}>
-            <span className={styles.zigzagTag}>
-              {data.zigzagShowcase.block1.tag}
-            </span>
-            <h2 className={styles.zigzagHeading}>
-              {data.zigzagShowcase.block1.heading}
-            </h2>
-            <p className={styles.zigzagText}>
-              {data.zigzagShowcase.block1.text}
-            </p>
-          </div>
-          <div className={styles.zigzagVisualCol}>
-            <div className={styles.showcaseFrame}>
-              <Image
-                src={data.zigzagShowcase.block1.image}
-                alt={data.zigzagShowcase.block1.imageAlt}
-                fill
-                sizes="(max-width: 1024px) 100vw, 680px"
-                className={styles.showcaseImg}
-              />
-              <div className={styles.frameVignette} />
-            </div>
-          </div>
-        </div>
-
-        <div className={`${styles.zigzagRow} ${styles.rowImageLeft}`}>
-          <div className={styles.zigzagVisualCol}>
-            <div className={styles.showcaseFrame}>
-              <Image
-                src={data.zigzagShowcase.block2.image}
-                alt={data.zigzagShowcase.block2.imageAlt}
-                fill
-                sizes="(max-width: 1024px) 100vw, 680px"
-                className={styles.showcaseImg}
-              />
-              <div className={styles.frameVignette} />
-            </div>
-          </div>
-          <div className={styles.zigzagContentCol}>
-            <span className={styles.zigzagTag}>
-              {data.zigzagShowcase.block2.tag}
-            </span>
-            <h2 className={styles.zigzagHeading}>
-              {data.zigzagShowcase.block2.heading}
-            </h2>
-            <p className={styles.zigzagText}>
-              {data.zigzagShowcase.block2.text}
-            </p>
-          </div>
-        </div>
-
-        <div className={`${styles.zigzagRow} ${styles.rowTextLeft}`}>
-          <div className={styles.zigzagContentCol}>
-            <span className={styles.zigzagTag}>
-              {data.zigzagShowcase.block3.tag}
-            </span>
-            <h2 className={styles.zigzagHeading}>
-              {data.zigzagShowcase.block3.heading}
-            </h2>
-            {data.zigzagShowcase.block3.metricBadge && (
-              <div className={styles.proofMetricPill}>
-                {data.zigzagShowcase.block3.metricBadge}
+      {data.zigzagShowcase && (
+        <section className={`container ${styles.architecturalSection}`}>
+          <div className={styles.monolithGrid}>
+            {/* BLOK 1 */}
+            <div className={`${styles.monolithBlock} ${styles.blockRowNormal}`}>
+              <div className={styles.monolithVisualCol}>
+                <div className={styles.sculptureFrame}>
+                  <div className={styles.sculptureGlowOrb} />
+                  <DynamicLucideIcon
+                    name={block1Icon}
+                    size={84}
+                    strokeWidth={1.2}
+                    className={styles.giantHeroLucide}
+                  />
+                  <span className={styles.sculptureIndexBadge}>
+                    01 // TEŞHİS
+                  </span>
+                </div>
               </div>
-            )}
-            <p className={styles.zigzagText}>
-              {data.zigzagShowcase.block3.text}
-            </p>
-          </div>
-          <div className={styles.zigzagVisualCol}>
-            <div className={styles.showcaseFrame}>
-              <Image
-                src={data.zigzagShowcase.block3.image}
-                alt={data.zigzagShowcase.block3.imageAlt}
-                fill
-                sizes="(max-width: 1024px) 100vw, 680px"
-                className={styles.showcaseImg}
-              />
-              <div className={styles.frameVignette} />
+              <div className={styles.monolithContentCol}>
+                <span className={styles.monolithTag}>
+                  {data.zigzagShowcase.block1.tag}
+                </span>
+                <h2 className={styles.monolithHeading}>
+                  {data.zigzagShowcase.block1.heading}
+                </h2>
+                <p className={styles.monolithText}>
+                  {data.zigzagShowcase.block1.text}
+                </p>
+              </div>
+            </div>
+
+            {/* BLOK 2 */}
+            <div
+              className={`${styles.monolithBlock} ${styles.blockRowReversed}`}
+            >
+              <div className={styles.monolithVisualCol}>
+                <div className={styles.sculptureFrame}>
+                  <div className={styles.sculptureGlowOrb} />
+                  <DynamicLucideIcon
+                    name={block2Icon}
+                    size={84}
+                    strokeWidth={1.2}
+                    className={styles.giantHeroLucide}
+                  />
+                  <span className={styles.sculptureIndexBadge}>
+                    02 // SÜREÇ
+                  </span>
+                </div>
+              </div>
+              <div className={styles.monolithContentCol}>
+                <span className={styles.monolithTag}>
+                  {data.zigzagShowcase.block2.tag}
+                </span>
+                <h2 className={styles.monolithHeading}>
+                  {data.zigzagShowcase.block2.heading}
+                </h2>
+                <p className={styles.monolithText}>
+                  {data.zigzagShowcase.block2.text}
+                </p>
+              </div>
+            </div>
+
+            {/* BLOK 3 */}
+            <div className={`${styles.monolithBlock} ${styles.blockRowNormal}`}>
+              <div className={styles.monolithVisualCol}>
+                <div className={styles.sculptureFrame}>
+                  <div className={styles.sculptureGlowOrb} />
+                  <DynamicLucideIcon
+                    name={block3Icon}
+                    size={84}
+                    strokeWidth={1.2}
+                    className={styles.giantHeroLucide}
+                  />
+                  <span className={styles.sculptureIndexBadge}>
+                    03 // TAAHHÜT
+                  </span>
+                </div>
+              </div>
+              <div className={styles.monolithContentCol}>
+                <span className={styles.monolithTag}>
+                  {data.zigzagShowcase.block3.tag}
+                </span>
+                <h2 className={styles.monolithHeading}>
+                  {data.zigzagShowcase.block3.heading}
+                </h2>
+                {data.zigzagShowcase.block3.metricBadge && (
+                  <div className={styles.proofMetricPill}>
+                    {data.zigzagShowcase.block3.metricBadge}
+                  </div>
+                )}
+                <p className={styles.monolithText}>
+                  {data.zigzagShowcase.block3.text}
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
+      {/* ==========================================================================
+          KATMAN 4: SPLIT BAŞLIK & TERTEMİZ KARTLAR (İNCELEYİN/GÖRÜN KALDIRILDI)
+          ========================================================================== */}
+      {data.features11 && (
+        <section className={`container ${styles.features11Section}`}>
+          <div className={styles.f11TopSplit}>
+            <h2 className={styles.f11MainHeadline}>
+              <span>{data.features11.headlineMain} </span>
+              <span className={styles.f11ItalicWord}>
+                {data.features11.headlineItalic}{" "}
+              </span>
+              <span>{data.features11.headlineEnd}</span>
+            </h2>
+
+            <p className={styles.f11RightParagraph}>
+              {data.features11.leadParagraph}
+            </p>
+          </div>
+
+          <div className={styles.f11CardsGrid}>
+            {data.features11.cards.map((card) => (
+              <div key={card.index} className={styles.f11BoxCard}>
+                <div className={styles.f11CardTopHeader}>
+                  <div className={styles.f11IconSquare}>
+                    <DynamicLucideIcon
+                      name={card.icon}
+                      size={22}
+                      className={styles.f11IconSvg}
+                    />
+                  </div>
+                  <span className={styles.f11CardIndexNum}>{card.index}</span>
+                </div>
+
+                <div className={styles.f11CardBody}>
+                  <h3 className={styles.f11CardTitle}>{card.title}</h3>
+                  <p className={styles.f11CardText}>{card.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* ==========================================================================
           KATMAN 5: TESLİMAT KALEMLERİ
@@ -443,7 +507,8 @@ export default function ServiceDetailClient({
       <section className={`container ${styles.deliverablesSection}`}>
         <div className={styles.deliverablesHeader}>
           <span className={styles.delivEyebrow}>
-            {data.deliverablesHeader.eyebrow}
+            {data.deliverablesHeader?.eyebrow ||
+              (isTr ? "Mühendislik Standartları" : "Engineering Deliverables")}
           </span>
           <h2 className={styles.delivMainHeading}>
             <span>{isTr ? "İşletmenize sağlanan " : "Engineered "}</span>
@@ -451,7 +516,12 @@ export default function ServiceDetailClient({
               {isTr ? "somut çıktılar." : "technical deliverables."}
             </span>
           </h2>
-          <p className={styles.delivLeadText}>{data.deliverablesHeader.lead}</p>
+          <p className={styles.delivLeadText}>
+            {data.deliverablesHeader?.lead ||
+              (isTr
+                ? "Her teslimat kalemimiz şeffaf, ölçülebilir ve şirketinize ait tam mülkiyetle sunulur."
+                : "Codified with verifiable speed, zero vendor lock-ins, and full intellectual property ownership.")}
+          </p>
         </div>
 
         <div className={styles.delivBalancedGrid}>
@@ -474,11 +544,10 @@ export default function ServiceDetailClient({
       </section>
 
       {/* ==========================================================================
-          KATMAN 6: YAN YANA BİRLEŞİK BÖLÜM (İPEKSİ AKORDEON DÖNÜŞÜMÜ)
+          KATMAN 6: YAN YANA BİRLEŞİK BÖLÜM (İPEKSİ AKORDEON SSS)
           ========================================================================== */}
       <section className={`container ${styles.faqAndRelatedCombinedSection}`}>
         <div className={styles.combinedTwoColLayout}>
-          {/* SOL SÜTUN: İPEKSİ AKORDEON SSS */}
           <div className={styles.combinedFaqCol}>
             <div className={styles.colHeaderWrap}>
               <span className={styles.sectionLabel}>
@@ -509,7 +578,6 @@ export default function ServiceDetailClient({
                         <Plus size={18} className={styles.faqExpandIcon} />
                       </div>
                     </div>
-                    {/* CSS GRID İLE İPEKSİ AŞAĞI KAYAN GÖVDE */}
                     <div
                       className={`${styles.faqSmoothDrawer} ${isOpen ? styles.drawerOpen : ""}`}
                     >
@@ -523,7 +591,6 @@ export default function ServiceDetailClient({
             </div>
           </div>
 
-          {/* SAĞ SÜTUN: TAMAMLAYICI ÇÖZÜMLER */}
           <div className={styles.combinedRelatedCol}>
             <div className={styles.colHeaderWrap}>
               <span className={styles.sectionLabel}>
@@ -576,7 +643,7 @@ export default function ServiceDetailClient({
             <div className={styles.ctaBadgeArea}>
               <span className={styles.ctaStatusDot} />
               <span className={styles.ctaBadgeLabel}>
-                {isTr ? "Ücretsiz Ön İnceleme" : "Complimentary Audit"}
+                {isTr ? "Bursa İçi Masanızda Keşif" : "On-Site Consultation"}
               </span>
             </div>
 
@@ -605,7 +672,6 @@ export default function ServiceDetailClient({
           </div>
 
           <div className={styles.ctaActionsRight}>
-            {/* 45 DERECE DÖNEN MASTER BUTON */}
             <a
               href={`https://wa.me/905519769406?text=${whatsappMessage}`}
               target="_blank"

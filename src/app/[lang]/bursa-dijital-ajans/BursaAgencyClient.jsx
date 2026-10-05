@@ -15,7 +15,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      // 1. SAF GSAP HERO GİRİŞ ANİMASYONU (PARLAMASIZ)
+      // 1. Hero Giriş Animasyonu
       gsap.fromTo(
         `.${styles.heroSection} > *`,
         { opacity: 0, y: 30 },
@@ -28,7 +28,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
         },
       );
 
-      // 2. BENTO KARTLAR SCROLL TRIGGER
+      // 2. Bento Kartlar
       gsap.fromTo(
         `.${styles.bentoCard}`,
         { opacity: 0, y: 35, scale: 0.98 },
@@ -47,7 +47,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
         },
       );
 
-      // 3. KOKPİT SCROLL TRIGGER
+      // 3. Departman Kokpiti
       gsap.fromTo(
         `.${styles.deptCockpitFrame}`,
         { opacity: 0, y: 35 },
@@ -64,7 +64,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
         },
       );
 
-      // 4. SAHA KANITI SCROLL TRIGGER
+      // 4. Saha Kanıtı
       gsap.fromTo(
         `.${styles.proofCard}`,
         { opacity: 0, y: 30 },
@@ -82,7 +82,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
         },
       );
 
-      // 5. TAAHHÜTLER SCROLL TRIGGER
+      // 5. Taahhütler
       gsap.fromTo(
         `.${styles.commitBox}`,
         { opacity: 0, y: 30 },
@@ -105,6 +105,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
 
   return (
     <div ref={rootRef}>
+      {/* 1. HERO BÖLÜMÜ */}
       <section className={`container ${styles.heroSection}`}>
         <span className={styles.eyebrowBadge}>
           {isTr
@@ -169,7 +170,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
         </div>
       </section>
 
-      {/* 2. BENTO GRID */}
+      {/* 2. BENTO GRID (ÇİFT DİLLİ ROZETLER) */}
       <section className={`container ${styles.storyBentoSection}`}>
         <div className={styles.sectionHeadingWrap}>
           <h2 className={styles.sectionMainHeading}>
@@ -188,7 +189,9 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
         <div className={styles.bentoGridWrapper}>
           <div className={styles.bentoCard}>
             <div className={styles.bentoCardHeader}>
-              <span className={styles.bentoIndexPill}>01 · Çıkış Noktamız</span>
+              <span className={styles.bentoIndexPill}>
+                {isTr ? "01 · Çıkış Noktamız" : "01 · Our Origin"}
+              </span>
             </div>
             <h3 className={styles.bentoCardTitle}>
               {isTr
@@ -205,7 +208,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
           <div className={styles.bentoCard}>
             <div className={styles.bentoCardHeader}>
               <span className={styles.bentoIndexPill}>
-                02 · İletişim Tarzımız
+                {isTr ? "02 · İletişim Tarzımız" : "02 · Direct Presence"}
               </span>
             </div>
             <h3 className={styles.bentoCardTitle}>
@@ -223,7 +226,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
           <div className={styles.bentoCard}>
             <div className={styles.bentoCardHeader}>
               <span className={styles.bentoIndexPill}>
-                03 · Kalite Anlayışımız
+                {isTr ? "03 · Kalite Anlayışımız" : "03 · Performance SLA"}
               </span>
             </div>
             <h3 className={styles.bentoCardTitle}>
@@ -241,7 +244,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
           <div className={styles.bentoCard}>
             <div className={styles.bentoCardHeader}>
               <span className={styles.bentoIndexPill}>
-                04 · Tek Başarı Ölçümüz
+                {isTr ? "04 · Tek Başarı Ölçümüz" : "04 · Core KPI"}
               </span>
             </div>
             <h3 className={styles.bentoCardTitle}>
@@ -296,9 +299,6 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
                   <div className={styles.navBtnTextStack}>
                     <span className={styles.navBtnTitle}>
                       {dept.categoryTitle}
-                    </span>
-                    <span className={styles.navBtnSub}>
-                      {dept.categoryCode}
                     </span>
                   </div>
                 </button>
@@ -369,7 +369,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
         </div>
       </section>
 
-      {/* 4. SAHA KANITI */}
+      {/* 4. SAHA KANITI (ÇİFT DİLLİ METRİKLER) */}
       <section className={`container ${styles.proofSection}`}>
         <div className={styles.sectionHeadingWrap}>
           <h2 className={styles.sectionMainHeading}>
@@ -390,64 +390,84 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
         <div className={styles.proofGrid}>
           <div className={styles.proofCard}>
             <div className={styles.proofCardHeader}>
-              <span className={styles.proofSectorTag}>İnşaat & Mimari</span>
-              <span className={styles.proofMetricBadge}>Hızlı Açılış</span>
+              <span className={styles.proofSectorTag}>
+                {isTr ? "İnşaat & Mimari" : "Construction & Architecture"}
+              </span>
+              <span className={styles.proofMetricBadge}>
+                {isTr ? "Hızlı Açılış" : "Instant Loading"}
+              </span>
             </div>
             <h3 className={styles.proofClientName}>Tataroğlu İnşaat</h3>
             <div className={styles.proofResultBlock}>
-              <span className={styles.resultLabel}>Sağlanan Çıktı:</span>
+              <span className={styles.resultLabel}>
+                {isTr ? "Sağlanan Çıktı:" : "Delivered Output:"}
+              </span>
               <p className={styles.resultHighlight}>
-                Anında Açılan Vitrin · Teklif Taleplerinde Net Artış
+                {isTr
+                  ? "Anında Açılan Vitrin · Teklif Taleplerinde Net Artış"
+                  : "Instant Showcase · 3x Inbound Quote Lift"}
               </p>
             </div>
             <p className={styles.proofSummary}>
-              Eski hantal site yenilendi; müşterilerin telefondan saniyede
-              açtığı şık bir şirket vitrini kurularak kurumsal teklif talepleri
-              artırıldı.
+              {isTr
+                ? "Eski hantal site yenilendi; müşterilerin telefondan saniyede açtığı şık bir şirket vitrini kurularak kurumsal teklif talepleri artırıldı."
+                : "Replaced slow legacy architecture with an instant-load web showcase, boosting corporate inbound bidding inquiries."}
             </p>
           </div>
 
           <div className={styles.proofCard}>
             <div className={styles.proofCardHeader}>
               <span className={styles.proofSectorTag}>
-                Restoran & Paket Servis
+                {isTr ? "Restoran & Paket Servis" : "Restaurant & Delivery"}
               </span>
-              <span className={styles.proofMetricBadge}>%0 Komisyon</span>
+              <span className={styles.proofMetricBadge}>
+                {isTr ? "%0 Komisyon" : "0% Commission"}
+              </span>
             </div>
             <h3 className={styles.proofClientName}>Munchico Fried Chicken</h3>
             <div className={styles.proofResultBlock}>
-              <span className={styles.resultLabel}>Sağlanan Çıktı:</span>
+              <span className={styles.resultLabel}>
+                {isTr ? "Sağlanan Çıktı:" : "Delivered Output:"}
+              </span>
               <p className={styles.resultHighlight}>
-                Kendi Paket Servis Hattı · %0 Komisyonlu Siparişler
+                {isTr
+                  ? "Kendi Paket Servis Hattı · %0 Komisyonlu Siparişler"
+                  : "Direct Delivery Pipeline · 0% Commission Orders"}
               </p>
             </div>
             <p className={styles.proofSummary}>
-              Paket müşterileri doğrudan dükkanın kendi online sipariş sistemine
-              yönlendirildi; aracı yemek sitelerine komisyon kaptırmadan
-              doğrudan dükkandan sipariş alınmaya başlandı.
+              {isTr
+                ? "Paket müşterileri doğrudan dükkanın kendi online sipariş sistemine yönlendirildi; aracı yemek sitelerine komisyon kaptırmadan doğrudan dükkandan sipariş alınmaya başlandı."
+                : "Customer order volume funneled directly into the venue's own system, bypassing aggregator commission overhead completely."}
             </p>
           </div>
 
           <div className={styles.proofCard}>
             <div className={styles.proofCardHeader}>
               <span className={styles.proofSectorTag}>
-                Yerel Arama & Doğrudan Çağrı
+                {isTr ? "Yerel Arama & Doğrudan Çağrı" : "Local Search & Calls"}
               </span>
-              <span className={styles.proofMetricBadge}>Günde 35+ Telefon</span>
+              <span className={styles.proofMetricBadge}>
+                {isTr ? "Günde 35+ Telefon" : "35+ Daily Calls"}
+              </span>
             </div>
             <h3 className={styles.proofClientName}>
               Hira Halı & Koltuk Yıkama
             </h3>
             <div className={styles.proofResultBlock}>
-              <span className={styles.resultLabel}>Sağlanan Çıktı:</span>
+              <span className={styles.resultLabel}>
+                {isTr ? "Sağlanan Çıktı:" : "Delivered Output:"}
+              </span>
               <p className={styles.resultHighlight}>
-                Aynı Bütçeyle 4 Kat Daha Fazla Müşteri Çağrısı
+                {isTr
+                  ? "Aynı Bütçeyle 4 Kat Daha Fazla Müşteri Çağrısı"
+                  : "4x Inbound Customer Calls on Same Budget"}
               </p>
             </div>
             <p className={styles.proofSummary}>
-              Doğrudan telefon araması odaklı tek sayfa yapıya geçildi; reklam
-              bütçesi artırılmadan dükkana gelen günlük gerçek müşteri araması 4
-              katına çıktı.
+              {isTr
+                ? "Doğrudan telefon araması odaklı tek sayfa yapıya geçildi; reklam bütçesi artırılmadan dükkana gelen günlük gerçek müşteri araması 4 katına çıktı."
+                : "Deployed high-velocity single-page architecture, quadrupling incoming verified phone inquiries without budget increases."}
             </p>
           </div>
         </div>

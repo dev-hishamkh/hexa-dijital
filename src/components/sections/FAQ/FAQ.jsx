@@ -135,7 +135,7 @@ const faqItems = {
 };
 
 export default function FAQ({ lang = "tr" }) {
-  const [openId, setOpenId] = useState(1);
+  const [openId, setOpenId] = useState(null);
   const [isOnline, setIsOnline] = useState(true);
   const sectionRef = useRef(null);
   const stickyRef = useRef(null);
@@ -265,7 +265,6 @@ export default function FAQ({ lang = "tr" }) {
             </div>
 
             <div className={styles.cardFooter}>
-              {/* HOVER'DA 45 DERECE DÖNEN WHATSAPP BUTONU */}
               <a
                 href={`https://wa.me/905519769406?text=${encodeURIComponent(
                   dictionary[lang]?.whatsapp?.message ||
@@ -301,6 +300,7 @@ export default function FAQ({ lang = "tr" }) {
                 <span className={styles.arrowSmall}>→</span>
               </Link>
 
+              {/* DİLE GÖRE SÖZLÜKTEN GELEN CANLI DESTEK METNİ */}
               <div className={styles.liveStatusRow}>
                 <span
                   className={`${styles.statusPulseDot} ${
@@ -308,9 +308,7 @@ export default function FAQ({ lang = "tr" }) {
                   }`}
                 />
                 <span className={styles.statusText}>
-                  {isOnline
-                    ? "Canlı Destek Hattı (09:00 - 18:00)"
-                    : "Online Destek 7/24 Aktif"}
+                  {isOnline ? dict.teamOnline : dict.teamOffline}
                 </span>
               </div>
             </div>

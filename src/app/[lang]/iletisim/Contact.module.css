@@ -23,7 +23,7 @@
     flex-direction: column;
 }
 
-/* GSAP TARAFINDAN YÖNETİLEN ELEMANLAR: SIFIR PARLAMA */
+/* GSAP TARAFINDAN YÖNETİLEN ELEMANLAR */
 .eyebrowBadge,
 .title,
 .subtitle,
@@ -106,6 +106,9 @@
     gap: 1.75rem;
 }
 
+/* ==========================================================================
+   İLETİŞİM KARTLARI (AÇIK MOD RENK KARIŞIKLIĞI KÖKTEN ÇÖZÜLDÜ)
+   ========================================================================== */
 .channelCard {
     background: #0D111A;
     border: 1px solid var(--hexa-border);
@@ -119,14 +122,20 @@
 }
 
 [data-theme="light"] .channelCard {
-    background: #FFFFFF;
-    border-color: rgba(0, 0, 0, 0.08);
+    background: #FFFFFF !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 15px 35px -15px rgba(0, 0, 0, 0.08) !important;
 }
 
 .channelCard:hover {
     border-color: var(--hexa-border-focus);
     transform: translateY(-3px);
     background-color: #101522;
+}
+
+[data-theme="light"] .channelCard:hover {
+    background-color: #FAFAFA !important;
+    border-color: rgba(0, 0, 0, 0.15) !important;
 }
 
 .channelCardTop {
@@ -207,7 +216,7 @@
 }
 
 [data-theme="light"] .channelValue {
-    color: #111827;
+    color: #111827 !important;
 }
 
 .channelDesc {
@@ -219,7 +228,7 @@
 }
 
 [data-theme="light"] .channelDesc {
-    color: #4b5563;
+    color: #4b5563 !important;
 }
 
 .channelActionRow {
@@ -230,6 +239,9 @@
     flex-wrap: wrap;
 }
 
+/* ==========================================================================
+   İLETİŞİM VE SUBMIT BUTONLARI (45° DÖNÜŞ DÜZELTİLDİ)
+   ========================================================================== */
 .executiveActionBtn,
 .executiveSubmitBtn {
     display: inline-flex;
@@ -254,8 +266,9 @@
 
 [data-theme="light"] .executiveActionBtn,
 [data-theme="light"] .executiveSubmitBtn {
-    background-color: #111827;
-    color: #FFFFFF;
+    background-color: #111827 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12) !important;
 }
 
 .executiveActionBtn:hover,
@@ -267,11 +280,13 @@
 
 [data-theme="light"] .executiveActionBtn:hover,
 [data-theme="light"] .executiveSubmitBtn:hover {
-    background-color: #111827;
+    background-color: #111827 !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.22) !important;
 }
 
 .btnText {
     letter-spacing: -0.01em;
+    color: inherit;
 }
 
 .btnCircle {
@@ -288,8 +303,8 @@
 }
 
 [data-theme="light"] .btnCircle {
-    background-color: #FFFFFF;
-    color: #111827;
+    background-color: #FFFFFF !important;
+    color: #111827 !important;
 }
 
 .btnArrowSvg {
@@ -298,6 +313,7 @@
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
 }
 
+/* HOVER'DA 45 DERECE DÖNÜŞ */
 .executiveActionBtn:hover .btnCircle,
 .executiveSubmitBtn:hover .btnCircle {
     background-color: var(--hexa-accent);
@@ -313,9 +329,14 @@
 
 [data-theme="light"] .executiveActionBtn:hover .btnCircle,
 [data-theme="light"] .executiveSubmitBtn:hover .btnCircle {
-    background-color: #FFFFFF;
-    color: #111827;
-    transform: scale(1.08) rotate(45deg);
+    background-color: #FFFFFF !important;
+    color: #111827 !important;
+    transform: scale(1.08) rotate(45deg) !important;
+}
+
+[data-theme="light"] .executiveActionBtn:hover .btnArrowSvg,
+[data-theme="light"] .executiveSubmitBtn:hover .btnArrowSvg {
+    color: #111827 !important;
 }
 
 .copyBtn {
@@ -335,14 +356,18 @@
 }
 
 [data-theme="light"] .copyBtn {
-    background: rgba(0, 0, 0, 0.04);
-    border-color: rgba(0, 0, 0, 0.08);
-    color: #111827;
+    background: rgba(0, 0, 0, 0.04) !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    color: #111827 !important;
 }
 
 .copyBtn:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="light"] .copyBtn:hover {
+    background: rgba(0, 0, 0, 0.08) !important;
 }
 
 .infoMetaBox {
@@ -356,8 +381,8 @@
 }
 
 [data-theme="light"] .infoMetaBox {
-    background: #FFFFFF;
-    border-color: rgba(0, 0, 0, 0.08);
+    background: #FFFFFF !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
 }
 
 .metaRow {
@@ -382,7 +407,7 @@
 }
 
 [data-theme="light"] .metaTitle {
-    color: #111827;
+    color: #111827 !important;
 }
 
 .metaText {
@@ -394,7 +419,7 @@
 }
 
 [data-theme="light"] .metaText {
-    color: #4b5563;
+    color: #4b5563 !important;
 }
 
 .formColumn {
@@ -413,8 +438,9 @@
 }
 
 [data-theme="light"] .cockpitForm {
-    background: #FFFFFF;
-    border-color: rgba(0, 0, 0, 0.08);
+    background: #FFFFFF !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.08) !important;
 }
 
 .formHeader {
@@ -489,9 +515,9 @@
 
 [data-theme="light"] .glassInput,
 [data-theme="light"] .glassTextarea {
-    background: rgba(0, 0, 0, 0.02);
-    border-color: rgba(0, 0, 0, 0.1);
-    color: #111827;
+    background: rgba(0, 0, 0, 0.02) !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
+    color: #111827 !important;
 }
 
 .glassInput:focus,
@@ -503,8 +529,8 @@
 
 [data-theme="light"] .glassInput:focus,
 [data-theme="light"] .glassTextarea:focus {
-    background: #FFFFFF;
-    border-color: var(--hexa-accent);
+    background: #FFFFFF !important;
+    border-color: var(--hexa-accent) !important;
 }
 
 .glassInput::placeholder,

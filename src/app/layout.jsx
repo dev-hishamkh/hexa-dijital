@@ -17,9 +17,6 @@ const newsreader = Newsreader({
   display: "swap",
 });
 
-const basePath =
-  process.env.NODE_ENV === "production" ? "/hexa-dijital-final" : "";
-
 export const metadata = {
   metadataBase: new URL("https://hexadijital.com"),
   title: {
@@ -37,15 +34,6 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
       className={`${jakarta.variable} ${newsreader.variable}`}
     >
-      <head>
-        <link
-          rel="preload"
-          href={`${basePath}/logo.svg`}
-          as="image"
-          type="image/svg+xml"
-        />
-        <script src={`${basePath}/theme.js`} />
-      </head>
       <body suppressHydrationWarning>
         <SmoothScroll>{children}</SmoothScroll>
       </body>

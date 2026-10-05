@@ -41,6 +41,11 @@ export async function generateMetadata({ params }) {
   const metaTitle = data.title;
   const metaDesc = data.leadText.slice(0, 158);
 
+  // 1200x630 Sosyal Medya Önizleme Görseli
+  const ogImageUrl = data.imageUrl?.startsWith("http")
+    ? data.imageUrl
+    : `https://hexadijital.com${data.imageUrl}`;
+
   return {
     title: metaTitle,
     description: metaDesc,
@@ -59,11 +64,20 @@ export async function generateMetadata({ params }) {
       siteName: "Hexa Dijital",
       locale: isTr ? "tr_TR" : "en_US",
       type: "article",
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: `${data.title} - Hexa Dijital`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: `${metaTitle} | Hexa Dijital`,
       description: metaDesc,
+      images: [ogImageUrl],
     },
     alternates: {
       canonical: `https://hexadijital.com/${lang}/hizmetler/${data.slug}`,
@@ -91,6 +105,7 @@ export default async function ServiceDetailPage({ params }) {
     .map((rSlug) => getServiceDetailData(rSlug, lang))
     .filter(Boolean);
 
+  // TÜM TÜRKİYE + BURSA VE TÜM İLÇELERİ KAPSAYAN GÜÇLÜ YEREL ŞEMA
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -130,12 +145,27 @@ export default async function ServiceDetailPage({ params }) {
             "@type": "PostalAddress",
             streetAddress: "Nilüfer",
             addressLocality: "Bursa",
+            addressRegion: "Marmara",
+            postalCode: "16110",
             addressCountry: "TR",
+          },
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: 40.215,
+            longitude: 28.932,
           },
         },
         areaServed: [
-          { "@type": "City", name: "Bursa" },
           { "@type": "Country", name: "Türkiye" },
+          { "@type": "City", name: "Bursa" },
+          { "@type": "AdministrativeArea", name: "Nilüfer" },
+          { "@type": "AdministrativeArea", name: "Osmangazi" },
+          { "@type": "AdministrativeArea", name: "Yıldırım" },
+          { "@type": "AdministrativeArea", name: "Mudanya" },
+          { "@type": "AdministrativeArea", name: "İnegöl" },
+          { "@type": "AdministrativeArea", name: "Gemlik" },
+          { "@type": "AdministrativeArea", name: "Gürsu" },
+          { "@type": "AdministrativeArea", name: "Kestel" },
         ],
       },
       {

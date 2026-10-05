@@ -9,7 +9,7 @@
     flex-direction: column;
 }
 
-/* GSAP TARAFINDAN YÖNETİLEN ELEMANLAR: SIFIR PARLAMA */
+/* GSAP TARAFINDAN YÖNETİLEN ELEMANLAR */
 .eyebrowBadge,
 .heroTitle,
 .heroDesc,
@@ -192,6 +192,9 @@
     box-shadow: 0 0 10px #10b981;
 }
 
+/* ==========================================================================
+   2. BENTO BÖLÜMÜ
+   ========================================================================== */
 .storyBentoSection {
     width: 100%;
     max-width: var(--max-width);
@@ -311,6 +314,9 @@
     color: #4b5563;
 }
 
+/* ==========================================================================
+   3. DEPARTMAN KOKPİTİ (YÖNETİCİ KOKPİTİ STİLLERİ)
+   ========================================================================== */
 .deptOverviewSection {
     width: 100%;
     max-width: var(--max-width);
@@ -324,7 +330,7 @@
 
 .deptCockpitFrame {
     display: grid;
-    grid-template-columns: 430px 1fr;
+    grid-template-columns: 420px 1fr;
     gap: 2.25rem;
     width: 100%;
     background: #0D111A;
@@ -352,7 +358,7 @@
     display: flex;
     align-items: center;
     gap: 1.25rem;
-    padding: 1.2rem 1.45rem;
+    padding: 1.35rem 1.45rem;
     border-radius: 18px;
     background: transparent;
     border: 1px solid transparent;
@@ -386,11 +392,12 @@
 .navBtnNumber {
     font-family: var(--font-italic-serif);
     font-style: italic;
-    font-size: 1.9rem;
+    font-size: 2.1rem;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.45);
     transition: color 0.3s ease, transform 0.3s ease;
     flex-shrink: 0;
+    line-height: 1;
 }
 
 [data-theme="light"] .navBtnNumber {
@@ -413,16 +420,16 @@
 .navBtnTextStack {
     display: flex;
     flex-direction: column;
-    gap: 0.2rem;
+    justify-content: center;
     flex-grow: 1;
     overflow: hidden;
 }
 
 .navBtnTitle {
     font-family: var(--font-main);
-    font-size: 1.05rem;
+    font-size: 1.08rem;
     font-weight: 600;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
     color: #cbd5e1;
     transition: color 0.3s ease;
     white-space: nowrap;
@@ -438,12 +445,6 @@
 
 [data-theme="light"] .cockpitNavBtnActive .navBtnTitle {
     color: #111827 !important;
-}
-
-.navBtnSub {
-    font-family: var(--font-main);
-    font-size: 0.78rem;
-    color: var(--hexa-font-muted);
 }
 
 .cockpitStageCol {
@@ -564,6 +565,9 @@
     gap: 0.85rem;
 }
 
+/* ==========================================================================
+   HİZMET BUTONLARI VE KUSURSUZ HOVER KONTRASTI
+   ========================================================================== */
 .cockpitServiceBtn {
     display: inline-flex;
     align-items: center;
@@ -588,11 +592,27 @@
     color: #111827;
 }
 
+/* Koyu Mod Hover */
 .cockpitServiceBtn:hover {
     background-color: #101522;
     border-color: var(--hexa-border-focus);
+    color: #FFFFFF;
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 255, 209, 0.08);
+}
+
+/* Açık Mod Hover (Siyah Leke Kökten Çözüldü: Asil Siyah Zemin + Saf Beyaz Metin) */
+[data-theme="light"] .cockpitServiceBtn:hover {
+    background-color: #111827 !important;
+    border-color: #111827 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.serviceBtnLabel {
+    letter-spacing: -0.015em;
+    color: inherit;
+    transition: color 0.25s ease;
 }
 
 .btnIconCircle {
@@ -604,16 +624,22 @@
     align-items: center;
     justify-content: center;
     color: #FFFFFF;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     flex-shrink: 0;
+}
+
+[data-theme="light"] .btnIconCircle {
+    background: rgba(0, 0, 0, 0.06);
+    color: #111827;
 }
 
 .btnArrowSvg {
     width: 14px;
     height: 14px;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
 }
 
+/* Hover İkon Animasyonu */
 .cockpitServiceBtn:hover .btnIconCircle {
     background-color: var(--hexa-accent);
     color: #0A0E17;
@@ -625,6 +651,19 @@
     color: #0A0E17;
 }
 
+[data-theme="light"] .cockpitServiceBtn:hover .btnIconCircle {
+    background-color: #FFFFFF;
+    color: #111827;
+    transform: scale(1.08) rotate(45deg);
+}
+
+[data-theme="light"] .cockpitServiceBtn:hover .btnArrowSvg {
+    color: #111827;
+}
+
+/* ==========================================================================
+   4. SAHA KANITI
+   ========================================================================== */
 .proofSection {
     width: 100%;
     max-width: var(--max-width);
@@ -738,6 +777,9 @@
     color: #4b5563;
 }
 
+/* ==========================================================================
+   5. TAAHHÜTLER
+   ========================================================================== */
 .commitmentsSection {
     width: 100%;
     max-width: var(--max-width);
@@ -840,6 +882,9 @@
     color: #4b5563;
 }
 
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
 @media (max-width: 1200px) {
     .bentoGridWrapper {
         grid-template-columns: 1fr;

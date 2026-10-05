@@ -20,7 +20,7 @@
     max-width: 1100px;
 }
 
-/* GSAP TARAFINDAN YÖNETİLEN ELEMANLAR: PARLAMA YAPMAMASI İÇİN 0 İLE BEKLER */
+/* GSAP İLE YÖNETİLEN ELEMANLAR */
 .breadcrumbBadge {
     display: inline-block;
     font-family: var(--font-main);
@@ -238,6 +238,7 @@
 
 [data-theme="light"] .actionCircle {
     color: #111827;
+    background: rgba(0, 0, 0, 0.04);
 }
 
 .magneticLaunchBtn:hover .actionCircle {
@@ -466,8 +467,8 @@
 }
 
 .arrowCircle {
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
     border-radius: var(--radius-full);
     background: var(--hexa-surface);
     border: 1px solid var(--hexa-border);
@@ -475,30 +476,52 @@
     align-items: center;
     justify-content: center;
     color: var(--hexa-font-muted);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="light"] .arrowCircle {
+    background: rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.08);
+    color: #111827;
 }
 
 .arrowSvg {
-    width: 14px;
-    height: 14px;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
+    width: 15px;
+    height: 15px;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
 }
 
+/* 45 DERECE ROTATE DÖNÜŞÜ */
 .serviceInteractiveRow:hover .arrowCircle,
 .rowHoverActive .arrowCircle {
     background-color: var(--hexa-accent);
     border-color: var(--hexa-accent);
     color: #0A0E17;
-    transform: scale(1.08);
-    box-shadow: 0 0 16px var(--hexa-accent-glow);
+    transform: scale(1.08) rotate(45deg);
+    box-shadow: 0 0 18px var(--hexa-accent-glow);
 }
 
 .serviceInteractiveRow:hover .arrowSvg,
 .rowHoverActive .arrowSvg {
-    transform: translate(2px, -2px);
     color: #0A0E17;
 }
 
+[data-theme="light"] .serviceInteractiveRow:hover .arrowCircle,
+[data-theme="light"] .rowHoverActive .arrowCircle {
+    background-color: #111827;
+    border-color: #111827;
+    color: #FFFFFF;
+    transform: scale(1.08) rotate(45deg);
+}
+
+[data-theme="light"] .serviceInteractiveRow:hover .arrowSvg,
+[data-theme="light"] .rowHoverActive .arrowSvg {
+    color: #FFFFFF;
+}
+
+/* ==========================================================================
+   ALT CTA KUTUSU (AÇIK MOD KONTRASTI KİLİTLENDİ)
+   ========================================================================== */
 .ctaContainer {
     width: 100%;
     max-width: var(--max-width);
@@ -523,9 +546,9 @@
 }
 
 [data-theme="light"] .ctaBoxFrame {
-    background: #FFFFFF;
-    border-color: rgba(0, 0, 0, 0.09);
-    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.08);
+    background: #FFFFFF !important;
+    border-color: rgba(0, 0, 0, 0.09) !important;
+    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.08) !important;
 }
 
 .ctaContentLeft {
@@ -627,13 +650,15 @@
     width: fit-content;
 }
 
+/* AÇIK MODDA ASİL SİYAH + BEYAZ YAZI KİLİDİ */
 [data-theme="light"] .luxuryWhatsappBtn {
-    background-color: #111827;
-    color: #FFFFFF;
+    background-color: #111827 !important;
+    color: #FFFFFF !important;
 }
 
 .btnMainText {
     letter-spacing: -0.01em;
+    color: inherit;
 }
 
 .btnIconCircle {
@@ -649,7 +674,7 @@
 }
 
 [data-theme="light"] .btnIconCircle {
-    background-color: #FFFFFF;
+    background-color: #FFFFFF !important;
 }
 
 .btnArrowSvg {
@@ -660,7 +685,7 @@
 }
 
 [data-theme="light"] .btnArrowSvg {
-    color: #111827;
+    color: #111827 !important;
 }
 
 .luxuryWhatsappBtn:hover {
@@ -678,6 +703,20 @@
 
 .luxuryWhatsappBtn:hover .btnArrowSvg {
     color: #0A0E17;
+}
+
+[data-theme="light"] .luxuryWhatsappBtn:hover {
+    background-color: #111827 !important;
+}
+
+[data-theme="light"] .luxuryWhatsappBtn:hover .btnIconCircle {
+    background-color: #FFFFFF !important;
+    color: #111827 !important;
+    transform: scale(1.08) rotate(45deg);
+}
+
+[data-theme="light"] .luxuryWhatsappBtn:hover .btnArrowSvg {
+    color: #111827 !important;
 }
 
 .liveDeskRow {
@@ -739,46 +778,6 @@
         margin: 1.5rem 0 1rem 0;
     }
 
-    .diagItem {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-    }
-
-    .diagBadge {
-        font-family: monospace;
-        font-size: 0.68rem;
-        font-weight: 700;
-        color: var(--hexa-accent);
-        letter-spacing: 0.08em;
-    }
-
-    .diagText {
-        font-family: var(--font-main);
-        font-size: 0.88rem;
-        line-height: 1.5;
-        color: #94a3b8;
-        margin: 0;
-    }
-
-    .diagTextHighlight {
-        font-family: var(--font-main);
-        font-size: 0.92rem;
-        line-height: 1.5;
-        color: #F8FAFC;
-        font-weight: 500;
-        margin: 0;
-    }
-
-    .mobileOnlyOutcome {
-        display: block;
-        font-family: var(--font-main);
-        font-size: 0.88rem;
-        line-height: 1.5;
-        color: #94a3b8;
-        margin: 0;
-    }
-
     .desktopKpiTag {
         display: none;
     }
@@ -819,17 +818,9 @@
         gap: 1rem;
     }
 
-    .rowNum {
-        font-size: 0.95rem;
-    }
-
-    .rowServiceName {
-        font-size: 1.1rem;
-    }
-
     .arrowCircle {
-        width: 32px;
-        height: 32px;
+        width: 34px;
+        height: 34px;
     }
 
     .monumentalNumber {
@@ -839,10 +830,6 @@
     .ctaBoxFrame {
         padding: 2.25rem 1.5rem;
         border-radius: 20px;
-    }
-
-    .ctaActionsRight {
-        width: 100%;
     }
 
     .luxuryWhatsappBtn {

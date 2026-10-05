@@ -46,44 +46,73 @@
     box-shadow: 0 25px 45px -15px rgba(0, 0, 0, 0.12);
 }
 
+/* ==========================================================================
+   MARKA LOGOSU: HEXA (SANS) + DİJİTAL (İTALİK SERİF)
+   ========================================================================== */
 .brandLink {
     display: inline-flex;
-    align-items: center;
+    align-items: baseline;
+    gap: 0.35rem;
     text-decoration: none;
     user-select: none;
+    transition: transform 0.25s ease;
 }
 
-.logoName {
+.brandLink:hover {
+    transform: translateY(-1px);
+}
+
+.logoSans {
     font-family: var(--font-main);
-    font-size: 1.25rem;
+    font-size: 1.22rem;
     font-weight: 700;
-    letter-spacing: -0.045em;
+    letter-spacing: -0.04em;
     color: #F8FAFC;
-    transition: opacity 0.25s ease;
+    line-height: 1;
 }
 
-[data-theme="light"] .logoName {
+[data-theme="light"] .logoSans {
     color: #111827;
 }
 
-.brandLink:hover .logoName {
-    opacity: 0.85;
+.logoSerif {
+    font-family: var(--font-italic-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.34rem;
+    letter-spacing: -0.02em;
+    color: var(--hexa-font-serif);
+    line-height: 1;
+    transition: color 0.25s ease;
 }
 
+[data-theme="light"] .logoSerif {
+    color: #1f2937;
+}
+
+.brandLink:hover .logoSerif {
+    color: var(--hexa-accent);
+}
+
+/* ==========================================================================
+   DESKTOP NAVİGASYON: İTALİK SERİF İMZA LİNKLERİ
+   ========================================================================== */
 .desktopNav {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 2.25rem;
 }
 
 .navItem {
-    font-family: var(--font-main);
-    font-size: 0.9rem;
-    font-weight: 500;
+    font-family: var(--font-italic-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.08rem;
     letter-spacing: -0.015em;
     color: #94a3b8;
     text-decoration: none;
-    transition: color 0.25s var(--ease-out);
+    transition: color 0.25s var(--ease-out), transform 0.25s ease;
+    display: inline-block;
 }
 
 [data-theme="light"] .navItem {
@@ -92,6 +121,7 @@
 
 .navItem:hover {
     color: #F8FAFC;
+    transform: translateY(-1px);
 }
 
 [data-theme="light"] .navItem:hover {
@@ -99,14 +129,19 @@
 }
 
 .navItemActive {
-    color: #F8FAFC;
-    font-weight: 600;
+    color: var(--hexa-accent) !important;
+    text-shadow: 0 0 15px var(--hexa-accent-glow);
 }
 
 [data-theme="light"] .navItemActive {
-    color: #111827;
+    color: #111827 !important;
+    text-shadow: none;
+    font-weight: 500;
 }
 
+/* ==========================================================================
+   AKSİYON PANELİ
+   ========================================================================== */
 .actionPanel {
     display: flex;
     align-items: center;
@@ -244,6 +279,9 @@
     transform: scale(1.08) rotate(45deg);
 }
 
+/* ==========================================================================
+   MOBİL MENÜ
+   ========================================================================== */
 .burgerBtn {
     display: none;
     flex-direction: column;
@@ -304,12 +342,13 @@
 }
 
 .drawerItem {
-    font-family: var(--font-main);
-    font-size: 2rem;
-    font-weight: 600;
+    font-family: var(--font-italic-serif);
+    font-style: italic;
+    font-size: 2.2rem;
+    font-weight: 400;
     color: #F8FAFC;
     text-decoration: none;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
 }
 
 [data-theme="light"] .drawerItem {
