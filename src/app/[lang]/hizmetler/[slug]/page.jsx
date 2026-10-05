@@ -41,7 +41,7 @@ export async function generateMetadata({ params }) {
   const metaTitle = data.title;
   const metaDesc = data.leadText.slice(0, 158);
 
-  // 1200x630 Sosyal Medya Önizleme Görseli
+  // 1200x630 Sosyal Medya ve Arama Motoru Önizleme Görseli
   const ogImageUrl = data.imageUrl?.startsWith("http")
     ? data.imageUrl
     : `https://hexadijital.com${data.imageUrl}`;
@@ -52,10 +52,12 @@ export async function generateMetadata({ params }) {
     keywords: [
       data.name,
       `${data.name} Bursa`,
+      `${data.name} Nilüfer`,
       "kurumsal web yazılım",
       "özel yazılım geliştirme",
       data.departmentTitle,
       "Hexa Dijital",
+      "Hexa Dijital Bursa",
     ],
     openGraph: {
       title: `${metaTitle} | Hexa Dijital`,
@@ -105,7 +107,7 @@ export default async function ServiceDetailPage({ params }) {
     .map((rSlug) => getServiceDetailData(rSlug, lang))
     .filter(Boolean);
 
-  // TÜM TÜRKİYE + BURSA VE TÜM İLÇELERİ KAPSAYAN GÜÇLÜ YEREL ŞEMA
+  // TÜM TÜRKİYE + BURSA VE İLÇELERİNİ KAPSAYAN GÜÇLÜ YEREL & ULUSAL ŞEMA
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -134,13 +136,16 @@ export default async function ServiceDetailPage({ params }) {
       },
       {
         "@type": "Service",
+        "@id": `https://hexadijital.com/${lang}/hizmetler/${data.slug}#service`,
         name: data.title,
         description: data.leadText,
         category: data.departmentTitle,
         provider: {
           "@type": "ProfessionalService",
+          "@id": "https://hexadijital.com/#organization",
           name: "HEXA Dijital",
           telephone: "+905519769406",
+          url: "https://hexadijital.com",
           address: {
             "@type": "PostalAddress",
             streetAddress: "Nilüfer",
@@ -158,6 +163,9 @@ export default async function ServiceDetailPage({ params }) {
         areaServed: [
           { "@type": "Country", name: "Türkiye" },
           { "@type": "City", name: "Bursa" },
+          { "@type": "City", name: "İstanbul" },
+          { "@type": "City", name: "Ankara" },
+          { "@type": "City", name: "İzmir" },
           { "@type": "AdministrativeArea", name: "Nilüfer" },
           { "@type": "AdministrativeArea", name: "Osmangazi" },
           { "@type": "AdministrativeArea", name: "Yıldırım" },

@@ -11,6 +11,8 @@
 }
 
 .islandNav {
+    position: relative;
+    /* MUTLAK MERKEZLEME İÇİN ANKOR */
     pointer-events: auto;
     width: 100%;
     max-width: 1140px;
@@ -47,7 +49,7 @@
 }
 
 /* ==========================================================================
-   MARKA LOGOSU: HEXA (SANS) + DİJİTAL (İTALİK SERİF)
+   SOL LOGO
    ========================================================================== */
 .brandLink {
     display: inline-flex;
@@ -55,11 +57,12 @@
     gap: 0.35rem;
     text-decoration: none;
     user-select: none;
-    transition: transform 0.25s ease;
+    transition: opacity 0.25s ease;
+    z-index: 2;
 }
 
 .brandLink:hover {
-    transform: translateY(-1px);
+    opacity: 0.85;
 }
 
 .logoSans {
@@ -95,12 +98,18 @@
 }
 
 /* ==========================================================================
-   DESKTOP NAVİGASYON: İTALİK SERİF İMZA LİNKLERİ
+   DESKTOP NAVİGASYON: KUSURSUZ MİLİMETRİK %50 MERKEZLEME (DÜZELTİLDİ)
    ========================================================================== */
 .desktopNav {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
     gap: 2.25rem;
+    z-index: 1;
+    pointer-events: auto;
 }
 
 .navItem {
@@ -113,6 +122,7 @@
     text-decoration: none;
     transition: color 0.25s var(--ease-out), transform 0.25s ease;
     display: inline-block;
+    white-space: nowrap;
 }
 
 [data-theme="light"] .navItem {
@@ -140,12 +150,13 @@
 }
 
 /* ==========================================================================
-   AKSİYON PANELİ
+   SAĞ AKSİYON PANELİ
    ========================================================================== */
 .actionPanel {
     display: flex;
     align-items: center;
     gap: 0.65rem;
+    z-index: 2;
 }
 
 .langPill {
@@ -370,9 +381,11 @@
     text-decoration: none;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 960px) {
+    .desktopNav {
+        display: none;
+    }
 
-    .desktopNav,
     .executiveHeaderBtn {
         display: none;
     }

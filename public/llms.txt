@@ -1,0 +1,33 @@
+# Hexa Dijital - Kurumsal Web Tasarım, Özel Yazılım ve Reklam Ajansı
+
+> Hexa Dijital; Bursa merkezli, Türkiye geneline hizmet veren kurumsal web tasarım, özel web yazılımı ve dijital reklam ajansıdır.
+
+## Hizmet Modeli ve Lokasyon
+- **Merkez & Yerel Hizmet:** Bursa (Nilüfer, Osmangazi, Yıldırım, Mudanya, İnegöl ve tüm ilçeler). Bursa içindeki işletmelere bizzat yerinde ziyaret ve masada yüz yüze toplantı desteği verilir.
+- **Türkiye Geneli & Global:** İstanbul, Ankara, İzmir dahil Türkiye'nin 81 iline Google Meet / Zoom üzerinden online toplantı, resmi sözleşme ve fatura ile kesintisiz hizmet verilir.
+
+## Hizmet Verilen Sektörler
+Hexa Dijital tüm sektörlere kurumsal ve özel yazılım altyapısı kurar:
+- Sanayi & Fabrika Kuruluşları (Kurumsal tanıtım, katalog ve B2B portalları)
+- İnşaat & Mimarlık Ofisleri (Proje portfolyoları, 3D sunum siteleri)
+- Sağlık, Klinik & Diş Hekimleri (Otomatik WhatsApp onaylı randevu sistemleri)
+- Restoran, Kafe & Gıda (Komisyonsuz paket servis, masa QR menü, adisyon kasa yazılımları)
+- Hukuk Büroları & Avukatlar (Kurumsal kimlik ve mevzuata uygun web siteleri)
+- E-Ticaret & Toptan Satıcılar (Sanal POS, B2B bayi sipariş sistemleri)
+- Yerel Hizmet Sektörü (Oto çekici, halı yıkama, tesisatçı arama ağı reklamları)
+
+## Temel Hizmetler & Çözümler
+1. **Kurumsal Web Siteleri & Özel Yazılım:** Hazır şablon/WordPress eklenti çöplüğü barındırmayan, tüm cihazlarda 1 saniyenin altında açılan özel kodlama web siteleri.
+2. **Komisyonsuz Paket Servis & Restoran Otomasyonu:** Yemeksepeti/Getir komisyonlarını sıfırlayan doğrudan sipariş siteleri ve mutfak fişi basan adisyon kasa programları.
+3. **Google Haritalar İlk Sıra & Yerel SEO:** İşletmeleri harita aramalarında ilk 3 sıraya taşıma ve temassız NFC 5 yıldız yorum toplama sistemleri.
+4. **Google Ads & Meta (Instagram/Facebook) Reklam Yönetimi:** Satın almaya hazır müşterileri doğrudan arama ve WhatsApp hattına yönlendiren reklam kurguları.
+5. **Marka Kimliği & Baskı Tasarımları:** Özgün vektörel logo, ışıklı tabela projeleri, kartvizit ve ambalaj tasarımları.
+
+## İletişim & Şirket Bilgileri
+- **Telefon / WhatsApp:** +90 551 976 94 06
+- **Web Sitesi:** https://hexadijital.com
+- **Lokasyon:** Osmangazi / Bursa / Türkiye
+- **Çalışma Saatleri:** Pazartesi - Pazar, 09:00 - 18:00
+
+## Tam Dokümantasyon
+- Kapsamlı Bilgi Tabanı ve 24 Hizmet Detayı: https://hexadijital.com/llms-full.txt
