@@ -5,57 +5,69 @@ export const dynamic = "force-static";
 
 export default function sitemap() {
   const baseUrl = "https://hexadijital.com";
-  const languages = ["tr", "en"];
+  const currentDate = new Date().toISOString();
   const sitemapEntries = [];
-  const currentDate = new Date();
 
-  // 1. Ana Statik Sayfalar (Bursa Hub ve İletişim eklendi)
+  // 1. Çekirdek Rotalar
   const coreRoutes = [
-    { route: "", priority: 1.0, changeFrequency: "daily" },
-    {
-      route: "/bursa-dijital-ajans",
-      priority: 0.95,
-      changeFrequency: "weekly",
-    },
-    { route: "/hizmetler", priority: 0.9, changeFrequency: "weekly" },
-    { route: "/projeler", priority: 0.85, changeFrequency: "weekly" },
-    { route: "/iletisim", priority: 0.85, changeFrequency: "monthly" },
+    { path: "", priority: 1.0, changeFrequency: "daily" },
+    { path: "/bursa-dijital-ajans", priority: 0.95, changeFrequency: "weekly" },
+    { path: "/hizmetler", priority: 0.9, changeFrequency: "weekly" },
+    { path: "/projeler", priority: 0.85, changeFrequency: "weekly" },
+    { path: "/iletisim", priority: 0.85, changeFrequency: "monthly" },
   ];
 
-  languages.forEach((lang) => {
-    coreRoutes.forEach(({ route, priority, changeFrequency }) => {
+  coreRoutes.forEach(({ path, priority, changeFrequency }) => {
+    ["tr", "en"].forEach((lang) => {
       sitemapEntries.push({
-        url: `${baseUrl}/${lang}${route}`,
+        url: `${baseUrl}/${lang}${path}`,
         lastModified: currentDate,
         changeFrequency,
         priority,
+        alternates: {
+          languages: {
+            tr: `${baseUrl}/tr${path}`,
+            en: `${baseUrl}/en${path}`,
+          },
+        },
       });
     });
   });
 
-  // 2. 24 Mikro Hizmet Sayfaları (Silo Landing Pages)
-  languages.forEach((lang) => {
-    const groups = servicesData[lang] || servicesData.tr;
-    groups.forEach((dept) => {
-      dept.services.forEach((service) => {
-        sitemapEntries.push({
-          url: `${baseUrl}/${lang}/hizmetler/${service.slug}`,
-          lastModified: currentDate,
-          changeFrequency: "weekly",
-          priority: 0.8,
-        });
+  // 2. 24 Mikro Hizmet Sayfası
+  const services = servicesData.tr.flatMap((dept) => dept.services);
+
+  services.forEach((service) => {
+    ["tr", "en"].forEach((lang) => {
+      sitemapEntries.push({
+        url: `${baseUrl}/${lang}/hizmetler/${service.slug}`,
+        lastModified: currentDate,
+        changeFrequency: "weekly",
+        priority: 0.8,
+        alternates: {
+          languages: {
+            tr: `${baseUrl}/tr/hizmetler/${service.slug}`,
+            en: `${baseUrl}/en/hizmetler/${service.slug}`,
+          },
+        },
       });
     });
   });
 
-  // 3. Proje Detay Sayfaları (Vaka Analizleri)
-  languages.forEach((lang) => {
-    projectsData.forEach((project) => {
+  // 3. 6 Proje Detay Vaka Sayfası
+  projectsData.forEach((project) => {
+    ["tr", "en"].forEach((lang) => {
       sitemapEntries.push({
         url: `${baseUrl}/${lang}/projeler/${project.slug}`,
         lastModified: currentDate,
         changeFrequency: "monthly",
         priority: 0.75,
+        alternates: {
+          languages: {
+            tr: `${baseUrl}/tr/projeler/${project.slug}`,
+            en: `${baseUrl}/en/projeler/${project.slug}`,
+          },
+        },
       });
     });
   });
