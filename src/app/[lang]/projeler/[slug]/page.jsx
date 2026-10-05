@@ -38,7 +38,6 @@ export async function generateMetadata({ params }) {
     ? `${project.title} · Başarı Hikayesi | Hexa Dijital`
     : `${project.title} · Case Study | Hexa Digital`;
 
-  // ÇİFT DİLLİ METİN AYIKLAMA (HATAYI KÖKTEN ÇÖZER)
   const heroLeadText =
     typeof project.heroLead === "object"
       ? isTr
@@ -54,6 +53,10 @@ export async function generateMetadata({ params }) {
       : project.role || "";
 
   const metaDesc = heroLeadText.slice(0, 158);
+
+  const projectImageUrl = project.imageSrc?.startsWith("http")
+    ? project.imageSrc
+    : `https://hexadijital.com${project.imageSrc}`;
 
   return {
     title: metaTitle,
@@ -73,11 +76,20 @@ export async function generateMetadata({ params }) {
       siteName: "Hexa Dijital",
       locale: isTr ? "tr_TR" : "en_US",
       type: "article",
+      images: [
+        {
+          url: projectImageUrl,
+          width: 1200,
+          height: 630,
+          alt: `${project.title} - Hexa Dijital Vaka Analizi`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: `${metaTitle} | Hexa Dijital`,
       description: metaDesc,
+      images: [projectImageUrl],
     },
     alternates: {
       canonical: `https://hexadijital.com/${lang}/projeler/${project.slug}`,

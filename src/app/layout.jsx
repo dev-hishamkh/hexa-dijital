@@ -17,6 +17,12 @@ const newsreader = Newsreader({
   display: "swap",
 });
 
+export const viewport = {
+  themeColor: "#0A0E17",
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata = {
   metadataBase: new URL("https://hexadijital.com"),
   title: {
@@ -31,7 +37,6 @@ export const metadata = {
     "Bursa reklam ajansı",
     "özel web yazılım",
   ],
-  // WHATSAPP & SOSYAL MEDYA ÖNİZLEME KARTLARI
   openGraph: {
     title: "Hexa Dijital | Yazılım, Tasarım ve Reklam Ajansı",
     description:
