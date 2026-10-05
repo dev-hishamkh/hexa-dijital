@@ -3,7 +3,7 @@ export const dictionary = {
     seo: {
       metaTitle: "Hexa Dijital | Yazılım, Tasarım ve Reklam Ajansı",
       metaDesc:
-        "Hazır şablon kullanmadan, telefonda ve bilgisayarda anında açılan kurumsal web siteleri, komisyonsuz sipariş sistemleri ve doğrudan müşteri kazandıran reklam yönetimi.",
+        "Hazır şablon kullanmadan, telefonda ve bilgisayarda 1 saniyenin altında açılan kurumsal web siteleri, sektöre özel yazılımlar ve doğrudan müşteri kazandıran reklam yönetimi.",
     },
     nav: {
       works: "Projeler",
@@ -100,7 +100,7 @@ export const dictionary = {
     seo: {
       metaTitle: "Hexa Digital | Software, Design & Advertising Agency",
       metaDesc:
-        "Fast-loading corporate websites, commission-free ordering systems, and high-converting advertising management built without generic templates.",
+        "Fast-loading corporate websites, bespoke software architectures, and high-converting advertising management built without generic templates.",
     },
     nav: {
       works: "Works",

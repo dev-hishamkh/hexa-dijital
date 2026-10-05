@@ -18,8 +18,8 @@ export async function generateMetadata({ params }) {
     : "Bursa Web Design & Digital Advertising Agency | Hexa Digital";
 
   const description = isTr
-    ? "Bursa genelinde işletmenizi yerinde ziyaret ediyoruz. Hızlı açılan web siteleri, restoran sipariş sistemleri ve masanızda yüz yüze planlanan reklam yönetimi."
-    : "We visit your business on-site across Bursa. Fast-loading websites, commission-free ordering systems, and targeted advertising planned face-to-face.";
+    ? "Bursa genelinde işletmenizi yerinde ziyaret ediyoruz. Hızlı açılan kurumsal web siteleri, sektörel özel yazılımlar ve masanızda yüz yüze planlanan reklam yönetimi."
+    : "We visit your business on-site across Bursa. Fast-loading corporate websites, bespoke software architectures, and targeted advertising planned face-to-face.";
 
   return {
     title,

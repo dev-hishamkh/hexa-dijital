@@ -18,8 +18,8 @@ export async function generateMetadata({ params }) {
     : "Our Services & Digital Solutions | Hexa Digital";
 
   const description = isTr
-    ? "İşletmeniz için özel web siteleri, komisyonsuz paket servis sistemleri, Google Haritalar ilk sıra çalışmaları ve doğrudan müşteri getiren reklam yönetimi."
-    : "Modern corporate websites, commission-free ordering platforms, Google Maps optimization, and targeted social media ads engineered to grow your business.";
+    ? "İşletmeniz için modern kurumsal web siteleri, sektörel özel yazılımlar, Google Haritalar ilk sıra çalışmaları ve doğrudan müşteri getiren reklam yönetimi."
+    : "Modern corporate websites, bespoke business software, Google Maps optimization, and targeted social media ads engineered to grow your business.";
 
   return {
     title,
@@ -27,8 +27,8 @@ export async function generateMetadata({ params }) {
     keywords: [
       "kurumsal web tasarım",
       "özel web yazılım",
-      "komisyonsuz paket servis sistemi",
-      "restoran adisyon kasa programı",
+      "sanayi ve fabrika web sitesi",
+      "klinik randevu yazılımı",
       "Google Haritalar ilk 3",
       "Instagram reklam yönetimi",
       "Google Ads yönetimi",

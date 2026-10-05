@@ -17,8 +17,8 @@ export async function generateMetadata({ params }) {
     : "Our Projects & Portfolio | Hexa Digital";
 
   const description = isTr
-    ? "Farklı sektörlerdeki işletmeler için geliştirdiğimiz web siteleri, restoran sipariş sistemleri ve reklam çalışmalarını inceleyin."
-    : "Explore our portfolio of bespoke web platforms, online ordering systems, and high-converting advertising campaigns.";
+    ? "Sanayiden sağlığa, inşaattan e-ticarete farklı sektörlerdeki işletmeler için geliştirdiğimiz kurumsal web siteleri ve özel yazılımları inceleyin."
+    : "Explore our portfolio of bespoke web platforms, enterprise business software, and high-converting advertising campaigns across multiple industries.";
 
   return {
     title,
@@ -26,8 +26,8 @@ export async function generateMetadata({ params }) {
     keywords: [
       "Hexa Dijital referanslar",
       "web tasarım referansları",
-      "restoran sipariş sistemi projeleri",
       "kurumsal web sitesi örnekleri",
+      "özel yazılım başarı hikayeleri",
       "Bursa web tasarım projeleri",
     ],
     openGraph: {
