@@ -1,41 +1,50 @@
-"use client";
+export const metadata = {
+  title: "Hexa Dijital | Yönlendiriliyor...",
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
-import { useEffect } from "react";
-
-export default function RootRedirect() {
-  useEffect(() => {
-    try {
-      // 1. Ziyaretçinin kayıtlı tercihi var mı?
-      const savedLang = localStorage.getItem("hexa-lang");
-      if (savedLang === "en" || savedLang === "tr") {
-        window.location.replace(`/${savedLang}`);
-        return;
-      }
-
-      // 2. Cihaz dilini yakala
-      const browserLang = (
-        navigator.language ||
-        navigator.userLanguage ||
-        "tr"
-      ).toLowerCase();
-
-      // Türkçe ise doğrudan /tr, yabancı ise doğrudan /en
-      if (browserLang.startsWith("tr")) {
-        window.location.replace("/tr");
-      } else {
-        window.location.replace("/en");
-      }
-    } catch (e) {
-      window.location.replace("/tr");
-    }
-  }, []);
-
+export default function RootPage() {
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        backgroundColor: "#0A0E17",
-      }}
-    />
+    <>
+      {/* 1. TARAYICI İLK OKUDUĞU MİLİSANİYEDE ÇALIŞAN NATIVE YÖNLENDİRİCİ */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function() {
+              try {
+                var s = localStorage.getItem("hexa-lang");
+                if (s === "en" || s === "tr") {
+                  window.location.replace("/" + s);
+                  return;
+                }
+                var lang = (navigator.language || navigator.userLanguage || "tr").toLowerCase();
+                if (lang.startsWith("tr")) {
+                  window.location.replace("/tr");
+                } else {
+                  window.location.replace("/en");
+                }
+              } catch(e) {
+                window.location.replace("/tr");
+              }
+            })();
+          `,
+        }}
+      />
+
+      {/* 2. JAVASCRIPT KAPALI VEYA GECİKMELİ OLSA BİLE ANINDA FIRLATAN META REFRESH */}
+      <noscript>
+        <meta httpEquiv="refresh" content="0; url=/tr" />
+      </noscript>
+
+      <div
+        style={{
+          minHeight: "100vh",
+          backgroundColor: "#0A0E17",
+        }}
+      />
+    </>
   );
 }
