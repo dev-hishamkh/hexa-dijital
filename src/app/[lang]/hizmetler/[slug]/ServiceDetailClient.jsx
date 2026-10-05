@@ -320,8 +320,7 @@ export default function ServiceDetailClient({
             <div className={styles.heroKpiPill}>
               <span className={styles.kpiDot} />
               <span>
-                {data.kpi ||
-                  (isTr ? "Mühendislik Standardı" : "Engineering Benchmark")}
+                {data.kpi || (isTr ? "Kalite Standardı" : "Quality Benchmark")}
               </span>
             </div>
 
@@ -373,7 +372,7 @@ export default function ServiceDetailClient({
                     className={styles.giantHeroLucide}
                   />
                   <span className={styles.sculptureIndexBadge}>
-                    01 // TEŞHİS
+                    01 · TEŞHİS
                   </span>
                 </div>
               </div>
@@ -403,9 +402,7 @@ export default function ServiceDetailClient({
                     strokeWidth={1.2}
                     className={styles.giantHeroLucide}
                   />
-                  <span className={styles.sculptureIndexBadge}>
-                    02 // SÜREÇ
-                  </span>
+                  <span className={styles.sculptureIndexBadge}>02 · SÜREÇ</span>
                 </div>
               </div>
               <div className={styles.monolithContentCol}>
@@ -433,7 +430,7 @@ export default function ServiceDetailClient({
                     className={styles.giantHeroLucide}
                   />
                   <span className={styles.sculptureIndexBadge}>
-                    03 // TAAHHÜT
+                    03 · TAAHHÜT
                   </span>
                 </div>
               </div>
@@ -459,7 +456,7 @@ export default function ServiceDetailClient({
       )}
 
       {/* ==========================================================================
-          KATMAN 4: SPLIT BAŞLIK & TERTEMİZ KARTLAR (İNCELEYİN/GÖRÜN KALDIRILDI)
+          KATMAN 4: SPLIT BAŞLIK & TERTEMİZ KARTLAR
           ========================================================================== */}
       {data.features11 && (
         <section className={`container ${styles.features11Section}`}>
@@ -508,7 +505,7 @@ export default function ServiceDetailClient({
         <div className={styles.deliverablesHeader}>
           <span className={styles.delivEyebrow}>
             {data.deliverablesHeader?.eyebrow ||
-              (isTr ? "Mühendislik Standartları" : "Engineering Deliverables")}
+              (isTr ? "Standartlarımız" : "Deliverables")}
           </span>
           <h2 className={styles.delivMainHeading}>
             <span>{isTr ? "İşletmenize sağlanan " : "Engineered "}</span>
@@ -544,7 +541,7 @@ export default function ServiceDetailClient({
       </section>
 
       {/* ==========================================================================
-          KATMAN 6: YAN YANA BİRLEŞİK BÖLÜM (İPEKSİ AKORDEON SSS)
+          KATMAN 6: YAN YANA BİRLEŞİK BÖLÜM
           ========================================================================== */}
       <section className={`container ${styles.faqAndRelatedCombinedSection}`}>
         <div className={styles.combinedTwoColLayout}>
@@ -594,12 +591,12 @@ export default function ServiceDetailClient({
           <div className={styles.combinedRelatedCol}>
             <div className={styles.colHeaderWrap}>
               <span className={styles.sectionLabel}>
-                {isTr ? "Tamamlayıcı Çarklar" : "Complementary Disciplines"}
+                {isTr ? "Tamamlayıcı Çözümler" : "Complementary Services"}
               </span>
               <h2 className={styles.sectionTitle}>
                 <span>{isTr ? "Bu sistemi tamamlayan " : "Synchronized "}</span>
                 <span className={styles.titleSerifWord}>
-                  {isTr ? "diğer dişliler." : "digital gears."}
+                  {isTr ? "diğer çözümler." : "digital services."}
                 </span>
               </h2>
             </div>
@@ -635,7 +632,7 @@ export default function ServiceDetailClient({
       </section>
 
       {/* ==========================================================================
-          KATMAN 7: ALT CTA (45 DERECE DÖNEN MASTER BUTON)
+          KATMAN 7: ALT CTA
           ========================================================================== */}
       <section className={`container ${styles.bottomCtaSection}`}>
         <div className={styles.ctaBoxFrame}>

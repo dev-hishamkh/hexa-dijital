@@ -170,7 +170,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
         </div>
       </section>
 
-      {/* 2. BENTO GRID (ÇİFT DİLLİ ROZETLER) */}
+      {/* 2. BENTO GRID */}
       <section className={`container ${styles.storyBentoSection}`}>
         <div className={styles.sectionHeadingWrap}>
           <h2 className={styles.sectionMainHeading}>
@@ -226,7 +226,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
           <div className={styles.bentoCard}>
             <div className={styles.bentoCardHeader}>
               <span className={styles.bentoIndexPill}>
-                {isTr ? "03 · Kalite Anlayışımız" : "03 · Performance SLA"}
+                {isTr ? "03 · Kalite Anlayışımız" : "03 · Quality SLA"}
               </span>
             </div>
             <h3 className={styles.bentoCardTitle}>
@@ -270,8 +270,8 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
             </span>
             <span className={styles.serifAccentWord}>
               {isTr
-                ? "işletmenizi büyüten 5 temel çark."
-                : "5 synchronized growth engines."}
+                ? "işletmenizi büyüten 5 temel hizmet alanı."
+                : "5 core digital disciplines."}
             </span>
           </h2>
           <p className={styles.sectionLeadText}>
@@ -324,7 +324,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
 
               <div className={styles.stageOutcomeCard}>
                 <span className={styles.outcomeTagLabel}>
-                  {isTr ? "SAĞLANAN KAZANÇ" : "COMMERCIAL OUTCOME"}
+                  {isTr ? "SAĞLANAN FAYDA" : "BUSINESS OUTCOME"}
                 </span>
                 <p className={styles.outcomeLeadText}>
                   {activeDept.categoryOutcome}
@@ -369,7 +369,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
         </div>
       </section>
 
-      {/* 4. SAHA KANITI (ÇİFT DİLLİ METRİKLER) */}
+      {/* 4. SAHA KANITI */}
       <section className={`container ${styles.proofSection}`}>
         <div className={styles.sectionHeadingWrap}>
           <h2 className={styles.sectionMainHeading}>

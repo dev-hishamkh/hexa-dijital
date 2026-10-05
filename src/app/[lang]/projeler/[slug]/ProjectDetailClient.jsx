@@ -516,12 +516,12 @@ export default function ProjectDetailClient({ project, lang }) {
       </section>
 
       {/* ==========================================================================
-          KATMAN 6: ADIM ADIM İMALAT
+          KATMAN 6: ADIM ADIM GELİŞTİRME & ÇÖZÜM
           ========================================================================== */}
       <section className={`container ${styles.solutionSection}`}>
         <div className={styles.sectionHeaderWrap}>
           <span className={styles.sectionMiniEyebrow}>
-            {isTr ? "03 · Çözüm & İmalat" : "03 · Engineering"}
+            {isTr ? "03 · Geliştirme & Çözüm" : "03 · Development & Solutions"}
           </span>
           <h2 className={styles.sectionMainTitle}>{solutionHeadingText}</h2>
         </div>

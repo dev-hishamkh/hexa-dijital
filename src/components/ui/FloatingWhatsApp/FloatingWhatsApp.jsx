@@ -17,8 +17,8 @@ export default function FloatingWhatsApp({ lang = "tr" }) {
       className={styles.floatingWrapper}
       aria-label={
         isTr
-          ? "Hexa Dijital Canlı WhatsApp Masası"
-          : "Hexa Digital Live Project Desk"
+          ? "Hexa Dijital WhatsApp İletişim Hattı"
+          : "Hexa Digital WhatsApp Contact"
       }
     >
       <a
@@ -36,7 +36,7 @@ export default function FloatingWhatsApp({ lang = "tr" }) {
         {/* TİTANYUM ETİKET (ÇİFT DİLLİ) */}
         <div className={styles.labelGroup}>
           <span className={styles.brandTitle}>
-            {isTr ? "WhatsApp Masası" : "WhatsApp Desk"}
+            {isTr ? "WhatsApp'tan Yazın" : "Message on WhatsApp"}
           </span>
           <span className={styles.statusLive}>
             {isTr ? "Canlı Destek" : "Online Direct"}

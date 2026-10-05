@@ -14,8 +14,8 @@ export const dictionary = {
       drawerCta: "Yeni Bir Proje Başlatın",
     },
     hero: {
-      h1Prefix: "Özel Web Mimarisi,",
-      h1Serif: "hafif yazılımlar &",
+      h1Prefix: "Özel Web Yazılımı,",
+      h1Serif: "hafif kodlama &",
       h1Suffix: "dijital büyüme.",
       h1AccentWord: "Ciro Odaklı",
       manifesto:
@@ -26,14 +26,14 @@ export const dictionary = {
     works: {
       eyebrow: "Gerçek Referanslar & Saha Çözümleri",
       titleMain: "Sözde değil sahada çalışan,",
-      titleAccent: "ciro üreten tescilli sistemler.",
+      titleAccent: "ciro üreten kanıtlanmış projeler.",
       filterAll: "Tümü",
-      filterWeb: "Web Mimarisi",
+      filterWeb: "Web Tasarım",
       filterSeo: "Arama Hakimiyeti",
       filterAuto: "Sipariş & Kasa",
       filterLabel: "Filtre:",
-      projectWord: "Sistem",
-      systemActive: "Sistem // Aktif",
+      projectWord: "Proje",
+      systemActive: "Canlı Proje",
     },
     manifesto: {
       part1:
@@ -52,25 +52,25 @@ export const dictionary = {
       titleAccent: "Disiplinimiz.",
       subtitle:
         "Sürpriz maliyetler, ertelenen teslimat tarihleri ve telefonunuza çıkmayan acemi ajanslar yok. Kapsamı, takvimi ve hedef çıktısı resmi sözleşmeyle tescillenen 4 adımlı güvenli süreç.",
-      step1Code: "01 // KEŞİF & İHTİYAÇ ANALİZİ",
+      step1Code: "01 · KEŞİF & İHTİYAÇ ANALİZİ",
       step1Title: "İşletmenizi & Rakiplerinizi İnceliyoruz",
       step1Desc:
         "Bursa'da dükkanınızı ziyaret ediyor; diğer şehirlerde online toplantıyla sektörünüzü, rakiplerinizi ve kaçırdığınız müşterileri birlikte tespit ediyoruz.",
       step1Badge: "Net Kapsam & Resmi Sözleşme",
 
-      step2Code: "02 // ÖZEL TASARIM",
+      step2Code: "02 · ÖZEL TASARIM",
       step2Title: "Kurumsal & Prestijli Tasarım",
       step2Desc:
         "Müşterinizin girdiği anda güven duyacağı, firmanızı sektörün lideri gibi konumlandıran şık ekranlar hazırlıyoruz. Onayınız olmadan tek satır kod yazmıyoruz.",
       step2Badge: "Birebir Görsel Onay",
 
-      step3Code: "03 // HAFİF & HATASIZ KODLAMA",
+      step3Code: "03 · HAFİF & HATASIZ KODLAMA",
       step3Title: "Anında Açılan Hızlı Altyapı",
       step3Desc:
         "Hazır şablonlara dokunmadan, temiz kod yazıyoruz. Siteniz tüm telefonlarda göz açıp kapayıncaya kadar açılır, donma ve bozulma yapmaz.",
       step3Badge: "Tam Performans ve Hız",
 
-      step4Code: "04 // MÜŞTERİ KAZANIMI",
+      step4Code: "04 · MÜŞTERİ KAZANIMI",
       step4Title: "Google'da İlk Sıra & Reklam Yönetimi",
       step4Desc:
         "Sistemi teslim edip kenara çekilmiyoruz. Harita aramalarında üst sıralara çıkış ve nokta atışı reklam yönetimiyle telefonlarınızı çaldırıyoruz.",
@@ -111,7 +111,7 @@ export const dictionary = {
       drawerCta: "Initiate a New Project",
     },
     hero: {
-      h1Prefix: "Bespoke Web Architecture,",
+      h1Prefix: "Bespoke Web Development,",
       h1Serif: "fast software &",
       h1Suffix: "digital growth.",
       h1AccentWord: "Revenue-Driven",
@@ -125,12 +125,12 @@ export const dictionary = {
       titleMain: "Quiet craft, engineered for",
       titleAccent: "verifiable market dominance.",
       filterAll: "All",
-      filterWeb: "Web Architecture",
+      filterWeb: "Web Design",
       filterSeo: "Search Dominance",
       filterAuto: "POS & Ordering",
       filterLabel: "Filter:",
-      projectWord: "Systems",
-      systemActive: "System // Online",
+      projectWord: "Projects",
+      systemActive: "Live Project",
     },
     manifesto: {
       part1: "Handing an enterprise a merely attractive brochure website ",
@@ -148,25 +148,25 @@ export const dictionary = {
       titleAccent: "4-Phase Engineering Framework.",
       subtitle:
         "No hidden fees, no ambiguous delivery windows, and no vanished agencies. Predictable sprints engineered to secure measurable commercial outcomes codified in binding contracts.",
-      step1Code: "01 // DIAGNOSIS & SCOPE",
+      step1Code: "01 · DIAGNOSIS & SCOPE",
       step1Title: "Business & Market Audit",
       step1Desc:
         "On-site across Bursa or via direct calls nationwide, we inspect operational gaps and uncaptured revenue directly.",
       step1Badge: "Fixed Scope & Legal Contract",
 
-      step2Code: "02 // PRESTIGE DESIGN",
+      step2Code: "02 · PRESTIGE DESIGN",
       step2Title: "Clean Corporate Interface",
       step2Desc:
         "Authoritative interfaces designed to establish instant commercial trust. You inspect and approve all screens before production begins.",
       step2Badge: "Pixel-Level Signoff",
 
-      step3Code: "03 // CLEAN CODE",
+      step3Code: "03 · CLEAN CODE",
       step3Title: "Instant Mobile Performance",
       step3Desc:
         "Zero generic template bloat. Handcrafted architectures that load instantly on every mobile viewport without freezing or bugs.",
       step3Badge: "100/100 Core Web Vitals",
 
-      step4Code: "04 // MARKET CAPTURE",
+      step4Code: "04 · MARKET CAPTURE",
       step4Title: "Search Dominance & Growth",
       step4Desc:
         "We don't launch and disappear. We optimize map signals and paid acquisition funnels to route qualified inquiries directly into your pipeline.",

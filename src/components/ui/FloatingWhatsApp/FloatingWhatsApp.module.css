@@ -1,5 +1,5 @@
 /* ==========================================================================
-   2026 S+ SİBER OBSİDYEN HUD KONTEYNERİ
+   FLOATING WHATSAPP HUD KONTEYNERİ
    ========================================================================== */
 .floatingWrapper {
     position: fixed;
@@ -26,7 +26,7 @@
 }
 
 /* ==========================================================================
-   SİBER LÜKS BUZLU CAM KAPSÜL (APPLE / LINEAR SEVİYESİ)
+   ANA BUZLU CAM KAPSÜL
    ========================================================================== */
 .cyberCapsule {
     display: inline-flex;
@@ -34,7 +34,7 @@
     gap: 1.15rem;
     padding: 0.55rem 0.65rem 0.55rem 1.35rem;
     border-radius: var(--radius-full);
-    background: rgba(13, 17, 26, 0.88);
+    background: rgba(13, 17, 26, 0.92);
     border: 1px solid rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(28px);
     -webkit-backdrop-filter: blur(28px);
@@ -43,21 +43,23 @@
         0 20px 45px -10px rgba(0, 0, 0, 0.9),
         0 0 35px rgba(0, 255, 209, 0.04),
         inset 0 1px 0 rgba(255, 255, 255, 0.14);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform, box-shadow;
     position: relative;
     overflow: hidden;
 }
 
+/* Açık Mod Zemin */
 [data-theme="light"] .cyberCapsule {
-    background: rgba(255, 255, 255, 0.94);
-    border-color: rgba(0, 0, 0, 0.1);
+    background: #FFFFFF !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
     box-shadow:
-        0 15px 35px -10px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        0 15px 35px -10px rgba(0, 0, 0, 0.12),
+        0 0 20px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
 }
 
-/* HOVER: SİBER ZÜMRÜT KALKANI UYANIR */
+/* Koyu Mod Hover */
 .cyberCapsule:hover {
     transform: translateY(-3px) scale(1.02);
     border-color: var(--hexa-border-focus);
@@ -68,9 +70,13 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
+/* Açık Mod Hover (BEYAZ LEKE KÖKTEN ÇÖZÜLDÜ) */
 [data-theme="light"] .cyberCapsule:hover {
-    background-color: #FFFFFF;
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+    background-color: #FFFFFF !important;
+    border-color: rgba(0, 0, 0, 0.22) !important;
+    box-shadow:
+        0 20px 45px -10px rgba(0, 0, 0, 0.18),
+        0 0 25px rgba(0, 168, 135, 0.12) !important;
 }
 
 .cyberCapsule:active {
@@ -78,7 +84,7 @@
 }
 
 /* ==========================================================================
-   CANLI SİBER NABIZ ÇEKİRDEĞİ (NEON TURKUAZ SİNYAL)
+   CANLI YEŞİL NABIZ ÇEKİRDEĞİ
    ========================================================================== */
 .liveIndicator {
     position: relative;
@@ -94,8 +100,8 @@
     width: 6px;
     height: 6px;
     border-radius: var(--radius-full);
-    background-color: var(--hexa-accent);
-    box-shadow: 0 0 10px var(--hexa-accent);
+    background-color: #10b981;
+    box-shadow: 0 0 10px #10b981;
     z-index: 2;
 }
 
@@ -104,7 +110,7 @@
     width: 100%;
     height: 100%;
     border-radius: var(--radius-full);
-    background-color: rgba(0, 255, 209, 0.45);
+    background-color: rgba(16, 185, 129, 0.45);
     animation: cyberAura 2.2s infinite ease-out;
     z-index: 1;
 }
@@ -122,7 +128,7 @@
 }
 
 /* ==========================================================================
-   TİTANYUM MONOLİTİK ETİKET
+   ETİKET & METİNLER (KONTRAST KORUMALI)
    ========================================================================== */
 .labelGroup {
     display: flex;
@@ -140,25 +146,36 @@
     transition: color 0.3s ease;
 }
 
+/* Açık Mod Başlık Rengi */
 [data-theme="light"] .brandTitle {
-    color: #111827;
+    color: #111827 !important;
 }
 
+/* Koyu Mod Hover Metin Rengi */
 .cyberCapsule:hover .brandTitle {
     color: #FFFFFF;
+}
+
+/* Açık Mod Hover Metin Rengi (ASLA BEYAZA DÖNMEZ, SİYAH KALIR) */
+[data-theme="light"] .cyberCapsule:hover .brandTitle {
+    color: #111827 !important;
 }
 
 .statusLive {
     font-family: var(--font-main);
     font-size: 0.72rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--hexa-accent);
     letter-spacing: 0.02em;
     line-height: 1.2;
 }
 
+[data-theme="light"] .statusLive {
+    color: #059669 !important;
+}
+
 /* ==========================================================================
-   45 DERECE DÖNEN MASTER AKSİYON ÇEMBERİ (CERRAHİ TURKUAZ PARILTI)
+   45 DERECE DÖNEN AKSİYON ÇEMBERİ & İKON
    ========================================================================== */
 .actionCircle {
     width: 36px;
@@ -169,24 +186,26 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #F8FAFC;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    color: #FFFFFF;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     flex-shrink: 0;
 }
 
+/* Açık Mod Çember: Asil Siyah Zemin + Saf Beyaz Ok */
 [data-theme="light"] .actionCircle {
-    background: rgba(0, 0, 0, 0.05);
-    border-color: rgba(0, 0, 0, 0.1);
-    color: #111827;
+    background-color: #111827 !important;
+    border-color: #111827 !important;
+    color: #FFFFFF !important;
 }
 
 .arrowSvg {
     width: 14px;
     height: 14px;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+    color: inherit;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
 }
 
-/* HOVER: 45° DÖNÜŞ VE SİBER ZÜMRÜT IŞIMA */
+/* Koyu Mod Hover: Zümrüt Zemin + Koyu Ok + 45° Dönüş */
 .cyberCapsule:hover .actionCircle {
     background-color: var(--hexa-accent);
     border-color: var(--hexa-accent);
@@ -199,14 +218,20 @@
     color: #0A0E17;
 }
 
+/* Açık Mod Hover: Siyah Çember Büyür + Beyaz Ok 45° Döner */
 [data-theme="light"] .cyberCapsule:hover .actionCircle {
-    background-color: #111827;
-    color: #FFFFFF;
-    transform: scale(1.08) rotate(45deg);
+    background-color: #111827 !important;
+    color: #FFFFFF !important;
+    transform: scale(1.08) rotate(45deg) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25) !important;
+}
+
+[data-theme="light"] .cyberCapsule:hover .arrowSvg {
+    color: #FFFFFF !important;
 }
 
 /* ==========================================================================
-   MOBİL VE TABLET DUYARLILIK
+   MOBİL VE TABLET UYUMU
    ========================================================================== */
 @media (max-width: 768px) {
     .floatingWrapper {

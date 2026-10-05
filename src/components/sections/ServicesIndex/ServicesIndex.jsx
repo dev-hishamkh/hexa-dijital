@@ -160,9 +160,7 @@ export default function ServicesIndex({ lang = "tr" }) {
               {isTr ? "Tek merkezden yönetilen," : "Engineered from one core,"}
             </span>
             <span className={styles.titleLineSerif}>
-              {isTr
-                ? "5 senkronize büyüme motoru."
-                : "5 synchronized growth engines."}
+              {isTr ? "5 temel hizmet alanı." : "5 core digital disciplines."}
             </span>
           </h2>
         </header>
