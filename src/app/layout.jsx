@@ -38,6 +38,9 @@ export const metadata = {
     "özel web yazılım",
     "kurumsal web sitesi",
   ],
+  other: {
+    "facebook-domain-verification": "4184ufn214t3spzhjleqzncfsqcp64",
+  },
   openGraph: {
     title: "Hexa Dijital | Kurumsal Web Tasarım, Yazılım ve Reklam Ajansı",
     description:
