@@ -86,6 +86,7 @@ export async function generateMetadata({ params }) {
       languages: {
         tr: `https://hexadijital.com/tr/hizmetler/${data.slug}`,
         en: `https://hexadijital.com/en/hizmetler/${data.slug}`,
+        "x-default": `https://hexadijital.com/tr/hizmetler/${data.slug}`,
       },
     },
   };

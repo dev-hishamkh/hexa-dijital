@@ -50,6 +50,7 @@ export async function generateMetadata({ params }) {
       languages: {
         tr: "https://hexadijital.com/tr/bursa-dijital-ajans",
         en: "https://hexadijital.com/en/bursa-dijital-ajans",
+        "x-default": "https://hexadijital.com/tr/bursa-dijital-ajans",
       },
     },
   };

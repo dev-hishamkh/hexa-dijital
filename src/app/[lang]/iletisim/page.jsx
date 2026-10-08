@@ -41,6 +41,7 @@ export async function generateMetadata({ params }) {
       languages: {
         tr: "https://hexadijital.com/tr/iletisim",
         en: "https://hexadijital.com/en/iletisim",
+        "x-default": "https://hexadijital.com/tr/iletisim",
       },
     },
   };

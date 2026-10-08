@@ -1,8 +1,11 @@
 export const metadata = {
-  title: "Hexa Dijital | Yönlendiriliyor...",
+  title: "Hexa Dijital | Yazılım, Tasarım ve Reklam Ajansı",
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "https://hexadijital.com/tr",
   },
 };
 

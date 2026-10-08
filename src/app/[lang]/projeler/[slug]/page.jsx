@@ -96,6 +96,7 @@ export async function generateMetadata({ params }) {
       languages: {
         tr: `https://hexadijital.com/tr/projeler/${project.slug}`,
         en: `https://hexadijital.com/en/projeler/${project.slug}`,
+        "x-default": `https://hexadijital.com/tr/projeler/${project.slug}`,
       },
     },
   };

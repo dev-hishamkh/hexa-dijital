@@ -47,6 +47,7 @@ export async function generateMetadata({ params }) {
       languages: {
         tr: "https://hexadijital.com/tr/hizmetler",
         en: "https://hexadijital.com/en/hizmetler",
+        "x-default": "https://hexadijital.com/tr/hizmetler",
       },
     },
   };

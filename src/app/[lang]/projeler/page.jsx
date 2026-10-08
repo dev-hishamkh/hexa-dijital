@@ -43,6 +43,7 @@ export async function generateMetadata({ params }) {
       languages: {
         tr: "https://hexadijital.com/tr/projeler",
         en: "https://hexadijital.com/en/projeler",
+        "x-default": "https://hexadijital.com/tr/projeler", // Varsayılan ana dil Türkçe
       },
     },
   };

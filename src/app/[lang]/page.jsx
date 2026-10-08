@@ -73,6 +73,7 @@ export async function generateMetadata({ params }) {
       languages: {
         tr: "https://hexadijital.com/tr",
         en: "https://hexadijital.com/en",
+        "x-default": "https://hexadijital.com/tr",
       },
     },
   };
