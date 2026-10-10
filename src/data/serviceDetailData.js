@@ -556,6 +556,130 @@ const richServiceProfiles = {
       ],
       relatedSlugs: ["adisyon-kasa-programi", "qr-kodlu-menu"],
     },
+    "toptan-bayi-siparis-sistemi": {
+      categoryTag: "Sipariş & Satış",
+      title: "Bayi Sipariş Sistemi & Toptan Sipariş Programı",
+      leadText:
+        "WhatsApp ve telefonla sipariş karmaşasına son verin. Bayilerinizin doğrudan stok görüp sipariş girdiği, komisyonsuz ve hızlı toptan sipariş sistemi.",
+      features8: [
+        {
+          icon: "Boxes",
+          serifTitle: "Sıfır Sipariş Karışıklığı",
+          copy: "WhatsApp'tan eksik gelen siparişler, yanlış kodlar ve telefon trafiğinin kökten bitmesi.",
+        },
+        {
+          icon: "Sliders",
+          serifTitle: "Bayiye Özel Fiyat & İskonto",
+          copy: "Her bayi grubuna sadece kendi anlaştığınız özel fiyat ve vadeleri gösteren akıllı ekran.",
+        },
+        {
+          icon: "Truck",
+          serifTitle: "Depoya Anında Bildirim",
+          copy: "Bayi siparişi onayladığı an deponun ekranına ve muhasebeye dökülen net sipariş listesi.",
+        },
+      ],
+      features11: {
+        headlineMain: "Toptan siparişleri telefonla ve",
+        headlineItalic: "karışık mesajlarla toplamak",
+        headlineEnd: "zaman kaybettirmemeli.",
+        leadParagraph:
+          "Toptancıların ve imalatçıların en büyük derdi eksik yazılan siparişler ve fiyat tartışmalarıdır. Bayilerinize özel tanımlayacağınız pratik web paneliyle bayileriniz kendi telefonundan günün her saati hatasız sipariş verir.",
+        cards: [
+          {
+            index: "01",
+            icon: "Boxes",
+            title: "Toplu Sepet Oluşturma",
+            text: "Bayiler yüzlerce kalemi tek ekrandan adet girerek saniyeler içinde sepete ekler.",
+            actionText: "Sipariş ekranını görün",
+          },
+          {
+            index: "02",
+            icon: "Sliders",
+            title: "Özel Fiyat Tanımlama",
+            text: "A bayisine yüzde 20, B bayisine yüzde 35 iskonto; herkes sadece kendi fiyatını görür.",
+            actionText: "Fiyatlandırma yapısını inceleyin",
+          },
+          {
+            index: "03",
+            icon: "Truck",
+            title: "Excel ile Tek Tıkla Güncelleme",
+            text: "Fiyatlar veya stoklar değiştiğinde Excel listenizi yükleyin, tüm bayilerde anında güncellensin.",
+            actionText: "Excel aktarımını görün",
+          },
+        ],
+      },
+      zigzagShowcase: {
+        block1: {
+          tag: "01 · Telefon Trafiğine Son",
+          heading:
+            "Bayileriniz gece bile olsa kendi ekranından siparişini girsin.",
+          text: "Müşteriniz mesai saati beklemeden; stoğu görür, ihtiyacı olan adetleri seçer ve siparişini iletir. Telefon başında sipariş notu alma dönemi tamamen kapanır.",
+          icon: "Boxes",
+        },
+        block2: {
+          tag: "02 · Hatasız Depo Çıkışı",
+          heading:
+            "Depocunun eline ürün kodları ve adetleri net yazılı liste gitsin.",
+          text: "WhatsApp'taki ses kayıtlarından veya okunmayan el yazılarından sipariş hazırlama derdi biter. Sipariş depoya net bir kontrol listesi olarak düşer.",
+          icon: "Sliders",
+        },
+        block3: {
+          tag: "03 · Doğrulanmış Saha Çıktısı",
+          heading: "Bursa Tekstil Toptancısı — Günlük 4 Saat Zaman Tasarrufu",
+          text: "80 aktif bayi sipariş sistemine geçirildi; sipariş hazırlamadaki ürün karışıklıkları sıfıra indi ve ofis personeli tüm gün telefon yanıtlamaktan kurtuldu.",
+          metricBadge: "%100 Hatasız Toptan Sipariş",
+          icon: "Truck",
+        },
+      },
+      deliverablesHeader: {
+        eyebrow: "Toptan Satış Altyapısı",
+        heading: "İşletmenize sağlanan somut çıktılar",
+        lead: "Toptan ticaretinizi düzene sokan, personelin iş yükünü hafifleten ve bayilerinizi bağlayan pratik yazılım.",
+      },
+      pillars: [
+        {
+          icon: "Boxes",
+          title: "Bayi Girişli Web Portalı",
+          desc: "Bayilerinizin kullanıcı adı ve şifresiyle girip sipariş verdiği şifreli özel sistem.",
+        },
+        {
+          icon: "Sliders",
+          title: "Kademeli İskonto & Fiyatlandırma",
+          desc: "Bayi bazında veya ürün kategorisi bazında farklı kâr marjları ve iskontolar tanımlama.",
+        },
+        {
+          icon: "FileCode2",
+          title: "Excel İçe & Dışa Aktarım",
+          desc: "Binlerce ürünü ve güncel fiyatları tek bir Excel tablosuyla anında sisteme yükleme.",
+        },
+        {
+          icon: "MailCheck",
+          title: "Anlık Sipariş ve PDF Dökümü",
+          desc: "Onaylanan siparişin otomatik olarak kaşeli sipariş formu şeklinde PDF'e dönüşmesi.",
+        },
+        {
+          icon: "ShieldCheck",
+          title: "Cari Bakiye & Limit Uyarısı",
+          desc: "Limiti dolan veya vadesi geçen bayilerin sipariş geçmesini engelleyen bakiye kontrolü.",
+        },
+        {
+          icon: "Headset",
+          title: "Bursa İçi Masada Kurulum & Eğitim",
+          desc: "İşletmenize gelip ürünlerinizi yüklüyor ve personelinize sistemi masasında öğretiyoruz.",
+        },
+      ],
+      faq: [
+        {
+          q: "Bayilerimizin bu sistemi kullanabilmesi için bilgisayar bilmesi gerekir mi?",
+          a: "Kesinlikle hayır. Akıllı telefon kullanan herkesin 1 dakikada anlayabileceği, sadece adet yazıp 'Siparişi Tamamla' butonuna basacağı kadar basittir.",
+        },
+        {
+          q: "Mevcut muhasebe programımızla uyumlu çalışır mı?",
+          a: "Sistem tüm ürün ve sipariş verilerini Excel formatında dışa aktarabildiği için kullandığınız tüm muhasebe programlarına kolayca veri aktarabilirsiniz.",
+        },
+      ],
+      relatedSlugs: ["is-evrak-takip-programi", "barkod-stok-takip-sistemi"],
+    },
     "adisyon-kasa-programi": {
       categoryTag: "İşletme Otomasyonu",
       title: "Adisyon ve Kasa Programı",
@@ -795,6 +919,258 @@ const richServiceProfiles = {
       ],
       relatedSlugs: ["yapay-zeka-musteri-asistani", "kurumsal-web-siteleri"],
     },
+    "is-evrak-takip-programi": {
+      categoryTag: "İşletme Yazılımı",
+      title: "İşletmelere Özel Yazılım & İş Takip Programı",
+      leadText:
+        "Excel tablolarından ve kağıt karmaşasından kurtulun. İşletmenizin sipariş, üretim ve müşteri süreçlerini tek ekrandan yöneten sahada çalışan özel yazılımlar.",
+      features8: [
+        {
+          icon: "Workflow",
+          serifTitle: "Sıfır Excel Karmaşası",
+          copy: "Farklı bilgisayarlarda kaybolan dosyalar yerine tüm işletmenin tek bir canlı ekrandan yönetilmesi.",
+        },
+        {
+          icon: "Timer",
+          serifTitle: "Geciken İş Kalmaz",
+          copy: "Hangi personelde hangi işin ne kadar süredir beklediğini gösteren şeffaf teslimat takibi.",
+        },
+        {
+          icon: "FileText",
+          serifTitle: "Aradığınız Evrak Saniyede Önünüzde",
+          copy: "Klasörler dolusu evrak aramak yerine müşteri adına tıklandığı an tüm geçmişin dökülmesi.",
+        },
+      ],
+      features11: {
+        headlineMain: "Şirketinizin operasyonu",
+        headlineItalic: "kontrolsüz Excel tablolarında",
+        headlineEnd: "kaybolmamalı.",
+        leadParagraph:
+          "İşletmeniz büyüdükçe kimin ne yaptığı, hangi işin teslim edildiği unutulur. Piyasada satılan hazır kalıp programlar ise sizin iş akışınıza uymaz. Tam olarak şirketinizin alışkanlıklarına göre çalışan özel yazılımlar kuruyoruz.",
+        cards: [
+          {
+            index: "01",
+            icon: "Workflow",
+            title: "Tam Size Özel Tasarım",
+            text: "Kullanmayacağınız gereksiz butonlar yok; sadece sizin işinizi çözen yalın ekranlar.",
+            actionText: "Ekran yapısını görün",
+          },
+          {
+            index: "02",
+            icon: "Smartphone",
+            title: "Sahadan Cepten Kontrol",
+            text: "Ustalar veya servis personeli sahadan fotoğraf yükleyip işi tek dokunuşla 'tamamlandı' yapar.",
+            actionText: "Mobil kullanımı inceleyin",
+          },
+          {
+            index: "03",
+            icon: "ShieldCheck",
+            title: "Yetki ve Güvenlik Sınırı",
+            text: "Çalışan sadece kendi işini görür; kasa, maliyet ve kâr gibi kritik alanlar sadece patrona açıktır.",
+            actionText: "Yetkilendirme detayını görün",
+          },
+        ],
+      },
+      zigzagShowcase: {
+        block1: {
+          tag: "01 · Tek Ekranda Tam Kontrol",
+          heading:
+            "Bugün dükkanda veya fabrikada hangi işler var, anında görün.",
+          text: "Ofise girdiğinizde personelin tek tek peşinde koşmazsınız. Ekrana baktığınız anda bekleyen, tamamlanan ve geciken tüm işler önünüzde listelenir.",
+          icon: "Workflow",
+        },
+        block2: {
+          tag: "02 · Dijital Müşteri Kartı",
+          heading:
+            "Bir müşteri aradığında tüm geçmişi 2 saniyede önünüze gelsin.",
+          text: "Müşterinin telefonunu girdiğiniz an daha önce hangi işlerin yapıldığı, ne kadar ücret alındığı ve hangi evrakların imzalandığı tek sayfada açılır.",
+          icon: "FileText",
+        },
+        block3: {
+          tag: "03 · Doğrulanmış Saha Çıktısı",
+          heading: "Nilüfer Mühendislik — 12 Personelli Ofiste Sıfır İş Kaybı",
+          text: "Masaüstü Excel tabloları yerine ortak takip paneline geçildi; projelerin teslim süreleri yüzde 40 hızlandı ve evrak kayıpları tamamen son buldu.",
+          metricBadge: "Yüzde 40 Daha Hızlı Teslimat",
+          icon: "Award",
+        },
+      },
+      deliverablesHeader: {
+        eyebrow: "Özel Yazılım Standartları",
+        heading: "İşletmenize sağlanan somut çıktılar",
+        lead: "Aylık kullanıcı başı lisans ücretleri ödemeden, doğrudan şirketinize ait bağımsız yönetim sistemi.",
+      },
+      pillars: [
+        {
+          icon: "Code2",
+          title: "İşletmenize Özel Yazılım Mimarisi",
+          desc: "Hazır şablon olmadan, işletmenizin tam ihtiyaçlarına göre sıfırdan kodlanan altyapı.",
+        },
+        {
+          icon: "Smartphone",
+          title: "Mobil ve Tablet Tam Uyumu",
+          desc: "Saha personelinin telefonundan kolayca iş fotoğrafı ve form yükleyebileceği hızlı arayüz.",
+        },
+        {
+          icon: "FileText",
+          title: "Dijital Evrak & Sözleşme Kasası",
+          desc: "Müşteri sözleşmelerinin, ruhsatların veya teknik çizimlerin kaybolmasını önleyen güvenli arşiv.",
+        },
+        {
+          icon: "BellRing",
+          title: "Otomatik Hatırlatıcılar & Bildirimler",
+          desc: "Vadesi yaklaşan işler veya teslim tarihi gelen projeler için yöneticiye otomatik uyarı.",
+        },
+        {
+          icon: "Fingerprint",
+          title: "%100 Şirketinize Ait Mülkiyet",
+          desc: "Kullanıcı başına her ay kira ödemezsiniz; sistem kurulur ve tamamen firmanıza teslim edilir.",
+        },
+        {
+          icon: "Headset",
+          title: "Bursa İçi Yüz Yüze Kurulum & Destek",
+          desc: "Ofisinize gelip sistemi personelinize masasında öğretiyor, sorularını anında yanıtlıyoruz.",
+        },
+      ],
+      faq: [
+        {
+          q: "Programı kullanabilmek için özel sunucular almamız gerekir mi?",
+          a: "Hayır. Güvenli bulut altyapısı sayesinde herhangi bir bilgisayardan, tabletten veya telefondan internet tarayıcısıyla anında giriş yapabilirsiniz.",
+        },
+        {
+          q: "İleride işletmemiz büyüdüğünde yeni özellikler eklenebilir mi?",
+          a: "Evet. Yazılımı sıfırdan şirketinize özel geliştirdiğimiz için yarın yeni bir departman veya özel bir raporlama ihtiyacı doğduğunda sistemi kolayca genişletebiliriz.",
+        },
+      ],
+      relatedSlugs: [
+        "barkod-stok-takip-sistemi",
+        "toptan-bayi-siparis-sistemi",
+      ],
+    },
+    "sosyal-medya-yonetimi": {
+      categoryTag: "Büyüme & Reklam",
+      title: "Bursa Sosyal Medya Yönetimi & Reklam Ajansı",
+      leadText:
+        "Boş takipçi değil, kasaya para bırakan müşteri kazandırıyoruz. Instagram ve Google reklamlarıyla işletmenize her gün yeni müşteri ve telefon araması getirin.",
+      features8: [
+        {
+          icon: "Share2",
+          serifTitle: "Güven Veren Canlı Vitrin",
+          copy: "Profilinize giren müşterinin 'burası işini çok iyi yapıyor' dediği kaliteli ve düzenli paylaşımlar.",
+        },
+        {
+          icon: "Video",
+          serifTitle: "İzleten Reels Videoları",
+          copy: "Sıradan stok görüntüler değil; işletmenizi, ustanızı ve ürünlerinizi öne çıkaran net videolar.",
+        },
+        {
+          icon: "MessageCircle",
+          serifTitle: "Gelen Mesajı Satışa Çevirme",
+          copy: "Yorum ve mesaj atan potansiyel müşterileri bekletmeden dükkanınıza yönlendiren profesyonel karşılama.",
+        },
+      ],
+      features11: {
+        headlineMain: "Terkedilmiş gibi duran bir Instagram hesabı",
+        headlineItalic: "müşteride güvensizlik yaratır,",
+        headlineEnd: "canlı görünmeli.",
+        leadParagraph:
+          "İnsanlar artık bir dükkana gitmeden veya bir ustayı aramadan önce Instagram sayfasına bakıyor. Kalitesiz fotoğraflar ve haftalarca paylaşım yapılmayan sayfalar müşteriyi kaçırır. Markanızın değerine yakışan, her gün güven aşılayan bir vitrin kuruyoruz.",
+        cards: [
+          {
+            index: "01",
+            icon: "Share2",
+            title: "Aylık Planlı Paylaşım",
+            text: "'Bugün ne paylaşsak' derdi biter; ay başında hazırlanan onaylı takvimle düzenli yayın yapılır.",
+            actionText: "İçerik planını görün",
+          },
+          {
+            index: "02",
+            icon: "Video",
+            title: "Sektöre Özel Reels Kurguları",
+            text: "Algoritmanın sevdiği, bölgenizdeki hedef kitlenin karşısına düşen dinamik kısa videolar.",
+            actionText: "Video stratejisini inceleyin",
+          },
+          {
+            index: "03",
+            icon: "Target",
+            title: "Mesaj Getiren Reklam Desteği",
+            text: "Boş beğeni toplamak yerine doğrudan WhatsApp'ınıza 'fiyat alabilir miyim' dedirten reklamlar.",
+            actionText: "Reklam modelini görün",
+          },
+        ],
+      },
+      zigzagShowcase: {
+        block1: {
+          tag: "01 · Kurumsal Prestij",
+          heading: "Dükkanınızın kalitesini ekranlara eksiksiz yansıtın.",
+          text: "Piyasadaki amatör canva şablonlarıyla hazırlanan sayfalar markanızı ucuz gösterir. Özel tipografi ve renk düzenlemeleriyle sektörünüzde en güvenilir kurum olarak konumlanırsınız.",
+          icon: "Share2",
+        },
+        block2: {
+          tag: "02 · Sıfır Zaman Kaybı",
+          heading: "Siz işinize bakın, sosyal medyanızı uzman ekip yürütsün.",
+          text: "Görsel tasarımı, metin yazarlığı, video montajı ve etiket planlaması... Tüm operasyonu üstleniyoruz; siz sadece dükkanınıza gelen yeni müşterilerle ilgilenirsiniz.",
+          icon: "Video",
+        },
+        block3: {
+          tag: "03 · Doğrulanmış Saha Çıktısı",
+          heading: "Bursa Estetik & Klinik — Ayda 120+ Doğrudan Randevu Talebi",
+          text: "Düzenli vaka paylaşımları ve yerel hedeflemeli Reels videolarıyla profil ziyaretçilerinin doğrudan WhatsApp hattına akması sağlandı.",
+          metricBadge: "Ayda 120+ Nitelikli Müşteri Mesajı",
+          icon: "Award",
+        },
+      },
+      deliverablesHeader: {
+        eyebrow: "Sosyal Medya Standartları",
+        heading: "İşletmenize sağlanan somut çıktılar",
+        lead: "Takipçi satın alma hileleriyle değil; gerçek, güven veren ve dükkanınıza müşteri getiren profesyonel yönetim.",
+      },
+      pillars: [
+        {
+          icon: "Share2",
+          title: "Aylık Kurumsal Gönderi Tasarımları",
+          desc: "Marka kimliğinize uygun renklerde hazırlanan haftalık düzenli grafik ve görsel tasarımlar.",
+        },
+        {
+          icon: "Video",
+          title: "Kısa Video & Reels Prodüksiyonu",
+          desc: "İşletmenizin hizmetlerini ve işçiliğini anlatan dikkat çekici dikey video kurguları.",
+        },
+        {
+          icon: "Sliders",
+          title: "Biyografi ve Öne Çıkanlar Düzeni",
+          desc: "Sayfanıza ilk giren müşterinin adres, menü ve referansları hemen bulmasını sağlayan kapaklar.",
+        },
+        {
+          icon: "Target",
+          title: "Meta Reklam Entegrasyonu",
+          desc: "Paylaşılan güçlü içeriklerin bölgenizdeki potansiyel müşterilere reklam olarak sunulması.",
+        },
+        {
+          icon: "MessageCircle",
+          title: "Gelen Yorum ve Mesaj Takibi",
+          desc: "Gönderilerin altına gelen soruların hızlıca karşılanması ve iletişim hattına yönlendirilmesi.",
+        },
+        {
+          icon: "Headset",
+          title: "Aylık Şeffaf İlerleme Raporu",
+          desc: "Ay sonunda hangi gönderinin ne kadar kişiye ulaştığını ve kaç müşteri kazandırdığını gösteren net rapor.",
+        },
+      ],
+      faq: [
+        {
+          q: "Sayfamıza bot veya sahte takipçi atıyor musunuz?",
+          a: "Kesinlikle hayır. Sahte takipçiler sayfanızın etkileşimini öldürür ve Google/Instagram algoritmalarında hesabınızı cezalandırır. Sadece gerçek ve dükkanınızdan hizmet alma potansiyeli olan yerel kitleye odaklanıyoruz.",
+        },
+        {
+          q: "Fotoğraf ve videoları kim çekecek?",
+          a: "Bursa içi işletmelerde profesyonel ekipmanlarımızla yerinde çekim yapabiliyoruz ya da tarafınızdan çekilen ham görüntüleri profesyonel montaj ve renklendirmeden geçirerek yayına hazırlıyoruz.",
+        },
+      ],
+      relatedSlugs: [
+        "meta-instagram-facebook-reklamlari",
+        "urun-dukkan-fotograf-cekimi",
+      ],
+    },
     "google-haritalar-1-sira": {
       categoryTag: "Büyüme & Reklam",
       title: "Google Haritalar İlk Sıra",
@@ -915,6 +1291,130 @@ const richServiceProfiles = {
         },
       ],
       relatedSlugs: ["google-reklamlari", "kurumsal-web-siteleri"],
+    },
+    "ozel-logo-tasarimi": {
+      categoryTag: "Marka & Tasarım",
+      title: "Bursa Logo Tasarımı & Kurumsal Kimlik Tasarımı",
+      leadText:
+        "Hazır şablonlar değil, markanızı büyüten %100 özgün tasarımlar. Tabeladan dijitale tüm mecralara uygun vektörel logo, kurumsal kimlik ve marka tasarımı.",
+      features8: [
+        {
+          icon: "PenTool",
+          serifTitle: "%100 Özgün Vektörel Çizim",
+          copy: "İnternetten kopyalanmış hazır ikonlar değil, dükkanınıza özel sıfırdan çizilmiş tescile uygun logo.",
+        },
+        {
+          icon: "Ruler",
+          serifTitle: "Tabelada ve Dijitalde Keskin",
+          copy: "Büyütüldüğünde bozulmayan, tabelacıya veya ekrana verildiğinde pürüzsüz duran vektörel formatlar.",
+        },
+        {
+          icon: "Award",
+          serifTitle: "Eksiksiz Dosya Teslimi",
+          copy: "Tüm renk alternatifleri, fontları ve vektörel kaynak dosyalarıyla (AI, PDF, SVG) doğrudan mülkiyet.",
+        },
+      ],
+      features11: {
+        headlineMain: "Markanızı temsil eden logonuz",
+        headlineItalic: "hazır şablonlarla amatör durmamalı,",
+        headlineEnd: "güven aşılamalı.",
+        leadParagraph:
+          "Müşterinin dükkanınızı veya firmanızı gördüğünde ilk baktığı yer logonuzdur. Hazır ikonlar işletmenizi sıradan gösterir. Tabelanızda, sosyal medyanızda ve faturalarınızda markanıza ağırlık katan özgün tasarımlar hazırlıyoruz.",
+        cards: [
+          {
+            index: "01",
+            icon: "PenTool",
+            title: "Sıfırdan Özgün Çizim",
+            text: "Markanızın sektörüne ve ruhuna uygun, başka hiçbir yerde olmayan tamamen size özel fikirler.",
+            actionText: "Çizim sürecini inceleyin",
+          },
+          {
+            index: "02",
+            icon: "Ruler",
+            title: "Tabelacıya Hazır Format",
+            text: "Ustanın doğrudan makineye atıp kesebileceği ölçülü ve pürüzsüz vektörel teknik teslimat.",
+            actionText: "Teknik formatları görün",
+          },
+          {
+            index: "03",
+            icon: "Award",
+            title: "Kurumsal Renk & Kimlik",
+            text: "Tüm mecralarda aynı ciddiyeti koruyan renk kodları ve sosyal medya yerleşim kılavuzu.",
+            actionText: "Kimlik kılavuzunu görün",
+          },
+        ],
+      },
+      zigzagShowcase: {
+        block1: {
+          tag: "01 · Özgün Marka İmzası",
+          heading:
+            "Kopyala-yapıştır şablonları unutun, markanıza özel imza atın.",
+          text: "Canva veya hazır sitelerdeki herkesin kullandığı logolar işletmenizin değerini düşürür. Nilüfer ve Osmangazi başta olmak üzere Bursa'daki markalara sahada ağırlık koyan özgün kimlikler çiziyoruz.",
+          icon: "PenTool",
+        },
+        block2: {
+          tag: "02 · Sıfır Pürüz Teknik Teslim",
+          heading:
+            "İster dev tabelaya büyütün, ister faturaya basın; asla bozulmaz.",
+          text: "Logonuzu piksel piksel dağılan resim olarak değil; AI, PDF ve SVG vektörel kaynaklarıyla veriyoruz. Tabelacınızdan nakışçınıza kim isterse doğrudan kullanır.",
+          icon: "Ruler",
+        },
+        block3: {
+          tag: "03 · Doğrulanmış Saha Çıktısı",
+          heading: "Munchico & Güven — Akılda Kalan Sokak Kimliği",
+          text: "Cadde üzerinde dikkat çeken tabela yerleşimi ve ambalajlarda güven veren amblem tasarımıyla markalaşma süreci sıfırdan başarıyla tamamlandı.",
+          metricBadge: "%100 Özgün & Tescile Uygun Çizim",
+          icon: "Award",
+        },
+      },
+      deliverablesHeader: {
+        eyebrow: "Tasarım Standartları",
+        heading: "İşletmenize sağlanan somut çıktılar",
+        lead: "Baskı hamallığıyla vakit kaybetmeden; matbaanıza, tabelacınıza ve dijital ajansınıza doğrudan teslim edeceğiniz eksiksiz grafik paketi.",
+      },
+      pillars: [
+        {
+          icon: "PenTool",
+          title: "Vektörel Çizim Dosyaları (AI, PDF, SVG)",
+          desc: "İstediğiniz boyuta büyüttüğünüzde bozulmayan, tüm sektör standartlarında kaynak dosyalar.",
+        },
+        {
+          icon: "Layers",
+          title: "Açık ve Koyu Zemin Varyasyonları",
+          desc: "Siyah, beyaz ve şeffaf zeminlerde net görünen farklı renk alternatifleri.",
+        },
+        {
+          icon: "Sliders",
+          title: "Renk Kodları & Tipografi",
+          desc: "Markanızın dijitalde ve fizikselde kullanacağı kesin renk (HEX, CMYK) ve font kuralları.",
+        },
+        {
+          icon: "Share2",
+          title: "Sosyal Medya Profil Paketleri",
+          desc: "Instagram, WhatsApp ve LinkedIn profil yuvarlaklarına tam oturan hazır simgeler.",
+        },
+        {
+          icon: "Building2",
+          title: "Tabela & Dış Cephe Çizimleri",
+          desc: "Işıklı kutu harf ve pleksi tabelacılara doğrudan verilecek ölçülü kılavuz.",
+        },
+        {
+          icon: "Fingerprint",
+          title: "%100 Marka Mülkiyeti",
+          desc: "Tasarlanan tüm logoların telif ve kullanım hakları tamamen şirketinize devredilir.",
+        },
+      ],
+      faq: [
+        {
+          q: "Baskı veya tabela üretimini de yapıyor musunuz?",
+          a: "Biz baskı veya tabela imalatçısı değiliz; işin en kritik kısmı olan tasarımı yapıyoruz. Tabelacınıza veya matbaanıza doğrudan verebileceğiniz 1/1 ölçülü, hatasız vektörel dosyaları teslim ediyoruz.",
+        },
+        {
+          q: "Logoyu ileride marka tescili için Türk Patent'e verebilir miyiz?",
+          a: "Evet. Tasarımlarımız hazır şablon içermeyen %100 özgün vektörel çizimler olduğu için marka tescil başvurularına tamamen uygundur.",
+        },
+      ],
+      relatedSlugs: ["tabela-cephe-giydirme-tasarimi", "kurumsal-web-siteleri"],
     },
   },
   en: {},

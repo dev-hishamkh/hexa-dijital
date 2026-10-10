@@ -224,7 +224,7 @@ export default function SelectedWorks({ lang = "tr" }) {
                 <div className={styles.spotlightBorder} aria-hidden="true" />
 
                 <Link
-                  href={`/${lang}/projeler/${item.slug}`}
+                  href={`/projeler/${item.slug}`}
                   className={styles.cardLink}
                 >
                   <div className={styles.viewportArea}>
@@ -265,7 +265,6 @@ export default function SelectedWorks({ lang = "tr" }) {
 
                     <span className={styles.innerBadge}>{badgeText}</span>
                   </div>
-
                   <div className={styles.cardMeta}>
                     <div className={styles.titleRow}>
                       <h3 className={styles.cardTitle}>{item.title}</h3>

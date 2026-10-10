@@ -70,7 +70,6 @@ import {
   Eye,
   ArrowUpRight,
   ArrowLeft,
-  ArrowRight,
   Plus,
 } from "lucide-react";
 
@@ -152,10 +151,8 @@ function DynamicLucideIcon({ name, size = 22, strokeWidth = 1.4, className }) {
 export default function ServiceDetailClient({
   data,
   relatedServices,
-  lang,
   whatsappMessage,
 }) {
-  const isTr = lang === "tr";
   const rootRef = useRef(null);
   const [openFaqIdx, setOpenFaqIdx] = useState(0);
 
@@ -308,9 +305,9 @@ export default function ServiceDetailClient({
 
         <div className={`container ${styles.heroContainer}`}>
           <div className={styles.navigationRow}>
-            <Link href={`/${lang}/hizmetler`} className={styles.backNav}>
+            <Link href="/hizmetler" className={styles.backNav}>
               <ArrowLeft size={16} className={styles.backArrow} />
-              <span>{isTr ? "Hizmet Kataloğu" : "Service Index"}</span>
+              <span>Hizmet Kataloğu</span>
             </Link>
             <span className={styles.navSeparator}>/</span>
             <span className={styles.currentDeptText}>{data.categoryTag}</span>
@@ -319,9 +316,7 @@ export default function ServiceDetailClient({
           <div className={styles.heroContent}>
             <div className={styles.heroKpiPill}>
               <span className={styles.kpiDot} />
-              <span>
-                {data.kpi || (isTr ? "Kalite Standardı" : "Quality Benchmark")}
-              </span>
+              <span>{data.kpi || "Kalite Standardı"}</span>
             </div>
 
             <h1 className={styles.heroTitle}>{data.title}</h1>
@@ -504,20 +499,15 @@ export default function ServiceDetailClient({
       <section className={`container ${styles.deliverablesSection}`}>
         <div className={styles.deliverablesHeader}>
           <span className={styles.delivEyebrow}>
-            {data.deliverablesHeader?.eyebrow ||
-              (isTr ? "Standartlarımız" : "Deliverables")}
+            {data.deliverablesHeader?.eyebrow || "Standartlarımız"}
           </span>
           <h2 className={styles.delivMainHeading}>
-            <span>{isTr ? "İşletmenize sağlanan " : "Engineered "}</span>
-            <span className={styles.delivSerifWord}>
-              {isTr ? "somut çıktılar." : "technical deliverables."}
-            </span>
+            <span>İşletmenize sağlanan </span>
+            <span className={styles.delivSerifWord}>somut çıktılar.</span>
           </h2>
           <p className={styles.delivLeadText}>
             {data.deliverablesHeader?.lead ||
-              (isTr
-                ? "Her teslimat kalemimiz şeffaf, ölçülebilir ve şirketinize ait tam mülkiyetle sunulur."
-                : "Codified with verifiable speed, zero vendor lock-ins, and full intellectual property ownership.")}
+              "Her teslimat kalemimiz şeffaf, ölçülebilir ve şirketinize ait tam mülkiyetle sunulur."}
           </p>
         </div>
 
@@ -547,14 +537,10 @@ export default function ServiceDetailClient({
         <div className={styles.combinedTwoColLayout}>
           <div className={styles.combinedFaqCol}>
             <div className={styles.colHeaderWrap}>
-              <span className={styles.sectionLabel}>
-                {isTr ? "Merak Edilenler" : "Common Inquiries"}
-              </span>
+              <span className={styles.sectionLabel}>Merak Edilenler</span>
               <h2 className={styles.sectionTitle}>
-                <span>{isTr ? "Sıkça sorulan " : "Frequently asked "}</span>
-                <span className={styles.titleSerifWord}>
-                  {isTr ? "sorular." : "questions."}
-                </span>
+                <span>Sıkça sorulan </span>
+                <span className={styles.titleSerifWord}>sorular.</span>
               </h2>
             </div>
 
@@ -590,14 +576,10 @@ export default function ServiceDetailClient({
 
           <div className={styles.combinedRelatedCol}>
             <div className={styles.colHeaderWrap}>
-              <span className={styles.sectionLabel}>
-                {isTr ? "Tamamlayıcı Çözümler" : "Complementary Services"}
-              </span>
+              <span className={styles.sectionLabel}>Tamamlayıcı Çözümler</span>
               <h2 className={styles.sectionTitle}>
-                <span>{isTr ? "Bu sistemi tamamlayan " : "Synchronized "}</span>
-                <span className={styles.titleSerifWord}>
-                  {isTr ? "diğer çözümler." : "digital services."}
-                </span>
+                <span>Bu sistemi tamamlayan </span>
+                <span className={styles.titleSerifWord}>diğer çözümler.</span>
               </h2>
             </div>
 
@@ -605,7 +587,7 @@ export default function ServiceDetailClient({
               {relatedServices.map((rel) => (
                 <Link
                   key={rel.slug}
-                  href={`/${lang}/hizmetler/${rel.slug}`}
+                  href={`/hizmetler/${rel.slug}`}
                   className={styles.relatedMiniCard}
                 >
                   <div className={styles.relatedCardMain}>
@@ -640,31 +622,21 @@ export default function ServiceDetailClient({
             <div className={styles.ctaBadgeArea}>
               <span className={styles.ctaStatusDot} />
               <span className={styles.ctaBadgeLabel}>
-                {isTr ? "Bursa İçi Masanızda Keşif" : "On-Site Consultation"}
+                Bursa İçi Masanızda Keşif
               </span>
             </div>
 
             <h3 className={styles.ctaMainHeading}>
-              {isTr ? (
-                <>
-                  "{data.title}" için{" "}
-                  <span className={styles.serifAccentWord}>
-                    net bir yol haritası
-                  </span>{" "}
-                  çıkaralım.
-                </>
-              ) : (
-                <>
-                  Engineer a precise roadmap for{" "}
-                  <span className={styles.serifAccentWord}>{data.title}</span>.
-                </>
-              )}
+              "{data.title}" için{" "}
+              <span className={styles.serifAccentWord}>
+                net bir yol haritası
+              </span>{" "}
+              çıkaralım.
             </h3>
 
             <p className={styles.ctaBodyText}>
-              {isTr
-                ? "Sürpriz maliyetler veya ucu açık teslimat süreleri yok. Kapsamı, kullanılacak altyapıyı ve takvimi şeffafça belirleyelim."
-                : "Zero hidden costs or ambiguous delivery windows. We codify deliverables and timelines into binding agreements."}
+              Sürpriz maliyetler veya ucu açık teslimat süreleri yok. Kapsamı,
+              kullanılacak altyapıyı ve takvimi şeffafça belirleyelim.
             </p>
           </div>
 
@@ -675,9 +647,7 @@ export default function ServiceDetailClient({
               rel="noopener noreferrer"
               className={styles.luxuryWhatsappBtn}
             >
-              <span className={styles.btnMainText}>
-                {isTr ? "WhatsApp ile Başlatın" : "Initiate via WhatsApp"}
-              </span>
+              <span className={styles.btnMainText}>WhatsApp ile Başlatın</span>
               <div className={styles.btnIconCircle}>
                 <svg
                   className={styles.btnArrowSvg}
@@ -695,13 +665,8 @@ export default function ServiceDetailClient({
               </div>
             </a>
 
-            <Link
-              href={`/${lang}/hizmetler`}
-              className={styles.secondaryInquiryLink}
-            >
-              <span>
-                {isTr ? "← Tüm Hizmetleri Görüntüle" : "← All Services"}
-              </span>
+            <Link href="/hizmetler" className={styles.secondaryInquiryLink}>
+              <span>← Tüm Hizmetleri Görüntüle</span>
             </Link>
           </div>
         </div>

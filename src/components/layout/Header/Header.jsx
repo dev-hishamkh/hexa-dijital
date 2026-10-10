@@ -3,15 +3,13 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { dictionary } from "@/data/dictionary";
 import styles from "./Header.module.css";
 
-export default function Header({ lang = "tr" }) {
+export default function Header() {
   const pathname = usePathname();
   const [theme, setTheme] = useState("dark");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const dict = dictionary[lang]?.nav || dictionary.tr.nav;
 
   useEffect(() => {
     const currentTheme =
@@ -43,20 +41,11 @@ export default function Header({ lang = "tr" }) {
   };
 
   const navLinks = [
-    { href: `/${lang}/projeler`, label: dict.works },
-    { href: `/${lang}/hizmetler`, label: dict.services },
-    { href: `/${lang}/bursa-dijital-ajans`, label: dict.about },
-    { href: `/${lang}/iletisim`, label: dict.contact },
+    { href: "/projeler", label: "Projeler" },
+    { href: "/hizmetler", label: "Hizmetler" },
+    { href: "/bursa-dijital-ajans", label: "Biz Kimiz" },
+    { href: "/iletisim", label: "İletişim" },
   ];
-
-  const targetLang = lang === "tr" ? "en" : "tr";
-  const switchLangHref = pathname.replace(`/${lang}`, `/${targetLang}`);
-
-  const handleLanguageSwitch = () => {
-    try {
-      localStorage.setItem("hexa-lang", targetLang);
-    } catch (e) {}
-  };
 
   return (
     <div className={styles.headerWrapper}>
@@ -65,15 +54,11 @@ export default function Header({ lang = "tr" }) {
           isScrolled ? styles.islandScrolled : ""
         }`}
       >
-        {/* SOL LOGO: HEXA (SANS) + DİJİTAL (İTALİK SERİF İMZA) */}
-        <Link href={`/${lang}`} className={styles.brandLink}>
+        <Link href="/" className={styles.brandLink}>
           <span className={styles.logoSans}>Hexa</span>
-          <span className={styles.logoSerif}>
-            {lang === "tr" ? "Dijital" : "Digital"}
-          </span>
+          <span className={styles.logoSerif}>Dijital</span>
         </Link>
 
-        {/* DESKTOP NAVİGASYON: İTALİK SERİF İMZA LİNKLER */}
         <nav className={styles.desktopNav}>
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
@@ -91,18 +76,7 @@ export default function Header({ lang = "tr" }) {
           })}
         </nav>
 
-        {/* SAĞ AKSİYON PANELİ */}
         <div className={styles.actionPanel}>
-          {/* DİL DEĞİŞTİRME BUTONU (TERCİHİ HAFIZAYA KAYDEDER) */}
-          <Link
-            href={switchLangHref}
-            onClick={handleLanguageSwitch}
-            className={styles.langPill}
-            aria-label="Change Language"
-          >
-            {targetLang.toUpperCase()}
-          </Link>
-
           <button
             onClick={toggleTheme}
             className={styles.themeBtn}
@@ -141,12 +115,8 @@ export default function Header({ lang = "tr" }) {
             </div>
           </button>
 
-          {/* 45 DERECE DÖNEN MASTER HEADER BUTONU */}
-          <Link
-            href={`/${lang}/iletisim`}
-            className={styles.executiveHeaderBtn}
-          >
-            <span className={styles.btnText}>{dict.initiate}</span>
+          <Link href="/iletisim" className={styles.executiveHeaderBtn}>
+            <span className={styles.btnText}>Başlatalım</span>
             <div className={styles.btnCircle}>
               <svg
                 className={styles.btnArrowSvg}
@@ -183,7 +153,6 @@ export default function Header({ lang = "tr" }) {
         </div>
       </header>
 
-      {/* MOBİL ÇEKMECE */}
       <div
         className={`${styles.mobileDrawer} ${
           isMobileMenuOpen ? styles.drawerVisible : ""
@@ -201,11 +170,11 @@ export default function Header({ lang = "tr" }) {
             </Link>
           ))}
           <Link
-            href={`/${lang}/iletisim`}
+            href="/iletisim"
             className={styles.drawerCta}
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            <span>{dict.drawerCta}</span>
+            <span>Yerinde Keşif İste</span>
             <span>↗</span>
           </Link>
         </div>

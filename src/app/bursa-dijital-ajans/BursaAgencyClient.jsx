@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./BursaAgency.module.css";
 
-export default function BursaAgencyClient({ groups, isTr, lang }) {
+export default function BursaAgencyClient({ groups }) {
   const [activeDeptIdx, setActiveDeptIdx] = useState(0);
   const activeDept = groups[activeDeptIdx] || groups[0];
   const rootRef = useRef(null);
@@ -108,28 +108,23 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
       {/* 1. HERO BÖLÜMÜ */}
       <section className={`container ${styles.heroSection}`}>
         <span className={styles.eyebrowBadge}>
-          {isTr
-            ? "Bursa Geneli Yerinde Ziyaret · Birebir Destek"
-            : "On-Site Business Visits Across Bursa · Direct Partnership"}
+          Bursa Geneli Yerinde Ziyaret · Birebir Destek
         </span>
 
         <h1 className={styles.heroTitle}>
           <span className={styles.heroLineSans}>
-            {isTr
-              ? "İşletmenizi yerinde ziyaret ediyor,"
-              : "We visit your business on-site,"}
+            İşletmenizi yerinde ziyaret ediyor,
           </span>
           <span className={styles.heroLineSerif}>
-            {isTr
-              ? "dijital büyümenizi masanızda planlıyoruz."
-              : "engineering custom growth directly at your table."}
+            dijital büyümenizi masanızda planlıyoruz.
           </span>
         </h1>
 
         <p className={styles.heroDesc}>
-          {isTr
-            ? "Telefonlara çıkmayan, sizi ofislerine çağıran ya da hazır şablonları satıp kaybolan ajanslardan sıkıldıysanız doğru yerdesiniz. Doğrudan dükkanınızı ziyaret ediyor; web sitenizi, sipariş sisteminizi ve reklamlarınızı masanızda yüz yüze konuşarak kuruyoruz."
-            : "Tired of agencies forcing you to their office or selling slow templates? We visit your business directly, planning your software, ordering pipelines, and customer acquisition campaigns face-to-face."}
+          Telefonlara çıkmayan, sizi ofislerine çağıran ya da hazır şablonları
+          satıp kaybolan ajanslardan sıkıldıysanız doğru yerdesiniz. Doğrudan
+          dükkanınızı ziyaret ediyor; web sitenizi, sipariş sisteminizi ve
+          reklamlarınızı masanızda yüz yüze konuşarak kuruyoruz.
         </p>
 
         <div className={styles.heroActionRow}>
@@ -139,9 +134,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
             rel="noopener noreferrer"
             className={styles.heroExecutiveBtn}
           >
-            <span className={styles.btnText}>
-              {isTr ? "Yerinde Görüşme Talep Edin" : "Request On-Site Meeting"}
-            </span>
+            <span className={styles.btnText}>Yerinde Görüşme Talep Edin</span>
             <div className={styles.btnCircle}>
               <svg
                 className={styles.btnArrowSvg}
@@ -161,11 +154,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
 
           <div className={styles.liveDeskPill}>
             <span className={styles.pulseDot} />
-            <span>
-              {isTr
-                ? "Bursa Geneli Yerinde Keşif · 09:00 - 18:00 Canlı"
-                : "On-Site Consultation · 09:00 - 18:00 Active"}
-            </span>
+            <span>Bursa Geneli Yerinde Keşif · 09:00 - 18:00 Canlı</span>
           </div>
         </div>
       </section>
@@ -174,88 +163,81 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
       <section className={`container ${styles.storyBentoSection}`}>
         <div className={styles.sectionHeadingWrap}>
           <h2 className={styles.sectionMainHeading}>
-            <span>{isTr ? "Biz kimiz ve " : "Who we are and "}</span>
+            <span>Biz kimiz ve </span>
             <span className={styles.serifAccentWord}>
-              {isTr ? "neden bu yola çıktık?" : "why we started."}
+              neden bu yola çıktık?
             </span>
           </h2>
           <p className={styles.sectionLeadText}>
-            {isTr
-              ? "Süslü laflar veya karmaşık teknik terimler yok. İşletmenizin yanında duran dürüst çalışma anlayışımız:"
-              : "No agency jargon. Honest partnership focused entirely on your business results."}
+            Süslü laflar veya karmaşık teknik terimler yok. İşletmenizin yanında
+            duran dürüst çalışma anlayışımız:
           </p>
         </div>
 
         <div className={styles.bentoGridWrapper}>
           <div className={styles.bentoCard}>
             <div className={styles.bentoCardHeader}>
-              <span className={styles.bentoIndexPill}>
-                {isTr ? "01 · Çıkış Noktamız" : "01 · Our Origin"}
-              </span>
+              <span className={styles.bentoIndexPill}>01 · Çıkış Noktamız</span>
             </div>
             <h3 className={styles.bentoCardTitle}>
-              {isTr
-                ? "Aylarca bekletip telefonlara çıkmayan ajans kalıplarını kırmak için yola çıktık."
-                : "Started to break the broken agency pattern of missing deadlines and calls."}
+              Aylarca bekletip telefonlara çıkmayan ajans kalıplarını kırmak
+              için yola çıktık.
             </h3>
             <p className={styles.bentoCardParagraph}>
-              {isTr
-                ? "İnternette işini büyütmek isteyen birçok işletmenin; hazır kalıpları kopyalayıp satan, iş bittikten sonra telefonları açmayan ve sürekli ek masraf çıkaran kişiler yüzünden mağdur olduğunu gördük. Bu ezberi bozmak; her işletmenin derdini masasında yüz yüze dinleyip doğrudan kasanızı büyütecek gerçek sistemler kurmak için bu stüdyoyu kurduk."
-                : "We saw businesses frustrated by agencies selling slow templates, missing calls, and demanding unexpected fees. We built Hexa to change this: meeting you in-person, building bespoke systems, and directly growing your bottom line."}
+              İnternette işini büyütmek isteyen birçok işletmenin; hazır
+              kalıpları kopyalayıp satan, iş bittikten sonra telefonları açmayan
+              ve sürekli ek masraf çıkaran kişiler yüzünden mağdur olduğunu
+              gördük. Bu ezberi bozmak; her işletmenin derdini masasında yüz
+              yüze dinleyip doğrudan kasanızı büyütecek gerçek sistemler kurmak
+              için bu stüdyoyu kurduk.
             </p>
           </div>
 
           <div className={styles.bentoCard}>
             <div className={styles.bentoCardHeader}>
               <span className={styles.bentoIndexPill}>
-                {isTr ? "02 · İletişim Tarzımız" : "02 · Direct Presence"}
+                02 · İletişim Tarzımız
               </span>
             </div>
             <h3 className={styles.bentoCardTitle}>
-              {isTr
-                ? "Masanızda Yüz Yüze Görüşme"
-                : "Face-to-Face At Your Table"}
+              Masanızda Yüz Yüze Görüşme
             </h3>
             <p className={styles.bentoCardParagraph}>
-              {isTr
-                ? "Sizi çağırmıyoruz, dükkanınıza biz geliyoruz. Menünüzü, ürünlerinizi ve müşterilerinizi yerinde görerek en doğru çözümü çayınızı içerken birlikte planlıyoruz."
-                : "We don't summon you to our office. We visit your venue across Bursa, inspecting operations on-site to engineer the exact solution you need."}
+              Sizi çağırmıyoruz, dükkanınıza biz geliyoruz. Menünüzü,
+              ürünlerinizi ve müşterilerinizi yerinde görerek en doğru çözümü
+              çayınızı içerken birlikte planlıyoruz.
             </p>
           </div>
 
           <div className={styles.bentoCard}>
             <div className={styles.bentoCardHeader}>
               <span className={styles.bentoIndexPill}>
-                {isTr ? "03 · Kalite Anlayışımız" : "03 · Quality SLA"}
+                03 · Kalite Anlayışımız
               </span>
             </div>
             <h3 className={styles.bentoCardTitle}>
-              {isTr
-                ? "Hatasız & Anında Açılan Sistemler"
-                : "Instant Loading Guarantee"}
+              Hatasız & Anında Açılan Sistemler
             </h3>
             <p className={styles.bentoCardParagraph}>
-              {isTr
-                ? "Sürekli bozulan veya telefonda açılmayan sitelerle müşteri kaybetmeyin. Yaptığımız her sistem müşterinizin telefonunda saniyesinde açılır ve sorunsuz çalışır."
-                : "Never lose a customer to slow loading. We build ultra-fast, robust platforms that load instantly on all mobile phones."}
+              Sürekli bozulan veya telefonda açılmayan sitelerle müşteri
+              kaybetmeyin. Yaptığımız her sistem müşterinizin telefonunda
+              saniyesinde açılır ve sorunsuz çalışır.
             </p>
           </div>
 
           <div className={styles.bentoCard}>
             <div className={styles.bentoCardHeader}>
               <span className={styles.bentoIndexPill}>
-                {isTr ? "04 · Tek Başarı Ölçümüz" : "04 · Core KPI"}
+                04 · Tek Başarı Ölçümüz
               </span>
             </div>
             <h3 className={styles.bentoCardTitle}>
-              {isTr
-                ? "Doğrudan Kasanıza Giren Ciro"
-                : "Your Bottom-Line Turnover"}
+              Doğrudan Kasanıza Giren Ciro
             </h3>
             <p className={styles.bentoCardParagraph}>
-              {isTr
-                ? "Bizim için başarı sadece güzel bir ekran çizmek değil; telefonunuzun ne kadar çaldığı, yemek sitelerine ödediğiniz komisyonların ne kadarının cebinizde kaldığıdır."
-                : "Success is not just attractive design. It is how many phone calls ring your register and how much commission you retain each month."}
+              Bizim için başarı sadece güzel bir ekran çizmek değil;
+              telefonunuzun ne kadar çaldığı, yemek sitelerine ödediğiniz
+              komisyonların ne kadarının cebinizde kaldığıdır.
             </p>
           </div>
         </div>
@@ -265,19 +247,14 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
       <section className={`container ${styles.deptOverviewSection}`}>
         <div className={styles.sectionHeadingWrap}>
           <h2 className={styles.sectionMainHeading}>
-            <span>
-              {isTr ? "Sadece web sitesi değil; " : "Not just websites; "}
-            </span>
+            <span>Sadece web sitesi değil; </span>
             <span className={styles.serifAccentWord}>
-              {isTr
-                ? "işletmenizi büyüten 5 temel hizmet alanı."
-                : "5 core digital disciplines."}
+              işletmenizi büyüten 5 temel hizmet alanı.
             </span>
           </h2>
           <p className={styles.sectionLeadText}>
-            {isTr
-              ? "Tüm dijital ihtiyaçlarınızı farklı kişilere dağıtmadan, tek bir çatı altında ve doğrudan teknik ekiple çözün."
-              : "Consolidate all digital requirements under one unified roof with direct technical accountability."}
+            Tüm dijital ihtiyaçlarınızı farklı kişilere dağıtmadan, tek bir çatı
+            altında ve doğrudan teknik ekiple çözün.
           </p>
         </div>
 
@@ -323,9 +300,7 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
               </div>
 
               <div className={styles.stageOutcomeCard}>
-                <span className={styles.outcomeTagLabel}>
-                  {isTr ? "SAĞLANAN FAYDA" : "BUSINESS OUTCOME"}
-                </span>
+                <span className={styles.outcomeTagLabel}>SAĞLANAN FAYDA</span>
                 <p className={styles.outcomeLeadText}>
                   {activeDept.categoryOutcome}
                 </p>
@@ -334,15 +309,13 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
 
             <div className={styles.stageServicesArea}>
               <span className={styles.servicesAreaLabel}>
-                {isTr
-                  ? "Departman Çözümleri & Hizmetler:"
-                  : "Department Solutions:"}
+                Departman Çözümleri & Hizmetler:
               </span>
               <div className={styles.stageButtonsFlex}>
                 {activeDept.services.map((item) => (
                   <Link
                     key={item.slug}
-                    href={`/${lang}/hizmetler/${item.slug}`}
+                    href={`/hizmetler/${item.slug}`}
                     className={styles.cockpitServiceBtn}
                   >
                     <span className={styles.serviceBtnLabel}>{item.name}</span>
@@ -373,101 +346,78 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
       <section className={`container ${styles.proofSection}`}>
         <div className={styles.sectionHeadingWrap}>
           <h2 className={styles.sectionMainHeading}>
-            <span>
-              {isTr ? "Bursa'da birlikte " : "Verified commercial systems "}
-            </span>
+            <span>Bursa'da birlikte </span>
             <span className={styles.serifAccentWord}>
-              {isTr ? "büyüdüğümüz işletmeler." : "operating live in Bursa."}
+              büyüdüğümüz işletmeler.
             </span>
           </h2>
           <p className={styles.sectionLeadText}>
-            {isTr
-              ? "Laf kalabalığı değil; dükkanların ve firmaların kazandığı gerçek sonuçlar:"
-              : "Real, verifiable business outcomes delivered for local companies:"}
+            Laf kalabalığı değil; dükkanların ve firmaların kazandığı gerçek
+            sonuçlar:
           </p>
         </div>
 
         <div className={styles.proofGrid}>
           <div className={styles.proofCard}>
             <div className={styles.proofCardHeader}>
-              <span className={styles.proofSectorTag}>
-                {isTr ? "İnşaat & Mimari" : "Construction & Architecture"}
-              </span>
-              <span className={styles.proofMetricBadge}>
-                {isTr ? "Hızlı Açılış" : "Instant Loading"}
-              </span>
+              <span className={styles.proofSectorTag}>İnşaat & Mimari</span>
+              <span className={styles.proofMetricBadge}>Hızlı Açılış</span>
             </div>
             <h3 className={styles.proofClientName}>Tataroğlu İnşaat</h3>
             <div className={styles.proofResultBlock}>
-              <span className={styles.resultLabel}>
-                {isTr ? "Sağlanan Çıktı:" : "Delivered Output:"}
-              </span>
+              <span className={styles.resultLabel}>Sağlanan Çıktı:</span>
               <p className={styles.resultHighlight}>
-                {isTr
-                  ? "Anında Açılan Vitrin · Teklif Taleplerinde Net Artış"
-                  : "Instant Showcase · 3x Inbound Quote Lift"}
+                Anında Açılan Vitrin · Teklif Taleplerinde Net Artış
               </p>
             </div>
             <p className={styles.proofSummary}>
-              {isTr
-                ? "Eski hantal site yenilendi; müşterilerin telefondan saniyede açtığı şık bir şirket vitrini kurularak kurumsal teklif talepleri artırıldı."
-                : "Replaced slow legacy architecture with an instant-load web showcase, boosting corporate inbound bidding inquiries."}
+              Eski hantal site yenilendi; müşterilerin telefondan saniyede
+              açtığı şık bir şirket vitrini kurularak kurumsal teklif talepleri
+              artırıldı.
             </p>
           </div>
 
           <div className={styles.proofCard}>
             <div className={styles.proofCardHeader}>
               <span className={styles.proofSectorTag}>
-                {isTr ? "Restoran & Paket Servis" : "Restaurant & Delivery"}
+                Restoran & Paket Servis
               </span>
-              <span className={styles.proofMetricBadge}>
-                {isTr ? "%0 Komisyon" : "0% Commission"}
-              </span>
+              <span className={styles.proofMetricBadge}>%0 Komisyon</span>
             </div>
             <h3 className={styles.proofClientName}>Munchico Fried Chicken</h3>
             <div className={styles.proofResultBlock}>
-              <span className={styles.resultLabel}>
-                {isTr ? "Sağlanan Çıktı:" : "Delivered Output:"}
-              </span>
+              <span className={styles.resultLabel}>Sağlanan Çıktı:</span>
               <p className={styles.resultHighlight}>
-                {isTr
-                  ? "Kendi Paket Servis Hattı · %0 Komisyonlu Siparişler"
-                  : "Direct Delivery Pipeline · 0% Commission Orders"}
+                Kendi Paket Servis Hattı · %0 Komisyonlu Siparişler
               </p>
             </div>
             <p className={styles.proofSummary}>
-              {isTr
-                ? "Paket müşterileri doğrudan dükkanın kendi online sipariş sistemine yönlendirildi; aracı yemek sitelerine komisyon kaptırmadan doğrudan dükkandan sipariş alınmaya başlandı."
-                : "Customer order volume funneled directly into the venue's own system, bypassing aggregator commission overhead completely."}
+              Paket müşterileri doğrudan dükkanın kendi online sipariş sistemine
+              yönlendirildi; aracı yemek sitelerine komisyon kaptırmadan
+              doğrudan dükkandan sipariş alınmaya başlandı.
             </p>
           </div>
 
           <div className={styles.proofCard}>
             <div className={styles.proofCardHeader}>
               <span className={styles.proofSectorTag}>
-                {isTr ? "Yerel Arama & Doğrudan Çağrı" : "Local Search & Calls"}
+                Yerel Arama & Doğrudan Çağrı
               </span>
-              <span className={styles.proofMetricBadge}>
-                {isTr ? "Günde 35+ Telefon" : "35+ Daily Calls"}
-              </span>
+              <span className={styles.proofMetricBadge}>Günde 35+ Telefon</span>
             </div>
             <h3 className={styles.proofClientName}>
               Hira Halı & Koltuk Yıkama
             </h3>
             <div className={styles.proofResultBlock}>
-              <span className={styles.resultLabel}>
-                {isTr ? "Sağlanan Çıktı:" : "Delivered Output:"}
-              </span>
+              <span className={styles.resultLabel}>Sağlanan Çıktı:</span>
               <p className={styles.resultHighlight}>
-                {isTr
-                  ? "Aynı Bütçeyle 4 Kat Daha Fazla Müşteri Çağrısı"
-                  : "4x Inbound Customer Calls on Same Budget"}
+                Aynı Bütçeyle 4 Kat Daha Fazla Müşteri Çağrısı
               </p>
             </div>
             <p className={styles.proofSummary}>
-              {isTr
-                ? "Doğrudan telefon araması odaklı tek sayfa yapıya geçildi; reklam bütçesi artırılmadan dükkana gelen günlük gerçek müşteri araması 4 katına çıktı."
-                : "Deployed high-velocity single-page architecture, quadrupling incoming verified phone inquiries without budget increases."}
+              Doğrudan telefon araması odaklı tek sayfa yapıya geçildi; reklam
+              bütçesi artırılmadan dükkana gelen günlük gerçek müşteri araması 4
+              katına çıktı.
             </p>
           </div>
         </div>
@@ -478,74 +428,53 @@ export default function BursaAgencyClient({ groups, isTr, lang }) {
         <div className={styles.commitBox}>
           <div className={styles.commitHeader}>
             <h3 className={styles.commitHeading}>
-              <span>
-                {isTr
-                  ? "Birlikte çalıştığımız hiçbir işletmeyi "
-                  : "We never leave any client with "}
-              </span>
+              <span>Birlikte çalıştığımız hiçbir işletmeyi </span>
               <span className={styles.serifAccentWord}>
-                {isTr
-                  ? "belirsizliklerle baş başa bırakmıyoruz."
-                  : "unanswered questions."}
+                belirsizliklerle baş başa bırakmıyoruz.
               </span>
             </h3>
             <p className={styles.commitSubText}>
-              {isTr
-                ? "Sürpriz maliyetler veya ucu açık teslimat tarihleri yok. İşin kapsamını ve takvimini baştan yazılı olarak belirleriz."
-                : "All deliverables and timelines codified into legally binding contracts and transparent agreements."}
+              Sürpriz maliyetler veya ucu açık teslimat tarihleri yok. İşin
+              kapsamını ve takvimini baştan yazılı olarak belirleriz.
             </p>
           </div>
 
           <div className={styles.commitGrid}>
             <div className={styles.commitItem}>
               <span className={styles.commitNumber}>01</span>
-              <h4>
-                {isTr ? "Net Kapsam & Sabit Fiyat" : "Fixed Scope & Pricing"}
-              </h4>
+              <h4>Net Kapsam & Sabit Fiyat</h4>
               <p>
-                {isTr
-                  ? "Başta ne konuştuysak o geçerlidir. İşin ortasında veya teslimat anında ek masraflar çıkarılmaz; bütçeniz ve teslim gününüz baştan bellidir."
-                  : "Fixed scope and transparent pricing. No unexpected charges during development or delivery; your budget and timeline are locked from day one."}
+                Başta ne konuştuysak o geçerlidir. İşin ortasında veya teslimat
+                anında ek masraflar çıkarılmaz; bütçeniz ve teslim gününüz
+                baştan bellidir.
               </p>
             </div>
 
             <div className={styles.commitItem}>
               <span className={styles.commitNumber}>02</span>
-              <h4>
-                {isTr
-                  ? "%100 Kontrol & Mülkiyet Sizde"
-                  : "100% Control & Ownership"}
-              </h4>
+              <h4>%100 Kontrol & Mülkiyet Sizde</h4>
               <p>
-                {isTr
-                  ? "Alan adınız, web siteniz ve tüm verileriniz doğrudan şirketinize tescil edilir. Bize veya başka bir ajansa bağımlı kalmazsınız."
-                  : "Your domain, source code, and customer data belong entirely to your enterprise. Zero vendor lock-ins."}
+                Alan adınız, web siteniz ve tüm verileriniz doğrudan şirketinize
+                tescil edilir. Bize veya başka bir ajansa bağımlı kalmazsınız.
               </p>
             </div>
 
             <div className={styles.commitItem}>
               <span className={styles.commitNumber}>03</span>
-              <h4>
-                {isTr
-                  ? "Kesintisiz İletişim & Hızlı Destek"
-                  : "Direct & Fast Communication"}
-              </h4>
+              <h4>Kesintisiz İletişim & Hızlı Destek</h4>
               <p>
-                {isTr
-                  ? "Telefonu açmayan veya günlerce cevap vermeyen ekipler yok. Sorularınızda doğrudan teknik ekiple görüşürsünüz."
-                  : "No vanished account managers. You speak directly to lead engineers whenever you require support."}
+                Telefonu açmayan veya günlerce cevap vermeyen ekipler yok.
+                Sorularınızda doğrudan teknik ekiple görüşürsünüz.
               </p>
             </div>
 
             <div className={styles.commitItem}>
               <span className={styles.commitNumber}>04</span>
-              <h4>
-                {isTr ? "Bursa İçi Yerinde Ziyaret" : "On-Site Consultations"}
-              </h4>
+              <h4>Bursa İçi Yerinde Ziyaret</h4>
               <p>
-                {isTr
-                  ? "Haftanın her günü 09:00 - 18:00 arası işletmenizi doğrudan yerinde ziyaret ediyor, süreçleri masanızda yüz yüze konuşuyoruz."
-                  : "We visit your venue directly across Bursa, planning digital pipelines face-to-face at your table."}
+                Haftanın her günü 09:00 - 18:00 arası işletmenizi doğrudan
+                yerinde ziyaret ediyor, süreçleri masanızda yüz yüze
+                konuşuyoruz.
               </p>
             </div>
           </div>

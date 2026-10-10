@@ -7,9 +7,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { servicesData } from "@/data/servicesData";
 import styles from "./Services.module.css";
 
-export default function ServicesClient({ lang = "tr" }) {
-  const isTr = lang === "tr";
-  const groups = servicesData[lang] || servicesData.tr;
+export default function ServicesClient() {
+  const groups = servicesData.tr;
 
   const [stageData, setStageData] = useState({
     title: groups[0].categoryTitle,
@@ -239,50 +238,32 @@ export default function ServicesClient({ lang = "tr" }) {
       <section ref={heroRef} className={`container ${styles.heroSection}`}>
         <div className={styles.heroContent}>
           <span className={styles.breadcrumbBadge}>
-            {isTr
-              ? "Hizmet Kataloğu · 5 Temel Alan"
-              : "Service Catalogue · 5 Core Disciplines"}
+            Hizmet Kataloğu · 5 Temel Alan
           </span>
 
           <h1 className={styles.heroTitle}>
             <span className={styles.titleLineWrapper}>
+              <span className={styles.titleLine}>Hızlı web siteleri,</span>
+            </span>
+            <span className={styles.titleLineWrapper}>
               <span className={styles.titleLine}>
-                {isTr ? "Hızlı web siteleri," : "Bespoke software,"}
+                <span className={styles.serifItalic}>özel yazılımlar &</span>
               </span>
             </span>
             <span className={styles.titleLineWrapper}>
               <span className={styles.titleLine}>
-                <span className={styles.serifItalic}>
-                  {isTr ? "özel yazılımlar &" : "radical craft &"}
-                </span>
-              </span>
-            </span>
-            <span className={styles.titleLineWrapper}>
-              <span className={styles.titleLine}>
-                <span>{isTr ? "müşteri kazandıran" : "high-impact"}</span>{" "}
-                <span className={styles.accentWord}>
-                  {isTr ? "reklam yönetimi." : "growth media."}
-                </span>
+                <span>müşteri kazandıran</span>{" "}
+                <span className={styles.accentWord}>reklam yönetimi.</span>
               </span>
             </span>
           </h1>
 
           <p className={styles.heroDesc}>
-            {isTr ? (
-              <>
-                İşletmenizin satışlarını artırmak için ihtiyacınız olan temel
-                çözümler tek çatı altında: Anında açılan hafif web siteleri,
-                güven veren kurumsal kimlik tasarımı ve satın almaya hazır
-                müşteri çeken reklamlar. Hazır şablon kullanmadan, 24 temel
-                hizmeti doğrudan tek merkezden yönetiyoruz.
-              </>
-            ) : (
-              <>
-                Sustainable commercial growth requires synchronized disciplines:
-                fast custom software backbones, authoritative visual identity,
-                and targeted customer acquisition media.
-              </>
-            )}
+            İşletmenizin satışlarını artırmak için ihtiyacınız olan temel
+            çözümler tek çatı altında: Anında açılan hafif web siteleri, güven
+            veren kurumsal kimlik tasarımı ve satın almaya hazır müşteri çeken
+            reklamlar. Hazır şablon kullanmadan, 24 temel hizmeti doğrudan tek
+            merkezden yönetiyoruz.
           </p>
         </div>
       </section>
@@ -302,26 +283,22 @@ export default function ServicesClient({ lang = "tr" }) {
               <div className={styles.stageHeadingArea}>
                 <span className={styles.stageContextTag}>
                   {stageData.isSpecificService
-                    ? isTr
-                      ? "Hizmet İncelemesi"
-                      : "Module Scope"
-                    : isTr
-                      ? "Departman Kapsamı"
-                      : "Department Scope"}
+                    ? "Hizmet İncelemesi"
+                    : "Departman Kapsamı"}
                 </span>
                 <h3 className={styles.stageServiceName}>{stageData.title}</h3>
               </div>
 
               <div className={styles.stageSectionBlock}>
                 <h4 className={styles.sectionHeaderTitle}>
-                  {isTr ? "Kimler İçin Uygun?" : "Who Is This For?"}
+                  Kimler İçin Uygun?
                 </h4>
                 <p className={styles.sectionBodyText}>{stageData.target}</p>
               </div>
 
               <div className={styles.stageSectionBlock}>
                 <h4 className={styles.sectionHeaderTitle}>
-                  {isTr ? "Sağlanan Somut Fayda" : "Commercial Outcome"}
+                  Sağlanan Somut Fayda
                 </h4>
                 <p className={styles.sectionBodyText}>{stageData.outcome}</p>
               </div>
@@ -329,7 +306,7 @@ export default function ServicesClient({ lang = "tr" }) {
 
             <div className={styles.stageBottomAction}>
               <Link
-                href={`/${lang}/hizmetler/${stageData.slug}`}
+                href={`/hizmetler/${stageData.slug}`}
                 className={styles.magneticLaunchBtn}
               >
                 <div className={styles.actionCircle}>
@@ -349,12 +326,10 @@ export default function ServicesClient({ lang = "tr" }) {
                 </div>
                 <div className={styles.actionLabels}>
                   <span className={styles.actionPrimaryText}>
-                    {isTr ? "Hizmeti İnceleyin" : "Explore Solution"}
+                    Hizmeti İnceleyin
                   </span>
                   <span className={styles.actionSubText}>
-                    {isTr
-                      ? "Teknik detayları ve nelerin dahil olduğunu görün"
-                      : "View technical specs"}
+                    Teknik detayları ve nelerin dahil olduğunu görün
                   </span>
                 </div>
               </Link>
@@ -384,15 +359,11 @@ export default function ServicesClient({ lang = "tr" }) {
 
               <div className={styles.mobileDeptDiagnosis}>
                 <div className={styles.diagItem}>
-                  <span className={styles.diagBadge}>
-                    {isTr ? "KİMLER İÇİN?" : "FOR WHOM?"}
-                  </span>
+                  <span className={styles.diagBadge}>KİMLER İÇİN?</span>
                   <p className={styles.diagText}>{group.categoryDiagnosis}</p>
                 </div>
                 <div className={styles.diagItem}>
-                  <span className={styles.diagBadge}>
-                    {isTr ? "KAZANILAN FAYDA:" : "OUTCOME:"}
-                  </span>
+                  <span className={styles.diagBadge}>KAZANILAN FAYDA:</span>
                   <p className={styles.diagTextHighlight}>
                     {group.categoryOutcome}
                   </p>
@@ -412,7 +383,7 @@ export default function ServicesClient({ lang = "tr" }) {
                       onMouseEnter={() => handleServiceHover(service)}
                     >
                       <Link
-                        href={`/${lang}/hizmetler/${service.slug}`}
+                        href={`/hizmetler/${service.slug}`}
                         className={styles.rowLinkBlock}
                       >
                         <div className={styles.rowLeftInfo}>
@@ -465,35 +436,20 @@ export default function ServicesClient({ lang = "tr" }) {
           <div className={styles.ctaContentLeft}>
             <div className={styles.ctaBadgeArea}>
               <span className={styles.ctaStatusDot} />
-              <span className={styles.ctaBadgeLabel}>
-                {isTr ? "Ücretsiz Ön İnceleme" : "Complimentary Audit"}
-              </span>
+              <span className={styles.ctaBadgeLabel}>Ücretsiz Ön İnceleme</span>
             </div>
 
             <h3 className={styles.ctaMainHeading}>
-              {isTr ? (
-                <>
-                  İşletmeniz için hangi adımın{" "}
-                  <br className={styles.desktopBr} />
-                  <span className={styles.serifAccentWord}>
-                    öncelikli olduğunu konuşalım.
-                  </span>
-                </>
-              ) : (
-                <>
-                  Let’s diagnose what your business{" "}
-                  <br className={styles.desktopBr} />
-                  <span className={styles.serifAccentWord}>
-                    needs to grow next.
-                  </span>
-                </>
-              )}
+              İşletmeniz için hangi adımın <br className={styles.desktopBr} />
+              <span className={styles.serifAccentWord}>
+                öncelikli olduğunu konuşalım.
+              </span>
             </h3>
 
             <p className={styles.ctaBodyText}>
-              {isTr
-                ? "Sitenizin hızını, Google Harita görünürlüğünüzü ve reklamlarınızı ücretsiz inceleyelim; doğrudan satış kazandıracak net bir yol haritası çıkaralım."
-                : "We audit your site speed, Google Maps ranking, and ad efficiency — delivering an actionable growth roadmap."}
+              Sitenizin hızını, Google Harita görünürlüğünüzü ve reklamlarınızı
+              ücretsiz inceleyelim; doğrudan satış kazandıracak net bir yol
+              haritası çıkaralım.
             </p>
           </div>
 
@@ -504,9 +460,7 @@ export default function ServicesClient({ lang = "tr" }) {
               rel="noopener noreferrer"
               className={styles.luxuryWhatsappBtn}
             >
-              <span className={styles.btnMainText}>
-                {isTr ? "WhatsApp ile Başlatın" : "Initiate via WhatsApp"}
-              </span>
+              <span className={styles.btnMainText}>WhatsApp ile Başlatın</span>
               <div className={styles.btnIconCircle}>
                 <svg
                   className={styles.btnArrowSvg}
@@ -527,9 +481,7 @@ export default function ServicesClient({ lang = "tr" }) {
             <div className={styles.liveDeskRow}>
               <span className={styles.pulseGreenDot} />
               <span className={styles.liveDeskText}>
-                {isTr
-                  ? "Bursa Operasyon Masası — 09:00 - 18:00 Canlı"
-                  : "Operations Desk — Online"}
+                Bursa Operasyon Masası — 09:00 - 18:00 Canlı
               </span>
             </div>
           </div>

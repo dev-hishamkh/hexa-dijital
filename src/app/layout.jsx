@@ -27,47 +27,20 @@ export const metadata = {
   metadataBase: new URL("https://hexadijital.com"),
   title: {
     template: "%s | Hexa Dijital",
-    default: "Hexa Dijital | Kurumsal Web Tasarım, Yazılım ve Reklam Ajansı",
+    default: "Hexa Dijital | Yazılım, Tasarım & Reklam Ajansı",
   },
   description:
-    "Bursa merkezli kurumsal web tasarım, sektöre özel web yazılımları ve doğrudan müşteri kazandıran dijital reklam yönetimi şirketi.",
-  keywords: [
-    "Bursa web tasarım",
-    "Bursa dijital ajans",
-    "Bursa reklam ajansı",
-    "özel web yazılım",
-    "kurumsal web sitesi",
-  ],
-  other: {
-    "facebook-domain-verification": "4184ufn214t3spzhjleqzncfsqcp64",
-  },
-  openGraph: {
-    title: "Hexa Dijital | Kurumsal Web Tasarım, Yazılım ve Reklam Ajansı",
-    description:
-      "Bursa merkezli kurumsal web tasarım, sektöre özel web yazılımları ve doğrudan müşteri kazandıran dijital reklam yönetimi şirketi.",
-    url: "https://hexadijital.com",
-    siteName: "Hexa Dijital",
-    locale: "tr_TR",
-    type: "website",
-    images: [
-      {
-        url: "https://hexadijital.com/home/background.webp",
-        secureUrl: "https://hexadijital.com/home/background.webp",
-        width: 1200,
-        height: 630,
-        type: "image/webp",
-        alt: "Hexa Dijital - Kurumsal Web Tasarım, Yazılım ve Reklam Ajansı",
-      },
+    "İşletmelere sadece güzel görünen değil, sahada çalışan sistemler kuruyoruz. Hızlı kurumsal siteler, işinizi kolaylaştıran yazılımlar ve gerçek müşteri getiren reklamlar.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+      { url: "/icon.svg", type: "image/svg+xml" },
     ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Hexa Dijital | Kurumsal Web Tasarım, Yazılım ve Reklam Ajansı",
-    description:
-      "Bursa merkezli kurumsal web tasarım, sektöre özel web yazılımları ve doğrudan müşteri kazandıran dijital reklam yönetimi şirketi.",
-    images: ["https://hexadijital.com/home/background.webp"],
+    apple: [{ url: "/icon.png", sizes: "180x180", type: "image/png" }],
   },
 };
+
 export default function RootLayout({ children }) {
   return (
     <html

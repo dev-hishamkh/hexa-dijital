@@ -8,12 +8,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { projectsData, projectFilterTabs } from "@/data/projectsData";
 import styles from "./Projects.module.css";
 
-export default function ProjectsClient({ lang }) {
+export default function ProjectsClient() {
   const [activeFilter, setActiveFilter] = useState("all");
   const [failedImages, setFailedImages] = useState({});
   const gridRef = useRef(null);
   const rootRef = useRef(null);
-  const isTr = lang === "tr";
 
   const handleMouseMove = (e) => {
     if (!gridRef.current) return;
@@ -142,26 +141,22 @@ export default function ProjectsClient({ lang }) {
       <section className={styles.contentSection}>
         <div className={styles.headerArea}>
           <span className={styles.eyebrowBadge}>
-            {isTr
-              ? "Doğrulanmış Saha Çalışmaları · Gerçek Sonuçlar"
-              : "Verified Commercial Works · Proven Outcomes"}
+            Doğrulanmış Saha Çalışmaları · Gerçek Sonuçlar
           </span>
 
           <h1 className={styles.title}>
             <span className={styles.titleLineSans}>
-              {isTr
-                ? "Sahada çalışan ve ciro kazandıran"
-                : "Commercial systems engineered for"}
+              Sahada çalışan ve ciro kazandıran
             </span>
             <span className={styles.titleLineSerif}>
-              {isTr ? "gerçek referanslarımız." : "verifiable business growth."}
+              gerçek referanslarımız.
             </span>
           </h1>
 
           <p className={styles.subtitle}>
-            {isTr
-              ? "Uydurma hikayeler değil; işletmelerin telefon karmaşasını bitiren, paket servis satışlarını artıran ve aramalarda öne taşıyan somut çözümlerimiz."
-              : "No generic templates. Custom digital systems built to solve real operational bottlenecks and increase business turnover."}
+            Uydurma hikayeler değil; işletmelerin telefon karmaşasını bitiren,
+            paket servis satışlarını artıran ve aramalarda öne taşıyan somut
+            çözümlerimiz.
           </p>
         </div>
 
@@ -177,15 +172,13 @@ export default function ProjectsClient({ lang }) {
                     isActive ? styles.pillActive : ""
                   }`}
                 >
-                  <span>{isTr ? tab.labelTR : tab.labelEN}</span>
+                  <span>{tab.labelTR}</span>
                 </button>
               );
             })}
           </div>
 
-          <span className={styles.projectCount}>
-            0{filtered.length} {isTr ? "Proje" : "Projects"}
-          </span>
+          <span className={styles.projectCount}>0{filtered.length} Proje</span>
         </div>
 
         <div
@@ -195,8 +188,7 @@ export default function ProjectsClient({ lang }) {
         >
           {filtered.map((item) => {
             const hasError = failedImages[item.id];
-            const currentAlt =
-              item.imageAlt?.[lang] || item.imageAlt?.tr || item.title;
+            const currentAlt = item.imageAlt?.tr || item.title;
 
             // Doğrulanmış Gerçek Görsel Yolu
             const finalImageSrc =
@@ -204,22 +196,12 @@ export default function ProjectsClient({ lang }) {
               (item.gallery && item.gallery.length > 0 ? item.gallery[0] : "");
 
             const badgeText =
-              typeof item.badge === "object"
-                ? isTr
-                  ? item.badge.tr
-                  : item.badge.en
-                : item.badge;
+              typeof item.badge === "object" ? item.badge.tr : item.badge;
             const impactText =
-              typeof item.impact === "object"
-                ? isTr
-                  ? item.impact.tr
-                  : item.impact.en
-                : item.impact;
+              typeof item.impact === "object" ? item.impact.tr : item.impact;
             const descText =
               typeof item.description === "object"
-                ? isTr
-                  ? item.description.tr
-                  : item.description.en
+                ? item.description.tr
                 : item.description;
 
             return (
@@ -227,7 +209,7 @@ export default function ProjectsClient({ lang }) {
                 <div className={styles.spotlightBorder} aria-hidden="true" />
 
                 <Link
-                  href={`/${lang}/projeler/${item.slug}`}
+                  href={`/projeler/${item.slug}`}
                   className={styles.cardLink}
                 >
                   <div className={styles.viewportArea}>
@@ -286,21 +268,14 @@ export default function ProjectsClient({ lang }) {
 
         <div className={styles.bottomCtaBox}>
           <div className={styles.ctaLeft}>
-            <span className={styles.ctaEyebrow}>
-              {isTr ? "Sizin İşletmeniz İçin" : "Tailored For Your Business"}
-            </span>
+            <span className={styles.ctaEyebrow}>Sizin İşletmeniz İçin</span>
             <h3 className={styles.ctaHeading}>
-              <span>
-                {isTr ? "Sizin için de benzer bir " : "Let’s engineer a "}
-              </span>
-              <span className={styles.serifAccentWord}>
-                {isTr ? "başarı kuralım." : "verifiable growth engine."}
-              </span>
+              <span>Sizin için de benzer bir </span>
+              <span className={styles.serifAccentWord}>başarı kuralım.</span>
             </h3>
             <p className={styles.ctaDesc}>
-              {isTr
-                ? "İşletmenizi doğrudan yerinde ziyaret edelim; telefon karmaşanızı, sipariş altyapınızı ve müşteri akışınızı birlikte planlayalım."
-                : "We visit your business directly on-site to inspect customer flow and deploy high-converting digital pipelines."}
+              İşletmenizi doğrudan yerinde ziyaret edelim; telefon karmaşanızı,
+              sipariş altyapınızı ve müşteri akışınızı birlikte planlayalım.
             </p>
           </div>
 
@@ -311,9 +286,7 @@ export default function ProjectsClient({ lang }) {
               rel="noopener noreferrer"
               className={styles.ctaExecutiveBtn}
             >
-              <span className={styles.btnText}>
-                {isTr ? "Yerinde Görüşme Başlatın" : "Initiate Consultation"}
-              </span>
+              <span className={styles.btnText}>Yerinde Görüşme Başlatın</span>
               <div className={styles.btnCircle}>
                 <svg
                   className={styles.btnArrowSvg}

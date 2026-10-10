@@ -7,14 +7,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { servicesData } from "@/data/servicesData";
 import styles from "./Footer.module.css";
 
-export default function Footer({ lang = "tr" }) {
-  const isTr = lang === "tr";
+export default function Footer() {
   const footerRef = useRef(null);
   const columnsRef = useRef(null);
   const massiveTextRef = useRef(null);
   const socialRowRef = useRef(null);
 
-  const groups = servicesData[lang] || servicesData.tr;
+  const groups = servicesData.tr;
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -26,7 +25,6 @@ export default function Footer({ lang = "tr" }) {
     const socialRow = socialRowRef.current;
 
     const ctx = gsap.context(() => {
-      // 1. 5 Kolonlu Hizmet Ağının Kademeli Girişi
       if (columns && columns.length > 0) {
         gsap.fromTo(
           columns,
@@ -46,7 +44,6 @@ export default function Footer({ lang = "tr" }) {
         );
       }
 
-      // 2. Devasa HEXA Filigranının Parallax Yükselişi
       if (massiveText) {
         gsap.fromTo(
           massiveText,
@@ -65,7 +62,6 @@ export default function Footer({ lang = "tr" }) {
         );
       }
 
-      // 3. Telif & Sosyal Medya Satırı Girişi
       if (socialRow) {
         gsap.fromTo(
           socialRow,
@@ -91,52 +87,39 @@ export default function Footer({ lang = "tr" }) {
   return (
     <footer ref={footerRef} className={styles.hexaPremiumFooter}>
       <div className={`container ${styles.container}`}>
-        {/* DOĞRULAMA ŞERİDİ (ÇİFT DİLLİ) */}
         <div className={styles.napHeaderStrip}>
           <div className={styles.napIdentityBlock}>
             <div className={styles.napBrandName}>HEXA DİJİTAL</div>
             <p className={styles.napDescription}>
-              {isTr
-                ? "Bursa merkezli web tasarım ve özel yazılım şirketi. Hazır şablon kullanmadan, %100 özgün ve anında açılan kurumsal web çözümleri."
-                : "Bursa-based bespoke web engineering and advertising studio. Zero slow templates; sub-second performance architectures."}
+              Bursa merkezli web tasarım ve özel yazılım şirketi. Hazır şablon
+              kullanmadan, %100 özgün ve anında açılan kurumsal web çözümleri.
             </p>
           </div>
 
           <div className={styles.napContactMeta}>
             <div className={styles.napMetaItem}>
-              <span className={styles.napMetaLabel}>
-                {isTr ? "DOĞRUDAN TELEFON" : "DIRECT LINE"}
-              </span>
+              <span className={styles.napMetaLabel}>DOĞRUDAN TELEFON</span>
               <a href="tel:+905519769406" className={styles.napMetaValue}>
                 0551 976 94 06
               </a>
             </div>
 
             <div className={styles.napMetaItem}>
-              <span className={styles.napMetaLabel}>
-                {isTr ? "MESAİ SAATLERİ" : "OPERATING HOURS"}
-              </span>
+              <span className={styles.napMetaLabel}>MESAİ SAATLERİ</span>
               <span className={styles.napMetaValue}>
-                {isTr
-                  ? "Pzt - Paz · 09:00 - 18:00"
-                  : "Mon - Sun · 09:00 - 18:00"}
+                Pzt - Paz · 09:00 - 18:00
               </span>
             </div>
 
             <div className={styles.napMetaItem}>
-              <span className={styles.napMetaLabel}>
-                {isTr ? "ÇALIŞMA MODELİ" : "SERVICE MODEL"}
-              </span>
+              <span className={styles.napMetaLabel}>ÇALIŞMA MODELİ</span>
               <span className={styles.napMetaValue}>
-                {isTr
-                  ? "Bursa Geneli Yerinde Ziyaret"
-                  : "On-Site Business Visits"}
+                Bursa Geneli Yerinde Ziyaret
               </span>
             </div>
           </div>
         </div>
 
-        {/* 5 HİZMET KATEGORİSİNİN DİZİLİMİ */}
         <div ref={columnsRef} className={styles.footerColumns5grid}>
           {groups.map((category) => (
             <div
@@ -144,10 +127,7 @@ export default function Footer({ lang = "tr" }) {
               className={styles.footerColumnItem}
             >
               <h4 className={styles.footerColumnTitle}>
-                <Link
-                  href={`/${lang}/hizmetler`}
-                  className={styles.footerColHeaderLink}
-                >
+                <Link href="/hizmetler" className={styles.footerColHeaderLink}>
                   <span>{category.categoryTitle}</span>
                   <svg
                     className={styles.colArrow}
@@ -167,9 +147,7 @@ export default function Footer({ lang = "tr" }) {
               <ul className={styles.footerLinksList}>
                 {category.services.map((item) => (
                   <li key={item.slug}>
-                    <Link href={`/${lang}/hizmetler/${item.slug}`}>
-                      {item.name}
-                    </Link>
+                    <Link href={`/hizmetler/${item.slug}`}>{item.name}</Link>
                   </li>
                 ))}
               </ul>
@@ -178,7 +156,6 @@ export default function Footer({ lang = "tr" }) {
         </div>
       </div>
 
-      {/* DEVASA HEXA FİLİGRANI */}
       <div className={styles.footerBottomContainer}>
         <div
           ref={massiveTextRef}
@@ -189,11 +166,9 @@ export default function Footer({ lang = "tr" }) {
         </div>
 
         <div ref={socialRowRef} className={styles.footerSocialRow}>
-          {/* ÇİFT DİLLİ TELİF METNİ */}
           <div className={styles.copyrightText}>
-            {isTr
-              ? `© ${new Date().getFullYear()} Hexa Dijital — Yazılım, Tasarım ve Reklam Ajansı. Tüm hakları saklıdır.`
-              : `© ${new Date().getFullYear()} Hexa Digital — Bespoke Software & Growth Engineering. All rights reserved.`}
+            © {new Date().getFullYear()} Hexa Dijital — Yazılım, Tasarım ve
+            Reklam Ajansı. Tüm hakları saklıdır.
           </div>
 
           <div className={styles.socialLinks}>
@@ -206,7 +181,6 @@ export default function Footer({ lang = "tr" }) {
             >
               <span>Instagram</span>
             </a>
-
             <a
               href="https://facebook.com/hexadijitall"
               target="_blank"
@@ -216,7 +190,6 @@ export default function Footer({ lang = "tr" }) {
             >
               <span>Facebook</span>
             </a>
-
             <a
               href="https://youtube.com/@hexadijital"
               target="_blank"
@@ -226,7 +199,6 @@ export default function Footer({ lang = "tr" }) {
             >
               <span>YouTube</span>
             </a>
-
             <a
               href="https://tiktok.com/@hexadijital"
               target="_blank"
@@ -236,7 +208,6 @@ export default function Footer({ lang = "tr" }) {
             >
               <span>TikTok</span>
             </a>
-
             <a
               href="https://x.com/hexadijital"
               target="_blank"
@@ -246,7 +217,6 @@ export default function Footer({ lang = "tr" }) {
             >
               <span>X</span>
             </a>
-
             <a
               href="https://tr.pinterest.com/hexadijital"
               target="_blank"

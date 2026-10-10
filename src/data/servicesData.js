@@ -150,7 +150,7 @@ export const servicesData = {
         {
           id: "02.1",
           slug: "toptan-bayi-siparis-sistemi",
-          name: "Toptan Sipariş Sistemi",
+          name: "Bayi & Toptan Sipariş Sistemi",
           kpi: "Hatasız Sipariş Akışı",
           sectors: [
             "Tekstil & Konfeksiyon Toptancıları",
@@ -161,15 +161,15 @@ export const servicesData = {
           target:
             "WhatsApp ve telefonla toptan sipariş alırken ürün karışıklığı yaşayan toptancı ve üreticiler için.",
           outcome:
-            "Bayilerinizin ve toptan alıcılarınızın ürünleri görüp tek tıkla doğrudan sipariş girdiği kolay sipariş paneli.",
+            "WhatsApp karmaşasına son veren, bayilerinizin stok görüp doğrudan sipariş girdiği komisyonsuz toptan sipariş sistemi.",
           summary:
-            "Bayilere özel fiyat listeleri, vadeli sipariş girişleri ve canlı stok durumu sunan pratik toptan sipariş portalı.",
+            "Bayilere özel iskonto oranları, cari bakiye takibi ve cep telefonundan tek tıkla toplu sipariş verme ekranı.",
           deliverables: [
-            "Farklı bayi gruplarına özel iskonto ve fiyat tanımlama",
-            "Bayilerin geçmiş siparişlerini görebileceği müşteri hesabı",
-            "Telefondan tek tıkla toplu sepet oluşturma",
-            "Sipariş anında işletmenize otomatik düşen sipariş bildirimi",
-            "Excel ile tek tıkla ürün ve fiyat güncelleme",
+            "Bayi gruplarına özel iskonto ve fiyat listeleri",
+            "Bayilerin cari ekstresini ve sipariş geçmişini gördüğü panel",
+            "Telefondan tek tıkla toplu sepet oluşturup sipariş geçme",
+            "Sipariş düştüğü an depoya ve muhasebeye otomatik bildirim",
+            "Excel ile tek tıkla toplu ürün ve fiyat güncelleme",
           ],
         },
         {
@@ -360,26 +360,26 @@ export const servicesData = {
         {
           id: "03.4",
           slug: "is-evrak-takip-programi",
-          name: "İş ve Evrak Takip Programı",
-          kpi: "Hatasız İş Takibi",
+          name: "İşletmeye Özel Yazılım & İş Takip Programı",
+          kpi: "Hatasız Süreç Takibi",
           sectors: [
             "Mali Müşavir & Muhasebe Ofisleri",
             "Hukuk Büroları & Avukatlar",
             "Mühendislik & Proje Şirketleri",
-            "Teknik Servisler",
+            "Teknik Servisler & Atölyeler",
           ],
           target:
-            "İş takibini Excel veya kağıtla yaparken süreçleri aksatan ofis ve işletmeler için.",
+            "Excel tablolarından ve kağıt karmaşasından kurtulup işlerini tek ekrandan yönetmek isteyen şirketler için.",
           outcome:
-            "Ofis içi işleri, personel görevlerini ve müşteri evraklarını tek ekrandan kontrol eden şirket içi yönetim yazılımı.",
+            "İşletmenizin sipariş, üretim, servis ve personel süreçlerini tek ekrandan yöneten sahada çalışan özel yazılım.",
           summary:
-            "Hangi işin hangi personelde olduğunu, teslim sürelerini ve müşteri sözleşmelerini tek ekrandan kontrol eden sade yönetim paneli.",
+            "Hazır paket programların kalıplarına sığmayan işletmelere tam uyumlu, kağıt evrak ve Excel karmaşasını bitiren özel yönetim paneli.",
           deliverables: [
-            "Personel görev atama ve tamamlanma süreleri takibi",
-            "Müşteri sözleşme ve evraklarının dijital arşivi",
-            "Geciken işlerde otomatik yönetici bildirimleri",
-            "Mobil cihazlardan saha raporu ve fotoğraf yükleme",
-            "Yetkilendirme yönetimi (çalışan, yönetici, patron)",
+            "İşletmenizin çalışma şekline göre sıfırdan çizilmiş ekranlar",
+            "Personel görev atama, teslim süresi ve iş aşamaları takibi",
+            "Müşteri evrak ve sözleşmelerinin güvenli dijital arşivi",
+            "Geciken işlerde ve kritik aşamalarda otomatik yönetici uyarıları",
+            "Cep telefonundan sahada fotoğraf yükleme ve iş onaylama",
           ],
         },
         {
@@ -447,8 +447,8 @@ export const servicesData = {
         {
           id: "04.2",
           slug: "sosyal-medya-yonetimi",
-          name: "Sosyal Medya Yönetimi",
-          kpi: "Canlı & Güven Veren Sayfa",
+          name: "Sosyal Medya Yönetimi & İçerik Üretimi",
+          kpi: "Canlı & Müşteri Çeken Sayfa",
           sectors: [
             "Kurumsal Şirketler",
             "Klinikler & Doktorlar",
@@ -456,17 +456,17 @@ export const servicesData = {
             "Gayrimenkul Danışmanları",
           ],
           target:
-            "Instagram hesabı terkedilmiş gibi duran, kurumsal ve güvenilir görünmek isteyen işletmeler için.",
+            "Instagram hesabı terkedilmiş gibi duran, kurumsal güven vermek ve doğrudan müşteri çekmek isteyenler için.",
           outcome:
-            "Sayfanızı düzenli kurumsal paylaşımlarla güven veren canlı bir işletme vitrinine dönüştürme.",
+            "Boş takipçi değil, kasaya para bırakan müşteri kazandıran kurumsal sosyal medya yönetimi ve dikkat çeken video içerikleri.",
           summary:
-            "Müşterinin profilinize baktığında 'burası işini çok iyi yapıyor' dediği kaliteli grafikler, reels videoları ve kurumsal düzenleme.",
+            "Sayfanıza bakan müşterinin güven duyduğu, kaliteli grafik tasarımlar, reels videoları ve profesyonel hesap yönetimi.",
           deliverables: [
             "Aylık planlı kurumsal post ve hikaye tasarımları",
-            "İşletmenize özel kurgulanmış dikkat çekici Reels videoları",
-            "Öne çıkanlar ve biyografi alanının profesyonel düzeni",
-            "Gelen yorum ve mesajların kurumsal dille karşılanması",
-            "Marka tonuna uygun samimi içerik metinleri",
+            "Dükkanınızda çekilen veya kurgulanan dikkat çekici Reels videoları",
+            "Öne çıkanlar ve biyografi alanının profesyonel düzenlenmesi",
+            "Gelen müşteri mesajlarının kurumsal bir dille karşılanması",
+            "Doğrudan telefon araması ve WhatsApp mesajı getiren reklam kurgusu",
           ],
         },
         {
@@ -560,8 +560,8 @@ export const servicesData = {
         {
           id: "05.1",
           slug: "ozel-logo-tasarimi",
-          name: "Dükkana Özel Logo Tasarımı",
-          kpi: "Özgün Vektörel Çizim",
+          name: "Logo ve Kurumsal Kimlik Tasarımı",
+          kpi: "%100 Özgün Vektörel",
           sectors: [
             "Yeni Açılan Dükkanlar",
             "Restoran & Kafeler",
@@ -569,17 +569,17 @@ export const servicesData = {
             "Giyim & Mağaza Markaları",
           ],
           target:
-            "İnternetten kopyalama amatör logolardan kurtulup kurumsallaşmak isteyen işletmeler için.",
+            "Hazır şablonlardan kurtulup tabelasında ve dijitalde prestijli görünmek isteyen işletmeler için.",
           outcome:
-            "Tabelanızda, ambalajınızda ve internette güven veren markanıza özel vektörel logo.",
+            "Tabeladan dijitale tüm mecralara uygun %100 özgün vektörel logo ve kurumsal marka tasarımı.",
           summary:
-            "Hazır kalıplara kaçmadan; tabeladan nakışa, sosyal medyadan faturaya kadar her yerde keskin ve prestijli duran logo tasarımı.",
+            "Hazır kalıplar değil, markanızı büyüten özgün çizimler. Tabelacıya ve dijitale doğrudan teslim edilen net vektörel dosyalar.",
           deliverables: [
-            "%100 özgün, tescil edilebilir vektörel çizimler (AI, PDF, SVG)",
+            "%100 özgün, tescile uygun vektörel çizimler (AI, PDF, SVG)",
             "Koyu ve açık zeminlere uyumlu alternatif renk varyasyonları",
-            "Kurumsal renk kodları ve tipografi rehberi",
+            "Kurumsal renk kodları ve yazı tipi rehberi",
             "Sosyal medya profil ve kapak uyarlamaları",
-            "Tabelacıya ve matbaaya doğrudan verilecek teknik çizim dosyaları",
+            "Tabelacı ustasına ve dijital mecralara doğrudan verilecek teknik çizimler",
           ],
         },
         {

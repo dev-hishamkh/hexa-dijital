@@ -6,24 +6,13 @@ import { projectsData } from "@/data/projectsData";
 import ProjectDetailClient from "./ProjectDetailClient";
 
 export async function generateStaticParams() {
-  const languages = ["tr", "en"];
-  const params = [];
-
-  languages.forEach((lang) => {
-    projectsData.forEach((project) => {
-      params.push({
-        lang,
-        slug: project.slug,
-      });
-    });
-  });
-
-  return params;
+  return projectsData.map((project) => ({
+    slug: project.slug,
+  }));
 }
 
 export async function generateMetadata({ params }) {
   const resolvedParams = await params;
-  const lang = resolvedParams?.lang || "tr";
   const slug = resolvedParams?.slug;
   const project = projectsData.find((p) => p.slug === slug);
 
@@ -33,24 +22,14 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  const isTr = lang === "tr";
-  const metaTitle = isTr
-    ? `${project.title} · Başarı Hikayesi`
-    : `${project.title} · Case Study`;
-
+  const metaTitle = `${project.title} · Başarı Hikayesi | Hexa Dijital`;
   const heroLeadText =
     typeof project.heroLead === "object"
-      ? isTr
-        ? project.heroLead.tr
-        : project.heroLead.en
+      ? project.heroLead.tr
       : project.heroLead || "";
 
   const roleText =
-    typeof project.role === "object"
-      ? isTr
-        ? project.role.tr
-        : project.role.en
-      : project.role || "";
+    typeof project.role === "object" ? project.role.tr : project.role || "";
 
   const metaDesc = heroLeadText.slice(0, 158);
 
@@ -70,11 +49,11 @@ export async function generateMetadata({ params }) {
       "Hexa Dijital başarı hikayeleri",
     ],
     openGraph: {
-      title: `${metaTitle} | Hexa Dijital`,
+      title: metaTitle,
       description: metaDesc,
-      url: `https://hexadijital.com/${lang}/projeler/${project.slug}`,
+      url: `https://hexadijital.com/projeler/${project.slug}`,
       siteName: "Hexa Dijital",
-      locale: isTr ? "tr_TR" : "en_US",
+      locale: "tr_TR",
       type: "article",
       images: [
         {
@@ -87,26 +66,19 @@ export async function generateMetadata({ params }) {
     },
     twitter: {
       card: "summary_large_image",
-      title: `${metaTitle} | Hexa Dijital`,
+      title: metaTitle,
       description: metaDesc,
       images: [projectImageUrl],
     },
     alternates: {
-      canonical: `https://hexadijital.com/${lang}/projeler/${project.slug}`,
-      languages: {
-        tr: `https://hexadijital.com/tr/projeler/${project.slug}`,
-        en: `https://hexadijital.com/en/projeler/${project.slug}`,
-        "x-default": `https://hexadijital.com/tr/projeler/${project.slug}`,
-      },
+      canonical: `https://hexadijital.com/projeler/${project.slug}`,
     },
   };
 }
 
 export default async function ProjectDetailPage({ params }) {
   const resolvedParams = await params;
-  const lang = resolvedParams?.lang || "tr";
   const slug = resolvedParams?.slug;
-  const isTr = lang === "tr";
   const project = projectsData.find((p) => p.slug === slug);
 
   if (!project) {
@@ -115,17 +87,11 @@ export default async function ProjectDetailPage({ params }) {
 
   const heroLeadText =
     typeof project.heroLead === "object"
-      ? isTr
-        ? project.heroLead.tr
-        : project.heroLead.en
+      ? project.heroLead.tr
       : project.heroLead || "";
 
   const roleText =
-    typeof project.role === "object"
-      ? isTr
-        ? project.role.tr
-        : project.role.en
-      : project.role || "";
+    typeof project.role === "object" ? project.role.tr : project.role || "";
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -136,20 +102,20 @@ export default async function ProjectDetailPage({ params }) {
           {
             "@type": "ListItem",
             position: 1,
-            name: isTr ? "Ana Sayfa" : "Home",
-            item: `https://hexadijital.com/${lang}`,
+            name: "Ana Sayfa",
+            item: "https://hexadijital.com",
           },
           {
             "@type": "ListItem",
             position: 2,
-            name: isTr ? "Projelerimiz" : "Portfolio",
-            item: `https://hexadijital.com/${lang}/projeler`,
+            name: "Projelerimiz",
+            item: "https://hexadijital.com/projeler",
           },
           {
             "@type": "ListItem",
             position: 3,
             name: project.title,
-            item: `https://hexadijital.com/${lang}/projeler/${project.slug}`,
+            item: `https://hexadijital.com/projeler/${project.slug}`,
           },
         ],
       },
@@ -171,8 +137,8 @@ export default async function ProjectDetailPage({ params }) {
             url: "https://hexadijital.com/logo.svg",
           },
         },
-        inLanguage: isTr ? "tr-TR" : "en-US",
-        mainEntityOfPage: `https://hexadijital.com/${lang}/projeler/${project.slug}`,
+        inLanguage: "tr-TR",
+        mainEntityOfPage: `https://hexadijital.com/projeler/${project.slug}`,
       },
     ],
   };
@@ -180,13 +146,15 @@ export default async function ProjectDetailPage({ params }) {
   return (
     <>
       <script
+        id="schema-project"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        suppressHydrationWarning
       />
-      <Header lang={lang} />
-      <ProjectDetailClient project={project} lang={lang} />
-      <Footer lang={lang} />
-      <FloatingWhatsApp lang={lang} />
+      <Header lang="tr" />
+      <ProjectDetailClient project={project} lang="tr" />
+      <Footer lang="tr" />
+      <FloatingWhatsApp lang="tr" />
     </>
   );
 }

@@ -52,8 +52,7 @@ function DynamicIcon({ name, size = 22, className }) {
   return <IconComp size={size} strokeWidth={1.8} className={className} />;
 }
 
-export default function ProjectDetailClient({ project, lang }) {
-  const isTr = lang === "tr";
+export default function ProjectDetailClient({ project }) {
   const rootRef = useRef(null);
   const galleryTrackRef = useRef(null);
   const [failedImages, setFailedImages] = useState({});
@@ -62,66 +61,43 @@ export default function ProjectDetailClient({ project, lang }) {
   const startXRef = useRef(0);
   const scrollLeftRef = useRef(0);
 
-  // Dil Değişkenleri
   const categoryLabel =
     typeof project.categoryLabel === "object"
-      ? isTr
-        ? project.categoryLabel.tr
-        : project.categoryLabel.en
+      ? project.categoryLabel.tr
       : project.categoryLabel;
   const roleText =
-    typeof project.role === "object"
-      ? isTr
-        ? project.role.tr
-        : project.role.en
-      : project.role;
+    typeof project.role === "object" ? project.role.tr : project.role;
   const heroLeadText =
     typeof project.heroLead === "object"
-      ? isTr
-        ? project.heroLead.tr
-        : project.heroLead.en
+      ? project.heroLead.tr
       : project.heroLead;
   const crisisHeadingText =
     typeof project.crisisHeading === "object"
-      ? isTr
-        ? project.crisisHeading.tr
-        : project.crisisHeading.en
+      ? project.crisisHeading.tr
       : project.crisisHeading;
   const crisisStoryText =
     typeof project.crisisStory === "object"
-      ? isTr
-        ? project.crisisStory.tr
-        : project.crisisStory.en
+      ? project.crisisStory.tr
       : project.crisisStory;
   const discoveryHeadingText =
     typeof project.discoveryHeading === "object"
-      ? isTr
-        ? project.discoveryHeading.tr
-        : project.discoveryHeading.en
+      ? project.discoveryHeading.tr
       : project.discoveryHeading;
   const discoveryStoryText =
     typeof project.discoveryStory === "object"
-      ? isTr
-        ? project.discoveryStory.tr
-        : project.discoveryStory.en
+      ? project.discoveryStory.tr
       : project.discoveryStory;
   const solutionHeadingText =
     typeof project.solutionHeading === "object"
-      ? isTr
-        ? project.solutionHeading.tr
-        : project.solutionHeading.en
+      ? project.solutionHeading.tr
       : project.solutionHeading;
   const shiftHeadingText =
     typeof project.shiftHeading === "object"
-      ? isTr
-        ? project.shiftHeading.tr
-        : project.shiftHeading.en
+      ? project.shiftHeading.tr
       : project.shiftHeading;
   const shiftStoryText =
     typeof project.shiftStory === "object"
-      ? isTr
-        ? project.shiftStory.tr
-        : project.shiftStory.en
+      ? project.shiftStory.tr
       : project.shiftStory;
 
   useEffect(() => {
@@ -323,9 +299,9 @@ export default function ProjectDetailClient({ project, lang }) {
 
         <div className={`container ${styles.heroContainer}`}>
           <div className={styles.navigationRow}>
-            <Link href={`/${lang}/projeler`} className={styles.backNav}>
+            <Link href="/projeler" className={styles.backNav}>
               <ArrowLeft size={16} className={styles.backArrow} />
-              <span>{isTr ? "Seçkin Projelerimiz" : "Portfolio Index"}</span>
+              <span>Seçkin Projelerimiz</span>
             </Link>
             <span className={styles.navSeparator}>/</span>
             <span className={styles.currentNavBadge}>{categoryLabel}</span>
@@ -339,7 +315,7 @@ export default function ProjectDetailClient({ project, lang }) {
       </section>
 
       {/* ==========================================================================
-          KATMAN 2: FEATURES 8 (ÇİFT DİLLİ)
+          KATMAN 2: FEATURES 8
           ========================================================================== */}
       {project.features8 && project.features8.length > 0 && (
         <section className={`container ${styles.features8Section}`}>
@@ -347,16 +323,10 @@ export default function ProjectDetailClient({ project, lang }) {
             {project.features8.map((item, idx) => {
               const serifTitle =
                 typeof item.serifTitle === "object"
-                  ? isTr
-                    ? item.serifTitle.tr
-                    : item.serifTitle.en
+                  ? item.serifTitle.tr
                   : item.serifTitle;
               const copyText =
-                typeof item.copy === "object"
-                  ? isTr
-                    ? item.copy.tr
-                    : item.copy.en
-                  : item.copy;
+                typeof item.copy === "object" ? item.copy.tr : item.copy;
 
               return (
                 <div key={idx} className={styles.features8Card}>
@@ -382,36 +352,28 @@ export default function ProjectDetailClient({ project, lang }) {
       <section className={`container ${styles.passportSection}`}>
         <div className={styles.projectPassportBar}>
           <div className={styles.passportItem}>
-            <span className={styles.passportLabel}>
-              {isTr ? "İŞLETME" : "CLIENT"}
-            </span>
+            <span className={styles.passportLabel}>İŞLETME</span>
             <span className={styles.passportValue}>{project.client}</span>
           </div>
 
           <div className={styles.passportDivider} />
 
           <div className={styles.passportItem}>
-            <span className={styles.passportLabel}>
-              {isTr ? "LOKASYON" : "LOCATION"}
-            </span>
+            <span className={styles.passportLabel}>LOKASYON</span>
             <span className={styles.passportValue}>{project.location}</span>
           </div>
 
           <div className={styles.passportDivider} />
 
           <div className={styles.passportItem}>
-            <span className={styles.passportLabel}>
-              {isTr ? "TESLİM YILI" : "DELIVERY YEAR"}
-            </span>
+            <span className={styles.passportLabel}>TESLİM YILI</span>
             <span className={styles.passportValue}>{project.year}</span>
           </div>
 
           <div className={styles.passportDivider} />
 
           <div className={styles.passportItem}>
-            <span className={styles.passportLabel}>
-              {isTr ? "HİZMET KAPSAMI" : "DISCIPLINES"}
-            </span>
+            <span className={styles.passportLabel}>HİZMET KAPSAMI</span>
             <span className={styles.passportValue}>{roleText}</span>
           </div>
         </div>
@@ -425,7 +387,7 @@ export default function ProjectDetailClient({ project, lang }) {
           <div className={styles.storyTagWrap}>
             <span className={styles.storyPhaseNum}>01</span>
             <span className={styles.storyPhaseLabel}>
-              {isTr ? "Mevcut Durum & Büyük Kriz" : "Initial Bottleneck"}
+              Mevcut Durum & Büyük Kriz
             </span>
           </div>
           <h2 className={styles.storyHeading}>{crisisHeadingText}</h2>
@@ -436,7 +398,7 @@ export default function ProjectDetailClient({ project, lang }) {
           <div className={styles.storyTagWrap}>
             <span className={styles.storyPhaseNum}>02</span>
             <span className={styles.storyPhaseLabel}>
-              {isTr ? "Masanızda Yüz Yüze Keşif" : "On-Site Discovery"}
+              Masanızda Yüz Yüze Keşif
             </span>
           </div>
           <h2 className={styles.storyHeading}>{discoveryHeadingText}</h2>
@@ -451,12 +413,10 @@ export default function ProjectDetailClient({ project, lang }) {
         <div className={styles.galleryHeaderWrap}>
           <div className={styles.galleryHeaderLeft}>
             <span className={styles.sectionMiniEyebrow}>
-              {isTr ? "Görsel İnceleme & Galeri" : "Visual Showcase"}
+              Görsel İnceleme & Galeri
             </span>
             <h2 className={styles.galleryMainHeading}>
-              {isTr
-                ? "Sahada hayata geçen detaylar."
-                : "Craft delivered on-site."}
+              Sahada hayata geçen detaylar.
             </h2>
           </div>
 
@@ -521,7 +481,7 @@ export default function ProjectDetailClient({ project, lang }) {
       <section className={`container ${styles.solutionSection}`}>
         <div className={styles.sectionHeaderWrap}>
           <span className={styles.sectionMiniEyebrow}>
-            {isTr ? "03 · Geliştirme & Çözüm" : "03 · Development & Solutions"}
+            03 · Geliştirme & Çözüm
           </span>
           <h2 className={styles.sectionMainTitle}>{solutionHeadingText}</h2>
         </div>
@@ -529,17 +489,9 @@ export default function ProjectDetailClient({ project, lang }) {
         <div className={styles.solutionGrid}>
           {project.solutionSteps.map((step) => {
             const stepTitle =
-              typeof step.title === "object"
-                ? isTr
-                  ? step.title.tr
-                  : step.title.en
-                : step.title;
+              typeof step.title === "object" ? step.title.tr : step.title;
             const stepDesc =
-              typeof step.desc === "object"
-                ? isTr
-                  ? step.desc.tr
-                  : step.desc.en
-                : step.desc;
+              typeof step.desc === "object" ? step.desc.tr : step.desc;
 
             return (
               <div key={step.num} className={styles.stepCard}>
@@ -562,7 +514,7 @@ export default function ProjectDetailClient({ project, lang }) {
           <div className={styles.shiftTagWrap}>
             <span className={styles.storyPhaseNum}>04</span>
             <span className={styles.storyPhaseLabel}>
-              {isTr ? "Kırılma Noktası & İlk Hafta" : "The Turning Point"}
+              Kırılma Noktası & İlk Hafta
             </span>
           </div>
           <h2 className={styles.shiftHeadingText}>{shiftHeadingText}</h2>
@@ -577,23 +529,17 @@ export default function ProjectDetailClient({ project, lang }) {
         <div className={styles.metricsBoxFrame}>
           <div className={styles.metricsHeader}>
             <span className={styles.sectionMiniEyebrow}>
-              {isTr ? "05 · Somut Kazanımlar" : "05 · Verified ROI"}
+              05 · Somut Kazanımlar
             </span>
             <h2 className={styles.metricsTitle}>
-              {isTr
-                ? "Laf kalabalığı değil; kasanın hissettiği gerçek sonuçlar."
-                : "Real, verifiable metrics delivered live in operations."}
+              Laf kalabalığı değil; kasanın hissettiği gerçek sonuçlar.
             </h2>
           </div>
 
           <div className={styles.metricsGridRow}>
             {project.metrics.map((m, idx) => {
               const metricLabel =
-                typeof m.label === "object"
-                  ? isTr
-                    ? m.label.tr
-                    : m.label.en
-                  : m.label;
+                typeof m.label === "object" ? m.label.tr : m.label;
 
               return (
                 <div key={idx} className={styles.metricColumn}>
@@ -612,40 +558,31 @@ export default function ProjectDetailClient({ project, lang }) {
       <section className={`container ${styles.finaleCtaSection}`}>
         <div className={styles.ctaCardFrame}>
           <div className={styles.ctaContentCol}>
-            <span className={styles.ctaEyebrowText}>
-              {isTr ? "Sizin İşletmeniz İçin" : "Your Next Transformation"}
-            </span>
+            <span className={styles.ctaEyebrowText}>Sizin İşletmeniz İçin</span>
             <h3 className={styles.ctaMainHeading}>
-              <span>
-                {isTr
-                  ? "Sizin masanıza da gelip "
-                  : "Let’s meet at your table to "}
-              </span>
+              <span>Sizin masanıza da gelip </span>
               <span className={styles.serifAccentWord}>
-                {isTr ? "aynı başarıyı yazalım." : "engineer the same growth."}
+                aynı başarıyı yazalım.
               </span>
             </h3>
             <p className={styles.ctaBodyParagraph}>
-              {isTr
-                ? "Telefon karmaşasından, komisyon kesintilerinden veya açılmayan eski sitenizden kurtulun. İşletmenizi Bursa genelinde doğrudan yerinde ziyaret edelim; en doğru sistemi masanızda birlikte planlayalım."
-                : "Escape operational bottlenecks and wasted marketing budget. We visit your venue across Bursa to engineer high-converting digital systems."}
+              Telefon karmaşasından, komisyon kesintilerinden veya açılmayan
+              eski sitenizden kurtulun. İşletmenizi Bursa genelinde doğrudan
+              yerinde ziyaret edelim; en doğru sistemi masanızda birlikte
+              planlayalım.
             </p>
           </div>
 
           <div className={styles.ctaActionsCol}>
             <a
               href={`https://wa.me/905519769406?text=${encodeURIComponent(
-                isTr
-                  ? `Merhaba Hexa Dijital, ${project.title} projenizi inceledim. Bizim işletmemiz için de benzer bir çalışma hakkında görüşmek istiyoruz.`
-                  : `Hello Hexa Digital, I reviewed the ${project.title} case study. We would like to consult on a similar transformation for our business.`,
+                `Merhaba Hexa Dijital, ${project.title} projenizi inceledim. Bizim işletmemiz için de benzer bir çalışma hakkında görüşmek istiyoruz.`,
               )}`}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.projectExecutiveBtn}
             >
-              <span className={styles.btnText}>
-                {isTr ? "Yerinde Keşif Talep Edin" : "Request On-Site Meeting"}
-              </span>
+              <span className={styles.btnText}>Yerinde Keşif Talep Edin</span>
               <div className={styles.btnCircle}>
                 <svg
                   className={styles.btnArrowSvg}
@@ -663,15 +600,8 @@ export default function ProjectDetailClient({ project, lang }) {
               </div>
             </a>
 
-            <Link
-              href={`/${lang}/projeler`}
-              className={styles.returnProjectsLink}
-            >
-              <span>
-                {isTr
-                  ? "← Diğer Başarı Hikayelerini İnceleyin"
-                  : "← Explore Other Case Studies"}
-              </span>
+            <Link href="/projeler" className={styles.returnProjectsLink}>
+              <span>← Diğer Başarı Hikayelerini İnceleyin</span>
             </Link>
           </div>
         </div>

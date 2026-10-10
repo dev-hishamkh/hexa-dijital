@@ -77,10 +77,7 @@ export default function Hero({ lang = "tr" }) {
             <p className={styles.manifesto}>{dict.manifesto}</p>
 
             <div className={styles.actionGroup}>
-              <Link
-                href={`/${lang}/iletisim`}
-                className={styles.magneticAction}
-              >
+              <Link href="/iletisim" className={styles.magneticAction}>
                 <div className={styles.actionCircle}>
                   <svg
                     className={styles.arrowDiagonal}
