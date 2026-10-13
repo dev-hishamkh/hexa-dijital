@@ -91,11 +91,10 @@ export default function Footer() {
           <div className={styles.napIdentityBlock}>
             <div className={styles.napBrandName}>HEXA DİJİTAL</div>
             <p className={styles.napDescription}>
-              Bursa merkezli web tasarım ve özel yazılım şirketi. Hazır şablon
-              kullanmadan, %100 özgün ve anında açılan kurumsal web çözümleri.
+              İşletmeler için modern web altyapıları, özel yazılım çözümleri ve
+              marka deneyimleri inşa eden bağımsız dijital ajans.
             </p>
           </div>
-
           <div className={styles.napContactMeta}>
             <div className={styles.napMetaItem}>
               <span className={styles.napMetaLabel}>DOĞRUDAN TELEFON</span>
