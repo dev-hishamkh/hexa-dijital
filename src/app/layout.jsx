@@ -33,14 +33,12 @@ export const metadata = {
     "İşletmelere sadece güzel görünen değil, sahada çalışan sistemler kuruyoruz. Hızlı kurumsal siteler, işinizi kolaylaştıran yazılımlar ve gerçek müşteri getiren reklamlar.",
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "48x48" },
-      { url: "/icon.png", type: "image/png", sizes: "512x512" },
-      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico?v=2", sizes: "any" },
+      { url: "/icon.png?v=2", type: "image/png", sizes: "512x512" },
     ],
-    apple: [{ url: "/icon.png", sizes: "180x180", type: "image/png" }],
+    apple: [{ url: "/icon.png?v=2", sizes: "180x180", type: "image/png" }],
   },
 };
-
 export default function RootLayout({ children }) {
   return (
     <html
