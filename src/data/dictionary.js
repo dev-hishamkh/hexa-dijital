@@ -14,14 +14,15 @@ export const dictionary = {
       drawerCta: "Yeni Bir Proje Başlatın",
     },
     hero: {
-      h1Prefix: "Özel Web Yazılımı,",
-      h1Serif: "hafif kodlama &",
-      h1Suffix: "dijital büyüme.",
-      h1AccentWord: "Ciro Odaklı",
+      h1Prefix: "Bursa Web Tasarım,",
+      h1Serif: "özel yazılım &",
+      h1Suffix: "reklam yönetimi.",
+      h1AccentWord: "Müşteri Odaklı",
       manifesto:
-        "Sürekli bozulan, yavaş açılan hazır sitelerden ve boşa para harcatan reklamlardan kurtulun. İşletmenize özel, anında açılan modern web siteleri kuruyor; doğrudan telefon çaldıran ve sipariş getiren reklamlarla satışlarınızı artırıyoruz.",
-      primaryCta: "Yeni Bir Proje Başlatın",
-      subCta: "Bursa'da yerinde ziyaret · Tüm Türkiye'ye kesintisiz hizmet",
+        "İş bittikten sonra telefonları açmayan ajanslardan ve yavaş açılan hazır şablon sitelerden sıkıldıysanız doğru yerdesiniz. İşletmenizi Bursa'da bizzat yerinde ziyaret ediyor; telefonda anında açılan kurumsal siteler, işinizi kolaylaştıran özel yazılımlar ve doğrudan müşteri kazandıran reklamlar kuruyoruz.",
+      primaryCta: "Yerinde Görüşme Başlatın",
+      subCta:
+        "Bursa içi masanızda yüz yüze toplantı · Resmi sözleşmeli ve faturalı hizmet",
     },
     works: {
       eyebrow: "Gerçek Referanslar & Saha Çözümleri",
@@ -41,40 +42,41 @@ export const dictionary = {
       highlight1: "müşteri getirmiyor.",
       part2:
         "Biz her markayı; saniyeler içinde açılan özel yazılımlar ve kasaya doğrudan müşteri düşüren reklamlarla ",
-      highlight2: "pazarda 1. sıraya taşıyoruz.",
+      highlight2: "sektöründe lider konuma taşıyoruz.",
     },
     servicesIndex: {
       badge: "Hizmet Alanlarımız · 5 Departman",
     },
     process: {
       eyebrow: "Çalışma Şeklimiz",
-      titleMain: "Baştan Sona Çalışma",
-      titleAccent: "Disiplinimiz.",
+      titleMain: "Sürpriz Maliyet Yok.",
+      titleAccent: "4 Adımda Teslimat.",
       subtitle:
-        "Sürpriz maliyetler, ertelenen teslimat tarihleri ve telefonunuza çıkmayan acemi ajanslar yok. Kapsamı, takvimi ve hedef çıktısı resmi sözleşmeyle tescillenen 4 adımlı güvenli süreç.",
-      step1Code: "01 · KEŞİF & İHTİYAÇ ANALİZİ",
-      step1Title: "İşletmenizi & Rakiplerinizi İnceliyoruz",
+        "İşin ortasında ek masraf çıkarmıyor, teslim gününü geciktirmiyoruz. Kapsamı ve takvimi baştan sözleşmeyle netleştiriyoruz.",
+
+      step1Code: "01 · YERİNDE KEŞİF",
+      step1Title: "Masanızda Yüz Yüze Görüşme",
       step1Desc:
-        "Bursa'da dükkanınızı ziyaret ediyor; diğer şehirlerde online toplantıyla sektörünüzü, rakiplerinizi ve kaçırdığınız müşterileri birlikte tespit ediyoruz.",
+        "Sizi ofisimize çağırmıyoruz, dükkanınıza biz geliyoruz. Menünüzü, ürünlerinizi ve ihtiyaçlarınızı yerinde görüp en doğru planı çıkarıyoruz.",
       step1Badge: "Net Kapsam & Resmi Sözleşme",
 
-      step2Code: "02 · ÖZEL TASARIM",
-      step2Title: "Kurumsal & Prestijli Tasarım",
+      step2Code: "02 · ÖZEL ÇİZİM",
+      step2Title: "Kurumsal ve Güven Veren Tasarım",
       step2Desc:
-        "Müşterinizin girdiği anda güven duyacağı, firmanızı sektörün lideri gibi konumlandıran şık ekranlar hazırlıyoruz. Onayınız olmadan tek satır kod yazmıyoruz.",
-      step2Badge: "Birebir Görsel Onay",
+        "Firmanızı sektörün en iyisi gibi gösteren şık ekranlar hazırlıyoruz. Siz onay vermeden tek bir satır kod yazmıyoruz.",
+      step2Badge: "Birebir Onayınızla İlerleme",
 
-      step3Code: "03 · HAFİF & HATASIZ KODLAMA",
-      step3Title: "Anında Açılan Hızlı Altyapı",
+      step3Code: "03 · HATASIZ KODLAMA",
+      step3Title: "Telefonda Anında Açılan Altyapı",
       step3Desc:
-        "Hazır şablonlara dokunmadan, temiz kod yazıyoruz. Siteniz tüm telefonlarda göz açıp kapayıncaya kadar açılır, donma ve bozulma yapmaz.",
-      step3Badge: "Tam Performans ve Hız",
+        "Hazır kalıp şablonlar kullanmıyoruz. Siteniz tüm telefon ve bilgisayarlarda saniyesinde açılır, donma ve bozulma yapmaz.",
+      step3Badge: "Hızlı ve Kesintisiz Çalışma",
 
-      step4Code: "04 · MÜŞTERİ KAZANIMI",
-      step4Title: "Google'da İlk Sıra & Reklam Yönetimi",
+      step4Code: "04 · MÜŞTERİ AKIŞI",
+      step4Title: "Google'da İlk Sıra & Reklam Desteği",
       step4Desc:
-        "Sistemi teslim edip kenara çekilmiyoruz. Harita aramalarında üst sıralara çıkış ve nokta atışı reklam yönetimiyle telefonlarınızı çaldırıyoruz.",
-      step4Badge: "Sürekli Yeni Müşteri Akışı",
+        "Siteyi yapıp kenara çekilmiyoruz. Haritalarda üst sıralara çıkış ve nokta atışı reklamlarla doğrudan yeni müşteri kazanmanızı sağlıyoruz.",
+      step4Badge: "Doğrudan Telefon ve Sipariş",
     },
     faq: {
       leftHeading: "Aklınıza takılan farklı bir konu mu var?",

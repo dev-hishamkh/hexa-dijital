@@ -4,7 +4,7 @@ import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp/FloatingWhatsApp"
 import ServicesClient from "./ServicesClient";
 
 export const metadata = {
-  title: "Hizmetlerimiz & Çözümlerimiz | Hexa Dijital",
+  title: "Hizmetlerimiz & Çözümlerimiz",
   description:
     "İşletmeniz için modern kurumsal web siteleri, sektörel özel yazılımlar, Google Haritalar ilk sıra çalışmaları ve doğrudan müşteri getiren reklam yönetimi.",
   keywords: [

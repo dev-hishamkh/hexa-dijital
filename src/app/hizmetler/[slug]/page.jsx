@@ -26,10 +26,9 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  const rawTitle = data.title || data.name;
-  const metaTitle = rawTitle.includes("Hexa Dijital")
-    ? rawTitle
-    : `${rawTitle} | Hexa Dijital`;
+  // layout.jsx şablonu otomatik olarak " | Hexa Dijital" eklediği için
+  // burada sadece ham başlığı veriyoruz, çiftleme hatası çözülüyor:
+  const metaTitle = data.title || data.name;
 
   const metaDesc = (data.leadText || data.summary || "").slice(0, 158);
 
@@ -52,7 +51,7 @@ export async function generateMetadata({ params }) {
       "Hexa Dijital Bursa",
     ],
     openGraph: {
-      title: metaTitle,
+      title: `${metaTitle} | Hexa Dijital`,
       description: metaDesc,
       url: `https://hexadijital.com/hizmetler/${data.slug}`,
       siteName: "Hexa Dijital",
@@ -63,13 +62,13 @@ export async function generateMetadata({ params }) {
           url: ogImageUrl,
           width: 1200,
           height: 630,
-          alt: `${rawTitle} - Hexa Dijital`,
+          alt: `${metaTitle} - Hexa Dijital`,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: metaTitle,
+      title: `${metaTitle} | Hexa Dijital`,
       description: metaDesc,
       images: [ogImageUrl],
     },

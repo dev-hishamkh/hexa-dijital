@@ -5,7 +5,7 @@ import { servicesData } from "@/data/servicesData";
 import BursaAgencyClient from "./BursaAgencyClient";
 
 export const metadata = {
-  title: "Bursa Yazılım, Tasarım & Reklam Ajansı | Hexa Dijital",
+  title: "Bursa Yazılım, Tasarım & Reklam Ajansı",
   description:
     "Bursa'daki işletmelere sahada çalışan çözümler: Hızlı web siteleri, işi çözen özel yazılımlar, akılda kalıcı tasarımlar ve doğrudan müşteri getiren reklamlar.",
   keywords: [

@@ -4,7 +4,7 @@ import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp/FloatingWhatsApp"
 import ProjectsClient from "./ProjectsClient";
 
 export const metadata = {
-  title: "Projelerimiz & Referanslarımız | Hexa Dijital",
+  title: "Projelerimiz & Referanslarımız",
   description:
     "Sanayiden sağlığa, inşaattan e-ticarete farklı sektörlerdeki işletmeler için geliştirdiğimiz kurumsal web siteleri ve özel yazılımları inceleyin.",
   keywords: [

@@ -4,7 +4,7 @@ import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp/FloatingWhatsApp"
 import ContactClient from "./ContactClient";
 
 export const metadata = {
-  title: "İletişim | Hexa Dijital",
+  title: "İletişim",
   description:
     "Hexa Dijital ile iletişime geçin. Bursa'da işletmenizi yerinde ziyaret ediyor, kesintisiz web yazılım ve reklam desteği sunuyoruz.",
   keywords: [

@@ -913,8 +913,98 @@
     .deptOverviewSection,
     .proofSection,
     .commitmentsSection {
-        padding-left: 1.25rem;
-        padding-right: 1.25rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    /* 1. KOKPİT ÇERÇEVESİNİ MOBİLDE DİKİNE TEK SÜTUN YAP VE TAŞMAYI KES */
+    .deptCockpitFrame {
+        grid-template-columns: 1fr !important;
+        padding: 0.85rem !important;
+        gap: 1.25rem !important;
+        width: 100% !important;
+        overflow: hidden;
+    }
+
+    /* 2. SOL BUTONLARIN MOBİLDE TAŞMASINI ÖNLE */
+    .cockpitNavCol {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        width: 100%;
+    }
+
+    .cockpitNavBtn {
+        padding: 0.85rem 1rem !important;
+        gap: 0.85rem !important;
+        border-radius: 14px !important;
+    }
+
+    .navBtnNumber {
+        font-size: 1.5rem !important;
+    }
+
+    .navBtnTitle {
+        font-size: 0.92rem !important;
+        white-space: normal !important;
+        /* Uzun başlıklar mobilde alt satıra geçsin */
+    }
+
+    /* 3. SAĞ DETAY ALANINDAKİ DEVASA PADDING'İ KÜÇÜLT */
+    .cockpitStageCol {
+        padding: 1.25rem !important;
+        gap: 1.5rem !important;
+        border-radius: 16px !important;
+    }
+
+    .stageTitleWrap {
+        gap: 1rem !important;
+    }
+
+    .stageGiantNumber {
+        font-size: 2.5rem !important;
+        line-height: 1 !important;
+    }
+
+    .stageDeptHeading {
+        font-size: 1.35rem !important;
+    }
+
+    .stageDiagnosis {
+        font-size: 0.88rem !important;
+    }
+
+    .stageOutcomeCard {
+        padding: 0.85rem 1rem !important;
+    }
+
+    .outcomeLeadText {
+        font-size: 0.88rem !important;
+    }
+
+    .stageServicesArea {
+        padding-top: 1.25rem !important;
+        gap: 0.75rem !important;
+    }
+
+    /* 4. HİZMET BUTONLARININ MOBİLDE EKRANA TAM OTURMASI */
+    .stageButtonsFlex {
+        display: flex;
+        flex-direction: column;
+        /* Mobilde butonlar alt alta sıralansın, ekrandan taşmasın */
+        gap: 0.5rem !important;
+        width: 100%;
+    }
+
+    .cockpitServiceBtn {
+        width: 100% !important;
+        /* Buton tam genişlik alsın */
+        padding: 0.65rem 0.85rem 0.65rem 1.15rem !important;
+        white-space: normal !important;
+    }
+
+    .serviceBtnLabel {
+        font-size: 0.86rem !important;
     }
 
     .heroExecutiveBtn {

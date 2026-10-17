@@ -21,5 +21,6 @@ export default function robots() {
       },
     ],
     sitemap: "https://hexadijital.com/sitemap.xml",
+    host: "https://hexadijital.com",
   };
 }

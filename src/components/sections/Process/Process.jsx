@@ -128,10 +128,11 @@ export default function Process({ lang = "tr" }) {
     const header = headerRef.current;
     const track = trackRef.current;
     const fillLine = fillLineRef.current;
+    const stepRows = sectionRef.current?.querySelectorAll(`.${styles.stepRow}`);
     if (!track || !fillLine) return;
 
     const ctx = gsap.context(() => {
-      // BAŞLIK GİRİŞİ (AUTOALPHA GÜVENCESİYLE SIFIR YANIP SÖNME)
+      // 1. BAŞLIK GİRİŞİ
       if (header) {
         gsap.fromTo(
           header.children,
@@ -144,17 +145,42 @@ export default function Process({ lang = "tr" }) {
             ease: "power3.out",
             scrollTrigger: {
               trigger: header,
-              start: "top 80%",
+              start: "top 85%",
               once: true,
             },
           },
         );
       }
 
+      // 2. ADIMLARIN EKRANA ERKEN VE AKICI GELİŞİ (BOŞLUK KALMASINI ÖNLER)
+      if (stepRows && stepRows.length > 0) {
+        stepRows.forEach((row) => {
+          gsap.fromTo(
+            row.querySelectorAll(
+              `.${styles.textSide}, .${styles.iconNodeOuter}, .${styles.telemetryCard}`,
+            ),
+            { opacity: 0, y: 30 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.7,
+              stagger: 0.1,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: row,
+                start: "top 80%", // Sayfa %80'e gelir gelmez erkenden açılır, kullanıcıyı bekletmez!
+                once: true,
+              },
+            },
+          );
+        });
+      }
+
+      // 3. ORTADAKİ ÇİZGİNİN DOLDURULMASI VE AKTİF DÜĞÜM IŞIKLARI
       ScrollTrigger.create({
         trigger: track,
-        start: "top 60%",
-        end: "bottom 60%",
+        start: "top 70%",
+        end: "bottom 70%",
         scrub: 0.5,
         onUpdate: (self) => {
           const progress = self.progress;

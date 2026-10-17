@@ -22,7 +22,10 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  const metaTitle = `${project.title} · Başarı Hikayesi | Hexa Dijital`;
+  // layout.jsx otomatik olarak " | Hexa Dijital" eklediği için
+  // başlık sonundaki mükerrer parçayı kaldırıp çiftlemeyi önlüyoruz:
+  const metaTitle = `${project.title} · Başarı Hikayesi`;
+
   const heroLeadText =
     typeof project.heroLead === "object"
       ? project.heroLead.tr
@@ -49,7 +52,7 @@ export async function generateMetadata({ params }) {
       "Hexa Dijital başarı hikayeleri",
     ],
     openGraph: {
-      title: metaTitle,
+      title: `${metaTitle} | Hexa Dijital`,
       description: metaDesc,
       url: `https://hexadijital.com/projeler/${project.slug}`,
       siteName: "Hexa Dijital",
@@ -66,7 +69,7 @@ export async function generateMetadata({ params }) {
     },
     twitter: {
       card: "summary_large_image",
-      title: metaTitle,
+      title: `${metaTitle} | Hexa Dijital`,
       description: metaDesc,
       images: [projectImageUrl],
     },
