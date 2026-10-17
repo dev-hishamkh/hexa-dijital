@@ -31,14 +31,20 @@ export const metadata = {
   },
   description:
     "İşletmelere sadece güzel görünen değil, sahada çalışan sistemler kuruyoruz. Hızlı kurumsal siteler, işinizi kolaylaştıran yazılımlar ve gerçek müşteri getiren reklamlar.",
+  manifest: "/site.webmanifest",
   icons: {
     icon: [
-      { url: "/favicon.ico?v=2", sizes: "any" },
-      { url: "/icon.png?v=2", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.ico?v=6", sizes: "any" },
+      { url: "/favicon-32x32.png?v=6", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png?v=6", sizes: "16x16", type: "image/png" },
+      { url: "/icon.png?v=6", sizes: "512x512", type: "image/png" },
     ],
-    apple: [{ url: "/icon.png?v=2", sizes: "180x180", type: "image/png" }],
+    apple: [
+      { url: "/apple-touch-icon.png?v=6", sizes: "180x180", type: "image/png" },
+    ],
   },
 };
+
 export default function RootLayout({ children }) {
   return (
     <html
