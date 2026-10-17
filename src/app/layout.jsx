@@ -34,13 +34,17 @@ export const metadata = {
   manifest: "/site.webmanifest",
   icons: {
     icon: [
-      { url: "/favicon.ico?v=6", sizes: "any" },
-      { url: "/favicon-32x32.png?v=6", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-16x16.png?v=6", sizes: "16x16", type: "image/png" },
-      { url: "/icon.png?v=6", sizes: "512x512", type: "image/png" },
+      {
+        url: "/android-chrome-192x192.png?v=7",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      { url: "/favicon-32x32.png?v=7", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico?v=7", sizes: "any" },
+      { url: "/icon.png?v=7", sizes: "512x512", type: "image/png" },
     ],
     apple: [
-      { url: "/apple-touch-icon.png?v=6", sizes: "180x180", type: "image/png" },
+      { url: "/apple-touch-icon.png?v=7", sizes: "180x180", type: "image/png" },
     ],
   },
 };
