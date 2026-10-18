@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import CrystalizedBall from "@/components/ui/CrystalizedBall/CrystalizedBall";
 import styles from "./Manifesto.module.css";
 
 const wordsTR = [
@@ -64,6 +65,25 @@ export default function Manifesto({ lang = "tr" }) {
   const sectionRef = useRef(null);
   const containerRef = useRef(null);
   const textRef = useRef(null);
+  const [currentTheme, setCurrentTheme] = useState("dark");
+
+  useEffect(() => {
+    const updateTheme = () => {
+      const themeAttr =
+        document.documentElement.getAttribute("data-theme") || "dark";
+      setCurrentTheme(themeAttr);
+    };
+
+    updateTheme();
+
+    const observer = new MutationObserver(updateTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -81,34 +101,32 @@ export default function Manifesto({ lang = "tr" }) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "center center", // Ekranın tam ortasına oturduğunda kilitlenir
-          end: "+=1400", // Ziyaretçi tekerleği çevirirken ekran kilitli kalır
-          pin: true, // EKRANI ÇİVİLEME
-          scrub: 1, // Lenis ile ipeksi takip
+          start: "center center",
+          end: "+=1400",
+          pin: true,
+          scrub: 1,
           anticipatePin: 1,
         },
       });
 
-      // 1. AŞAMA: Önceki tüm kelimeler sırayla beyazlaşır (%12 ➔ %100)
       tl.to(normalWordElements, {
         opacity: 1,
         stagger: 0.08,
         ease: "power1.inOut",
       });
 
-      // 2. AŞAMA: Sıra tam son kelimeye geldiğinde neon turkuaza patlar!
       if (accentWordElement) {
         tl.to(
           accentWordElement,
           {
             opacity: 1,
-            color: "#00FFD1", // Siber Zümrüt Neon Rengi
+            color: "#00FFD1",
             textShadow: "0 0 35px rgba(0, 255, 209, 0.45)",
             scale: 1.05,
             duration: 0.35,
             ease: "back.out(2)",
           },
-          "+=0.04", // Cümlenin bitişinden hemen sonra vurucu final
+          "+=0.04",
         );
       }
     }, sectionRef);
@@ -122,6 +140,21 @@ export default function Manifesto({ lang = "tr" }) {
       className={styles.manifestoSection}
       aria-label="Stüdyo Manifestosu"
     >
+      <div className={styles.ballBackgroundWrapper}>
+        <CrystalizedBall
+          key={currentTheme}
+          preset="plasma"
+          color={currentTheme === "light" ? "#00A887" : "#00A887"}
+          size={0.7}
+          interactive={true}
+          hoverStrength={0.7}
+          strands={6}
+          particleCount={15000}
+          glow={0.9}
+          crackle={0.85}
+        />
+      </div>
+
       <div ref={containerRef} className={`container ${styles.container}`}>
         <h2 ref={textRef} className={styles.centerStatement}>
           {words.map((item, idx) => (

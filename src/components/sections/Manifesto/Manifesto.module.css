@@ -12,6 +12,8 @@
 }
 
 .container {
+    position: relative;
+    z-index: 2;
     width: 100%;
     max-width: 1380px;
     margin: 0 auto;
@@ -37,13 +39,12 @@
 }
 
 /* ==========================================================================
-   TÜM KELİMELER: BAŞLANGIÇTA AYNI KARANLIKTA VE AYNI RENKTE BEKLER!
+   TÜM KELİMELER: ORİJİNAL KOD
    ========================================================================== */
 .baseWord {
     display: inline-block;
     color: #F8FAFC;
     opacity: 0.12;
-    /* Başlangıçta hepsi eşit derecede sönük */
     will-change: opacity, transform, color, text-shadow;
     transform-origin: center center;
 }
@@ -53,7 +54,6 @@
     opacity: 0.12;
 }
 
-/* İtalik Serif İmzası */
 .serifWord {
     font-family: var(--font-italic-serif);
     font-style: italic;
@@ -62,16 +62,10 @@
     color: var(--hexa-font-serif);
 }
 
-/* 
-   NİHAİ VURGU KELİMESİ: BÜYÜTÜYORUZ / BUSINESS
-   Başlangıçta diğer kelimelerle BİREBİR AYNI renkte gizlenir!
-   GSAP sırası geldiğinde inline olarak #00FFD1 rengine patlar.
-*/
 .accentWord {
     font-family: var(--font-italic-serif);
     font-style: italic;
     color: #F8FAFC;
-    /* Başlangıçta neon yok, tamamen gizli */
 }
 
 [data-theme="light"] .accentWord {
@@ -103,4 +97,24 @@
     .desktopBr {
         display: none;
     }
+}
+
+/* ==========================================================================
+   ARKADAKİ KÜRE
+   ========================================================================== */
+.ballBackgroundWrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 650px;
+    height: 650px;
+    pointer-events: auto;
+    z-index: 1;
+    opacity: 0.45;
+    transition: opacity 0.5s ease;
+}
+
+[data-theme="light"] .ballBackgroundWrapper {
+    opacity: 0.55;
 }
