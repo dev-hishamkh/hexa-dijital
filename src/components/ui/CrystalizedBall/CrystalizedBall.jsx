@@ -1063,11 +1063,11 @@ const CrystalizedBall = ({
     const resize = () => {
       width = Math.max(1, container.clientWidth);
       height = Math.max(1, container.clientHeight);
-      renderer.dpr = Math.min(
-        window.devicePixelRatio || 1,
-        2,
-        Math.sqrt(PIXEL_BUDGET / (width * height)),
-      );
+
+      // Mobilde gereksiz 3x render yükünü keser, 60 FPS kilitler:
+      const isMob = width <= 768;
+      renderer.dpr = isMob ? 1.0 : Math.min(window.devicePixelRatio || 1, 1.5);
+
       renderer.setSize(width, height);
       sceneTarget.setSize(gl.canvas.width, gl.canvas.height);
       start();

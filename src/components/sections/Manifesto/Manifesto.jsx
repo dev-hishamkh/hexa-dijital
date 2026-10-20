@@ -66,8 +66,15 @@ export default function Manifesto({ lang = "tr" }) {
   const containerRef = useRef(null);
   const textRef = useRef(null);
   const [currentTheme, setCurrentTheme] = useState("dark");
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
     const updateTheme = () => {
       const themeAttr =
         document.documentElement.getAttribute("data-theme") || "dark";
@@ -82,7 +89,10 @@ export default function Manifesto({ lang = "tr" }) {
       attributeFilter: ["data-theme"],
     });
 
-    return () => observer.disconnect();
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      observer.disconnect();
+    };
   }, []);
 
   useEffect(() => {
@@ -96,6 +106,13 @@ export default function Manifesto({ lang = "tr" }) {
     );
 
     if (!normalWordElements || normalWordElements.length === 0) return;
+
+    // Global CSS değişkenlerindeki gerçek renkleri alıyoruz
+    const isLight = currentTheme === "light";
+    const accentColor = isLight ? "#00A887" : "#00FFD1";
+    const glowColor = isLight
+      ? "0 0 35px rgba(0, 168, 135, 0.35)"
+      : "0 0 35px rgba(0, 255, 209, 0.45)";
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
@@ -120,8 +137,8 @@ export default function Manifesto({ lang = "tr" }) {
           accentWordElement,
           {
             opacity: 1,
-            color: "#00FFD1",
-            textShadow: "0 0 35px rgba(0, 255, 209, 0.45)",
+            color: accentColor,
+            textShadow: glowColor,
             scale: 1.05,
             duration: 0.35,
             ease: "back.out(2)",
@@ -132,7 +149,10 @@ export default function Manifesto({ lang = "tr" }) {
     }, sectionRef);
 
     return () => ctx.revert();
-  }, [words]);
+  }, [words, currentTheme]);
+
+  // Topun rengini de global temaya göre ayarlıyoruz:
+  const ballColor = currentTheme === "light" ? "#00A887" : "#00FFD1";
 
   return (
     <section
@@ -142,15 +162,16 @@ export default function Manifesto({ lang = "tr" }) {
     >
       <div className={styles.ballBackgroundWrapper}>
         <CrystalizedBall
-          key={currentTheme}
+          key={`${currentTheme}-${isMobile ? "m" : "d"}`}
           preset="plasma"
-          color={currentTheme === "light" ? "#00A887" : "#00A887"}
-          size={0.7}
-          interactive={true}
-          hoverStrength={0.7}
-          strands={6}
-          particleCount={15000}
-          glow={0.9}
+          color={ballColor}
+          theme={currentTheme}
+          size={isMobile ? 0.75 : 0.7}
+          interactive={!isMobile}
+          hoverStrength={isMobile ? 0 : 0.7}
+          strands={isMobile ? 3 : 6}
+          particleCount={isMobile ? 3500 : 15000}
+          glow={isMobile ? 0.75 : 0.9}
           crackle={0.85}
         />
       </div>

@@ -39,7 +39,7 @@
 }
 
 /* ==========================================================================
-   TÜM KELİMELER: ORİJİNAL KOD
+   METİN KELİMELERİ
    ========================================================================== */
 .baseWord {
     display: inline-block;
@@ -100,10 +100,11 @@
 }
 
 /* ==========================================================================
-   ARKADAKİ KÜRE
+   ARKADAKİ KÜRE: PC'DE TAM ORTADA
    ========================================================================== */
 .ballBackgroundWrapper {
     position: absolute;
+    /* Masaüstünde tam merkezde */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -117,4 +118,21 @@
 
 [data-theme="light"] .ballBackgroundWrapper {
     opacity: 0.55;
+}
+
+/* ==========================================================================
+   MOBİLDE: YATAYDA ORTALI, DİKEYDE BİRAZ DAHA AŞAĞIDA
+   ========================================================================== */
+@media (max-width: 768px) {
+    .ballBackgroundWrapper {
+        /* Yatayda tam ortalı (left: 50%), dikeyde yazının alt kısımlarına doğru (top: 62%) */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: clamp(290px, 80vw, 360px);
+        height: clamp(290px, 80vw, 360px);
+        opacity: 0.2;
+        /* Mobilde parmak kaydırmayı engellemez, kasma yapmaz */
+        pointer-events: none;
+    }
 }
