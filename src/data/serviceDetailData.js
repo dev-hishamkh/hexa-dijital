@@ -30,6 +30,7 @@ const serviceHeroStockMap = {
   "google-reklamlari": `${basePath}/services/google.webp`,
   "google-haritalar-1-sira": `${basePath}/services/google_maps.webp`,
   "google-yorum-puan-artirma": `${basePath}/services/customer_review.webp`,
+  "google-harita-kurtarma-yonetim": `${basePath}/services/google_maps.webp`,
 
   // 05. Marka Kimliği, Tasarım & Fotoğraf
   "ozel-logo-tasarimi": `${basePath}/services/logo.webp`,
@@ -68,6 +69,7 @@ const servicePillarIconsMap = {
   "kartvizit-magnet-ambalaj-baskilari": ["Layers", "CreditCard", "Printer"],
   "urun-dukkan-fotograf-cekimi": ["Camera", "Focus", "TrendingUp"],
   "tabela-cephe-giydirme-tasarimi": ["Building2", "Lightbulb", "Ruler"],
+  "google-harita-kurtarma-yonetim": ["KeyRound", "ShieldAlert", "Award"],
 };
 
 const richServiceProfiles = {
@@ -1291,6 +1293,131 @@ const richServiceProfiles = {
         },
       ],
       relatedSlugs: ["google-reklamlari", "kurumsal-web-siteleri"],
+    },
+    "google-harita-kurtarma-yonetim": {
+      categoryTag: "Harita & İtibar",
+      title: "Google Harita Kurtarma & Sahiplik Alma",
+      leadText:
+        "Eski ajansınızda kalan, şifresini unuttuğunuz veya askıya alınan Google Harita profilinizi resmi prosedürlerle kurtarıp tam sahipliğini şirketinize teslim ediyoruz.",
+      features8: [
+        {
+          icon: "KeyRound",
+          serifTitle: "%100 Resmi Sahiplik",
+          copy: "Haritanızın ana yönetici yetkisini doğrudan kendi şirket Gmail adresinize devrediyoruz.",
+        },
+        {
+          icon: "ShieldAlert",
+          serifTitle: "Askıdan (Suspended) Kurtarma",
+          copy: "Kapatılan veya askıya alınan Google profilinizi resmi itiraz süreçleriyle tekrar haritaya açıyoruz.",
+        },
+        {
+          icon: "PhoneCall",
+          serifTitle: "Telefon & Bilgi Güncelleme",
+          copy: "Müşterilerin yanlış yere gitmesini önlemek için eski telefon ve adresinizi anında düzeltiyoruz.",
+        },
+      ],
+      features11: {
+        headlineMain: "Yıllardır emek verdiğiniz Google Haritanız",
+        headlineItalic: "eski ajansın elinde rehin",
+        headlineEnd: "kalmamalı.",
+        leadParagraph:
+          "Eski bir ajansla yolları ayırdınız ama haritanızı vermiyorlar mı? Ya da haritayı açan eski personel işten ayrıldı ve şifreye ulaşılamıyor mu? Google'ın resmi hak sahipliği mekanizmalarıyla işletmenizin gerçek sahibinin siz olduğunu kanıtlayıp kontrolü masanıza teslim ediyoruz.",
+        cards: [
+          {
+            index: "01",
+            icon: "KeyRound",
+            title: "Sahiplik Devri Talebi",
+            text: "Ulaşılamayan kişilere veya eski ajanslara resmi sahiplik çağrısı yaparak mülkiyeti geri alma.",
+            actionText: "Kurtarma sürecini görün",
+          },
+          {
+            index: "02",
+            icon: "ShieldCheck",
+            title: "Resmi Evrak Onayı",
+            text: "Vergi levhası ve tabela kanıtlarıyla Google destek ekibine başvurup haritayı doğrudan adınıza açtırma.",
+            actionText: "Doğrulama adımlarını görün",
+          },
+          {
+            index: "03",
+            icon: "MapPin",
+            title: "Mükerrer (Kopya) Haritaları Silme",
+            text: "İnternette dükkanınız adına açılmış sahte veya mükerrer harita kayıtlarını temizleme.",
+            actionText: "Temizlik kapsamını inceleyin",
+          },
+        ],
+      },
+      zigzagShowcase: {
+        block1: {
+          tag: "01 · Yetki Krizi Çözümü",
+          heading:
+            "Haritanız artık kimsenin tekelinde veya ipoteğinde kalmasın.",
+          text: "İşletmenizin en değerli dijital varlığı Google Harita konumudur. Başka birinin insafına kalmadan ana yönetici (Primary Owner) yetkisini doğrudan şirketinize veriyoruz.",
+          icon: "KeyRound",
+        },
+        block2: {
+          tag: "02 · Askıdaki Haritayı Açtırma",
+          heading:
+            "Google'ın kapattığı veya askıya aldığı işletmenizi geri getirelim.",
+          text: "Hatalı bir bilgi veya algoritma güncellemesi yüzünden askıya alınan profilleri resmi formlar ve işletme belgeleriyle Google'a savunup tekrar yayına alıyoruz.",
+          icon: "ShieldAlert",
+        },
+        block3: {
+          tag: "03 · Doğrulanmış Saha Çıktısı",
+          heading:
+            "Bursa İmalat Firması — 2 Yıldır Ulaşılamayan Harita 4 Günde Kurtarıldı",
+          text: "Eski ajansın şifresini vermediği ve kapatılan işletme profili, resmi mülkiyet başvurusuyla kurtarılarak firma sahibinin kendi e-postasına bağlandı.",
+          metricBadge: "%100 Geri Kazanılan Mülkiyet",
+          icon: "Award",
+        },
+      },
+      deliverablesHeader: {
+        eyebrow: "Harita Kurtarma Standartları",
+        heading: "İşletmenize sağlanan somut çıktılar",
+        lead: "Hiçbir aracıya bağımlı kalmadan haritanızın tam kontrolünü elinize almanız için eksiksiz süreç yönetimi.",
+      },
+      pillars: [
+        {
+          icon: "KeyRound",
+          title: "Resmi Ana Yöneticilik Devri",
+          desc: "Haritanın mülkiyetini doğrudan işletme sahibinin kişisel veya kurumsal Gmail hesabına geçirme.",
+        },
+        {
+          icon: "ShieldAlert",
+          title: "Askıdan Kurtarma Başvurusu",
+          desc: "Google politikalarına aykırı durumları düzeltip işletmenin tekrar haritada açılmasını sağlama.",
+        },
+        {
+          icon: "PhoneCall",
+          title: "İletişim & Numara Kilidi Açma",
+          desc: "Google'ın onaylamadığı telefon numaralarını resmi fatura kanıtlarıyla onaylatma.",
+        },
+        {
+          icon: "FileCheck",
+          title: "Mükerrer Harita Birleştirme",
+          desc: "Aynı dükkan için açılmış 2 farklı konumu tek bir güçlü haritada birleştirip yorumları kurtarma.",
+        },
+        {
+          icon: "ShieldCheck",
+          title: "Yetkisiz Erişimleri Temizleme",
+          desc: "Eski çalışanların veya tanımadığınız e-postaların haritanızdaki yönetici yetkilerini tamamen silme.",
+        },
+        {
+          icon: "Headset",
+          title: "Bursa İçi Masanızda Evrak Hazırlığı",
+          desc: "Dükkanınıza gelip gerekli belgeleri masanızda birlikte hazırlıyor ve Google'a iletiyoruz.",
+        },
+      ],
+      faq: [
+        {
+          q: "Eski ajansımız telefonlarımıza çıkmıyor, yine de haritamızı geri alabilir miyiz?",
+          a: "Evet. Google'ın yasal hak sahipliği prosedürleri vardır. İşletmenin tabela, vergi levhası ve resmi belgeleriyle başvuru yaparak karşı taraf onay vermese dahi 3 ila 7 gün içinde haritanın yetkisini doğrudan size geçirebiliyoruz.",
+        },
+        {
+          q: "Askıya alınan (kapatılan) haritamız açıldığında eski yorumlar ve puanlar silinir mi?",
+          a: "Hayır. Profil doğru savunma ve resmi evraklarla kurtarıldığında mevcut tüm 5 yıldızlı yorumlarınız, fotoğraflarınız ve müşteri değerlendirmeleriniz aynen korunur.",
+        },
+      ],
+      relatedSlugs: ["google-haritalar-1-sira", "google-yorum-puan-artirma"],
     },
     "ozel-logo-tasarimi": {
       categoryTag: "Marka & Tasarım",

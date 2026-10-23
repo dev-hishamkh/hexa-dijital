@@ -546,6 +546,32 @@ export const servicesData = {
             "Google algoritmasında öne çıkaran yorum kelimeleri planlaması",
           ],
         },
+        {
+          id: "04.6",
+          slug: "google-harita-kurtarma-yonetim",
+          name: "Google Harita Kurtarma & Sahiplik Alma",
+          kpi: "%100 Resmi Sahiplik",
+          sectors: [
+            "Tüm Dükkan ve İşletmeler",
+            "Restoran & Kafeler",
+            "Klinikler & Sağlık Merkezleri",
+            "Fabrika & İmalatçılar",
+            "Eski Ajansıyla Sorun Yaşayanlar",
+          ],
+          target:
+            "Google Harita şifresini unutan, eski ajansından veya eski çalışanından haritasını geri alamayan ve askıya alınan işletmeler için.",
+          outcome:
+            "Eski ajansa muhtaç kalmadan haritanızın tam sahipliğini şirketinize devralma ve askıdaki profili kurtarma.",
+          summary:
+            "Ulaşılamayan e-postalar, kayıp şifreler veya yetkisi başkasında kalmış Google Harita profilinizi resmi yollarla kurtarıp doğrudan firmanıza tescil ediyoruz.",
+          deliverables: [
+            "Eski ajans veya kişide kalan haritanın resmi sahipliğini devralma",
+            "Askıya alınan (Suspended) Google Haritaları tekrar yayına açma",
+            "Kayıp e-posta ve şifre krizlerini resmi Google prosedürüyle çözme",
+            "Haritadaki eski telefon, adres ve çalışma saatlerini anında güncelleme",
+            "Haritanın çalınmasına ve yetkisiz değişikliklere karşı kurumsal kilit",
+          ],
+        },
       ],
     },
     {
